@@ -16,10 +16,11 @@ implemented. Nothing here certifies landing safety or mission viability.
   (the endpoint 2036-01-01 is excluded): 122 chunks, 2,314,609 bytes in total.
 - Source citations, model configuration, pinned dependencies and validation protocol.
 
-The preview uses DE440 positions and DE421 lunar orientation. External reference
-acceptance is withheld: available historical Sun references used DE441 instead
-of DE440, and the reference matrix was not fully acquired. Numerical agreement
-with local SPICE is not independent scientific validation.
+The preview uses DE440 positions and DE421 lunar orientation. The four-case Sun/
+Earth external-reference matrix has been acquired and replayed, but all responses
+identify DE441 rather than DE440. Apparent correction semantics and external lunar
+orientation remain unmatched. External acceptance is withheld despite small
+diagnostic residuals; local SPICE agreement is not independent scientific validation.
 
 ## Get started
 
@@ -38,6 +39,7 @@ the prepared preview. Online acquisition is always explicit.
 - [Preview format and future website integration](data/DATA_FORMAT.md)
 - [Validation protocol](data/VALIDATION_PLAN.md)
 - [Selected validation evidence](data/validation/README.md)
+- [External-reference alignment and resume workflow](data/REFERENCE_ALIGNMENT.md)
 - [Source attribution and licensing boundary](THIRD_PARTY_NOTICES.md)
 - [AI assistance disclosure](AI_USE.md)
 

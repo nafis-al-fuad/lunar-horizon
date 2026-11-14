@@ -141,6 +141,36 @@ DE441/DE440 model mismatches, unmatched correction semantics and unresolved luna
 orientation remain explicit regardless of small residuals. Desktop headless
 checks do not certify a website, mobile devices, accessibility or performance.
 
+## Resume external references without rerunning browsers
+
+The reference-only runner accepts partial caches. Run these commands from the
+same `data` directory as above. First assign `$cache` to the absolute path of a
+previous run's `reference-cache` directory, then audit it offline:
+
+```powershell
+if (-not (Test-Path -LiteralPath $cache -PathType Container)) { throw 'Set $cache to an existing reference-cache directory' }
+.\.venv\Scripts\python.exe -B run_reference_validation.py --reference-cache $cache
+```
+
+For a deliberate network resume, preserving old responses and fetching only
+missing cases into a new report:
+
+```powershell
+.\.venv\Scripts\python.exe -B run_reference_validation.py --reference-cache $cache --acquire-missing
+```
+
+Omit `--reference-cache` for a fresh matrix; without `--acquire-missing`, all cases
+will be explicitly missing and no network request is made. A complete new cache
+can also be supplied to the existing component runner's `--reference-cache` mode.
+The reference-only runner executes Python tests with site-packages disabled and
+uses the existing pinned scientific environment for direct SPICE comparisons. It
+does not install dependencies or rerun browser/observer comparisons.
+
+Corrupt evidence fails rather than triggering a replacement download. Requests
+stop after a network failure, while valid cached cases can still be replayed.
+`matrix_complete` reports receipt coverage only, never scientific acceptance.
+See [reference alignment and status semantics](REFERENCE_ALIGNMENT.md).
+
 See [the format](DATA_FORMAT.md), [protocol](VALIDATION_PLAN.md) and
 [selected evidence](validation/README.md). Do not commit local report history,
 source ZIPs, browser profiles, raw sources or personal filesystem paths.

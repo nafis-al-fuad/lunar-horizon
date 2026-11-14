@@ -57,6 +57,15 @@ orientation/correction reference is established, external lunar-fixed and observ
 acceptance remain **not_run / blocked_model_alignment**, not implied by inertial
 agreement or the local SPICE observer check. Terrain-aware checks are out of scope.
 
+The separate [reference-resume workflow](REFERENCE_ALIGNMENT.md) preserves this
+matrix and its budgets. It can audit partial caches offline and explicitly acquire
+missing cases into a new report. Missing and corrupt evidence are distinct; no
+corrupt case is replaced by an automatic download. Model tags must belong to the
+target and center header lines, convention fields must be unique/exact, and model
+and correction blockers are recorded separately. Complete receipt coverage is not
+scientific acceptance. The existing full component runner still requires a complete
+cache for its strict replay mode.
+
 ## C. Actual browser component scope
 
 Run installed Windows desktop Chrome and Edge in headless mode with isolated

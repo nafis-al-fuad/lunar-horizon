@@ -26,6 +26,7 @@ Center-site name: BODY CENTER
 Reference frame : ICRF
 Output units : KM-S
 Output type : {kind} cartesian states
+Output format : 1 (position only)
 JDTDB, Calendar Date (TDB), X, Y, Z,
 $$SOE
 2451545.000000000000000, A.D. 2000-Jan-01 12:00:00.0000, 1.0, 0.0, 0.0,

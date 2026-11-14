@@ -1,0 +1,1569 @@
+{
+  "accepted_scientific_scopes": [],
+  "audit": {
+    "historical_selected_evidence_unchanged": true,
+    "input_cache_bytes_preserved": true,
+    "report_id": "reference-summary-audit-20261114T081210Z-49b6f201"
+  },
+  "dataset": {
+    "bytes": 2314609,
+    "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+    "files": 248,
+    "manifest_sha256": "9c533a0b6879a2ecb79718369444ba35bf8ce693f753beae487e8a6b2af88277",
+    "release_decision": "numerical_preview_only",
+    "unchanged_from_research_preview": true
+  },
+  "environment": {
+    "node_version": "v24.18.0",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]"
+  },
+  "format": "selected-external-reference-evidence-v1",
+  "isolated_snapshot_replays": [
+    {
+      "exit_code": 0,
+      "log": "20261114T074640Z-reference-385a29de-tests.log",
+      "log_sha256": "85752f7eeb3bd935478f644ed96b858e5b23bb4ac4177d0746ec49d65058986a",
+      "report_id": "20261114T074640Z-reference-385a29de",
+      "site_packages_disabled": true,
+      "source_archive_sha256": "773d39731fc6b435fbca4f8035c6a6b9226b8763719c0139cd583b6026fed4d4",
+      "tests": 123
+    },
+    {
+      "exit_code": 0,
+      "log": "20261114T074735Z-component-91ee016d-tests.log",
+      "log_sha256": "2e8687fcd15663a4a1db4b506ac2d28adc3eadd77166e18e3839e6e829bed87e",
+      "report_id": "20261114T074735Z-component-91ee016d",
+      "site_packages_disabled": true,
+      "source_archive_sha256": "44048e79b116ab270fad68c28877a2ae68637d348a734268d1f62a219aaa157f",
+      "tests": 123
+    },
+    {
+      "exit_code": 0,
+      "log": "20261114T080519Z-reference-faa330c4-tests.log",
+      "log_sha256": "3afdbbdb010589f6fa689069404b95fcd333dbf9735e8a7c2714b5588901b5f8",
+      "report_id": "20261114T080519Z-reference-faa330c4",
+      "site_packages_disabled": true,
+      "source_archive_sha256": "dd71355d8172000891e0257f0c6991527f9c1c3d3e2bb5a934e3a53f8dec94bc",
+      "tests": 123
+    }
+  ],
+  "kernel_sources": [
+    {
+      "bytes": 5257,
+      "filename": "naif0012.tls",
+      "id": "naif0012",
+      "product_version": "naif0012.tls",
+      "sha256": "678e32bdb5a744117a467cd9601cd6b373f0e9bc9bbde1371d5eee39600a039b"
+    },
+    {
+      "bytes": 131226,
+      "filename": "pck00011.tpc",
+      "id": "pck00011",
+      "product_version": "pck00011.tpc",
+      "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1"
+    },
+    {
+      "bytes": 21437,
+      "filename": "moon_080317.tf",
+      "id": "moon-080317",
+      "product_version": "moon_080317.tf",
+      "sha256": "78732477b96f9863e7b0d65bcee3c22b8707ca5ed0db56d1173319cb2e8c7993"
+    },
+    {
+      "bytes": 1770496,
+      "filename": "moon_pa_de421_1900-2050.bpc",
+      "id": "moon-pa-de421",
+      "product_version": "moon_pa_de421_1900-2050.bpc",
+      "sha256": "656f90616403d75a75f0cd6c8830fc5b44f8cb4facb5ccb8915e752b397520cf"
+    },
+    {
+      "bytes": 32726016,
+      "filename": "de440s.bsp",
+      "id": "de440s",
+      "product_version": "de440s.bsp",
+      "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2"
+    }
+  ],
+  "limitations": [
+    "DE441 reference positions are not model-matched to the DE440 preview.",
+    "Both apparent cases retain correction_semantics_unmatched independently of the model mismatch.",
+    "External orientation and surface-observer alignment remain blocked; no scientific scope is accepted.",
+    "Small diagnostic residuals and shared JPL solutions are not independent observational validation.",
+    "Browser results cover headless Windows desktop components, not a visual website, mobile, accessibility or performance acceptance.",
+    "Original preview generation-time flags and historical selected evidence are unchanged.",
+    "Source hashes describe each archived run, not subsequent documentation edits or the older preview producer.",
+    "Raw reports, caches and source archives remain local; hashes are not publisher signatures or independently hosted proof."
+  ],
+  "matrix": {
+    "epoch_comparisons": 100,
+    "expected_cases": 4,
+    "external_orientation": "blocked_model_alignment",
+    "external_surface_observer": "blocked_model_alignment",
+    "matched_inertial_cases": 0,
+    "matrix_complete": true,
+    "verified_response_cases": 4
+  },
+  "runs": {
+    "acquisition": {
+      "accepted_scientific_scopes": [],
+      "acquire_missing": true,
+      "artifacts": [
+        {
+          "bytes": 14693,
+          "path": "python-tests.log",
+          "sha256": "695546f4f8eb88ec4fd9079efc781c4e14acfbb450bcac497f6e446228b8008d"
+        },
+        {
+          "bytes": 1608,
+          "path": "reference-cache/earth-apparent/receipt.json",
+          "sha256": "50a75252bb962afca6d369a0f851315b887ab3fc901cf256bc13601e2b0ba9a8"
+        },
+        {
+          "bytes": 2900,
+          "path": "reference-cache/earth-apparent/request.json",
+          "sha256": "a4ff391d1b13dcefd588c3ebc7765d7632042ff8ed4cc463da95b5dcbbc4bd56"
+        },
+        {
+          "bytes": 7536,
+          "path": "reference-cache/earth-apparent/response.json",
+          "sha256": "c3de72ca6186ebd57e8b3ef537813629a47ad9b5bdac42bcac164bf78b5901da"
+        },
+        {
+          "bytes": 1606,
+          "path": "reference-cache/earth-geometric/receipt.json",
+          "sha256": "47a3d0f4c7856bd9a850421a8a9d31b9eaa9f898e253fffa807fa8937533fb77"
+        },
+        {
+          "bytes": 2898,
+          "path": "reference-cache/earth-geometric/request.json",
+          "sha256": "98255c7d167fd826b8f04bc26198b9f4108a37b3701e4545a328abc83a98c082"
+        },
+        {
+          "bytes": 7475,
+          "path": "reference-cache/earth-geometric/response.json",
+          "sha256": "64e2cb48490af6c22756393567225f499e26dd344376fbe06d730e61c4326212"
+        },
+        {
+          "bytes": 1607,
+          "path": "reference-cache/sun-apparent/receipt.json",
+          "sha256": "bec79e3349815a9c7be49a526e8362a88087fb41db755853fd648f92d7627a3a"
+        },
+        {
+          "bytes": 2896,
+          "path": "reference-cache/sun-apparent/request.json",
+          "sha256": "5b05a267278d2484d1c9cc127a101543d5ef2f58cffadfe173adf58412732ea6"
+        },
+        {
+          "bytes": 7536,
+          "path": "reference-cache/sun-apparent/response.json",
+          "sha256": "6b268909ba2355848a1b0ba9d03c16f05e9152ad238f2be116b510575adff5f8"
+        },
+        {
+          "bytes": 1605,
+          "path": "reference-cache/sun-geometric/receipt.json",
+          "sha256": "9273c443a4061dc32996db3278f7acdd8932e430c67401d2cd8ca74ff9c5a78d"
+        },
+        {
+          "bytes": 2894,
+          "path": "reference-cache/sun-geometric/request.json",
+          "sha256": "e54ce911d1962364601dd2187735adf544e7b845e688878d3405cb6e02d3a779"
+        },
+        {
+          "bytes": 7475,
+          "path": "reference-cache/sun-geometric/response.json",
+          "sha256": "8979288073c048bfa3e800e059558a621e1649083d6cc3afceee6b4cf7750d2b"
+        },
+        {
+          "bytes": 12017,
+          "path": "reference-earth-apparent.json",
+          "sha256": "97bb0a3357609bf7ab948ccc41cea1da9b8a24f15c4e403509c507f52656c8cf"
+        },
+        {
+          "bytes": 11945,
+          "path": "reference-earth-geometric.json",
+          "sha256": "7428367f8cb90f16948c32275c4af4fea3bad5ba8e88855d44347295dd7c7096"
+        },
+        {
+          "bytes": 2900,
+          "path": "reference-request-earth-apparent.json",
+          "sha256": "a4ff391d1b13dcefd588c3ebc7765d7632042ff8ed4cc463da95b5dcbbc4bd56"
+        },
+        {
+          "bytes": 2898,
+          "path": "reference-request-earth-geometric.json",
+          "sha256": "98255c7d167fd826b8f04bc26198b9f4108a37b3701e4545a328abc83a98c082"
+        },
+        {
+          "bytes": 2896,
+          "path": "reference-request-sun-apparent.json",
+          "sha256": "5b05a267278d2484d1c9cc127a101543d5ef2f58cffadfe173adf58412732ea6"
+        },
+        {
+          "bytes": 2894,
+          "path": "reference-request-sun-geometric.json",
+          "sha256": "e54ce911d1962364601dd2187735adf544e7b845e688878d3405cb6e02d3a779"
+        },
+        {
+          "bytes": 12010,
+          "path": "reference-sun-apparent.json",
+          "sha256": "ecb741184243da4f09734215c0b653316bfef1a6db0d63a1d2f8b556276efb6d"
+        },
+        {
+          "bytes": 11938,
+          "path": "reference-sun-geometric.json",
+          "sha256": "d9eb9a6c5c893a768e7e4d9934e3a342ee959b654c15cc7f06ed8d21d5b0f867"
+        },
+        {
+          "bytes": 80493,
+          "path": "source-snapshot.zip",
+          "sha256": "773d39731fc6b435fbca4f8035c6a6b9226b8763719c0139cd583b6026fed4d4"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "sun-geometric",
+          "comparisons": 25,
+          "correction": "NONE",
+          "corrections_matched": true,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 1.1702364177500328e-09,
+            "range_km": 0.0028155148029327393,
+            "vector_km": 0.003357005827109102
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "verified_cache",
+          "range_limit_km": 0.1,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "SUN"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch",
+            "correction_semantics_unmatched"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "sun-apparent",
+          "comparisons": 25,
+          "correction": "LT+S",
+          "corrections_matched": false,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 8.977619579974754e-09,
+            "range_km": 0.0028152763843536377,
+            "vector_km": 0.0233529782459893
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "verified_cache",
+          "range_limit_km": 0.1,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "SUN"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "earth-geometric",
+          "comparisons": 25,
+          "correction": "NONE",
+          "corrections_matched": true,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 4.911970109055768e-07,
+            "range_km": 0.0001911311992444098,
+            "vector_km": 0.0031769341413911134
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "network",
+          "range_limit_km": 0.01,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "EARTH"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch",
+            "correction_semantics_unmatched"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "earth-apparent",
+          "comparisons": 25,
+          "correction": "LT+S",
+          "corrections_matched": false,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 5.432133071555907e-07,
+            "range_km": 0.00416615855647251,
+            "vector_km": 0.005123578765439205
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "network",
+          "range_limit_km": 0.01,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "EARTH"
+        }
+      ],
+      "commands": [
+        {
+          "exit_code": 0,
+          "log": "python-tests.log",
+          "name": "python-tests",
+          "status": "passed"
+        }
+      ],
+      "expected_cases": 4,
+      "external_orientation": "blocked_model_alignment",
+      "external_surface_observer": "blocked_model_alignment",
+      "finished_at_utc": "2026-11-14T07:47:12.716154+00:00",
+      "manifest_sha256": "9c533a0b6879a2ecb79718369444ba35bf8ce693f753beae487e8a6b2af88277",
+      "matched_inertial_cases": 0,
+      "matrix_complete": true,
+      "publication_after": {
+        "accepted_scientific_scopes": [],
+        "actual_browser": "not_run",
+        "chunks": 122,
+        "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+        "external_reference": "not_run",
+        "release_decision": "numerical_preview_only",
+        "total_payload_bytes": 2314609
+      },
+      "publication_before": {
+        "accepted_scientific_scopes": [],
+        "actual_browser": "not_run",
+        "chunks": 122,
+        "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+        "external_reference": "not_run",
+        "release_decision": "numerical_preview_only",
+        "total_payload_bytes": 2314609
+      },
+      "python_tests": 123,
+      "reference_epochs_jd_tdb": [
+        "2461041.500800739814815",
+        "2461041.547675739814815",
+        "2461071.500789165740741",
+        "2461071.500800739814815",
+        "2461071.500812313888889",
+        "2461222.500800742163194",
+        "2461406.500800739728009",
+        "2461587.500800742247685",
+        "2461771.500800739641204",
+        "2461953.500800742009259",
+        "2462137.500800739890046",
+        "2462318.500800742091435",
+        "2462502.500800739803241",
+        "2462683.500800742175926",
+        "2462867.500800739715278",
+        "2463048.500800742260417",
+        "2463232.500800739628472",
+        "2463414.500800742020833",
+        "2463598.500800739876157",
+        "2463779.500800742105324",
+        "2463963.500800739789352",
+        "2464144.500800742189815",
+        "2464328.500800739703704",
+        "2464509.500800742271991",
+        "2464693.500789165540509"
+      ],
+      "report_id": "20261114T074640Z-reference-385a29de",
+      "report_sha256": "e4cbcc7aceb37ed4ebf9749209ef67f28902757500abdc0986a4d464c9f40486",
+      "source_archive_sha256": "773d39731fc6b435fbca4f8035c6a6b9226b8763719c0139cd583b6026fed4d4",
+      "sources": [
+        {
+          "path": "browser/component-check.html",
+          "sha256": "3bab44a35a92dcb1b08679ae5727ea47324265780090ee4ba99e34ff4f40afe4"
+        },
+        {
+          "path": "browser/component-check.mjs",
+          "sha256": "26c72da38a9213b25e7f43df3f4e894b1d2a6477b8b19098622dc2a1e4d552cd"
+        },
+        {
+          "path": "browser/consumer.mjs",
+          "sha256": "6d53b51d11c585a0368339ca8d6fe9dcab77c13ff782fd57f2df74ef128169c6"
+        },
+        {
+          "path": "browser/ephemeris-smoke.mjs",
+          "sha256": "1abbba2d924dbcadd8a199875ba62b47eb844ddb1cf942eb0d10be1a8c0fc037"
+        },
+        {
+          "path": "browser/ephemeris.mjs",
+          "sha256": "24df6ec49cdc32023fafcf79792b580e9b38d3f6db257072661c6768576190e0"
+        },
+        {
+          "path": "browser/smoke.mjs",
+          "sha256": "63846714fdfa3fbb0916d2385ce7c53929bfc792da0e6e9bc9260a8fddaef509"
+        },
+        {
+          "path": "lunar_pipeline/__init__.py",
+          "sha256": "bc28fb0b01ebe72ab687215675ddfaf3d730d33e2c1e3bfb9c0e05ee7dd3c93f"
+        },
+        {
+          "path": "lunar_pipeline/__main__.py",
+          "sha256": "9e83ccd693a13806d8d1f06e5423ffb28ccb72c94cb53bf9e485393783a2228f"
+        },
+        {
+          "path": "lunar_pipeline/browser_validation.py",
+          "sha256": "2b9f143fc1352f03ce75db78d970d4354c8a3eec607cbe7e8c12c4409ede40df"
+        },
+        {
+          "path": "lunar_pipeline/component_validation.py",
+          "sha256": "fdff63d04bad27d5f7c0aefaa97f07f9ac50f8055678c5e57b9bee5e6a3db313"
+        },
+        {
+          "path": "lunar_pipeline/core.py",
+          "sha256": "20ca37979414a4ffd403bc53599888f5db7060bcb904752bd5ccf9914e564b67"
+        },
+        {
+          "path": "lunar_pipeline/encoding.py",
+          "sha256": "b60bd1cf3a375c588b2eaef23f868e04a2c7d213ca2045ae72d9efb2499f95c8"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris.py",
+          "sha256": "d27675e1bac273e996b3fbba28a76cff7cec05f656379184854e08321ff67c15"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris_math.py",
+          "sha256": "bfe60bdef6935e1d93474b9ba0afbc63adbe75a92c3e8d444158e317a643534d"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris_release.py",
+          "sha256": "56e258656ccdb834583b4aafcf9346e86f6a7ff947c83193e4ca2fb5ffcd1ec8"
+        },
+        {
+          "path": "lunar_pipeline/evidence.py",
+          "sha256": "7460a70d5748f560b6a867c8b11892c0f167e0bd4100a4bac24e36926ac10d69"
+        },
+        {
+          "path": "lunar_pipeline/fixture.py",
+          "sha256": "a199286853db0e0a7404d10405fdb924e4c9d4d7952c76d7acb04e5a252833db"
+        },
+        {
+          "path": "lunar_pipeline/horizons.py",
+          "sha256": "d4debd5315c3f1029bf32ef57e1206c34b8799b47688b8e1f957eb4eeb6ab908"
+        },
+        {
+          "path": "lunar_pipeline/reference_validation.py",
+          "sha256": "da2c2b920ca68f6215c349e988a609119da1c03de51c8489b99a14769115eedf"
+        },
+        {
+          "path": "lunar_pipeline/release.py",
+          "sha256": "2ac081a7cf46bdea2b8d50c8d43da732cd80bcc48220059524781c5812d853d7"
+        },
+        {
+          "path": "lunar_pipeline/sources.py",
+          "sha256": "768672031e3634432ed2de20dcd414688ad172441745771e632002393877c2de"
+        },
+        {
+          "path": "profiles/ephemeris-sources.json",
+          "sha256": "5c25aad8b704b236a680fd5ca6e00077087fc229dd00d3e70fccb9532abfecf5"
+        },
+        {
+          "path": "profiles/ephemeris.json",
+          "sha256": "9822008dc01c6fcd7283830209f48c7b1f58f25dd4cf51341d8989d6f7d62471"
+        },
+        {
+          "path": "profiles/foundation.json",
+          "sha256": "564f14388ae37211a0ceb1af213b67f193a0cd9bbbf7438d66b99989f49e6526"
+        },
+        {
+          "path": "REFERENCE_ALIGNMENT.md",
+          "sha256": "391fc30284b9e98e54fe99dd98a45898a558de9f2a43d33279594d082db5d570"
+        },
+        {
+          "path": "requirements-ephemeris.lock",
+          "sha256": "e460356002aed40e77d58aa632c90d1e4f0eaa184caac28faaaaa0b99be01231"
+        },
+        {
+          "path": "run_reference_validation.py",
+          "sha256": "34e1e26fc351748d631afe1f01c085659df1d42f1ea1612ebd6786b4ee83e385"
+        },
+        {
+          "path": "tests/test_component_validation.py",
+          "sha256": "080e1659e616dbc49e3d74a381794986339b7d714a92ca142c80f1283b5dafb3"
+        },
+        {
+          "path": "tests/test_core.py",
+          "sha256": "4ec2e30595639df2342021a9981561fe38832a194518779c11d2f8b0cb3f1473"
+        },
+        {
+          "path": "tests/test_ephemeris.py",
+          "sha256": "29587a80b7368531691e70f6dd4ff96dafb0d8d1feb39042a52496c8b81e69f3"
+        },
+        {
+          "path": "tests/test_reference_validation.py",
+          "sha256": "629da954284c2d0778f682eb74d016ae5141953508b03b861d20bb7fbc4f9d98"
+        },
+        {
+          "path": "tests/test_release.py",
+          "sha256": "ec2558cc89c716e2d96eccf4de8c3d25b3831d9fceda0467639449a04df59928"
+        },
+        {
+          "path": "tests/test_sources.py",
+          "sha256": "cdb25ed5e0639e1d7847fea6fbe6f4e64696e7780c66dbf952647af0c6bd9396"
+        },
+        {
+          "path": "VALIDATION_PLAN.md",
+          "sha256": "081adce804b8bc24083c0cece60a8150a92f51fd043e78eac7f44d5389d22c9c"
+        }
+      ],
+      "started_at_utc": "2026-11-14T07:46:40.894060+00:00",
+      "status": "completed_with_open_gates",
+      "verified_response_cases": 4
+    },
+    "component_replay": {
+      "accepted_scientific_scopes": [],
+      "artifacts": [
+        {
+          "bytes": 0,
+          "path": "chrome/browser-process.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 95917,
+          "path": "chrome/result.json",
+          "sha256": "f16f2dfc3f2f5b5b09b42492aaa9eec69de667b17e441a1db59a078cfcbe03f6"
+        },
+        {
+          "bytes": 0,
+          "path": "component-check-syntax.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 0,
+          "path": "consumer-syntax.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 0,
+          "path": "edge/browser-process.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 95922,
+          "path": "edge/result.json",
+          "sha256": "16bca2361b22fd44d3390497ef6b7714dc1f46526431b5fb8cf93c1a9c53a560"
+        },
+        {
+          "bytes": 6431818,
+          "path": "encoded-observers.json",
+          "sha256": "387420f6b95b54fc33ed5306a233d380af4a75937f2c30c98026d536ef92f6f6"
+        },
+        {
+          "bytes": 0,
+          "path": "ephemeris-smoke-syntax.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 0,
+          "path": "ephemeris-syntax.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 230752,
+          "path": "javascript-parity.json",
+          "sha256": "573eb2029ea32a1c483d0e0f9f093d9d68b3b8cdaac0f58d40c65440f8e26c73"
+        },
+        {
+          "bytes": 151,
+          "path": "node-published-parity.log",
+          "sha256": "e7e03dc791ec3156b774443468ace96c477c28d0aa091d125f51f0de297d46bb"
+        },
+        {
+          "bytes": 10,
+          "path": "node-version.log",
+          "sha256": "b447734bea5971cc4beed4007192e4cf2e07a9f04fdaff5d9df3bb307e61987e"
+        },
+        {
+          "bytes": 14693,
+          "path": "python-tests.log",
+          "sha256": "4e427df8d66b1f6d52070ac45370bd7cd38da2b3b408da63662fd42ec03e479b"
+        },
+        {
+          "bytes": 11994,
+          "path": "reference-earth-apparent.json",
+          "sha256": "42bfa149490841073e2ef6957c67303baf973aeb75bd0c2a6253df492bc0c4d5"
+        },
+        {
+          "bytes": 11922,
+          "path": "reference-earth-geometric.json",
+          "sha256": "5c8863fd70080f95d32ca06346a60b291ec6390598a52ebd89c974efc15bccd2"
+        },
+        {
+          "bytes": 2900,
+          "path": "reference-request-earth-apparent.json",
+          "sha256": "a4ff391d1b13dcefd588c3ebc7765d7632042ff8ed4cc463da95b5dcbbc4bd56"
+        },
+        {
+          "bytes": 2898,
+          "path": "reference-request-earth-geometric.json",
+          "sha256": "98255c7d167fd826b8f04bc26198b9f4108a37b3701e4545a328abc83a98c082"
+        },
+        {
+          "bytes": 2896,
+          "path": "reference-request-sun-apparent.json",
+          "sha256": "5b05a267278d2484d1c9cc127a101543d5ef2f58cffadfe173adf58412732ea6"
+        },
+        {
+          "bytes": 2894,
+          "path": "reference-request-sun-geometric.json",
+          "sha256": "e54ce911d1962364601dd2187735adf544e7b845e688878d3405cb6e02d3a779"
+        },
+        {
+          "bytes": 11980,
+          "path": "reference-sun-apparent.json",
+          "sha256": "4ab2e5b162e0408d50a34c1502e2fd4b5988b11105805980e08783c2d93278bc"
+        },
+        {
+          "bytes": 11908,
+          "path": "reference-sun-geometric.json",
+          "sha256": "8d6f57ba03f9336b3282b95d43f9835a2d4e8fe9a199c9f842703384b4f34981"
+        },
+        {
+          "bytes": 0,
+          "path": "smoke-syntax.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 78806,
+          "path": "source-snapshot.zip",
+          "sha256": "44048e79b116ab270fad68c28877a2ae68637d348a734268d1f62a219aaa157f"
+        }
+      ],
+      "browsers": {
+        "chrome": {
+          "automation": "headless isolated profile",
+          "chunks": 122,
+          "comparisons": 5856,
+          "endpoint_control": {
+            "chunk": 121,
+            "chunk_end_et_s": 1136030469.18392,
+            "chunk_local_interpolation": "passed",
+            "release_end_et_s": 1136030469.1839027
+          },
+          "executable_version": "157.0.8103.78",
+          "limitation": "Headless Windows desktop component only; no performance budget, leak proof, UI or science acceptance.",
+          "max_absolute_parity_error": 2.220446049250313e-16,
+          "rejection_cases": 18,
+          "repeated_comparisons": 288,
+          "seams": 121,
+          "status": "passed"
+        },
+        "edge": {
+          "automation": "headless isolated profile",
+          "chunks": 122,
+          "comparisons": 5856,
+          "endpoint_control": {
+            "chunk": 121,
+            "chunk_end_et_s": 1136030469.18392,
+            "chunk_local_interpolation": "passed",
+            "release_end_et_s": 1136030469.1839027
+          },
+          "executable_version": "157.0.4341.46",
+          "limitation": "Headless Windows desktop component only; no performance budget, leak proof, UI or science acceptance.",
+          "max_absolute_parity_error": 2.220446049250313e-16,
+          "rejection_cases": 18,
+          "repeated_comparisons": 288,
+          "seams": 121,
+          "status": "passed"
+        }
+      },
+      "cases": [
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "sun-geometric",
+          "comparisons": 25,
+          "correction": "NONE",
+          "corrections_matched": true,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 1.1702364177500328e-09,
+            "range_km": 0.0028155148029327393,
+            "vector_km": 0.003357005827109102
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "range_limit_km": 0.1,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "SUN"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch",
+            "correction_semantics_unmatched"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "sun-apparent",
+          "comparisons": 25,
+          "correction": "LT+S",
+          "corrections_matched": false,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 8.977619579974754e-09,
+            "range_km": 0.0028152763843536377,
+            "vector_km": 0.0233529782459893
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "range_limit_km": 0.1,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "SUN"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "earth-geometric",
+          "comparisons": 25,
+          "correction": "NONE",
+          "corrections_matched": true,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 4.911970109055768e-07,
+            "range_km": 0.0001911311992444098,
+            "vector_km": 0.0031769341413911134
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "range_limit_km": 0.01,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "EARTH"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch",
+            "correction_semantics_unmatched"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "earth-apparent",
+          "comparisons": 25,
+          "correction": "LT+S",
+          "corrections_matched": false,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 5.432133071555907e-07,
+            "range_km": 0.00416615855647251,
+            "vector_km": 0.005123578765439205
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "range_limit_km": 0.01,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "EARTH"
+        }
+      ],
+      "commands": [
+        {
+          "exit_code": 0,
+          "log": "node-version.log",
+          "name": "node-version",
+          "status": "passed"
+        },
+        {
+          "exit_code": 0,
+          "log": "python-tests.log",
+          "name": "python-tests",
+          "status": "passed"
+        },
+        {
+          "exit_code": 0,
+          "log": "component-check-syntax.log",
+          "name": "component-check-syntax",
+          "status": "passed"
+        },
+        {
+          "exit_code": 0,
+          "log": "consumer-syntax.log",
+          "name": "consumer-syntax",
+          "status": "passed"
+        },
+        {
+          "exit_code": 0,
+          "log": "ephemeris-smoke-syntax.log",
+          "name": "ephemeris-smoke-syntax",
+          "status": "passed"
+        },
+        {
+          "exit_code": 0,
+          "log": "ephemeris-syntax.log",
+          "name": "ephemeris-syntax",
+          "status": "passed"
+        },
+        {
+          "exit_code": 0,
+          "log": "smoke-syntax.log",
+          "name": "smoke-syntax",
+          "status": "passed"
+        },
+        {
+          "exit_code": 0,
+          "log": "node-published-parity.log",
+          "name": "node-published-parity",
+          "status": "passed"
+        }
+      ],
+      "encoded_observers": {
+        "angular_altitude_limit_deg": 0.0021,
+        "benchmarks": [
+          {
+            "lat_deg": -90,
+            "lon_deg": 0,
+            "reference_meridian_deg": 0
+          },
+          {
+            "lat_deg": -85,
+            "lon_deg": 45,
+            "reference_meridian_deg": null
+          },
+          {
+            "lat_deg": 0,
+            "lon_deg": 0,
+            "reference_meridian_deg": null
+          },
+          {
+            "lat_deg": 0,
+            "lon_deg": 90,
+            "reference_meridian_deg": null
+          },
+          {
+            "lat_deg": 0,
+            "lon_deg": -180,
+            "reference_meridian_deg": null
+          }
+        ],
+        "comparisons": 21960,
+        "limitation": "Local SPICE numerical comparison, not independent science; range diagnostic only; no terrain.",
+        "maxima": {
+          "apparent": {
+            "EARTH": {
+              "altitude_deg": 2.8875666495314922e-05,
+              "angular_deg": 2.8875672772466674e-05,
+              "range_km": 0.19159444980323315
+            },
+            "SUN": {
+              "altitude_deg": 1.2693608894664976e-05,
+              "angular_deg": 1.2711032493034138e-05,
+              "range_km": 8.913645148277283
+            }
+          },
+          "geometric": {
+            "EARTH": {
+              "altitude_deg": 3.6893387309611114e-06,
+              "angular_deg": 4.1724941438112576e-06,
+              "range_km": 0.019350998802110553
+            },
+            "SUN": {
+              "altitude_deg": 1.1600790116972348e-05,
+              "angular_deg": 1.1604680290906147e-05,
+              "range_km": 8.21257296204567
+            }
+          }
+        },
+        "status": "passed"
+      },
+      "external_orientation": "blocked_model_alignment",
+      "external_surface_observer": "blocked_model_alignment",
+      "finished_at_utc": "2026-11-14T07:47:50.231014Z",
+      "manifest_sha256": "9c533a0b6879a2ecb79718369444ba35bf8ce693f753beae487e8a6b2af88277",
+      "node_parity": {
+        "actual_browser": "not_run",
+        "chunks": 122,
+        "comparisons": 5856,
+        "max_absolute_parity_error": 2.220446049250313e-16,
+        "rejection_cases": 12,
+        "status": "passed"
+      },
+      "publication_after": {
+        "accepted_scientific_scopes": [],
+        "actual_browser": "not_run",
+        "chunks": 122,
+        "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+        "external_reference": "not_run",
+        "release_decision": "numerical_preview_only",
+        "total_payload_bytes": 2314609
+      },
+      "publication_before": {
+        "accepted_scientific_scopes": [],
+        "actual_browser": "not_run",
+        "chunks": 122,
+        "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+        "external_reference": "not_run",
+        "release_decision": "numerical_preview_only",
+        "total_payload_bytes": 2314609
+      },
+      "python_tests": 123,
+      "report_id": "20261114T074735Z-component-91ee016d",
+      "report_sha256": "95326e85dd2025719120b6e0740dfaa528e30adf1dd5e2bf2ec45b175cb809e0",
+      "source_archive_sha256": "44048e79b116ab270fad68c28877a2ae68637d348a734268d1f62a219aaa157f",
+      "sources": [
+        {
+          "path": "browser/component-check.html",
+          "sha256": "3bab44a35a92dcb1b08679ae5727ea47324265780090ee4ba99e34ff4f40afe4"
+        },
+        {
+          "path": "browser/component-check.mjs",
+          "sha256": "26c72da38a9213b25e7f43df3f4e894b1d2a6477b8b19098622dc2a1e4d552cd"
+        },
+        {
+          "path": "browser/consumer.mjs",
+          "sha256": "6d53b51d11c585a0368339ca8d6fe9dcab77c13ff782fd57f2df74ef128169c6"
+        },
+        {
+          "path": "browser/ephemeris-smoke.mjs",
+          "sha256": "1abbba2d924dbcadd8a199875ba62b47eb844ddb1cf942eb0d10be1a8c0fc037"
+        },
+        {
+          "path": "browser/ephemeris.mjs",
+          "sha256": "24df6ec49cdc32023fafcf79792b580e9b38d3f6db257072661c6768576190e0"
+        },
+        {
+          "path": "browser/smoke.mjs",
+          "sha256": "63846714fdfa3fbb0916d2385ce7c53929bfc792da0e6e9bc9260a8fddaef509"
+        },
+        {
+          "path": "lunar_pipeline/__init__.py",
+          "sha256": "bc28fb0b01ebe72ab687215675ddfaf3d730d33e2c1e3bfb9c0e05ee7dd3c93f"
+        },
+        {
+          "path": "lunar_pipeline/__main__.py",
+          "sha256": "9e83ccd693a13806d8d1f06e5423ffb28ccb72c94cb53bf9e485393783a2228f"
+        },
+        {
+          "path": "lunar_pipeline/browser_validation.py",
+          "sha256": "2b9f143fc1352f03ce75db78d970d4354c8a3eec607cbe7e8c12c4409ede40df"
+        },
+        {
+          "path": "lunar_pipeline/component_validation.py",
+          "sha256": "fdff63d04bad27d5f7c0aefaa97f07f9ac50f8055678c5e57b9bee5e6a3db313"
+        },
+        {
+          "path": "lunar_pipeline/core.py",
+          "sha256": "20ca37979414a4ffd403bc53599888f5db7060bcb904752bd5ccf9914e564b67"
+        },
+        {
+          "path": "lunar_pipeline/encoding.py",
+          "sha256": "b60bd1cf3a375c588b2eaef23f868e04a2c7d213ca2045ae72d9efb2499f95c8"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris.py",
+          "sha256": "d27675e1bac273e996b3fbba28a76cff7cec05f656379184854e08321ff67c15"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris_math.py",
+          "sha256": "bfe60bdef6935e1d93474b9ba0afbc63adbe75a92c3e8d444158e317a643534d"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris_release.py",
+          "sha256": "56e258656ccdb834583b4aafcf9346e86f6a7ff947c83193e4ca2fb5ffcd1ec8"
+        },
+        {
+          "path": "lunar_pipeline/evidence.py",
+          "sha256": "7460a70d5748f560b6a867c8b11892c0f167e0bd4100a4bac24e36926ac10d69"
+        },
+        {
+          "path": "lunar_pipeline/fixture.py",
+          "sha256": "a199286853db0e0a7404d10405fdb924e4c9d4d7952c76d7acb04e5a252833db"
+        },
+        {
+          "path": "lunar_pipeline/horizons.py",
+          "sha256": "d4debd5315c3f1029bf32ef57e1206c34b8799b47688b8e1f957eb4eeb6ab908"
+        },
+        {
+          "path": "lunar_pipeline/reference_validation.py",
+          "sha256": "da2c2b920ca68f6215c349e988a609119da1c03de51c8489b99a14769115eedf"
+        },
+        {
+          "path": "lunar_pipeline/release.py",
+          "sha256": "2ac081a7cf46bdea2b8d50c8d43da732cd80bcc48220059524781c5812d853d7"
+        },
+        {
+          "path": "lunar_pipeline/sources.py",
+          "sha256": "768672031e3634432ed2de20dcd414688ad172441745771e632002393877c2de"
+        },
+        {
+          "path": "profiles/ephemeris-sources.json",
+          "sha256": "5c25aad8b704b236a680fd5ca6e00077087fc229dd00d3e70fccb9532abfecf5"
+        },
+        {
+          "path": "profiles/ephemeris.json",
+          "sha256": "9822008dc01c6fcd7283830209f48c7b1f58f25dd4cf51341d8989d6f7d62471"
+        },
+        {
+          "path": "profiles/foundation.json",
+          "sha256": "564f14388ae37211a0ceb1af213b67f193a0cd9bbbf7438d66b99989f49e6526"
+        },
+        {
+          "path": "requirements-ephemeris.lock",
+          "sha256": "e460356002aed40e77d58aa632c90d1e4f0eaa184caac28faaaaa0b99be01231"
+        },
+        {
+          "path": "run_component_validation.py",
+          "sha256": "37e125268bbab0e3e975bb5b0e88ccf23c706af1c76b09d3f9cfe754102d45dc"
+        },
+        {
+          "path": "tests/test_component_validation.py",
+          "sha256": "080e1659e616dbc49e3d74a381794986339b7d714a92ca142c80f1283b5dafb3"
+        },
+        {
+          "path": "tests/test_core.py",
+          "sha256": "4ec2e30595639df2342021a9981561fe38832a194518779c11d2f8b0cb3f1473"
+        },
+        {
+          "path": "tests/test_ephemeris.py",
+          "sha256": "29587a80b7368531691e70f6dd4ff96dafb0d8d1feb39042a52496c8b81e69f3"
+        },
+        {
+          "path": "tests/test_reference_validation.py",
+          "sha256": "629da954284c2d0778f682eb74d016ae5141953508b03b861d20bb7fbc4f9d98"
+        },
+        {
+          "path": "tests/test_release.py",
+          "sha256": "ec2558cc89c716e2d96eccf4de8c3d25b3831d9fceda0467639449a04df59928"
+        },
+        {
+          "path": "tests/test_sources.py",
+          "sha256": "cdb25ed5e0639e1d7847fea6fbe6f4e64696e7780c66dbf952647af0c6bd9396"
+        },
+        {
+          "path": "VALIDATION_PLAN.md",
+          "sha256": "081adce804b8bc24083c0cece60a8150a92f51fd043e78eac7f44d5389d22c9c"
+        }
+      ],
+      "started_at_utc": "2026-11-14T07:47:35.511957Z",
+      "status": "completed_with_open_gates"
+    },
+    "offline_replay": {
+      "accepted_scientific_scopes": [],
+      "acquire_missing": false,
+      "artifacts": [
+        {
+          "bytes": 14693,
+          "path": "python-tests.log",
+          "sha256": "10664ec23c0da69d054ee41a058a6f261a9702f410b0abbb91cb3f6bf90dce6d"
+        },
+        {
+          "bytes": 1608,
+          "path": "reference-cache/earth-apparent/receipt.json",
+          "sha256": "50a75252bb962afca6d369a0f851315b887ab3fc901cf256bc13601e2b0ba9a8"
+        },
+        {
+          "bytes": 2900,
+          "path": "reference-cache/earth-apparent/request.json",
+          "sha256": "a4ff391d1b13dcefd588c3ebc7765d7632042ff8ed4cc463da95b5dcbbc4bd56"
+        },
+        {
+          "bytes": 7536,
+          "path": "reference-cache/earth-apparent/response.json",
+          "sha256": "c3de72ca6186ebd57e8b3ef537813629a47ad9b5bdac42bcac164bf78b5901da"
+        },
+        {
+          "bytes": 1606,
+          "path": "reference-cache/earth-geometric/receipt.json",
+          "sha256": "47a3d0f4c7856bd9a850421a8a9d31b9eaa9f898e253fffa807fa8937533fb77"
+        },
+        {
+          "bytes": 2898,
+          "path": "reference-cache/earth-geometric/request.json",
+          "sha256": "98255c7d167fd826b8f04bc26198b9f4108a37b3701e4545a328abc83a98c082"
+        },
+        {
+          "bytes": 7475,
+          "path": "reference-cache/earth-geometric/response.json",
+          "sha256": "64e2cb48490af6c22756393567225f499e26dd344376fbe06d730e61c4326212"
+        },
+        {
+          "bytes": 1607,
+          "path": "reference-cache/sun-apparent/receipt.json",
+          "sha256": "bec79e3349815a9c7be49a526e8362a88087fb41db755853fd648f92d7627a3a"
+        },
+        {
+          "bytes": 2896,
+          "path": "reference-cache/sun-apparent/request.json",
+          "sha256": "5b05a267278d2484d1c9cc127a101543d5ef2f58cffadfe173adf58412732ea6"
+        },
+        {
+          "bytes": 7536,
+          "path": "reference-cache/sun-apparent/response.json",
+          "sha256": "6b268909ba2355848a1b0ba9d03c16f05e9152ad238f2be116b510575adff5f8"
+        },
+        {
+          "bytes": 1605,
+          "path": "reference-cache/sun-geometric/receipt.json",
+          "sha256": "9273c443a4061dc32996db3278f7acdd8932e430c67401d2cd8ca74ff9c5a78d"
+        },
+        {
+          "bytes": 2894,
+          "path": "reference-cache/sun-geometric/request.json",
+          "sha256": "e54ce911d1962364601dd2187735adf544e7b845e688878d3405cb6e02d3a779"
+        },
+        {
+          "bytes": 7475,
+          "path": "reference-cache/sun-geometric/response.json",
+          "sha256": "8979288073c048bfa3e800e059558a621e1649083d6cc3afceee6b4cf7750d2b"
+        },
+        {
+          "bytes": 12024,
+          "path": "reference-earth-apparent.json",
+          "sha256": "591ac95f45c3535e0cffc4b02eec25d2ef105cf97be2f6e6087acd49caae6ecf"
+        },
+        {
+          "bytes": 11952,
+          "path": "reference-earth-geometric.json",
+          "sha256": "cce1c643948d6ad3469b8a741bfb02b0968fd7d1263aac068614b261f37209f7"
+        },
+        {
+          "bytes": 2900,
+          "path": "reference-request-earth-apparent.json",
+          "sha256": "a4ff391d1b13dcefd588c3ebc7765d7632042ff8ed4cc463da95b5dcbbc4bd56"
+        },
+        {
+          "bytes": 2898,
+          "path": "reference-request-earth-geometric.json",
+          "sha256": "98255c7d167fd826b8f04bc26198b9f4108a37b3701e4545a328abc83a98c082"
+        },
+        {
+          "bytes": 2896,
+          "path": "reference-request-sun-apparent.json",
+          "sha256": "5b05a267278d2484d1c9cc127a101543d5ef2f58cffadfe173adf58412732ea6"
+        },
+        {
+          "bytes": 2894,
+          "path": "reference-request-sun-geometric.json",
+          "sha256": "e54ce911d1962364601dd2187735adf544e7b845e688878d3405cb6e02d3a779"
+        },
+        {
+          "bytes": 12010,
+          "path": "reference-sun-apparent.json",
+          "sha256": "ecb741184243da4f09734215c0b653316bfef1a6db0d63a1d2f8b556276efb6d"
+        },
+        {
+          "bytes": 11938,
+          "path": "reference-sun-geometric.json",
+          "sha256": "d9eb9a6c5c893a768e7e4d9934e3a342ee959b654c15cc7f06ed8d21d5b0f867"
+        },
+        {
+          "bytes": 80715,
+          "path": "source-snapshot.zip",
+          "sha256": "dd71355d8172000891e0257f0c6991527f9c1c3d3e2bb5a934e3a53f8dec94bc"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "sun-geometric",
+          "comparisons": 25,
+          "correction": "NONE",
+          "corrections_matched": true,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 1.1702364177500328e-09,
+            "range_km": 0.0028155148029327393,
+            "vector_km": 0.003357005827109102
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "verified_cache",
+          "range_limit_km": 0.1,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "SUN"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch",
+            "correction_semantics_unmatched"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "sun-apparent",
+          "comparisons": 25,
+          "correction": "LT+S",
+          "corrections_matched": false,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 8.977619579974754e-09,
+            "range_km": 0.0028152763843536377,
+            "vector_km": 0.0233529782459893
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "verified_cache",
+          "range_limit_km": 0.1,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "SUN"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "earth-geometric",
+          "comparisons": 25,
+          "correction": "NONE",
+          "corrections_matched": true,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 4.911970109055768e-07,
+            "range_km": 0.0001911311992444098,
+            "vector_km": 0.0031769341413911134
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "verified_cache",
+          "range_limit_km": 0.01,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "EARTH"
+        },
+        {
+          "acceptance_blockers": [
+            "dynamical_model_mismatch",
+            "correction_semantics_unmatched"
+          ],
+          "angular_limit_deg": 1e-06,
+          "case": "earth-apparent",
+          "comparisons": 25,
+          "correction": "LT+S",
+          "corrections_matched": false,
+          "diagnostic_within_budgets": true,
+          "local_model": "DE440",
+          "maxima": {
+            "angular_deg": 5.432133071555907e-07,
+            "range_km": 0.00416615855647251,
+            "vector_km": 0.005123578765439205
+          },
+          "model_matched": false,
+          "offline_replay": "passed",
+          "origin": "verified_cache",
+          "range_limit_km": 0.01,
+          "reference_models": [
+            "DE441",
+            "DE441"
+          ],
+          "signature": {
+            "source": "NASA/JPL Horizons API",
+            "version": "1.2"
+          },
+          "status": "model_mismatch",
+          "target": "EARTH"
+        }
+      ],
+      "commands": [
+        {
+          "exit_code": 0,
+          "log": "python-tests.log",
+          "name": "python-tests",
+          "status": "passed"
+        }
+      ],
+      "expected_cases": 4,
+      "external_orientation": "blocked_model_alignment",
+      "external_surface_observer": "blocked_model_alignment",
+      "finished_at_utc": "2026-11-14T08:05:28.069087+00:00",
+      "manifest_sha256": "9c533a0b6879a2ecb79718369444ba35bf8ce693f753beae487e8a6b2af88277",
+      "matched_inertial_cases": 0,
+      "matrix_complete": true,
+      "publication_after": {
+        "accepted_scientific_scopes": [],
+        "actual_browser": "not_run",
+        "chunks": 122,
+        "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+        "external_reference": "not_run",
+        "release_decision": "numerical_preview_only",
+        "total_payload_bytes": 2314609
+      },
+      "publication_before": {
+        "accepted_scientific_scopes": [],
+        "actual_browser": "not_run",
+        "chunks": 122,
+        "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+        "external_reference": "not_run",
+        "release_decision": "numerical_preview_only",
+        "total_payload_bytes": 2314609
+      },
+      "python_tests": 123,
+      "reference_epochs_jd_tdb": [
+        "2461041.500800739814815",
+        "2461041.547675739814815",
+        "2461071.500789165740741",
+        "2461071.500800739814815",
+        "2461071.500812313888889",
+        "2461222.500800742163194",
+        "2461406.500800739728009",
+        "2461587.500800742247685",
+        "2461771.500800739641204",
+        "2461953.500800742009259",
+        "2462137.500800739890046",
+        "2462318.500800742091435",
+        "2462502.500800739803241",
+        "2462683.500800742175926",
+        "2462867.500800739715278",
+        "2463048.500800742260417",
+        "2463232.500800739628472",
+        "2463414.500800742020833",
+        "2463598.500800739876157",
+        "2463779.500800742105324",
+        "2463963.500800739789352",
+        "2464144.500800742189815",
+        "2464328.500800739703704",
+        "2464509.500800742271991",
+        "2464693.500789165540509"
+      ],
+      "report_id": "20261114T080519Z-reference-faa330c4",
+      "report_sha256": "18a9391f5068135b9d67acedcbe6d4fae1fe8a1a13301afa95f4fbae779d1519",
+      "source_archive_sha256": "dd71355d8172000891e0257f0c6991527f9c1c3d3e2bb5a934e3a53f8dec94bc",
+      "sources": [
+        {
+          "path": "browser/component-check.html",
+          "sha256": "3bab44a35a92dcb1b08679ae5727ea47324265780090ee4ba99e34ff4f40afe4"
+        },
+        {
+          "path": "browser/component-check.mjs",
+          "sha256": "26c72da38a9213b25e7f43df3f4e894b1d2a6477b8b19098622dc2a1e4d552cd"
+        },
+        {
+          "path": "browser/consumer.mjs",
+          "sha256": "6d53b51d11c585a0368339ca8d6fe9dcab77c13ff782fd57f2df74ef128169c6"
+        },
+        {
+          "path": "browser/ephemeris-smoke.mjs",
+          "sha256": "1abbba2d924dbcadd8a199875ba62b47eb844ddb1cf942eb0d10be1a8c0fc037"
+        },
+        {
+          "path": "browser/ephemeris.mjs",
+          "sha256": "24df6ec49cdc32023fafcf79792b580e9b38d3f6db257072661c6768576190e0"
+        },
+        {
+          "path": "browser/smoke.mjs",
+          "sha256": "63846714fdfa3fbb0916d2385ce7c53929bfc792da0e6e9bc9260a8fddaef509"
+        },
+        {
+          "path": "lunar_pipeline/__init__.py",
+          "sha256": "bc28fb0b01ebe72ab687215675ddfaf3d730d33e2c1e3bfb9c0e05ee7dd3c93f"
+        },
+        {
+          "path": "lunar_pipeline/__main__.py",
+          "sha256": "9e83ccd693a13806d8d1f06e5423ffb28ccb72c94cb53bf9e485393783a2228f"
+        },
+        {
+          "path": "lunar_pipeline/browser_validation.py",
+          "sha256": "2b9f143fc1352f03ce75db78d970d4354c8a3eec607cbe7e8c12c4409ede40df"
+        },
+        {
+          "path": "lunar_pipeline/component_validation.py",
+          "sha256": "fdff63d04bad27d5f7c0aefaa97f07f9ac50f8055678c5e57b9bee5e6a3db313"
+        },
+        {
+          "path": "lunar_pipeline/core.py",
+          "sha256": "20ca37979414a4ffd403bc53599888f5db7060bcb904752bd5ccf9914e564b67"
+        },
+        {
+          "path": "lunar_pipeline/encoding.py",
+          "sha256": "b60bd1cf3a375c588b2eaef23f868e04a2c7d213ca2045ae72d9efb2499f95c8"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris.py",
+          "sha256": "d27675e1bac273e996b3fbba28a76cff7cec05f656379184854e08321ff67c15"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris_math.py",
+          "sha256": "bfe60bdef6935e1d93474b9ba0afbc63adbe75a92c3e8d444158e317a643534d"
+        },
+        {
+          "path": "lunar_pipeline/ephemeris_release.py",
+          "sha256": "56e258656ccdb834583b4aafcf9346e86f6a7ff947c83193e4ca2fb5ffcd1ec8"
+        },
+        {
+          "path": "lunar_pipeline/evidence.py",
+          "sha256": "7460a70d5748f560b6a867c8b11892c0f167e0bd4100a4bac24e36926ac10d69"
+        },
+        {
+          "path": "lunar_pipeline/fixture.py",
+          "sha256": "a199286853db0e0a7404d10405fdb924e4c9d4d7952c76d7acb04e5a252833db"
+        },
+        {
+          "path": "lunar_pipeline/horizons.py",
+          "sha256": "d4debd5315c3f1029bf32ef57e1206c34b8799b47688b8e1f957eb4eeb6ab908"
+        },
+        {
+          "path": "lunar_pipeline/reference_validation.py",
+          "sha256": "da2c2b920ca68f6215c349e988a609119da1c03de51c8489b99a14769115eedf"
+        },
+        {
+          "path": "lunar_pipeline/release.py",
+          "sha256": "2ac081a7cf46bdea2b8d50c8d43da732cd80bcc48220059524781c5812d853d7"
+        },
+        {
+          "path": "lunar_pipeline/sources.py",
+          "sha256": "768672031e3634432ed2de20dcd414688ad172441745771e632002393877c2de"
+        },
+        {
+          "path": "profiles/ephemeris-sources.json",
+          "sha256": "5c25aad8b704b236a680fd5ca6e00077087fc229dd00d3e70fccb9532abfecf5"
+        },
+        {
+          "path": "profiles/ephemeris.json",
+          "sha256": "9822008dc01c6fcd7283830209f48c7b1f58f25dd4cf51341d8989d6f7d62471"
+        },
+        {
+          "path": "profiles/foundation.json",
+          "sha256": "564f14388ae37211a0ceb1af213b67f193a0cd9bbbf7438d66b99989f49e6526"
+        },
+        {
+          "path": "REFERENCE_ALIGNMENT.md",
+          "sha256": "c853d750cb323b2ff816c04bed3c1ac380f55b0dbf23b623930de3dba32c846c"
+        },
+        {
+          "path": "requirements-ephemeris.lock",
+          "sha256": "e460356002aed40e77d58aa632c90d1e4f0eaa184caac28faaaaa0b99be01231"
+        },
+        {
+          "path": "run_reference_validation.py",
+          "sha256": "34e1e26fc351748d631afe1f01c085659df1d42f1ea1612ebd6786b4ee83e385"
+        },
+        {
+          "path": "tests/test_component_validation.py",
+          "sha256": "080e1659e616dbc49e3d74a381794986339b7d714a92ca142c80f1283b5dafb3"
+        },
+        {
+          "path": "tests/test_core.py",
+          "sha256": "4ec2e30595639df2342021a9981561fe38832a194518779c11d2f8b0cb3f1473"
+        },
+        {
+          "path": "tests/test_ephemeris.py",
+          "sha256": "29587a80b7368531691e70f6dd4ff96dafb0d8d1feb39042a52496c8b81e69f3"
+        },
+        {
+          "path": "tests/test_reference_validation.py",
+          "sha256": "629da954284c2d0778f682eb74d016ae5141953508b03b861d20bb7fbc4f9d98"
+        },
+        {
+          "path": "tests/test_release.py",
+          "sha256": "ec2558cc89c716e2d96eccf4de8c3d25b3831d9fceda0467639449a04df59928"
+        },
+        {
+          "path": "tests/test_sources.py",
+          "sha256": "cdb25ed5e0639e1d7847fea6fbe6f4e64696e7780c66dbf952647af0c6bd9396"
+        },
+        {
+          "path": "VALIDATION_PLAN.md",
+          "sha256": "081adce804b8bc24083c0cece60a8150a92f51fd043e78eac7f44d5389d22c9c"
+        }
+      ],
+      "started_at_utc": "2026-11-14T08:05:19.916299+00:00",
+      "status": "completed_with_open_gates",
+      "verified_response_cases": 4
+    }
+  },
+  "scope": "Source-bound reference acquisition and offline replay; complete coverage is not scientific acceptance."
+}
