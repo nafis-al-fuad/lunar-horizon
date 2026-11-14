@@ -1,0 +1,24 @@
+{
+  "profile_id": "foundation-v1",
+  "model_version": "synthetic-foundation-v1",
+  "data_kind": "synthetic",
+  "generated_at_utc": "2026-11-13T00:00:00Z",
+  "window": {"start_et_s": 0, "end_et_s": 600},
+  "sample_step_s": 150,
+  "site": {"id": "fictional-equator", "lat_deg": 0, "lon_deg": 0},
+  "acceptance": {
+    "json_and_hash_failures_allowed": 0,
+    "interval_accounting_error_s": 0,
+    "binary_roundtrip_error": 0,
+    "time_roundtrip_error_s": 0.000001,
+    "coordinate_test_error": 1e-12,
+    "initial_gzip_budget_bytes": 3000000,
+    "maximum_decoded_file_bytes": 1048576
+  },
+  "computed_release": {
+    "decision": "withheld",
+    "site_ids": [],
+    "time_spans": [],
+    "reason": "Sourced sites, kernels, terrain, scientific targets and validation have not been selected or run."
+  }
+}

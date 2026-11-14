@@ -1,0 +1,4 @@
+# Foundation runtime: CPython 3.12.2, standard library only.
+# No third-party runtime or test dependencies. No pip installation is needed.
+# NumPy, SpiceyPy and Rasterio are deliberately NOT installed by this milestone.
+# Add exact versions and artifact hashes before introducing scientific dependencies.
