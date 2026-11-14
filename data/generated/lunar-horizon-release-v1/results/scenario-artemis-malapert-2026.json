@@ -3,7 +3,7 @@
   "dataset_id": "lunar-horizon-release-v1",
   "file_kind": "results",
   "limitations": [
-    "Mission summary metrics."
+    "Mission summary metrics and evaluated thresholds."
   ],
   "metrics": {
     "dte_time_fraction": {
@@ -25,50 +25,50 @@
     "longest_night_s": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 165600.0,
+      "lower": 7200.0,
       "quality_flags": [],
-      "upper": 165600.0,
-      "value": 165600.0
+      "upper": 7200.0,
+      "value": 7200.0
     },
     "longest_sunlit_s": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 1044000.0,
+      "lower": 1029600.0,
       "quality_flags": [],
-      "upper": 1044000.0,
-      "value": 1044000.0
+      "upper": 1029600.0,
+      "value": 1029600.0
     },
     "min_sun_clearance_deg": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.11237937537101406,
+      "lower": 0.6539720535161062,
       "quality_flags": [],
-      "upper": 0.11237937537101406,
-      "value": 0.11237937537101406
+      "upper": 0.6539720535161062,
+      "value": 0.6539720535161062
     },
     "peak_sun_elevation_deg": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 4.004085489363981,
+      "lower": 3.86876257494496,
       "quality_flags": [],
-      "upper": 4.004085489363981,
-      "value": 4.004085489363981
+      "upper": 3.86876257494496,
+      "value": 3.86876257494496
     },
     "simultaneous_time_fraction": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.8630952380952381,
+      "lower": 0.9940476190476191,
       "quality_flags": [],
-      "upper": 0.8630952380952381,
-      "value": 0.8630952380952381
+      "upper": 0.9940476190476191,
+      "value": 0.9940476190476191
     },
     "sunlit_time_fraction": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.8630952380952381,
+      "lower": 0.9940476190476191,
       "quality_flags": [],
-      "upper": 0.8630952380952381,
-      "value": 0.8630952380952381
+      "upper": 0.9940476190476191,
+      "value": 0.9940476190476191
     }
   },
   "model_version": "lunar-model-v1",
@@ -78,5 +78,6 @@
   "source_ids": [],
   "validation_check_ids": [
     "V09-scenario-metrics-integrity"
-  ]
+  ],
+  "violated_thresholds": []
 }

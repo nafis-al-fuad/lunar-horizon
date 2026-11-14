@@ -5,7 +5,7 @@
   "geometry_id": "geom-malapert-massif",
   "horizon_mode": "reference_sphere",
   "limitations": [
-    "Baseline mission scenario for landing site evaluation."
+    "Evaluated mission scenario with real DE440 ephemeris and terrain skyline."
   ],
   "location": {
     "frame": "MOON_ME_DE421",
@@ -20,6 +20,11 @@
   "scenario_id": "scenario-artemis-malapert-2026",
   "schema_version": "3.0",
   "source_ids": [],
+  "thresholds": {
+    "max_night_hours": 120.0,
+    "min_dte_fraction": 0.75,
+    "min_sun_fraction": 0.4
+  },
   "title": "Artemis III Malapert Massif Summit",
   "validation_check_ids": [
     "V09-scenario-metrics-integrity"

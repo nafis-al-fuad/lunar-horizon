@@ -58,10 +58,10 @@
   "threshold_definitions": [
     {
       "comparator": ">=",
-      "default": 0.0,
-      "id": "min_sun_elevation",
+      "default": 0.5,
+      "id": "min_sun_fraction",
       "provenance": "solar_power",
-      "unit": "deg"
+      "unit": "1"
     },
     {
       "comparator": "<=",
@@ -72,9 +72,16 @@
     },
     {
       "comparator": ">=",
+      "default": 0.5,
+      "id": "min_dte_fraction",
+      "provenance": "communication_link",
+      "unit": "1"
+    },
+    {
+      "comparator": ">=",
       "default": 1.0,
       "id": "dte_margin",
-      "provenance": "communication_link",
+      "provenance": "rf_clearance",
       "unit": "deg"
     },
     {
@@ -86,6 +93,7 @@
     }
   ],
   "validation_check_ids": [
-    "V01-coordinate-conventions"
+    "V01-coordinate-conventions",
+    "V03-ephemeris-accuracy"
   ]
 }

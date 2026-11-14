@@ -1,4 +1,4 @@
-"""Curated lunar landing sites catalog and strict P02 validation."""
+"""Curated lunar landing sites catalog with primary-source citations and strict P02 validation."""
 
 from .core import (ValidationError, coordinates, identifier, json_bytes, number,
                    require, strict_json)
@@ -20,14 +20,14 @@ CURATED_SITES = (
         lat_deg=-89.44,
         lon_deg=-137.4,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=20.0,
+        coordinate_source_id="nasa-artemis-candidate-regions-2024",
+        coordinate_uncertainty_m=30.0,
         reference_meridian_deg=None,
         terrain_height_m=-120.0,
         region_ids=["shackleton", "connecting-ridge"],
         default_mast_height_m=2.0,
         quality_flags=["polar_candidate", "high_illumination"],
-        limitations=["Elevation estimated from 20m LOLA DEM; mast height configurable at scenario level."]
+        limitations=["Elevation derived from LOLA polar altimetry (Barker et al. 2021)."]
     ),
     dict(
         id="shackleton-rim",
@@ -36,46 +36,46 @@ CURATED_SITES = (
         lat_deg=-89.66,
         lon_deg=129.2,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=20.0,
+        coordinate_source_id="nasa-artemis-candidate-regions-2024",
+        coordinate_uncertainty_m=30.0,
         reference_meridian_deg=None,
         terrain_height_m=1150.0,
         region_ids=["shackleton"],
         default_mast_height_m=2.0,
         quality_flags=["polar_candidate", "ridge_crest"],
-        limitations=["High solar illumination point with steep local slopes into crater interior."]
+        limitations=["Elevated rim crest with steep slopes into Shackleton crater interior."]
     ),
     dict(
         id="peak-of-eternal-light-1",
-        name="Peak of Eternal Light 1 (Shackleton Rim)",
+        name="Peak of Eternal Light 1 (PEL 1)",
         site_type="study_point",
         lat_deg=-89.74,
         lon_deg=123.5,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=15.0,
+        coordinate_source_id="lola-polar-barker2021",
+        coordinate_uncertainty_m=25.0,
         reference_meridian_deg=None,
         terrain_height_m=1320.0,
         region_ids=["shackleton"],
         default_mast_height_m=2.0,
         quality_flags=["study_benchmark", "quasi_permanent_light"],
-        limitations=["Historical quasi-permanent illumination study point from Mazarico et al."]
+        limitations=["Historical quasi-permanent illumination benchmark point (Mazarico et al. 2011)."]
     ),
     dict(
         id="malapert-massif",
-        name="Malapert Massif Peak (Site 004)",
+        name="Malapert Massif Summit (Site 004)",
         site_type="candidate",
         lat_deg=-85.99,
         lon_deg=2.93,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=25.0,
+        coordinate_source_id="nasa-artemis-candidate-regions-2024",
+        coordinate_uncertainty_m=40.0,
         reference_meridian_deg=None,
         terrain_height_m=4980.0,
         region_ids=["malapert"],
         default_mast_height_m=2.0,
-        quality_flags=["polar_candidate", "high_elevation", "direct_earth_view"],
-        limitations=["High elevation plateau with continuous Earth direct-line-of-sight communication."]
+        quality_flags=["polar_candidate", "high_elevation", "continuous_earth_view"],
+        limitations=["High-altitude summit offering near-continuous line-of-sight to Earth."]
     ),
     dict(
         id="haworth-rim",
@@ -84,14 +84,14 @@ CURATED_SITES = (
         lat_deg=-87.45,
         lon_deg=-5.17,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=30.0,
+        coordinate_source_id="nasa-artemis-candidate-regions-2024",
+        coordinate_uncertainty_m=40.0,
         reference_meridian_deg=None,
         terrain_height_m=-450.0,
         region_ids=["haworth"],
         default_mast_height_m=2.0,
         quality_flags=["polar_candidate", "psr_adjacent"],
-        limitations=["Adjacent to deep permanently shadowed cold trap in Haworth Crater."]
+        limitations=["Ridge crest bordering the deep cold-trap permanently shadowed region in Haworth."]
     ),
     dict(
         id="nobile-rim-1",
@@ -100,14 +100,14 @@ CURATED_SITES = (
         lat_deg=-85.2,
         lon_deg=37.8,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=30.0,
+        coordinate_source_id="nasa-artemis-candidate-regions-2024",
+        coordinate_uncertainty_m=40.0,
         reference_meridian_deg=None,
         terrain_height_m=3800.0,
         region_ids=["nobile"],
         default_mast_height_m=2.0,
-        quality_flags=["polar_candidate", "viper_study_area"],
-        limitations=["Plateau on Mons Mouton adjacent to Nobile crater; broad illumination windows."]
+        quality_flags=["polar_candidate", "plateau_landing"],
+        limitations=["Elevated plateau on Mons Mouton; broad solar visibility."]
     ),
     dict(
         id="amundsen-rim",
@@ -116,14 +116,14 @@ CURATED_SITES = (
         lat_deg=-84.5,
         lon_deg=82.8,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=35.0,
+        coordinate_source_id="nasa-artemis-candidate-regions-2024",
+        coordinate_uncertainty_m=50.0,
         reference_meridian_deg=None,
         terrain_height_m=2100.0,
         region_ids=["amundsen"],
         default_mast_height_m=2.0,
         quality_flags=["polar_candidate"],
-        limitations=["Elevated crater rim site with periodic long solar visibility."]
+        limitations=["High southern latitude crater rim candidate area."]
     ),
     dict(
         id="de-gerlache-rim-1",
@@ -132,14 +132,14 @@ CURATED_SITES = (
         lat_deg=-88.5,
         lon_deg=-88.3,
         frame=SUPPORTED_FRAME,
-        coordinate_source_id="lola-lroc-polar-v1",
-        coordinate_uncertainty_m=25.0,
+        coordinate_source_id="nasa-artemis-candidate-regions-2024",
+        coordinate_uncertainty_m=35.0,
         reference_meridian_deg=None,
         terrain_height_m=1850.0,
         region_ids=["de-gerlache"],
         default_mast_height_m=2.0,
         quality_flags=["polar_candidate"],
-        limitations=["Narrow ridge crest between de Gerlache crater and Shackleton connecting terrain."]
+        limitations=["Elevated ridge between de Gerlache crater and Connecting Ridge."]
     ),
     dict(
         id="im-1-odysseus",
@@ -155,7 +155,7 @@ CURATED_SITES = (
         region_ids=["malapert"],
         default_mast_height_m=1.5,
         quality_flags=["achieved_landing", "clps_mission"],
-        limitations=["First commercial CLPS soft landing near Malapert A; landed tilted on slope."]
+        limitations=["Commercial CLPS soft landing near Malapert A crater on 2024-02-22."]
     ),
     dict(
         id="im-2-prime-1",
@@ -165,13 +165,13 @@ CURATED_SITES = (
         lon_deg=-138.6,
         frame=SUPPORTED_FRAME,
         coordinate_source_id="clps-im2-mission-plan",
-        coordinate_uncertainty_m=40.0,
+        coordinate_uncertainty_m=50.0,
         reference_meridian_deg=None,
         terrain_height_m=-200.0,
         region_ids=["connecting-ridge"],
         default_mast_height_m=2.0,
-        quality_flags=["polar_candidate", "clps_mission"],
-        limitations=["Planned polar drill mission on the Connecting Ridge."]
+        quality_flags=["candidate", "clps_mission"],
+        limitations=["Planned polar ice drilling mission on Connecting Ridge."]
     ),
     dict(
         id="chandrayaan-3",
@@ -187,7 +187,7 @@ CURATED_SITES = (
         region_ids=["south-subpolar"],
         default_mast_height_m=1.5,
         quality_flags=["achieved_landing", "high_latitude_benchmark"],
-        limitations=["Historic high-latitude southern landing site between Manzinus C and Simpelius N."]
+        limitations=["Historic soft landing achieved 2023-08-23 between Manzinus C and Simpelius N."]
     ),
     dict(
         id="slim-shioli",
@@ -203,7 +203,7 @@ CURATED_SITES = (
         region_ids=["equatorial"],
         default_mast_height_m=1.0,
         quality_flags=["achieved_landing", "pinpoint_landing"],
-        limitations=["Precision pinpoint landing demonstration within 55m of Shioli target."]
+        limitations=["JAXA pinpoint landing demonstration on 2024-01-19 within 55m of target."]
     ),
     dict(
         id="apollo-11",
@@ -219,7 +219,7 @@ CURATED_SITES = (
         region_ids=["equatorial"],
         default_mast_height_m=2.0,
         quality_flags=["achieved_landing", "equatorial_benchmark"],
-        limitations=["Equatorial mare baseline site with simple ~14-day day/night diurnal cycle."]
+        limitations=["LROC NAC determined coordinates for the Apollo 11 Lunar Module descent stage."]
     ),
     dict(
         id="apollo-17",
@@ -235,7 +235,7 @@ CURATED_SITES = (
         region_ids=["equatorial"],
         default_mast_height_m=2.0,
         quality_flags=["achieved_landing", "valley_benchmark"],
-        limitations=["Deep valley landing site between North and South Massifs; mountain horizons."]
+        limitations=["LROC NAC determined coordinates for the Apollo 17 Challenger descent stage."]
     ),
     dict(
         id="change-4",
@@ -251,7 +251,7 @@ CURATED_SITES = (
         region_ids=["far-side"],
         default_mast_height_m=2.0,
         quality_flags=["achieved_landing", "far_side_benchmark", "no_direct_earth"],
-        limitations=["First lunar far side soft landing; permanently zero direct Earth line-of-sight (requires Queqiao relay)."]
+        limitations=["First lunar far side soft landing on 2019-01-03; zero direct Earth line-of-sight."]
     ),
     dict(
         id="blue-ghost-1",
@@ -267,7 +267,7 @@ CURATED_SITES = (
         region_ids=["equatorial"],
         default_mast_height_m=2.0,
         quality_flags=["candidate", "clps_mission"],
-        limitations=["Planned CLPS landing in Mare Crisium basin."]
+        limitations=["Planned CLPS landing target in Mare Crisium basin."]
     )
 )
 
@@ -323,7 +323,7 @@ def validate_site_catalog(catalog):
         ids.add(site["id"])
 
 
-def build_sites_payload(dataset_id="lunar-horizon-computed-v1", model_version="lunar-model-v1", sites=None):
+def build_sites_payload(dataset_id="lunar-horizon-release-v1", model_version="lunar-model-v1", sites=None):
     """Construct a canonical validated P02 site catalog payload."""
     if sites is None:
         sites = list(CURATED_SITES)
@@ -333,10 +333,10 @@ def build_sites_payload(dataset_id="lunar-horizon-computed-v1", model_version="l
         model_version=model_version,
         data_kind="computed",
         file_kind="sites",
-        source_ids=["lola-pds-dem-v1", "lroc-polar-dem-v1", "nasa-artemis-candidate-regions-2024"],
+        source_ids=["nasa-artemis-candidate-regions-2024", "lola-polar-barker2021", "lroc-polar-dem-v1", "lroc-apollo-coordinates-v1"],
         validation_check_ids=["V02-site-catalog-integrity"],
         limitations=[
-            "South Pole coordinates are derived from LRO LOLA/LROC polar digital elevation models.",
+            "South Pole coordinates are derived from NASA Artemis III candidate region selections and LOLA altimetry.",
             "Terrain heights are relative to reference sphere radius 1,737,400 m.",
             "Far-side and equatorial sites are benchmark comparison points without polar terrain masks."
         ],

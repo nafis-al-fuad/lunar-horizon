@@ -71,7 +71,8 @@ def validate_graph(entries):
 def inventory(root):
     result = set()
     for path in Path(root).rglob("*"):
-        require(not path.is_symlink() and not path.is_junction(), "linked release content")
+        is_junc = path.is_junction() if hasattr(path, "is_junction") else False
+        require(not path.is_symlink() and not is_junc, "linked release content")
         require(path.is_dir() or path.is_file(), "unsupported filesystem entry")
         if path.is_file():
             result.add(path.relative_to(root).as_posix())

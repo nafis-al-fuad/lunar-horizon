@@ -96,7 +96,8 @@ def contained_file(root, href):
     current = root
     for part in safe_href(href).split("/"):
         current = current / part
-        require(not current.is_symlink() and not current.is_junction(), "linked publication path prohibited")
+        is_junc = current.is_junction() if hasattr(current, "is_junction") else False
+        require(not current.is_symlink() and not is_junc, "linked publication path prohibited")
     require(current.resolve().is_relative_to(root), "file escapes root")
     return current
 

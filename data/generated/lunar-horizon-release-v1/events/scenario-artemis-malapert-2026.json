@@ -1,10 +1,28 @@
 {
   "data_kind": "computed",
   "dataset_id": "lunar-horizon-release-v1",
+  "events": [
+    {
+      "et_s": 825807669.0,
+      "event_type": "sunset",
+      "id": "sunset-825807669",
+      "status": "refined",
+      "target": "sun",
+      "timing_resolution_s": 30.0
+    },
+    {
+      "et_s": 825814869.0,
+      "event_type": "sunrise",
+      "id": "sunrise-825814869",
+      "status": "refined",
+      "target": "sun",
+      "timing_resolution_s": 30.0
+    }
+  ],
   "file_kind": "events",
   "geometry_id": "geom-malapert-massif",
   "limitations": [
-    "Visibility timeline and illumination events."
+    "Visibility timeline and bisection-refined illumination events."
   ],
   "model_version": "lunar-model-v1",
   "scenario_id": "scenario-artemis-malapert-2026",
@@ -26,30 +44,42 @@
     ],
     "simultaneous": [
       {
-        "duration_s": 1044000.0,
-        "end_et_s": 826682469.0,
+        "duration_s": 172800.0,
+        "end_et_s": 825811269.0,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 165600.0,
-        "end_et_s": 826848069.0,
-        "start_et_s": 826682469.0,
+        "duration_s": 7200.0,
+        "end_et_s": 825818469.0,
+        "start_et_s": 825811269.0,
         "state": "blocked"
+      },
+      {
+        "duration_s": 1029600.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 825818469.0,
+        "state": "clear"
       }
     ],
     "sunlight": [
       {
-        "duration_s": 1044000.0,
-        "end_et_s": 826682469.0,
+        "duration_s": 172800.0,
+        "end_et_s": 825811269.0,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 165600.0,
+        "duration_s": 7200.0,
+        "end_et_s": 825818469.0,
+        "start_et_s": 825811269.0,
+        "state": "blocked"
+      },
+      {
+        "duration_s": 1029600.0,
         "end_et_s": 826848069.0,
-        "start_et_s": 826682469.0,
-        "state": "partial"
+        "start_et_s": 825818469.0,
+        "state": "clear"
       }
     ]
   },

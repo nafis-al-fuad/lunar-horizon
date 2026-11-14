@@ -39,6 +39,7 @@
     "km"
   ],
   "chunk_id": "chunk-0051",
+  "dataset_id": "lunar-horizon-release-v1",
   "decoded_bytes": 15680,
   "frame_epoch": "observation_et",
   "grid": {
@@ -52,14 +53,21 @@
   "layout": "interleaved_float32",
   "max_measured_angular_error_deg": 1.9298407301860832e-05,
   "max_measured_range_error_km": 9.084377199411392,
+  "model_version": "lunar-model-v1",
   "origin": "moon_center",
   "profile_ids": [
     "geometric",
     "apparent"
   ],
+  "source_ids": [
+    "de440s"
+  ],
   "surface_frame": "MOON_ME_DE421",
   "usable_span": {
     "end_et_s": 955281669.18392,
     "start_et_s": 952689669.18392
-  }
+  },
+  "validation_check_ids": [
+    "V03-ephemeris-accuracy"
+  ]
 }

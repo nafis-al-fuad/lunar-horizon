@@ -136,3 +136,53 @@ export async function loadFixture(readBytes) {
   return { dataset_id: manifest.dataset_id, indexed_files: ids.size, decoded_values: values, track_totals: totals,
     release_decision: summary.release_decision, actual_browser_test: 'not_run' };
 }
+
+export async function loadReleasePackage(readBytes) {
+  const manifestBytes = await readBytes('manifest.json');
+  check(manifestBytes.byteLength <= MAX_FILE, 'manifest too large');
+  const manifest = JSON.parse(textDecoder.decode(manifestBytes));
+  check(manifest.schema_version === '3.0', 'unsupported schema version');
+  check(manifest.dataset_id === 'lunar-horizon-release-v1', 'unsupported release identity');
+  check(manifest.data_kind === 'computed', 'release must be computed');
+
+  const ids = new Map(manifest.files.map(e => [e.id, e]));
+  check(ids.size === manifest.files.length, 'duplicate resource id');
+
+  // Verify acyclic dependency graph
+  const visiting = new Set(), visited = new Set();
+  function visit(id) {
+    check(ids.has(id) && !visiting.has(id), 'missing or cyclic dependency: ' + id);
+    if (visited.has(id)) return;
+    visiting.add(id);
+    for (const dep of ids.get(id).depends_on) visit(dep);
+    visiting.delete(id); visited.add(id);
+  }
+  for (const id of ids.keys()) visit(id);
+
+  // Load startup entrypoints
+  const entrypoints = {};
+  for (const [key, fileId] of Object.entries(manifest.entrypoints)) {
+    if (!fileId) continue;
+    const entry = ids.get(fileId);
+    check(entry, 'missing entrypoint file: ' + fileId);
+    const decoded = await decodeFile(entry, await readBytes(entry.href));
+    entrypoints[key] = JSON.parse(textDecoder.decode(decoded));
+  }
+
+  // On-demand loader for scenarios, events, and results
+  async function loadScenario(scenarioId) {
+    const scEntry = ids.get('scenarios-' + scenarioId);
+    check(scEntry, 'unknown scenario: ' + scenarioId);
+    const scJson = JSON.parse(textDecoder.decode(await decodeFile(scEntry, await readBytes(scEntry.href))));
+
+    const evEntry = ids.get('events-' + scenarioId);
+    const evJson = JSON.parse(textDecoder.decode(await decodeFile(evEntry, await readBytes(evEntry.href))));
+
+    const resEntry = ids.get('results-' + scenarioId);
+    const resJson = JSON.parse(textDecoder.decode(await decodeFile(resEntry, await readBytes(resEntry.href))));
+
+    return { scenario: scJson, events: evJson, results: resJson };
+  }
+
+  return { manifest, entrypoints, loadScenario };
+}

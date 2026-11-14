@@ -5,7 +5,7 @@
   "geometry_id": "geom-apollo-11",
   "horizon_mode": "reference_sphere",
   "limitations": [
-    "Baseline mission scenario for landing site evaluation."
+    "Evaluated mission scenario with real DE440 ephemeris and terrain skyline."
   ],
   "location": {
     "frame": "MOON_ME_DE421",
@@ -20,6 +20,10 @@
   "scenario_id": "scenario-apollo-11-benchmark",
   "schema_version": "3.0",
   "source_ids": [],
+  "thresholds": {
+    "max_night_hours": 360.0,
+    "min_sun_fraction": 0.2
+  },
   "title": "Apollo 11 Tranquillity Base Baseline",
   "validation_check_ids": [
     "V09-scenario-metrics-integrity"

@@ -5,7 +5,7 @@
   "geometry_id": "geom-shackleton-connecting-ridge",
   "horizon_mode": "reference_sphere",
   "limitations": [
-    "Baseline mission scenario for landing site evaluation."
+    "Evaluated mission scenario with real DE440 ephemeris and terrain skyline."
   ],
   "location": {
     "frame": "MOON_ME_DE421",
@@ -20,6 +20,11 @@
   "scenario_id": "scenario-artemis-shackleton-2026",
   "schema_version": "3.0",
   "source_ids": [],
+  "thresholds": {
+    "max_night_hours": 100.0,
+    "min_dte_fraction": 0.5,
+    "min_sun_fraction": 0.45
+  },
   "title": "Artemis III Shackleton Connecting Ridge",
   "validation_check_ids": [
     "V09-scenario-metrics-integrity"

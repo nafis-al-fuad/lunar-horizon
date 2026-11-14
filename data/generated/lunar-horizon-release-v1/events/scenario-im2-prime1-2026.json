@@ -1,10 +1,28 @@
 {
   "data_kind": "computed",
   "dataset_id": "lunar-horizon-release-v1",
+  "events": [
+    {
+      "et_s": 826190717.4,
+      "event_type": "sunrise",
+      "id": "sunrise-826190717",
+      "status": "refined",
+      "target": "sun",
+      "timing_resolution_s": 30.0
+    },
+    {
+      "et_s": 825737623.7,
+      "event_type": "dte_set",
+      "id": "dte_set-825737623",
+      "status": "refined",
+      "target": "earth",
+      "timing_resolution_s": 30.0
+    }
+  ],
   "file_kind": "events",
   "geometry_id": "geom-im-2-prime-1",
   "limitations": [
-    "Visibility timeline and illumination events."
+    "Visibility timeline and bisection-refined illumination events."
   ],
   "model_version": "lunar-model-v1",
   "scenario_id": "scenario-im2-prime1-2026",
@@ -18,10 +36,16 @@
   "tracks": {
     "dte": [
       {
-        "duration_s": 1209600.0,
-        "end_et_s": 826848069.0,
+        "duration_s": 100800.0,
+        "end_et_s": 825739269.0,
         "start_et_s": 825638469.0,
         "state": "clear"
+      },
+      {
+        "duration_s": 1108800.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 825739269.0,
+        "state": "blocked"
       }
     ],
     "simultaneous": [
@@ -34,16 +58,16 @@
     ],
     "sunlight": [
       {
-        "duration_s": 1123200.0,
-        "end_et_s": 826761669.0,
+        "duration_s": 554400.0,
+        "end_et_s": 826192869.0,
         "start_et_s": 825638469.0,
         "state": "blocked"
       },
       {
-        "duration_s": 86400.0,
+        "duration_s": 655200.0,
         "end_et_s": 826848069.0,
-        "start_et_s": 826761669.0,
-        "state": "partial"
+        "start_et_s": 826192869.0,
+        "state": "clear"
       }
     ]
   },

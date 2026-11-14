@@ -33,7 +33,7 @@
       "source_ids": [
         "de440s"
       ],
-      "text": "Ephemeris states are tabulated at uniform 3-hour intervals and interpolated with cubic Catmull-Rom splines."
+      "text": "Ephemeris states are tabulated at uniform 3-hour intervals from JPL DE440 and interpolated with cubic Catmull-Rom splines."
     }
   ],
   "data_kind": "computed",
@@ -51,6 +51,12 @@
       "scenario_id": "scenario-artemis-malapert-2026",
       "summary": "High-elevation summit offering continuous direct-to-Earth communication.",
       "title": "Malapert Massif: The Mountain of Eternal View"
+    },
+    {
+      "id": "shackleton-winter-tour",
+      "scenario_id": "scenario-shackleton-winter-date-slip",
+      "summary": "Demonstrates the dramatic reduction in solar illumination and extended darkness during the lunar southern winter.",
+      "title": "Artemis III: Southern Winter Date Slip Impact"
     }
   ],
   "labels": [

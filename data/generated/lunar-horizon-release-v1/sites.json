@@ -3,7 +3,7 @@
   "dataset_id": "lunar-horizon-release-v1",
   "file_kind": "sites",
   "limitations": [
-    "South Pole coordinates are derived from LRO LOLA/LROC polar digital elevation models.",
+    "South Pole coordinates are derived from NASA Artemis III candidate region selections and LOLA altimetry.",
     "Terrain heights are relative to reference sphere radius 1,737,400 m.",
     "Far-side and equatorial sites are benchmark comparison points without polar terrain masks."
   ],
@@ -11,14 +11,14 @@
   "schema_version": "3.0",
   "sites": [
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 20.0,
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 30.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "shackleton-connecting-ridge",
       "lat_deg": -89.44,
       "limitations": [
-        "Elevation estimated from 20m LOLA DEM; mast height configurable at scenario level."
+        "Elevation derived from LOLA polar altimetry (Barker et al. 2021)."
       ],
       "lon_deg": -137.4,
       "name": "Shackleton Connecting Ridge (Site 001)",
@@ -35,14 +35,14 @@
       "terrain_height_m": -120.0
     },
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 20.0,
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 30.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "shackleton-rim",
       "lat_deg": -89.66,
       "limitations": [
-        "High solar illumination point with steep local slopes into crater interior."
+        "Elevated rim crest with steep slopes into Shackleton crater interior."
       ],
       "lon_deg": 129.2,
       "name": "Shackleton Crater Rim Ridge",
@@ -58,17 +58,17 @@
       "terrain_height_m": 1150.0
     },
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 15.0,
+      "coordinate_source_id": "lola-polar-barker2021",
+      "coordinate_uncertainty_m": 25.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "peak-of-eternal-light-1",
       "lat_deg": -89.74,
       "limitations": [
-        "Historical quasi-permanent illumination study point from Mazarico et al."
+        "Historical quasi-permanent illumination benchmark point (Mazarico et al. 2011)."
       ],
       "lon_deg": 123.5,
-      "name": "Peak of Eternal Light 1 (Shackleton Rim)",
+      "name": "Peak of Eternal Light 1 (PEL 1)",
       "quality_flags": [
         "study_benchmark",
         "quasi_permanent_light"
@@ -81,21 +81,21 @@
       "terrain_height_m": 1320.0
     },
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 25.0,
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 40.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "malapert-massif",
       "lat_deg": -85.99,
       "limitations": [
-        "High elevation plateau with continuous Earth direct-line-of-sight communication."
+        "High-altitude summit offering near-continuous line-of-sight to Earth."
       ],
       "lon_deg": 2.93,
-      "name": "Malapert Massif Peak (Site 004)",
+      "name": "Malapert Massif Summit (Site 004)",
       "quality_flags": [
         "polar_candidate",
         "high_elevation",
-        "direct_earth_view"
+        "continuous_earth_view"
       ],
       "reference_meridian_deg": null,
       "region_ids": [
@@ -105,14 +105,14 @@
       "terrain_height_m": 4980.0
     },
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 30.0,
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 40.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "haworth-rim",
       "lat_deg": -87.45,
       "limitations": [
-        "Adjacent to deep permanently shadowed cold trap in Haworth Crater."
+        "Ridge crest bordering the deep cold-trap permanently shadowed region in Haworth."
       ],
       "lon_deg": -5.17,
       "name": "Haworth Crater Rim Ridge",
@@ -128,20 +128,20 @@
       "terrain_height_m": -450.0
     },
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 30.0,
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 40.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "nobile-rim-1",
       "lat_deg": -85.2,
       "limitations": [
-        "Plateau on Mons Mouton adjacent to Nobile crater; broad illumination windows."
+        "Elevated plateau on Mons Mouton; broad solar visibility."
       ],
       "lon_deg": 37.8,
       "name": "Nobile Crater Rim (Mons Mouton)",
       "quality_flags": [
         "polar_candidate",
-        "viper_study_area"
+        "plateau_landing"
       ],
       "reference_meridian_deg": null,
       "region_ids": [
@@ -151,14 +151,14 @@
       "terrain_height_m": 3800.0
     },
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 35.0,
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 50.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "amundsen-rim",
       "lat_deg": -84.5,
       "limitations": [
-        "Elevated crater rim site with periodic long solar visibility."
+        "High southern latitude crater rim candidate area."
       ],
       "lon_deg": 82.8,
       "name": "Amundsen Crater Rim",
@@ -173,14 +173,14 @@
       "terrain_height_m": 2100.0
     },
     {
-      "coordinate_source_id": "lola-lroc-polar-v1",
-      "coordinate_uncertainty_m": 25.0,
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 35.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "de-gerlache-rim-1",
       "lat_deg": -88.5,
       "limitations": [
-        "Narrow ridge crest between de Gerlache crater and Shackleton connecting terrain."
+        "Elevated ridge between de Gerlache crater and Connecting Ridge."
       ],
       "lon_deg": -88.3,
       "name": "de Gerlache Crater Rim Ridge",
@@ -202,7 +202,7 @@
       "id": "im-1-odysseus",
       "lat_deg": -80.13,
       "limitations": [
-        "First commercial CLPS soft landing near Malapert A; landed tilted on slope."
+        "Commercial CLPS soft landing near Malapert A crater on 2024-02-22."
       ],
       "lon_deg": 1.44,
       "name": "Intuitive Machines IM-1 (Odysseus / Malapert A)",
@@ -219,18 +219,18 @@
     },
     {
       "coordinate_source_id": "clps-im2-mission-plan",
-      "coordinate_uncertainty_m": 40.0,
+      "coordinate_uncertainty_m": 50.0,
       "default_mast_height_m": 2.0,
       "frame": "MOON_ME_DE421",
       "id": "im-2-prime-1",
       "lat_deg": -89.28,
       "limitations": [
-        "Planned polar drill mission on the Connecting Ridge."
+        "Planned polar ice drilling mission on Connecting Ridge."
       ],
       "lon_deg": -138.6,
       "name": "Intuitive Machines IM-2 (PRIME-1 target)",
       "quality_flags": [
-        "polar_candidate",
+        "candidate",
         "clps_mission"
       ],
       "reference_meridian_deg": null,
@@ -248,7 +248,7 @@
       "id": "chandrayaan-3",
       "lat_deg": -69.373,
       "limitations": [
-        "Historic high-latitude southern landing site between Manzinus C and Simpelius N."
+        "Historic soft landing achieved 2023-08-23 between Manzinus C and Simpelius N."
       ],
       "lon_deg": 32.319,
       "name": "Chandrayaan-3 (Shiv Shakti Point)",
@@ -271,7 +271,7 @@
       "id": "slim-shioli",
       "lat_deg": -13.316,
       "limitations": [
-        "Precision pinpoint landing demonstration within 55m of Shioli target."
+        "JAXA pinpoint landing demonstration on 2024-01-19 within 55m of target."
       ],
       "lon_deg": 25.251,
       "name": "SLIM (Shioli Crater Rim)",
@@ -294,7 +294,7 @@
       "id": "apollo-11",
       "lat_deg": 0.6741,
       "limitations": [
-        "Equatorial mare baseline site with simple ~14-day day/night diurnal cycle."
+        "LROC NAC determined coordinates for the Apollo 11 Lunar Module descent stage."
       ],
       "lon_deg": 23.473,
       "name": "Apollo 11 (Statio Tranquillitatis)",
@@ -317,7 +317,7 @@
       "id": "apollo-17",
       "lat_deg": 20.1908,
       "limitations": [
-        "Deep valley landing site between North and South Massifs; mountain horizons."
+        "LROC NAC determined coordinates for the Apollo 17 Challenger descent stage."
       ],
       "lon_deg": 30.7717,
       "name": "Apollo 17 (Taurus-Littrow)",
@@ -340,7 +340,7 @@
       "id": "change-4",
       "lat_deg": -45.457,
       "limitations": [
-        "First lunar far side soft landing; permanently zero direct Earth line-of-sight (requires Queqiao relay)."
+        "First lunar far side soft landing on 2019-01-03; zero direct Earth line-of-sight."
       ],
       "lon_deg": 177.589,
       "name": "Chang'e-4 (Von Kármán Crater / Far Side)",
@@ -364,7 +364,7 @@
       "id": "blue-ghost-1",
       "lat_deg": 18.56,
       "limitations": [
-        "Planned CLPS landing in Mare Crisium basin."
+        "Planned CLPS landing target in Mare Crisium basin."
       ],
       "lon_deg": 61.81,
       "name": "Astrobotic Blue Ghost 1 (Mare Crisium)",
@@ -381,9 +381,10 @@
     }
   ],
   "source_ids": [
-    "lola-pds-dem-v1",
+    "nasa-artemis-candidate-regions-2024",
+    "lola-polar-barker2021",
     "lroc-polar-dem-v1",
-    "nasa-artemis-candidate-regions-2024"
+    "lroc-apollo-coordinates-v1"
   ],
   "validation_check_ids": [
     "V02-site-catalog-integrity"
