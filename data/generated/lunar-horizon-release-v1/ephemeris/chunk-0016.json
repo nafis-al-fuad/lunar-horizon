@@ -1,0 +1,65 @@
+{
+  "arrays": [
+    {
+      "byte_offset": 0,
+      "dtype": "float32",
+      "invalid_code": null,
+      "name": "geometric-states",
+      "offset": 0,
+      "scale": 1,
+      "shape": [
+        245,
+        8
+      ],
+      "unit": "mixed_channels"
+    },
+    {
+      "byte_offset": 7840,
+      "dtype": "float32",
+      "invalid_code": null,
+      "name": "apparent-states",
+      "offset": 0,
+      "scale": 1,
+      "shape": [
+        245,
+        8
+      ],
+      "unit": "mixed_channels"
+    }
+  ],
+  "binary_file_id": "chunk-0016",
+  "channel_units": [
+    "1",
+    "1",
+    "1",
+    "km",
+    "1",
+    "1",
+    "1",
+    "km"
+  ],
+  "chunk_id": "chunk-0016",
+  "decoded_bytes": 15680,
+  "frame_epoch": "observation_et",
+  "grid": {
+    "count": 245,
+    "step_s": 10800,
+    "t0_et_s": 861948069.18392
+  },
+  "guard_samples_after": 2,
+  "guard_samples_before": 2,
+  "interpolation": "uniform_catmull_rom_components_then_normalize",
+  "layout": "interleaved_float32",
+  "max_measured_angular_error_deg": 1.8744837505378717e-05,
+  "max_measured_range_error_km": 8.556514620780945,
+  "origin": "moon_center",
+  "profile_ids": [
+    "geometric",
+    "apparent"
+  ],
+  "surface_frame": "MOON_ME_DE421",
+  "usable_span": {
+    "end_et_s": 864561669.18392,
+    "start_et_s": 861969669.18392
+  }
+}

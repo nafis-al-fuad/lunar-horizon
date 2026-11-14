@@ -1,0 +1,31 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "scenario",
+  "geometry_id": "geom-shackleton-connecting-ridge",
+  "horizon_mode": "reference_sphere",
+  "limitations": [
+    "Baseline mission scenario for landing site evaluation."
+  ],
+  "location": {
+    "frame": "MOON_ME_DE421",
+    "lat_deg": -89.44,
+    "lon_deg": -137.4,
+    "reference_meridian_deg": null,
+    "site_id": "shackleton-connecting-ridge"
+  },
+  "mast_height_m": 2.0,
+  "model_version": "lunar-model-v1",
+  "profile_id": "geometric-none",
+  "scenario_id": "scenario-artemis-shackleton-2026",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "title": "Artemis III Shackleton Connecting Ridge",
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ],
+  "window": {
+    "end_et_s": 826848069.0,
+    "start_et_s": 825638469.0
+  }
+}

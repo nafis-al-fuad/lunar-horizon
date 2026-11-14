@@ -1,0 +1,82 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "results",
+  "limitations": [
+    "Mission summary metrics."
+  ],
+  "metrics": {
+    "dte_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 1.0,
+      "quality_flags": [],
+      "upper": 1.0,
+      "value": 1.0
+    },
+    "longest_dte_gap_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    },
+    "longest_night_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 165600.0,
+      "quality_flags": [],
+      "upper": 165600.0,
+      "value": 165600.0
+    },
+    "longest_sunlit_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 1044000.0,
+      "quality_flags": [],
+      "upper": 1044000.0,
+      "value": 1044000.0
+    },
+    "min_sun_clearance_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.11237937537101406,
+      "quality_flags": [],
+      "upper": 0.11237937537101406,
+      "value": 0.11237937537101406
+    },
+    "peak_sun_elevation_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 4.004085489363981,
+      "quality_flags": [],
+      "upper": 4.004085489363981,
+      "value": 4.004085489363981
+    },
+    "simultaneous_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.8630952380952381,
+      "quality_flags": [],
+      "upper": 0.8630952380952381,
+      "value": 0.8630952380952381
+    },
+    "sunlit_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.8630952380952381,
+      "quality_flags": [],
+      "upper": 0.8630952380952381,
+      "value": 0.8630952380952381
+    }
+  },
+  "model_version": "lunar-model-v1",
+  "outcome": "meets_selected_thresholds",
+  "scenario_id": "scenario-artemis-malapert-2026",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ]
+}

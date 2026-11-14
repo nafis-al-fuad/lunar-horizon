@@ -1,0 +1,91 @@
+{
+  "assumption_ids": [
+    "no_atmosphere",
+    "constant_lunar_radius",
+    "discrete_ephemeris_grid"
+  ],
+  "body_radii_km": {
+    "earth": 6371.0,
+    "moon": 1737.4,
+    "sun": 695700.0
+  },
+  "coordinate_system": {
+    "azimuth_convention": "north_clockwise_east",
+    "body": "Moon",
+    "height_reference": "reference_sphere",
+    "latitude_type": "planetocentric",
+    "longitude_positive": "east",
+    "reference_radius_m": 1737400.0,
+    "surface_frame": "MOON_ME_DE421"
+  },
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "model",
+  "limitations": [
+    "Body-fixed Mean-Earth/Polar-Axis frame (MOON_ME_DE421)."
+  ],
+  "model_version": "lunar-model-v1",
+  "profiles": [
+    {
+      "aberration_correction": "NONE",
+      "frame_epoch": "observation_et",
+      "id": "geometric-none",
+      "observer_method": "moon_center_then_subtract",
+      "phase_method": "same_epoch_geometric",
+      "validation_check_ids": [
+        "V03-ephemeris-accuracy"
+      ]
+    },
+    {
+      "aberration_correction": "LT+S",
+      "frame_epoch": "observation_et",
+      "id": "apparent-lt-s",
+      "observer_method": "moon_center_then_subtract",
+      "phase_method": "same_epoch_geometric",
+      "validation_check_ids": [
+        "V03-ephemeris-accuracy"
+      ]
+    }
+  ],
+  "schema_version": "3.0",
+  "source_ids": [
+    "naif0012",
+    "pck00011",
+    "moon-080317",
+    "moon-pa-de421",
+    "de440s"
+  ],
+  "threshold_definitions": [
+    {
+      "comparator": ">=",
+      "default": 0.0,
+      "id": "min_sun_elevation",
+      "provenance": "solar_power",
+      "unit": "deg"
+    },
+    {
+      "comparator": "<=",
+      "default": 100.0,
+      "id": "max_night_hours",
+      "provenance": "battery_survival",
+      "unit": "h"
+    },
+    {
+      "comparator": ">=",
+      "default": 1.0,
+      "id": "dte_margin",
+      "provenance": "communication_link",
+      "unit": "deg"
+    },
+    {
+      "comparator": "<=",
+      "default": 15.0,
+      "id": "max_slope",
+      "provenance": "lander_stability",
+      "unit": "deg"
+    }
+  ],
+  "validation_check_ids": [
+    "V01-coordinate-conventions"
+  ]
+}

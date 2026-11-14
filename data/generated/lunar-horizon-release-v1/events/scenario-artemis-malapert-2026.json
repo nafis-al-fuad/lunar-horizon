@@ -1,0 +1,59 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "events",
+  "geometry_id": "geom-malapert-massif",
+  "limitations": [
+    "Visibility timeline and illumination events."
+  ],
+  "model_version": "lunar-model-v1",
+  "scenario_id": "scenario-artemis-malapert-2026",
+  "schema_version": "3.0",
+  "search_status": "complete_under_tested_resolution",
+  "searched_span": {
+    "end_et_s": 826848069.0,
+    "start_et_s": 825638469.0
+  },
+  "source_ids": [],
+  "tracks": {
+    "dte": [
+      {
+        "duration_s": 1209600.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      }
+    ],
+    "simultaneous": [
+      {
+        "duration_s": 1044000.0,
+        "end_et_s": 826682469.0,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 165600.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 826682469.0,
+        "state": "blocked"
+      }
+    ],
+    "sunlight": [
+      {
+        "duration_s": 1044000.0,
+        "end_et_s": 826682469.0,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 165600.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 826682469.0,
+        "state": "partial"
+      }
+    ]
+  },
+  "validation_check_ids": [
+    "V08-timeline-events-integrity"
+  ]
+}

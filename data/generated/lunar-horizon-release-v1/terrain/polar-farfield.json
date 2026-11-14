@@ -1,0 +1,82 @@
+{
+  "arrays": [
+    {
+      "byte_offset": 0,
+      "dtype": "float32",
+      "invalid_code": null,
+      "name": "height_m",
+      "offset": 0.0,
+      "scale": 1.0,
+      "shape": [
+        121,
+        121
+      ],
+      "unit": "m"
+    },
+    {
+      "byte_offset": 58564,
+      "dtype": "uint8",
+      "invalid_code": 0,
+      "name": "valid",
+      "offset": 0.0,
+      "scale": 1.0,
+      "shape": [
+        121,
+        121
+      ],
+      "unit": "1"
+    }
+  ],
+  "binary_file_id": "terrain-polar-farfield-bin",
+  "columns": 121,
+  "crs_wkt": "PROJCS[\"Moon_South_Pole_Stereographic\",GEOGCS[\"GCS_Moon_2000\",DATUM[\"D_Moon_2000\",SPHEROID[\"Moon_2000_IAU_IAG\",1737400.0,0.0]],PRIMEM[\"Reference_Meridian\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-90.0],PARAMETER[\"central_meridian\",0.0],PARAMETER[\"scale_factor\",1.0],PARAMETER[\"false_easting\",0.0],PARAMETER[\"false_northing\",0.0],UNIT[\"Meter\",1.0]]",
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "decoded_bytes": 73205,
+  "file_kind": "terrain_tile",
+  "footprint": {
+    "max_lat_deg": -80.0,
+    "max_lon_deg": 180.0,
+    "min_lat_deg": -90.0,
+    "min_lon_deg": -180.0
+  },
+  "limitations": [
+    "Polar stereographic elevation grid covering 80°S to 90°S."
+  ],
+  "model_version": "lunar-model-v1",
+  "output_resolution_m": 5000.0,
+  "priority": 1,
+  "projection_parameters": {
+    "body": "Moon",
+    "central_longitude_deg": 0.0,
+    "projection": "south_polar_stereographic",
+    "reference_radius_m": 1737400.0,
+    "standard_latitude_deg": -90.0
+  },
+  "reference_radius_m": 1737400.0,
+  "resampling": "bilinear",
+  "rows": 121,
+  "schema_version": "3.0",
+  "source_ids": [
+    "lola-pds-dem-v1"
+  ],
+  "source_resolution_m": 5000.0,
+  "support_limitations": [
+    "Valid south of 80°S."
+  ],
+  "surface_frame": "MOON_ME_DE421",
+  "terrain_model_id": "lola-polar-v1",
+  "tier": "far",
+  "tile_id": "polar-farfield",
+  "transform": [
+    5000.0,
+    0.0,
+    -300000.0,
+    0.0,
+    -5000.0,
+    300000.0
+  ],
+  "validation_check_ids": [
+    "V04-terrain-tile-integrity"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "scenario",
+  "geometry_id": "geom-apollo-11",
+  "horizon_mode": "reference_sphere",
+  "limitations": [
+    "Baseline mission scenario for landing site evaluation."
+  ],
+  "location": {
+    "frame": "MOON_ME_DE421",
+    "lat_deg": 0.6741,
+    "lon_deg": 23.473,
+    "reference_meridian_deg": null,
+    "site_id": "apollo-11"
+  },
+  "mast_height_m": 2.0,
+  "model_version": "lunar-model-v1",
+  "profile_id": "geometric-none",
+  "scenario_id": "scenario-apollo-11-benchmark",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "title": "Apollo 11 Tranquillity Base Baseline",
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ],
+  "window": {
+    "end_et_s": 826848069.0,
+    "start_et_s": 825638469.0
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "articles": [],
+  "assumptions": [
+    {
+      "applies_to_product_ids": [
+        "P03",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "id": "no_atmosphere",
+      "source_ids": [],
+      "text": "The Moon has no atmosphere; atmospheric refraction, scattering, and twilight are strictly zero."
+    },
+    {
+      "applies_to_product_ids": [
+        "P01",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "id": "constant_lunar_radius",
+      "source_ids": [
+        "pck00011"
+      ],
+      "text": "The Moon's reference figure is a sphere of radius 1,737,400 meters."
+    },
+    {
+      "applies_to_product_ids": [
+        "P03"
+      ],
+      "id": "discrete_ephemeris_grid",
+      "source_ids": [
+        "de440s"
+      ],
+      "text": "Ephemeris states are tabulated at uniform 3-hour intervals and interpolated with cubic Catmull-Rom splines."
+    }
+  ],
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "content",
+  "guided_scenarios": [
+    {
+      "id": "artemis-shackleton-tour",
+      "scenario_id": "scenario-artemis-shackleton-2026",
+      "summary": "Explores the extreme solar illumination and continuous Earth line-of-sight along the Shackleton rim.",
+      "title": "Artemis III: Shackleton Connecting Ridge"
+    },
+    {
+      "id": "malapert-plateau-tour",
+      "scenario_id": "scenario-artemis-malapert-2026",
+      "summary": "High-elevation summit offering continuous direct-to-Earth communication.",
+      "title": "Malapert Massif: The Mountain of Eternal View"
+    }
+  ],
+  "labels": [
+    {
+      "id": "sun_elevation",
+      "state_code": "power",
+      "text": "Solar Elevation",
+      "unit": "deg"
+    },
+    {
+      "id": "earth_elevation",
+      "state_code": "dte",
+      "text": "Earth Elevation",
+      "unit": "deg"
+    },
+    {
+      "id": "sunlit_fraction",
+      "state_code": "general",
+      "text": "Sunlit Window Fraction",
+      "unit": "percent"
+    },
+    {
+      "id": "longest_night",
+      "state_code": "thermal",
+      "text": "Longest Continuous Night",
+      "unit": "hours"
+    }
+  ],
+  "limitations": [
+    "Public presentation and educational assumptions."
+  ],
+  "model_version": "lunar-model-v1",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V15-content-integrity"
+  ]
+}

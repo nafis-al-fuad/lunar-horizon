@@ -36,6 +36,7 @@ CLAUDE.md
 SESSION*.md
 HANDOFF*.md
 
-# Only this reviewed, immutable preview is selected for version control.
+# Only reviewed, immutable releases are selected for version control.
 /data/generated/*
 !/data/generated/ephemeris-preview-d68aa79075433edddec0e443/
+!/data/generated/lunar-horizon-release-v1/

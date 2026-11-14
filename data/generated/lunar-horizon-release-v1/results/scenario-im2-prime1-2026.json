@@ -1,0 +1,82 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "results",
+  "limitations": [
+    "Mission summary metrics."
+  ],
+  "metrics": {
+    "dte_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 1.0,
+      "quality_flags": [],
+      "upper": 1.0,
+      "value": 1.0
+    },
+    "longest_dte_gap_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    },
+    "longest_night_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 1123200.0,
+      "quality_flags": [],
+      "upper": 1123200.0,
+      "value": 1123200.0
+    },
+    "longest_sunlit_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    },
+    "min_sun_clearance_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": -2.08732895943594,
+      "quality_flags": [],
+      "upper": -2.08732895943594,
+      "value": -2.08732895943594
+    },
+    "peak_sun_elevation_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.20558872339324932,
+      "quality_flags": [],
+      "upper": 0.20558872339324932,
+      "value": 0.20558872339324932
+    },
+    "simultaneous_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    },
+    "sunlit_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    }
+  },
+  "model_version": "lunar-model-v1",
+  "outcome": "meets_selected_thresholds",
+  "scenario_id": "scenario-im2-prime1-2026",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ]
+}

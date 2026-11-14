@@ -1,0 +1,95 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "events",
+  "geometry_id": "geom-apollo-11",
+  "limitations": [
+    "Visibility timeline and illumination events."
+  ],
+  "model_version": "lunar-model-v1",
+  "scenario_id": "scenario-apollo-11-benchmark",
+  "schema_version": "3.0",
+  "search_status": "complete_under_tested_resolution",
+  "searched_span": {
+    "end_et_s": 826848069.0,
+    "start_et_s": 825638469.0
+  },
+  "source_ids": [],
+  "tracks": {
+    "dte": [
+      {
+        "duration_s": 1209600.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      }
+    ],
+    "simultaneous": [
+      {
+        "duration_s": 158400.0,
+        "end_et_s": 825796869.0,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 21600.0,
+        "end_et_s": 825818469.0,
+        "start_et_s": 825796869.0,
+        "state": "blocked"
+      },
+      {
+        "duration_s": 626400.0,
+        "end_et_s": 826444869.0,
+        "start_et_s": 825818469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 403200.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 826444869.0,
+        "state": "blocked"
+      }
+    ],
+    "sunlight": [
+      {
+        "duration_s": 158400.0,
+        "end_et_s": 825796869.0,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 7200.0,
+        "end_et_s": 825804069.0,
+        "start_et_s": 825796869.0,
+        "state": "partial"
+      },
+      {
+        "duration_s": 7200.0,
+        "end_et_s": 825811269.0,
+        "start_et_s": 825804069.0,
+        "state": "blocked"
+      },
+      {
+        "duration_s": 7200.0,
+        "end_et_s": 825818469.0,
+        "start_et_s": 825811269.0,
+        "state": "partial"
+      },
+      {
+        "duration_s": 626400.0,
+        "end_et_s": 826444869.0,
+        "start_et_s": 825818469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 403200.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 826444869.0,
+        "state": "blocked"
+      }
+    ]
+  },
+  "validation_check_ids": [
+    "V08-timeline-events-integrity"
+  ]
+}

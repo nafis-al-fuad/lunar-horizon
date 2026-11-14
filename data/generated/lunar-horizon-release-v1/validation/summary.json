@@ -1,0 +1,138 @@
+{
+  "accepted_scopes": [
+    {
+      "mast_height_range_m": [
+        0.0,
+        12.0
+      ],
+      "profile_ids": [
+        "geometric-none",
+        "apparent-lt-s"
+      ],
+      "region_ids": [
+        "shackleton",
+        "connecting-ridge",
+        "malapert",
+        "haworth",
+        "nobile",
+        "amundsen",
+        "de-gerlache",
+        "equatorial",
+        "south-subpolar",
+        "far-side"
+      ],
+      "settings_constraints": [],
+      "site_ids": [
+        "shackleton-connecting-ridge",
+        "shackleton-rim",
+        "peak-of-eternal-light-1",
+        "malapert-massif",
+        "haworth-rim",
+        "nobile-rim-1",
+        "amundsen-rim",
+        "de-gerlache-rim-1",
+        "im-1-odysseus",
+        "im-2-prime-1",
+        "chandrayaan-3",
+        "slim-shioli",
+        "apollo-11",
+        "apollo-17",
+        "change-4",
+        "blue-ghost-1"
+      ],
+      "time_spans": [
+        {
+          "end_et_s": 1136030469.1839027,
+          "start_et_s": 820497669.18392
+        }
+      ]
+    }
+  ],
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "validation_summary",
+  "gate_statuses": [
+    {
+      "description": "Strict planetocentric coordinates and LSK time conversions.",
+      "gate_id": "V01",
+      "status": "passed",
+      "title": "Coordinate and Time Systems"
+    },
+    {
+      "description": "16 verified landing sites with exact coordinates and bounding uncertainties.",
+      "gate_id": "V02",
+      "status": "passed",
+      "title": "Site Catalog Integrity"
+    },
+    {
+      "description": "10-year preview passes SPICE residual budgets and Node value parity.",
+      "gate_id": "V03",
+      "status": "passed",
+      "title": "Ephemeris Numerical Accuracy"
+    },
+    {
+      "description": "South Polar stereographic DEM correctly georeferenced from 80°S to 90°S.",
+      "gate_id": "V04",
+      "status": "passed",
+      "title": "Terrain Grid Integrity"
+    },
+    {
+      "description": "Slope values quantized at 0.5 deg within [0, 180] deg range.",
+      "gate_id": "V05",
+      "status": "passed",
+      "title": "Slope Quantization"
+    },
+    {
+      "description": "Full 360-degree horizon masks generated with exact spherical dip curvature.",
+      "gate_id": "V06",
+      "status": "passed",
+      "title": "Horizon Mask Geometry"
+    },
+    {
+      "description": "Topocentric ENU projections, Earth lit fraction, and eclipse geometry verified.",
+      "gate_id": "V07",
+      "status": "passed",
+      "title": "Topocentric Angles & Phase"
+    },
+    {
+      "description": "Contiguous half-open interval partitioning without gaps or overlaps.",
+      "gate_id": "V08",
+      "status": "passed",
+      "title": "Timeline Event Partitioning"
+    },
+    {
+      "description": "Duration and fraction totals strictly conserve time window.",
+      "gate_id": "V09",
+      "status": "passed",
+      "title": "Scenario Metrics Accounting"
+    },
+    {
+      "description": "Decoding and interpolation pass headless Chrome and Edge test harnesses.",
+      "gate_id": "V10",
+      "status": "passed",
+      "title": "Browser Compatibility"
+    },
+    {
+      "description": "JPL TESTPO 17/17 scalar components passed; Horizons DE441 cross-model diagnostics recorded.",
+      "gate_id": "V11",
+      "status": "passed_with_diagnostics",
+      "title": "Reference Consistency"
+    },
+    {
+      "description": "SHA-256 digests and byte counts verified for every published resource.",
+      "gate_id": "V12",
+      "status": "passed",
+      "title": "Packaging & Manifest Integrity"
+    }
+  ],
+  "limitations": [
+    "Release validation summary across all active milestones."
+  ],
+  "model_version": "lunar-model-v1",
+  "release_decision": "computed_release_v1",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V12-manifest-integrity"
+  ]
+}
