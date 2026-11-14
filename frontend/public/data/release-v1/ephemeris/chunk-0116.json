@@ -1,0 +1,73 @@
+{
+  "arrays": [
+    {
+      "byte_offset": 0,
+      "dtype": "float32",
+      "invalid_code": null,
+      "name": "geometric-states",
+      "offset": 0,
+      "scale": 1,
+      "shape": [
+        245,
+        8
+      ],
+      "unit": "mixed_channels"
+    },
+    {
+      "byte_offset": 7840,
+      "dtype": "float32",
+      "invalid_code": null,
+      "name": "apparent-states",
+      "offset": 0,
+      "scale": 1,
+      "shape": [
+        245,
+        8
+      ],
+      "unit": "mixed_channels"
+    }
+  ],
+  "binary_file_id": "ephemeris-chunk-0116-bin",
+  "channel_units": [
+    "1",
+    "1",
+    "1",
+    "km",
+    "1",
+    "1",
+    "1",
+    "km"
+  ],
+  "chunk_id": "chunk-0116",
+  "dataset_id": "lunar-horizon-release-v1",
+  "decoded_bytes": 15680,
+  "frame_epoch": "observation_et",
+  "grid": {
+    "count": 245,
+    "step_s": 10800,
+    "t0_et_s": 1121148069.18392
+  },
+  "guard_samples_after": 2,
+  "guard_samples_before": 2,
+  "interpolation": "uniform_catmull_rom_components_then_normalize",
+  "layout": "interleaved_float32",
+  "max_measured_angular_error_deg": 1.9474355405733032e-05,
+  "max_measured_range_error_km": 9.238532900810242,
+  "model_version": "lunar-model-v1",
+  "origin": "moon_center",
+  "profile_ids": [
+    "geometric",
+    "apparent"
+  ],
+  "source_ids": [
+    "de440s"
+  ],
+  "surface_frame": "MOON_ME_DE421",
+  "usable_span": {
+    "end_et_s": 1123761669.18392,
+    "start_et_s": 1121169669.18392
+  },
+  "validation_check_ids": [
+    "V03-ephemeris-accuracy"
+  ]
+}

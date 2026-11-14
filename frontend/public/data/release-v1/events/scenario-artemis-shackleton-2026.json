@@ -1,0 +1,69 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "events": [
+    {
+      "et_s": 821025055.1,
+      "event_type": "dte_set",
+      "id": "dte_set-821025055",
+      "status": "refined",
+      "target": "earth",
+      "timing_resolution_s": 30.0
+    }
+  ],
+  "file_kind": "events",
+  "geometry_id": "geom-shackleton-connecting-ridge",
+  "limitations": [
+    "Visibility timeline and bisection-refined illumination events."
+  ],
+  "model_version": "lunar-model-v1",
+  "scenario_id": "scenario-artemis-shackleton-2026",
+  "schema_version": "3.0",
+  "search_status": "complete_under_tested_resolution",
+  "searched_span": {
+    "end_et_s": 821707269.18392,
+    "start_et_s": 820497669.18392
+  },
+  "source_ids": [],
+  "tracks": {
+    "dte": [
+      {
+        "duration_s": 527385.9375,
+        "end_et_s": 821025055.12142,
+        "start_et_s": 820497669.18392,
+        "state": "clear"
+      },
+      {
+        "duration_s": 682214.0625,
+        "end_et_s": 821707269.18392,
+        "start_et_s": 821025055.12142,
+        "state": "blocked"
+      }
+    ],
+    "simultaneous": [
+      {
+        "duration_s": 527385.9375,
+        "end_et_s": 821025055.12142,
+        "start_et_s": 820497669.18392,
+        "state": "clear"
+      },
+      {
+        "duration_s": 682214.0625,
+        "end_et_s": 821707269.18392,
+        "start_et_s": 821025055.12142,
+        "state": "blocked"
+      }
+    ],
+    "sunlight": [
+      {
+        "duration_s": 1209600.0,
+        "end_et_s": 821707269.18392,
+        "start_et_s": 820497669.18392,
+        "state": "clear"
+      }
+    ]
+  },
+  "validation_check_ids": [
+    "V08-timeline-events-integrity"
+  ]
+}

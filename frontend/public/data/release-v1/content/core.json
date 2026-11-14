@@ -1,0 +1,109 @@
+{
+  "articles": [],
+  "assumptions": [
+    {
+      "applies_to_product_ids": [
+        "P03",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "id": "no_atmosphere",
+      "source_ids": [],
+      "text": "The Moon has no atmosphere; atmospheric refraction, scattering, and twilight are strictly zero."
+    },
+    {
+      "applies_to_product_ids": [
+        "P01",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "id": "constant_lunar_radius",
+      "source_ids": [
+        "pck00011"
+      ],
+      "text": "The Moon's reference figure is a sphere of radius 1,737,400 meters."
+    },
+    {
+      "applies_to_product_ids": [
+        "P03"
+      ],
+      "id": "discrete_ephemeris_grid",
+      "source_ids": [
+        "de440s"
+      ],
+      "text": "Ephemeris states are tabulated at uniform 3-hour intervals from JPL DE440 and interpolated with cubic Catmull-Rom splines."
+    },
+    {
+      "applies_to_product_ids": [
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "id": "synthetic_polar_terrain_demo",
+      "source_ids": [
+        "synthetic-polar-demo-anchors"
+      ],
+      "text": "South Polar terrain and slope layers are generated from a calibrated synthetic demonstration surface anchored to regional spot heights for end-to-end pipeline verification; not an ingested flight-grade LOLA DEM raster."
+    }
+  ],
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "content",
+  "guided_scenarios": [
+    {
+      "id": "artemis-shackleton-tour",
+      "scenario_id": "scenario-artemis-shackleton-2026",
+      "summary": "Explores the 100% continuous solar illumination (336 hours of light) and favorable conditions along Shackleton Connecting Ridge during lunar southern summer.",
+      "title": "Artemis III: Shackleton Connecting Ridge (Southern Summer)"
+    },
+    {
+      "id": "malapert-plateau-tour",
+      "scenario_id": "scenario-artemis-malapert-2026",
+      "summary": "High-elevation summit evaluated for geometric Earth visibility and topographic horizon clearance during libration cycles.",
+      "title": "Malapert Massif: High-Elevation Earth Visibility"
+    },
+    {
+      "id": "shackleton-winter-tour",
+      "scenario_id": "scenario-shackleton-winter-date-slip",
+      "summary": "Demonstrates the dramatic reduction in solar illumination and extended darkness (336 hours of continuous night, 0% sunlight) when launch slips into the lunar southern winter.",
+      "title": "Artemis III: Southern Winter Date Slip Impact"
+    }
+  ],
+  "labels": [
+    {
+      "id": "sun_elevation",
+      "state_code": "power",
+      "text": "Solar Elevation",
+      "unit": "deg"
+    },
+    {
+      "id": "earth_elevation",
+      "state_code": "dte",
+      "text": "Earth Elevation",
+      "unit": "deg"
+    },
+    {
+      "id": "sunlit_fraction",
+      "state_code": "general",
+      "text": "Sunlit Window Fraction",
+      "unit": "percent"
+    },
+    {
+      "id": "longest_night",
+      "state_code": "thermal",
+      "text": "Longest Continuous Night",
+      "unit": "hours"
+    }
+  ],
+  "limitations": [
+    "Public presentation and educational assumptions."
+  ],
+  "model_version": "lunar-model-v1",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V15-content-integrity"
+  ]
+}

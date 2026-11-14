@@ -1,0 +1,87 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "results",
+  "limitations": [
+    "Mission summary metrics and evaluated thresholds."
+  ],
+  "metrics": {
+    "dte_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.08787899925595238,
+      "quality_flags": [],
+      "upper": 0.08787899925595238,
+      "value": 0.08787899925595238
+    },
+    "longest_dte_gap_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 1103301.5625,
+      "quality_flags": [],
+      "upper": 1103301.5625,
+      "value": 1103301.5625
+    },
+    "longest_night_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 1209600.0,
+      "quality_flags": [],
+      "upper": 1209600.0,
+      "value": 1209600.0
+    },
+    "longest_sunlit_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    },
+    "min_sun_clearance_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": -3.4313334551081454,
+      "quality_flags": [],
+      "upper": -3.4313334551081454,
+      "value": -3.4313334551081454
+    },
+    "peak_sun_elevation_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.30925528539874103,
+      "quality_flags": [],
+      "upper": 0.30925528539874103,
+      "value": 0.30925528539874103
+    },
+    "simultaneous_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    },
+    "sunlit_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    }
+  },
+  "model_version": "lunar-model-v1",
+  "outcome": "fails_selected_thresholds",
+  "scenario_id": "scenario-im2-prime1-2026",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ],
+  "violated_thresholds": [
+    "Sunlit fraction 0.0% is below requirement 30.0%",
+    "Longest continuous night (336.0h) exceeds maximum allowed (120.0h)",
+    "Direct-to-Earth visibility 8.8% is below requirement 40.0%"
+  ]
+}

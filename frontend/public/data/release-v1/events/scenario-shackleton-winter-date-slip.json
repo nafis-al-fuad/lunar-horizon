@@ -1,0 +1,63 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "events": [
+    {
+      "et_s": 835132273.7,
+      "event_type": "dte_set",
+      "id": "dte_set-835132273",
+      "status": "refined",
+      "target": "earth",
+      "timing_resolution_s": 30.0
+    }
+  ],
+  "file_kind": "events",
+  "geometry_id": "geom-shackleton-connecting-ridge",
+  "limitations": [
+    "Visibility timeline and bisection-refined illumination events."
+  ],
+  "model_version": "lunar-model-v1",
+  "scenario_id": "scenario-shackleton-winter-date-slip",
+  "schema_version": "3.0",
+  "search_status": "complete_under_tested_resolution",
+  "searched_span": {
+    "end_et_s": 836006469.0,
+    "start_et_s": 834796869.0
+  },
+  "source_ids": [],
+  "tracks": {
+    "dte": [
+      {
+        "duration_s": 335404.6875,
+        "end_et_s": 835132273.6875,
+        "start_et_s": 834796869.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 874195.3125,
+        "end_et_s": 836006469.0,
+        "start_et_s": 835132273.6875,
+        "state": "blocked"
+      }
+    ],
+    "simultaneous": [
+      {
+        "duration_s": 1209600.0,
+        "end_et_s": 836006469.0,
+        "start_et_s": 834796869.0,
+        "state": "blocked"
+      }
+    ],
+    "sunlight": [
+      {
+        "duration_s": 1209600.0,
+        "end_et_s": 836006469.0,
+        "start_et_s": 834796869.0,
+        "state": "blocked"
+      }
+    ]
+  },
+  "validation_check_ids": [
+    "V08-timeline-events-integrity"
+  ]
+}

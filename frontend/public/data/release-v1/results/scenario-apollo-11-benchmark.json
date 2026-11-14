@@ -1,0 +1,83 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "results",
+  "limitations": [
+    "Mission summary metrics and evaluated thresholds."
+  ],
+  "metrics": {
+    "dte_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 1.0,
+      "quality_flags": [],
+      "upper": 1.0,
+      "value": 1.0
+    },
+    "longest_dte_gap_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.0,
+      "quality_flags": [],
+      "upper": 0.0,
+      "value": 0.0
+    },
+    "longest_night_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 529354.6875,
+      "quality_flags": [],
+      "upper": 529354.6875,
+      "value": 529354.6875
+    },
+    "longest_sunlit_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 504309.375,
+      "quality_flags": [],
+      "upper": 504309.375,
+      "value": 504309.375
+    },
+    "min_sun_clearance_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": -74.89224572767105,
+      "quality_flags": [],
+      "upper": -74.89224572767105,
+      "value": -74.89224572767105
+    },
+    "peak_sun_elevation_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 89.32514998562992,
+      "quality_flags": [],
+      "upper": 89.32514998562992,
+      "value": 89.32514998562992
+    },
+    "simultaneous_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.5556059337797619,
+      "quality_flags": [],
+      "upper": 0.5556059337797619,
+      "value": 0.5556059337797619
+    },
+    "sunlit_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.5556059337797619,
+      "quality_flags": [],
+      "upper": 0.5556059337797619,
+      "value": 0.5556059337797619
+    }
+  },
+  "model_version": "lunar-model-v1",
+  "outcome": "meets_selected_thresholds",
+  "scenario_id": "scenario-apollo-11-benchmark",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ],
+  "violated_thresholds": []
+}

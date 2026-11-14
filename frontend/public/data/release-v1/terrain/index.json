@@ -1,0 +1,59 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "terrain_index",
+  "limitations": [
+    "Demonstration terrain index covering Moon South Polar exploration region (80°S-90°S); synthetic demonstration surface, not flight-grade continuous DEM."
+  ],
+  "model_version": "lunar-model-v1",
+  "precedence": "valid_finest_then_priority_then_id",
+  "regions": [
+    {
+      "frame": "MOON_ME_DE421",
+      "id": "south-pole-80-90",
+      "limitations": [],
+      "rings_lon_lat_deg": [
+        [
+          [
+            -180.0,
+            -80.0
+          ],
+          [
+            180.0,
+            -80.0
+          ],
+          [
+            180.0,
+            -90.0
+          ],
+          [
+            -180.0,
+            -90.0
+          ],
+          [
+            -180.0,
+            -80.0
+          ]
+        ]
+      ],
+      "supported_site_footprint": "lat <= -80.0"
+    }
+  ],
+  "schema_version": "3.0",
+  "source_ids": [
+    "synthetic-polar-demo-anchors"
+  ],
+  "terrain_model_id": "synthetic-polar-demo-v1",
+  "tiles": [
+    {
+      "file_id": "terrain-polar-farfield",
+      "priority": 1,
+      "resolution_m": 5000.0,
+      "tier": "far",
+      "tile_id": "polar-farfield"
+    }
+  ],
+  "validation_check_ids": [
+    "V04-terrain-tile-integrity"
+  ]
+}

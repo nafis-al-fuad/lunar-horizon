@@ -1,0 +1,85 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "results",
+  "limitations": [
+    "Mission summary metrics and evaluated thresholds."
+  ],
+  "metrics": {
+    "dte_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.24384998139880953,
+      "quality_flags": [],
+      "upper": 0.24384998139880953,
+      "value": 0.24384998139880953
+    },
+    "longest_dte_gap_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 914639.0625,
+      "quality_flags": [],
+      "upper": 914639.0625,
+      "value": 914639.0625
+    },
+    "longest_night_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 379532.8125,
+      "quality_flags": [],
+      "upper": 379532.8125,
+      "value": 379532.8125
+    },
+    "longest_sunlit_s": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 656915.625,
+      "quality_flags": [],
+      "upper": 656915.625,
+      "value": 656915.625
+    },
+    "min_sun_clearance_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": -3.5511518761579857,
+      "quality_flags": [],
+      "upper": -3.5511518761579857,
+      "value": -3.5511518761579857
+    },
+    "peak_sun_elevation_deg": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 3.8687633382708966,
+      "quality_flags": [],
+      "upper": 3.8687633382708966,
+      "value": 3.8687633382708966
+    },
+    "simultaneous_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.24033900669642858,
+      "quality_flags": [],
+      "upper": 0.24033900669642858,
+      "value": 0.24033900669642858
+    },
+    "sunlit_time_fraction": {
+      "basis": "supported_bound",
+      "experiment_ids": [],
+      "lower": 0.6827218191964286,
+      "quality_flags": [],
+      "upper": 0.6827218191964286,
+      "value": 0.6827218191964286
+    }
+  },
+  "model_version": "lunar-model-v1",
+  "outcome": "fails_selected_thresholds",
+  "scenario_id": "scenario-artemis-malapert-2026",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ],
+  "violated_thresholds": [
+    "Direct-to-Earth visibility 24.4% is below requirement 75.0%"
+  ]
+}

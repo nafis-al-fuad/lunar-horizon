@@ -1,0 +1,54 @@
+{
+  "aggregation": "maximum",
+  "arrays": [
+    {
+      "byte_offset": 0,
+      "dtype": "uint8",
+      "invalid_code": 255,
+      "name": "max_slope_deg",
+      "offset": 0.0,
+      "scale": 0.5,
+      "shape": [
+        121,
+        121
+      ],
+      "unit": "deg"
+    }
+  ],
+  "binary_file_id": "slope-polar-farfield-bin",
+  "columns": 121,
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "decoded_bytes": 14641,
+  "effective_baseline_m": 10000.0,
+  "file_kind": "slope_tile",
+  "limitations": [
+    "Synthetic demonstration slope layer quantized at 0.5 deg resolution derived from regional demonstration grid; for workflow demonstration only."
+  ],
+  "metric_spacing_method": "grid_step",
+  "model_version": "lunar-model-v1",
+  "native_posting_m": 5000.0,
+  "quantization": "ceil_half_degree",
+  "reference_radius_m": 1737400.0,
+  "rows": 121,
+  "schema_version": "3.0",
+  "slope_model_id": "synthetic-polar-slope-demo-v1",
+  "source_ids": [
+    "synthetic-polar-demo-anchors"
+  ],
+  "stencil": "central_difference_3x3",
+  "surface_frame": "MOON_ME_DE421",
+  "terrain_model_id": "synthetic-polar-demo-v1",
+  "tile_id": "polar-farfield",
+  "transform": [
+    5000.0,
+    0.0,
+    -300000.0,
+    0.0,
+    -5000.0,
+    300000.0
+  ],
+  "validation_check_ids": [
+    "V05-slope-tile-integrity"
+  ]
+}

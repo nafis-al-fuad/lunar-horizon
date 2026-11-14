@@ -1,0 +1,109 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "events": [
+    {
+      "et_s": 825806220.6,
+      "event_type": "eclipse_totality_ingress",
+      "id": "eclipse_totality_ingress-825806220",
+      "status": "refined",
+      "target": "sun",
+      "timing_resolution_s": 30.0
+    },
+    {
+      "et_s": 825814404.9,
+      "event_type": "eclipse_totality_egress",
+      "id": "eclipse_totality_egress-825814404",
+      "status": "refined",
+      "target": "sun",
+      "timing_resolution_s": 30.0
+    },
+    {
+      "et_s": 826318714.3,
+      "event_type": "sunset",
+      "id": "sunset-826318714",
+      "status": "refined",
+      "target": "sun",
+      "timing_resolution_s": 30.0
+    }
+  ],
+  "file_kind": "events",
+  "geometry_id": "geom-apollo-11",
+  "limitations": [
+    "Visibility timeline and bisection-refined illumination events."
+  ],
+  "model_version": "lunar-model-v1",
+  "scenario_id": "scenario-apollo-11-benchmark",
+  "schema_version": "3.0",
+  "search_status": "complete_under_tested_resolution",
+  "searched_span": {
+    "end_et_s": 826848069.0,
+    "start_et_s": 825638469.0
+  },
+  "source_ids": [],
+  "tracks": {
+    "dte": [
+      {
+        "duration_s": 1209600.0,
+        "end_et_s": 826848069.0,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      }
+    ],
+    "simultaneous": [
+      {
+        "duration_s": 167751.5625,
+        "end_et_s": 825806220.5625,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 8184.375,
+        "end_et_s": 825814404.9375,
+        "start_et_s": 825806220.5625,
+        "state": "blocked"
+      },
+      {
+        "duration_s": 504309.375,
+        "end_et_s": 826318714.3125,
+        "start_et_s": 825814404.9375,
+        "state": "clear"
+      },
+      {
+        "duration_s": 529354.6875,
+        "end_et_s": 826848069.0,
+        "start_et_s": 826318714.3125,
+        "state": "blocked"
+      }
+    ],
+    "sunlight": [
+      {
+        "duration_s": 167751.5625,
+        "end_et_s": 825806220.5625,
+        "start_et_s": 825638469.0,
+        "state": "clear"
+      },
+      {
+        "duration_s": 8184.375,
+        "end_et_s": 825814404.9375,
+        "start_et_s": 825806220.5625,
+        "state": "blocked"
+      },
+      {
+        "duration_s": 504309.375,
+        "end_et_s": 826318714.3125,
+        "start_et_s": 825814404.9375,
+        "state": "clear"
+      },
+      {
+        "duration_s": 529354.6875,
+        "end_et_s": 826848069.0,
+        "start_et_s": 826318714.3125,
+        "state": "blocked"
+      }
+    ]
+  },
+  "validation_check_ids": [
+    "V08-timeline-events-integrity"
+  ]
+}

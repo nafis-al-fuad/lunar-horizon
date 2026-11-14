@@ -1,0 +1,392 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "sites",
+  "limitations": [
+    "South Pole coordinates are derived from NASA Artemis III candidate region selections and LOLA altimetry.",
+    "Terrain heights are relative to reference sphere radius 1,737,400 m.",
+    "Far-side and equatorial sites are benchmark comparison points without polar terrain masks."
+  ],
+  "model_version": "lunar-model-v1",
+  "schema_version": "3.0",
+  "sites": [
+    {
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 30.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "shackleton-connecting-ridge",
+      "lat_deg": -89.44,
+      "limitations": [
+        "Elevation (1177.5 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": -137.4,
+      "name": "Shackleton Connecting Ridge (Site 001)",
+      "quality_flags": [
+        "polar_candidate",
+        "high_illumination"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "shackleton",
+        "connecting-ridge"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 1177.5
+    },
+    {
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 30.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "shackleton-rim",
+      "lat_deg": -89.66,
+      "limitations": [
+        "Elevation (1049.1 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": 129.2,
+      "name": "Shackleton Crater Rim Ridge",
+      "quality_flags": [
+        "polar_candidate",
+        "ridge_crest"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "shackleton"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 1049.1
+    },
+    {
+      "coordinate_source_id": "lola-polar-barker2021",
+      "coordinate_uncertainty_m": 25.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "peak-of-eternal-light-1",
+      "lat_deg": -89.74,
+      "limitations": [
+        "Elevation (1025.6 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": 123.5,
+      "name": "Peak of Eternal Light 1 (PEL 1)",
+      "quality_flags": [
+        "study_benchmark",
+        "quasi_permanent_light"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "shackleton"
+      ],
+      "site_type": "study_point",
+      "terrain_height_m": 1025.6
+    },
+    {
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 40.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "malapert-massif",
+      "lat_deg": -85.99,
+      "limitations": [
+        "Elevation (2994.7 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": 2.93,
+      "name": "Malapert Massif Summit (Site 004)",
+      "quality_flags": [
+        "polar_candidate",
+        "high_elevation",
+        "periodic_earth_view"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "malapert"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 2994.7
+    },
+    {
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 40.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "haworth-rim",
+      "lat_deg": -87.45,
+      "limitations": [
+        "Elevation (2044.0 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": -5.17,
+      "name": "Haworth Crater Rim Ridge",
+      "quality_flags": [
+        "polar_candidate",
+        "psr_adjacent"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "haworth"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 2044.0
+    },
+    {
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 40.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "nobile-rim-1",
+      "lat_deg": -85.2,
+      "limitations": [
+        "Elevation (3620.1 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": 37.8,
+      "name": "Nobile Crater Rim (Mons Mouton)",
+      "quality_flags": [
+        "polar_candidate",
+        "plateau_landing"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "nobile"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 3620.1
+    },
+    {
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 50.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "amundsen-rim",
+      "lat_deg": -84.5,
+      "limitations": [
+        "Elevation (2419.6 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": 82.8,
+      "name": "Amundsen Crater Rim",
+      "quality_flags": [
+        "polar_candidate"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "amundsen"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 2419.6
+    },
+    {
+      "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
+      "coordinate_uncertainty_m": 35.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "de-gerlache-rim-1",
+      "lat_deg": -88.5,
+      "limitations": [
+        "Elevation (1569.5 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": -88.3,
+      "name": "de Gerlache Crater Rim Ridge",
+      "quality_flags": [
+        "polar_candidate"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "de-gerlache"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 1569.5
+    },
+    {
+      "coordinate_source_id": "clps-im1-flight-records",
+      "coordinate_uncertainty_m": 50.0,
+      "default_mast_height_m": 1.5,
+      "frame": "MOON_ME_DE421",
+      "id": "im-1-odysseus",
+      "lat_deg": -80.13,
+      "limitations": [
+        "Elevation (4334.2 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": 1.44,
+      "name": "Intuitive Machines IM-1 (Odysseus / Malapert A)",
+      "quality_flags": [
+        "achieved_landing",
+        "clps_mission"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "malapert"
+      ],
+      "site_type": "achieved_landing",
+      "terrain_height_m": 4334.2
+    },
+    {
+      "coordinate_source_id": "clps-im2-mission-plan",
+      "coordinate_uncertainty_m": 50.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "im-2-prime-1",
+      "lat_deg": -89.28,
+      "limitations": [
+        "Elevation (1227.3 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
+      ],
+      "lon_deg": -138.6,
+      "name": "Intuitive Machines IM-2 (PRIME-1 target)",
+      "quality_flags": [
+        "candidate",
+        "clps_mission"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "connecting-ridge"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": 1227.3
+    },
+    {
+      "coordinate_source_id": "isro-ch3-landing-report",
+      "coordinate_uncertainty_m": 10.0,
+      "default_mast_height_m": 1.5,
+      "frame": "MOON_ME_DE421",
+      "id": "chandrayaan-3",
+      "lat_deg": -69.373,
+      "limitations": [
+        "Historic soft landing achieved 2023-08-23 between Manzinus C and Simpelius N."
+      ],
+      "lon_deg": 32.319,
+      "name": "Chandrayaan-3 (Shiv Shakti Point)",
+      "quality_flags": [
+        "achieved_landing",
+        "high_latitude_benchmark"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "south-subpolar"
+      ],
+      "site_type": "achieved_landing",
+      "terrain_height_m": -420.0
+    },
+    {
+      "coordinate_source_id": "jaxa-slim-pinpoint-report",
+      "coordinate_uncertainty_m": 5.0,
+      "default_mast_height_m": 1.0,
+      "frame": "MOON_ME_DE421",
+      "id": "slim-shioli",
+      "lat_deg": -13.316,
+      "limitations": [
+        "JAXA pinpoint landing demonstration on 2024-01-19 within 55m of target."
+      ],
+      "lon_deg": 25.251,
+      "name": "SLIM (Shioli Crater Rim)",
+      "quality_flags": [
+        "achieved_landing",
+        "pinpoint_landing"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "equatorial"
+      ],
+      "site_type": "achieved_landing",
+      "terrain_height_m": -850.0
+    },
+    {
+      "coordinate_source_id": "lroc-apollo-coordinates-v1",
+      "coordinate_uncertainty_m": 1.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "apollo-11",
+      "lat_deg": 0.6741,
+      "limitations": [
+        "LROC NAC determined coordinates for the Apollo 11 Lunar Module descent stage."
+      ],
+      "lon_deg": 23.473,
+      "name": "Apollo 11 (Statio Tranquillitatis)",
+      "quality_flags": [
+        "achieved_landing",
+        "equatorial_benchmark"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "equatorial"
+      ],
+      "site_type": "achieved_landing",
+      "terrain_height_m": -1400.0
+    },
+    {
+      "coordinate_source_id": "lroc-apollo-coordinates-v1",
+      "coordinate_uncertainty_m": 1.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "apollo-17",
+      "lat_deg": 20.1908,
+      "limitations": [
+        "LROC NAC determined coordinates for the Apollo 17 Challenger descent stage."
+      ],
+      "lon_deg": 30.7717,
+      "name": "Apollo 17 (Taurus-Littrow)",
+      "quality_flags": [
+        "achieved_landing",
+        "valley_benchmark"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "equatorial"
+      ],
+      "site_type": "achieved_landing",
+      "terrain_height_m": -2500.0
+    },
+    {
+      "coordinate_source_id": "lroc-change4-landing-report",
+      "coordinate_uncertainty_m": 10.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "change-4",
+      "lat_deg": -45.457,
+      "limitations": [
+        "First lunar far side soft landing on 2019-01-03; zero direct Earth line-of-sight."
+      ],
+      "lon_deg": 177.589,
+      "name": "Chang'e-4 (Von Kármán Crater / Far Side)",
+      "quality_flags": [
+        "achieved_landing",
+        "far_side_benchmark",
+        "no_direct_earth"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "far-side"
+      ],
+      "site_type": "achieved_landing",
+      "terrain_height_m": -5900.0
+    },
+    {
+      "coordinate_source_id": "clps-blueghost1-plan",
+      "coordinate_uncertainty_m": 50.0,
+      "default_mast_height_m": 2.0,
+      "frame": "MOON_ME_DE421",
+      "id": "blue-ghost-1",
+      "lat_deg": 18.56,
+      "limitations": [
+        "Planned CLPS landing target in Mare Crisium basin."
+      ],
+      "lon_deg": 61.81,
+      "name": "Astrobotic Blue Ghost 1 (Mare Crisium)",
+      "quality_flags": [
+        "candidate",
+        "clps_mission"
+      ],
+      "reference_meridian_deg": null,
+      "region_ids": [
+        "equatorial"
+      ],
+      "site_type": "candidate",
+      "terrain_height_m": -3600.0
+    }
+  ],
+  "source_ids": [
+    "nasa-artemis-candidate-regions-2024",
+    "lola-polar-barker2021",
+    "lroc-polar-dem-v1",
+    "lroc-apollo-coordinates-v1"
+  ],
+  "validation_check_ids": [
+    "V02-site-catalog-integrity"
+  ]
+}

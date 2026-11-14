@@ -1,0 +1,37 @@
+{
+  "data_kind": "computed",
+  "dataset_id": "lunar-horizon-release-v1",
+  "file_kind": "scenario",
+  "geometry_id": "geom-im-2-prime-1",
+  "horizon_mode": "terrain",
+  "limitations": [
+    "Evaluated mission scenario with real DE440 ephemeris and terrain skyline."
+  ],
+  "location": {
+    "frame": "MOON_ME_DE421",
+    "lat_deg": -89.28,
+    "lon_deg": -138.6,
+    "reference_meridian_deg": null,
+    "site_id": "im-2-prime-1",
+    "terrain_height_m": 1227.3
+  },
+  "mast_height_m": 2.0,
+  "model_version": "lunar-model-v1",
+  "profile_id": "geometric-none",
+  "scenario_id": "scenario-im2-prime1-2026",
+  "schema_version": "3.0",
+  "source_ids": [],
+  "thresholds": {
+    "max_night_hours": 120.0,
+    "min_dte_fraction": 0.4,
+    "min_sun_fraction": 0.3
+  },
+  "title": "CLPS IM-2 Polar Drill Site",
+  "validation_check_ids": [
+    "V09-scenario-metrics-integrity"
+  ],
+  "window": {
+    "end_et_s": 826848069.0,
+    "start_et_s": 825638469.0
+  }
+}
