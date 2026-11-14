@@ -1,0 +1,178 @@
+{
+  "evidence": [
+    {
+      "acquisition": {
+        "bytes": 5257,
+        "note": "Source specification timestamp is supplied metadata; received_at_utc records this acquisition.",
+        "received_at_utc": "2026-11-13T18:05:36.730347Z",
+        "resolved_url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls",
+        "sha256": "678e32bdb5a744117a467cd9601cd6b373f0e9bc9bbde1371d5eee39600a039b"
+      },
+      "specification": {
+        "bytes": 5257,
+        "citation": "NASA/JPL NAIF generic kernels: UTC/TDB leap-second conversion",
+        "filename": "naif0012.tls",
+        "id": "naif0012",
+        "license": "NAIF Rules Regarding Use of SPICE: https://naif.jpl.nasa.gov/naif/rules.html ; unmodified NAIF kernels may be redistributed; AS-IS, no warranty.",
+        "native_frame": null,
+        "product_version": "naif0012.tls",
+        "redistribution_status": "permitted",
+        "retrieved_at_utc": "2026-11-13T18:00:40.897950Z",
+        "sha256": "678e32bdb5a744117a467cd9601cd6b373f0e9bc9bbde1371d5eee39600a039b",
+        "time_coverage": null,
+        "units": "SPICE native km, seconds and radians; inspect kernel comments for constants",
+        "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls"
+      }
+    },
+    {
+      "acquisition": {
+        "bytes": 131226,
+        "note": "Source specification timestamp is supplied metadata; received_at_utc records this acquisition.",
+        "received_at_utc": "2026-11-13T18:05:41.266489Z",
+        "resolved_url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/pck00011.tpc",
+        "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1"
+      },
+      "specification": {
+        "bytes": 131226,
+        "citation": "NASA/JPL NAIF generic kernels: Physical constants; no spherical radius inferred from axes",
+        "filename": "pck00011.tpc",
+        "id": "pck00011",
+        "license": "NAIF Rules Regarding Use of SPICE: https://naif.jpl.nasa.gov/naif/rules.html ; unmodified NAIF kernels may be redistributed; AS-IS, no warranty.",
+        "native_frame": null,
+        "product_version": "pck00011.tpc",
+        "redistribution_status": "permitted",
+        "retrieved_at_utc": "2026-11-13T18:00:44.315745Z",
+        "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1",
+        "time_coverage": null,
+        "units": "SPICE native km, seconds and radians; inspect kernel comments for constants",
+        "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/pck00011.tpc"
+      }
+    },
+    {
+      "acquisition": {
+        "bytes": 21437,
+        "note": "Source specification timestamp is supplied metadata; received_at_utc records this acquisition.",
+        "received_at_utc": "2026-11-13T18:05:42.766516Z",
+        "resolved_url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/fk/satellites/moon_080317.tf",
+        "sha256": "78732477b96f9863e7b0d65bcee3c22b8707ca5ed0db56d1173319cb2e8c7993"
+      },
+      "specification": {
+        "bytes": 21437,
+        "citation": "NASA/JPL NAIF generic kernels: Explicit DE421 lunar ME/PA frame definitions",
+        "filename": "moon_080317.tf",
+        "id": "moon-080317",
+        "license": "NAIF Rules Regarding Use of SPICE: https://naif.jpl.nasa.gov/naif/rules.html ; unmodified NAIF kernels may be redistributed; AS-IS, no warranty.",
+        "native_frame": "MOON_ME_DE421",
+        "product_version": "moon_080317.tf",
+        "redistribution_status": "permitted",
+        "retrieved_at_utc": "2026-11-13T18:00:45.542507Z",
+        "sha256": "78732477b96f9863e7b0d65bcee3c22b8707ca5ed0db56d1173319cb2e8c7993",
+        "time_coverage": null,
+        "units": "SPICE native km, seconds and radians; inspect kernel comments for constants",
+        "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/fk/satellites/moon_080317.tf"
+      }
+    },
+    {
+      "acquisition": {
+        "bytes": 1770496,
+        "note": "Source specification timestamp is supplied metadata; received_at_utc records this acquisition.",
+        "received_at_utc": "2026-11-13T18:06:00.613935Z",
+        "resolved_url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/moon_pa_de421_1900-2050.bpc",
+        "sha256": "656f90616403d75a75f0cd6c8830fc5b44f8cb4facb5ccb8915e752b397520cf"
+      },
+      "coverage_et_s": {
+        "31006": [
+          -3155716800.0,
+          1609416000.0
+        ]
+      },
+      "orientation_ids": [
+        31006
+      ],
+      "specification": {
+        "bytes": 1770496,
+        "citation": "NASA/JPL NAIF generic kernels: DE421 orientation, coverage inspected at runtime",
+        "filename": "moon_pa_de421_1900-2050.bpc",
+        "id": "moon-pa-de421",
+        "license": "NAIF Rules Regarding Use of SPICE: https://naif.jpl.nasa.gov/naif/rules.html ; unmodified NAIF kernels may be redistributed; AS-IS, no warranty.",
+        "native_frame": "MOON_PA_DE421",
+        "product_version": "moon_pa_de421_1900-2050.bpc",
+        "redistribution_status": "permitted",
+        "retrieved_at_utc": "2026-11-13T18:01:04.402463Z",
+        "sha256": "656f90616403d75a75f0cd6c8830fc5b44f8cb4facb5ccb8915e752b397520cf",
+        "time_coverage": null,
+        "units": "SPICE native km, seconds and radians; inspect kernel comments for constants",
+        "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/moon_pa_de421_1900-2050.bpc"
+      }
+    },
+    {
+      "acquisition": {
+        "bytes": 32726016,
+        "note": "Source specification timestamp is supplied metadata; received_at_utc records this acquisition.",
+        "received_at_utc": "2026-11-13T18:10:43.893161Z",
+        "resolved_url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp",
+        "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2"
+      },
+      "bodies": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        199,
+        299,
+        301,
+        399
+      ],
+      "coverage_et_s": {
+        "10": [
+          -4734072000.0,
+          4735368000.0
+        ],
+        "3": [
+          -4734072000.0,
+          4735368000.0
+        ],
+        "301": [
+          -4734072000.0,
+          4735368000.0
+        ],
+        "399": [
+          -4734072000.0,
+          4735368000.0
+        ]
+      },
+      "specification": {
+        "bytes": 32726016,
+        "citation": "NASA/JPL NAIF generic kernels: DE440 short planetary ephemeris, coverage inspected at runtime",
+        "filename": "de440s.bsp",
+        "id": "de440s",
+        "license": "NAIF Rules Regarding Use of SPICE: https://naif.jpl.nasa.gov/naif/rules.html ; unmodified NAIF kernels may be redistributed; AS-IS, no warranty.",
+        "native_frame": "J2000",
+        "product_version": "de440s.bsp",
+        "redistribution_status": "permitted",
+        "retrieved_at_utc": "2026-11-13T18:04:50.269633Z",
+        "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+        "time_coverage": null,
+        "units": "SPICE native km, seconds and radians; inspect kernel comments for constants",
+        "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp"
+      }
+    }
+  ],
+  "kernel_load_order": [
+    "naif0012",
+    "pck00011",
+    "moon-080317",
+    "moon-pa-de421",
+    "de440s"
+  ],
+  "transformations": [
+    "SPK J2000 Moon-center position with NONE or LT+S; rotate with pxform at observation ET.",
+    "Direction/range Float64 -> little-endian Float32; separate profile arrays; no raw kernels shipped."
+  ]
+}

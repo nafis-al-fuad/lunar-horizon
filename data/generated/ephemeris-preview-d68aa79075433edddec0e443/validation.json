@@ -1,0 +1,3902 @@
+{
+  "actual_browser": "not_run",
+  "chunks": [
+    {
+      "chunk_id": "chunk-0000",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.5113851762056874e-06,
+            "float64_angular_deg": 5.518102842740839e-06,
+            "range_error_km": 0.02257105690659955
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8258400001157712e-05,
+            "float64_angular_deg": 1.7317656152632377e-05,
+            "range_error_km": 8.645299345254898
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.51417165260672e-06,
+            "float64_angular_deg": 5.518387679013353e-06,
+            "range_error_km": 0.028109600651077926
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8462209956995502e-05,
+            "float64_angular_deg": 1.731765333213333e-05,
+            "range_error_km": 8.324142068624496
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0001",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.475799609215683e-06,
+            "float64_angular_deg": 4.4269226876599875e-06,
+            "range_error_km": 0.027441494807135314
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.881130116139245e-05,
+            "float64_angular_deg": 1.7368259964850293e-05,
+            "range_error_km": 8.993457287549973
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.438839882734521e-06,
+            "float64_angular_deg": 4.426852704262019e-06,
+            "range_error_km": 0.02546446956694126
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.818571885358789e-05,
+            "float64_angular_deg": 1.7368271188656835e-05,
+            "range_error_km": 8.754526525735855
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0002",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.273168981559369e-06,
+            "float64_angular_deg": 4.219664969090022e-06,
+            "range_error_km": 0.02631194470450282
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8469868151225173e-05,
+            "float64_angular_deg": 1.743431865485819e-05,
+            "range_error_km": 8.05166471004486
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.336407341170143e-06,
+            "float64_angular_deg": 4.219917653894405e-06,
+            "range_error_km": 0.024361238232813776
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.898007594049179e-05,
+            "float64_angular_deg": 1.74343176118721e-05,
+            "range_error_km": 9.470288246870041
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0003",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.227397288053418e-06,
+            "float64_angular_deg": 5.263361014579529e-06,
+            "range_error_km": 0.02246544463559985
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8617338236900546e-05,
+            "float64_angular_deg": 1.74823562474133e-05,
+            "range_error_km": 8.560398548841476
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.282084701755756e-06,
+            "float64_angular_deg": 5.263217017154496e-06,
+            "range_error_km": 0.022051126812584698
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8726811924899878e-05,
+            "float64_angular_deg": 1.748223577903811e-05,
+            "range_error_km": 8.493421852588654
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0004",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.961086086074583e-06,
+            "float64_angular_deg": 5.92215322812197e-06,
+            "range_error_km": 0.02694559725932777
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8935580448147166e-05,
+            "float64_angular_deg": 1.7551649111519294e-05,
+            "range_error_km": 9.149806767702103
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.9435642594428985e-06,
+            "float64_angular_deg": 5.922293911539746e-06,
+            "range_error_km": 0.029001366812735796
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9171297160992485e-05,
+            "float64_angular_deg": 1.7551764875408068e-05,
+            "range_error_km": 9.156626045703888
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0005",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.332090244320396e-06,
+            "float64_angular_deg": 6.333302875113007e-06,
+            "range_error_km": 0.028298179560806602
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.822732231407565e-05,
+            "float64_angular_deg": 1.7512113197689565e-05,
+            "range_error_km": 9.00375109910965
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.294720963763937e-06,
+            "float64_angular_deg": 6.33297719136283e-06,
+            "range_error_km": 0.028961949632503092
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.858239316624354e-05,
+            "float64_angular_deg": 1.7512358433074377e-05,
+            "range_error_km": 8.739538103342056
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0006",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.883337885860624e-06,
+            "float64_angular_deg": 5.908402782663902e-06,
+            "range_error_km": 0.027228832594119012
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8517708521303167e-05,
+            "float64_angular_deg": 1.7605893730785567e-05,
+            "range_error_km": 8.705935269594193
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.8810680035468635e-06,
+            "float64_angular_deg": 5.908625576205582e-06,
+            "range_error_km": 0.02946346579119563
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9129373973144935e-05,
+            "float64_angular_deg": 1.7605810668084597e-05,
+            "range_error_km": 8.971232026815414
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0007",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.715968576837953e-06,
+            "float64_angular_deg": 4.655114373971705e-06,
+            "range_error_km": 0.026209872332401574
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8647062578712624e-05,
+            "float64_angular_deg": 1.7581208163928352e-05,
+            "range_error_km": 8.978460222482681
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.634421674104428e-06,
+            "float64_angular_deg": 4.655046594456866e-06,
+            "range_error_km": 0.026222077489364892
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.873804420022919e-05,
+            "float64_angular_deg": 1.7581155079624286e-05,
+            "range_error_km": 8.93809512257576
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0008",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.887921671184756e-06,
+            "float64_angular_deg": 3.866616687229761e-06,
+            "range_error_km": 0.021182352327741683
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8409823824015532e-05,
+            "float64_angular_deg": 1.7497910674174097e-05,
+            "range_error_km": 8.45362412929535
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.86234930238234e-06,
+            "float64_angular_deg": 3.8665426907134955e-06,
+            "range_error_km": 0.020267083251383156
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8827422601340445e-05,
+            "float64_angular_deg": 1.7497823089805096e-05,
+            "range_error_km": 8.811900466680527
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0009",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.34358197064822e-06,
+            "float64_angular_deg": 4.332830338587806e-06,
+            "range_error_km": 0.024415083462372422
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8336202446919704e-05,
+            "float64_angular_deg": 1.7446366667966675e-05,
+            "range_error_km": 9.013276159763336
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.454999512033228e-06,
+            "float64_angular_deg": 4.3324924853717596e-06,
+            "range_error_km": 0.02292243472766131
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8606071703643827e-05,
+            "float64_angular_deg": 1.7446375419352834e-05,
+            "range_error_km": 8.585014998912811
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0010",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.532630967244807e-06,
+            "float64_angular_deg": 5.592695841697947e-06,
+            "range_error_km": 0.02863430615980178
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8369290247421058e-05,
+            "float64_angular_deg": 1.7354443781583313e-05,
+            "range_error_km": 8.327532410621643
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.689337343395696e-06,
+            "float64_angular_deg": 5.5925932302823405e-06,
+            "range_error_km": 0.030728348530828953
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.900307173704635e-05,
+            "float64_angular_deg": 1.7354443279968792e-05,
+            "range_error_km": 8.310659736394882
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0011",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.8068987997801245e-06,
+            "float64_angular_deg": 6.691659954808816e-06,
+            "range_error_km": 0.024610959109850228
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.7876013386728235e-05,
+            "float64_angular_deg": 1.7315517088386526e-05,
+            "range_error_km": 9.098796099424362
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.698888962151615e-06,
+            "float64_angular_deg": 6.691697975166627e-06,
+            "range_error_km": 0.030125008488539606
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.855616145057145e-05,
+            "float64_angular_deg": 1.731550566583569e-05,
+            "range_error_km": 8.774876236915588
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0012",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.862505454226179e-06,
+            "float64_angular_deg": 6.821257503640745e-06,
+            "range_error_km": 0.030354384798556566
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8304250684028558e-05,
+            "float64_angular_deg": 1.7310392278240244e-05,
+            "range_error_km": 8.580484807491302
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.814928910224558e-06,
+            "float64_angular_deg": 6.820974346630549e-06,
+            "range_error_km": 0.028114437707699835
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8884998506053886e-05,
+            "float64_angular_deg": 1.731041468011048e-05,
+            "range_error_km": 8.984331220388412
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0013",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.845585998717871e-06,
+            "float64_angular_deg": 5.842912134436934e-06,
+            "range_error_km": 0.027194271853659302
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.886339228993801e-05,
+            "float64_angular_deg": 1.733665284083026e-05,
+            "range_error_km": 8.47436147928238
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.823871223184529e-06,
+            "float64_angular_deg": 5.842904235136623e-06,
+            "range_error_km": 0.02469279826618731
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8682833784853404e-05,
+            "float64_angular_deg": 1.7336670561158742e-05,
+            "range_error_km": 8.803880095481873
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0014",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.451182307241064e-06,
+            "float64_angular_deg": 4.357303992284697e-06,
+            "range_error_km": 0.027471107780002058
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8392932233461165e-05,
+            "float64_angular_deg": 1.7375469788524582e-05,
+            "range_error_km": 8.754418313503265
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.3256842462835745e-06,
+            "float64_angular_deg": 4.357282271148533e-06,
+            "range_error_km": 0.0275032453937456
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8466570748900872e-05,
+            "float64_angular_deg": 1.73754050441293e-05,
+            "range_error_km": 8.603366196155548
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0015",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.2878572333448145e-06,
+            "float64_angular_deg": 3.204686450975919e-06,
+            "range_error_km": 0.02341399941360578
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.838184503798406e-05,
+            "float64_angular_deg": 1.7459095875672493e-05,
+            "range_error_km": 8.472840875387192
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.1992944568539234e-06,
+            "float64_angular_deg": 3.20466077225809e-06,
+            "range_error_km": 0.02448660839581862
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9048937383350254e-05,
+            "float64_angular_deg": 1.7459034486071395e-05,
+            "range_error_km": 8.40186756849289
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0016",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.6939360549821974e-06,
+            "float64_angular_deg": 3.7569096987949834e-06,
+            "range_error_km": 0.02246810559881851
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8744837505378717e-05,
+            "float64_angular_deg": 1.750843019668451e-05,
+            "range_error_km": 8.556514620780945
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.770147875137351e-06,
+            "float64_angular_deg": 3.756841778054658e-06,
+            "range_error_km": 0.024936350411735475
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.829381631994694e-05,
+            "float64_angular_deg": 1.7508520930858057e-05,
+            "range_error_km": 8.000293791294098
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0017",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.1243770301636945e-06,
+            "float64_angular_deg": 5.180581824954925e-06,
+            "range_error_km": 0.024699778179638088
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8634067251462498e-05,
+            "float64_angular_deg": 1.758601389932132e-05,
+            "range_error_km": 8.715184390544891
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.1906413534808414e-06,
+            "float64_angular_deg": 5.180676024797637e-06,
+            "range_error_km": 0.026793404016643763
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.880040657554169e-05,
+            "float64_angular_deg": 1.7586077328842444e-05,
+            "range_error_km": 8.61683115363121
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0018",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.249104572740837e-06,
+            "float64_angular_deg": 6.200971718345043e-06,
+            "range_error_km": 0.02915287367068231
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.874281994095297e-05,
+            "float64_angular_deg": 1.7539489399325498e-05,
+            "range_error_km": 9.1163110435009
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.234155479639493e-06,
+            "float64_angular_deg": 6.200894182653074e-06,
+            "range_error_km": 0.029402313462924212
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8754822138233767e-05,
+            "float64_angular_deg": 1.753970856623362e-05,
+            "range_error_km": 8.850278913974762
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0019",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.537719127970233e-06,
+            "float64_angular_deg": 6.538176006126711e-06,
+            "range_error_km": 0.02971680328482762
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8370488158506878e-05,
+            "float64_angular_deg": 1.752442483139482e-05,
+            "range_error_km": 8.22738367319107
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.517477456752535e-06,
+            "float64_angular_deg": 6.538476107366186e-06,
+            "range_error_km": 0.027802191209048033
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8776476530840488e-05,
+            "float64_angular_deg": 1.752455260032161e-05,
+            "range_error_km": 8.163888573646545
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0020",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.185511177052451e-06,
+            "float64_angular_deg": 6.176341532058381e-06,
+            "range_error_km": 0.028135222964920104
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8376055439525856e-05,
+            "float64_angular_deg": 1.7513576198301545e-05,
+            "range_error_km": 8.087071537971497
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.1677739907507214e-06,
+            "float64_angular_deg": 6.17604032550928e-06,
+            "range_error_km": 0.024183902656659484
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8373270696871343e-05,
+            "float64_angular_deg": 1.7513515619159287e-05,
+            "range_error_km": 8.586158871650696
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0021",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.023843193651396e-06,
+            "float64_angular_deg": 4.959532426913716e-06,
+            "range_error_km": 0.026632436434738338
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.89200523919825e-05,
+            "float64_angular_deg": 1.74711958441221e-05,
+            "range_error_km": 8.982169568538666
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.1311142368829965e-06,
+            "float64_angular_deg": 4.959225846179074e-06,
+            "range_error_km": 0.02609660435700789
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.827796642403684e-05,
+            "float64_angular_deg": 1.747116118513366e-05,
+            "range_error_km": 9.557118237018585
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0022",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.576599404000784e-06,
+            "float64_angular_deg": 3.5496203976256232e-06,
+            "range_error_km": 0.024643069657031447
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8991120239658655e-05,
+            "float64_angular_deg": 1.7388339986058295e-05,
+            "range_error_km": 8.544901669025421
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.5877644530706564e-06,
+            "float64_angular_deg": 3.5496190561695247e-06,
+            "range_error_km": 0.024141695874277502
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9055141530075155e-05,
+            "float64_angular_deg": 1.738845708597588e-05,
+            "range_error_km": 9.03347596526146
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0023",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.753039251776122e-06,
+            "float64_angular_deg": 4.76514512116625e-06,
+            "range_error_km": 0.02746529085561633
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8371768993165648e-05,
+            "float64_angular_deg": 1.733213565122936e-05,
+            "range_error_km": 9.21453195810318
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.788141644066929e-06,
+            "float64_angular_deg": 4.765229226716534e-06,
+            "range_error_km": 0.020092601247597486
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8773960866373014e-05,
+            "float64_angular_deg": 1.7332172257690113e-05,
+            "range_error_km": 9.387185961008072
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0024",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.074837460041511e-06,
+            "float64_angular_deg": 6.122197317956738e-06,
+            "range_error_km": 0.027754856389947236
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.834118741857848e-05,
+            "float64_angular_deg": 1.7307081937556233e-05,
+            "range_error_km": 8.732279598712921
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.077959725183962e-06,
+            "float64_angular_deg": 6.122342031685945e-06,
+            "range_error_km": 0.029310012236237526
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8157442362276074e-05,
+            "float64_angular_deg": 1.7307136055034286e-05,
+            "range_error_km": 8.50444296002388
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0025",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 7.03876765108689e-06,
+            "float64_angular_deg": 6.960998329979753e-06,
+            "range_error_km": 0.029378326144069433
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.843148614848149e-05,
+            "float64_angular_deg": 1.7304054036657546e-05,
+            "range_error_km": 8.991767168045044
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.985039325446675e-06,
+            "float64_angular_deg": 6.960994544812568e-06,
+            "range_error_km": 0.030621104524470866
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8441315237963685e-05,
+            "float64_angular_deg": 1.7304146580291927e-05,
+            "range_error_km": 8.83338725566864
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0026",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.5286049058453626e-06,
+            "float64_angular_deg": 6.559924503220467e-06,
+            "range_error_km": 0.029808460851199925
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.812502243485831e-05,
+            "float64_angular_deg": 1.7360053839408466e-05,
+            "range_error_km": 8.056434124708176
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.5401707902586786e-06,
+            "float64_angular_deg": 6.560048212045713e-06,
+            "range_error_km": 0.027486212260555476
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8580596691543186e-05,
+            "float64_angular_deg": 1.7360101816056467e-05,
+            "range_error_km": 8.287165880203247
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0027",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.111433865562929e-06,
+            "float64_angular_deg": 5.0814052330171355e-06,
+            "range_error_km": 0.029441174818202853
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.853335529984735e-05,
+            "float64_angular_deg": 1.742593086052873e-05,
+            "range_error_km": 8.855099529027939
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.0408140354600645e-06,
+            "float64_angular_deg": 5.081562181729857e-06,
+            "range_error_km": 0.027223922952543944
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9119526187505972e-05,
+            "float64_angular_deg": 1.7425900077212784e-05,
+            "range_error_km": 8.66561621427536
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0028",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.7724610695468483e-06,
+            "float64_angular_deg": 3.713249325931389e-06,
+            "range_error_km": 0.024979678099043667
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8057613421186825e-05,
+            "float64_angular_deg": 1.748694339275233e-05,
+            "range_error_km": 9.314981818199158
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.697354482159878e-06,
+            "float64_angular_deg": 3.713227923815918e-06,
+            "range_error_km": 0.02710237691644579
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.876075491160715e-05,
+            "float64_angular_deg": 1.748702195166953e-05,
+            "range_error_km": 8.521030187606812
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0029",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.340714991319032e-06,
+            "float64_angular_deg": 3.3533419342868325e-06,
+            "range_error_km": 0.02537985285744071
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.847141744255098e-05,
+            "float64_angular_deg": 1.7565439825627923e-05,
+            "range_error_km": 8.896112203598022
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.3464894150917357e-06,
+            "float64_angular_deg": 3.353357383645603e-06,
+            "range_error_km": 0.02464313234668225
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8688110615160184e-05,
+            "float64_angular_deg": 1.7565433163675852e-05,
+            "range_error_km": 9.168604999780655
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0030",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.33853946659504e-06,
+            "float64_angular_deg": 4.365424014589477e-06,
+            "range_error_km": 0.025325226539280266
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9579998448437454e-05,
+            "float64_angular_deg": 1.7539130503370544e-05,
+            "range_error_km": 8.482537150382996
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.3175384751275145e-06,
+            "float64_angular_deg": 4.365429733352631e-06,
+            "range_error_km": 0.023415501229465008
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9336848106133258e-05,
+            "float64_angular_deg": 1.7539292656441425e-05,
+            "range_error_km": 9.491334229707718
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0031",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.3195981897011e-06,
+            "float64_angular_deg": 5.371928934065268e-06,
+            "range_error_km": 0.02516171184834093
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8245685161298644e-05,
+            "float64_angular_deg": 1.7579751065733568e-05,
+            "range_error_km": 8.862982422113419
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.425708109299783e-06,
+            "float64_angular_deg": 5.37216737874898e-06,
+            "range_error_km": 0.027356728562153876
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.860763305141004e-05,
+            "float64_angular_deg": 1.7579589381649773e-05,
+            "range_error_km": 7.961800545454025
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0032",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.4494204049720655e-06,
+            "float64_angular_deg": 6.397806040040577e-06,
+            "range_error_km": 0.02474504947895184
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8886877917976738e-05,
+            "float64_angular_deg": 1.755275069538434e-05,
+            "range_error_km": 8.593926012516022
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.473592250385675e-06,
+            "float64_angular_deg": 6.397790207569167e-06,
+            "range_error_km": 0.024671574123203754
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8904804358537683e-05,
+            "float64_angular_deg": 1.7552905268992246e-05,
+            "range_error_km": 8.827503144741058
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0033",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.206008118839591e-06,
+            "float64_angular_deg": 6.277285465304045e-06,
+            "range_error_km": 0.027026443043723702
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.855618783822252e-05,
+            "float64_angular_deg": 1.7504645020587324e-05,
+            "range_error_km": 9.009869247674942
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.2934786907349895e-06,
+            "float64_angular_deg": 6.277225767044459e-06,
+            "range_error_km": 0.02691963955294341
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8281306934821204e-05,
+            "float64_angular_deg": 1.7504559817695598e-05,
+            "range_error_km": 8.587547957897186
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0034",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.928310209275184e-06,
+            "float64_angular_deg": 5.96478182171765e-06,
+            "range_error_km": 0.027009631332475692
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9185084571871994e-05,
+            "float64_angular_deg": 1.7415164664607536e-05,
+            "range_error_km": 8.294024646282196
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.993562610882159e-06,
+            "float64_angular_deg": 5.965192822840439e-06,
+            "range_error_km": 0.02851282904157415
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.846024811735032e-05,
+            "float64_angular_deg": 1.7415187650922323e-05,
+            "range_error_km": 8.795903831720352
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0035",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.515473374113412e-06,
+            "float64_angular_deg": 4.4534660136371594e-06,
+            "range_error_km": 0.023013244615867734
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8157342640711433e-05,
+            "float64_angular_deg": 1.733745737769535e-05,
+            "range_error_km": 8.493015259504318
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.508371654629426e-06,
+            "float64_angular_deg": 4.453481206752813e-06,
+            "range_error_km": 0.023487645608838648
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8082669586289004e-05,
+            "float64_angular_deg": 1.7337454132228896e-05,
+            "range_error_km": 8.762955904006958
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0036",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.7956025878808942e-06,
+            "float64_angular_deg": 3.7713699710277556e-06,
+            "range_error_km": 0.026253474585246295
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8810981721048073e-05,
+            "float64_angular_deg": 1.7324086065932103e-05,
+            "range_error_km": 8.945140689611435
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.818996495266774e-06,
+            "float64_angular_deg": 3.771266484463021e-06,
+            "range_error_km": 0.023619196726940572
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8536839029785644e-05,
+            "float64_angular_deg": 1.7324053142480463e-05,
+            "range_error_km": 8.604194968938828
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0037",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.037264535842547e-06,
+            "float64_angular_deg": 5.046568587253635e-06,
+            "range_error_km": 0.023583667585626245
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8394399843698848e-05,
+            "float64_angular_deg": 1.7308676706447284e-05,
+            "range_error_km": 8.750304967164993
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.092611335250067e-06,
+            "float64_angular_deg": 5.046432907622808e-06,
+            "range_error_km": 0.026011607493273914
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8157417482999254e-05,
+            "float64_angular_deg": 1.73087664651017e-05,
+            "range_error_km": 8.88099816441536
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0038",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.182815254460387e-06,
+            "float64_angular_deg": 5.995869941456749e-06,
+            "range_error_km": 0.02996308304136619
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.907278475122296e-05,
+            "float64_angular_deg": 1.7379216191149202e-05,
+            "range_error_km": 8.99949249625206
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.9660635084987615e-06,
+            "float64_angular_deg": 5.995876124395037e-06,
+            "range_error_km": 0.029303549614269286
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.898139469375997e-05,
+            "float64_angular_deg": 1.7379260622177577e-05,
+            "range_error_km": 8.580484539270401
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0039",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.650916962579477e-06,
+            "float64_angular_deg": 6.6510847898086585e-06,
+            "range_error_km": 0.02830858522793278
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.844280642111109e-05,
+            "float64_angular_deg": 1.74290615822622e-05,
+            "range_error_km": 8.536122292280197
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.651529998339016e-06,
+            "float64_angular_deg": 6.651225529030062e-06,
+            "range_error_km": 0.02776331128552556
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8448023528121366e-05,
+            "float64_angular_deg": 1.7429079962795617e-05,
+            "range_error_km": 9.437708467245102
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0040",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.385608137971097e-06,
+            "float64_angular_deg": 6.328938498753676e-06,
+            "range_error_km": 0.02893809840315953
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8252378211441594e-05,
+            "float64_angular_deg": 1.7520339734575936e-05,
+            "range_error_km": 8.668035626411438
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.374845425576636e-06,
+            "float64_angular_deg": 6.32880931039123e-06,
+            "range_error_km": 0.028964240802451968
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.946773233339704e-05,
+            "float64_angular_deg": 1.7520337056274416e-05,
+            "range_error_km": 8.111103236675262
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0041",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.352066943786208e-06,
+            "float64_angular_deg": 5.328965385764273e-06,
+            "range_error_km": 0.02973420638591051
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.81978465300774e-05,
+            "float64_angular_deg": 1.757035189490333e-05,
+            "range_error_km": 8.608387142419815
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.411371172675091e-06,
+            "float64_angular_deg": 5.328924237871517e-06,
+            "range_error_km": 0.027520055300556123
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8584194304907274e-05,
+            "float64_angular_deg": 1.75703481248458e-05,
+            "range_error_km": 8.399624437093735
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0042",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.217959327233631e-06,
+            "float64_angular_deg": 4.146554209460876e-06,
+            "range_error_km": 0.0264036656008102
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9289454918822804e-05,
+            "float64_angular_deg": 1.7587338383299675e-05,
+            "range_error_km": 8.546495884656906
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.188395893839745e-06,
+            "float64_angular_deg": 4.146626342122678e-06,
+            "range_error_km": 0.024235347227659076
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.93308572706032e-05,
+            "float64_angular_deg": 1.7587251304262972e-05,
+            "range_error_km": 8.975638926029205
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0043",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.024454013681193e-06,
+            "float64_angular_deg": 3.9627461582728455e-06,
+            "range_error_km": 0.025370496208779514
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.898318670580238e-05,
+            "float64_angular_deg": 1.7568330054863128e-05,
+            "range_error_km": 8.403776854276657
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.9665809424578255e-06,
+            "float64_angular_deg": 3.96284195426568e-06,
+            "range_error_km": 0.02498479193309322
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.934413364301505e-05,
+            "float64_angular_deg": 1.7568326422156956e-05,
+            "range_error_km": 8.683763980865479
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0044",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.2245439240570165e-06,
+            "float64_angular_deg": 5.216229187341253e-06,
+            "range_error_km": 0.02855985995847732
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8623648462098418e-05,
+            "float64_angular_deg": 1.7538617259844712e-05,
+            "range_error_km": 9.048037469387054
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.192795480538102e-06,
+            "float64_angular_deg": 5.216032917370892e-06,
+            "range_error_km": 0.02430295350495726
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8341716195502734e-05,
+            "float64_angular_deg": 1.7538439595288177e-05,
+            "range_error_km": 8.874165743589401
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0045",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.148076912932851e-06,
+            "float64_angular_deg": 6.246678317640416e-06,
+            "range_error_km": 0.0283559329691343
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.866571269149961e-05,
+            "float64_angular_deg": 1.7415753236164005e-05,
+            "range_error_km": 8.931777566671371
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.315933400664152e-06,
+            "float64_angular_deg": 6.2467306462730845e-06,
+            "range_error_km": 0.027664838824421167
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9105858647361082e-05,
+            "float64_angular_deg": 1.741589048707703e-05,
+            "range_error_km": 9.14009714126587
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0046",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.845664194112941e-06,
+            "float64_angular_deg": 6.784358833945044e-06,
+            "range_error_km": 0.027396360645070672
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.882459970901896e-05,
+            "float64_angular_deg": 1.7392405295653936e-05,
+            "range_error_km": 9.01306039094925
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.888460262785162e-06,
+            "float64_angular_deg": 6.784157765995083e-06,
+            "range_error_km": 0.027884066570550203
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8524215047734514e-05,
+            "float64_angular_deg": 1.739254481315387e-05,
+            "range_error_km": 8.605159014463425
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0047",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.314800510023357e-06,
+            "float64_angular_deg": 6.296067477253986e-06,
+            "range_error_km": 0.024527975008822978
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8796389700795004e-05,
+            "float64_angular_deg": 1.7316682167747964e-05,
+            "range_error_km": 8.79678425192833
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.3097309140960265e-06,
+            "float64_angular_deg": 6.296094231942694e-06,
+            "range_error_km": 0.026032468595076352
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.82755714107016e-05,
+            "float64_angular_deg": 1.7316832966646665e-05,
+            "range_error_km": 9.035941362380981
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0048",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.019338606211954e-06,
+            "float64_angular_deg": 4.9969138063356434e-06,
+            "range_error_km": 0.024249395355582237
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8586579537225356e-05,
+            "float64_angular_deg": 1.7277796515719064e-05,
+            "range_error_km": 8.20666018128395
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.992245979206249e-06,
+            "float64_angular_deg": 4.996753211105159e-06,
+            "range_error_km": 0.023669611720833927
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9113894674817617e-05,
+            "float64_angular_deg": 1.7277925970220714e-05,
+            "range_error_km": 8.504650056362152
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0049",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.6466529011369715e-06,
+            "float64_angular_deg": 3.6536286422512045e-06,
+            "range_error_km": 0.025854933133814484
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.882236504867551e-05,
+            "float64_angular_deg": 1.7319519142479176e-05,
+            "range_error_km": 8.569896340370178
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.687301392085019e-06,
+            "float64_angular_deg": 3.6536856174644105e-06,
+            "range_error_km": 0.021994628885295242
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.813076860422599e-05,
+            "float64_angular_deg": 1.731940116669577e-05,
+            "range_error_km": 8.858873456716537
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0050",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.3834177198621416e-06,
+            "float64_angular_deg": 3.342775276274498e-06,
+            "range_error_km": 0.02095044165616855
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8142930403799845e-05,
+            "float64_angular_deg": 1.731876759869902e-05,
+            "range_error_km": 9.166013270616531
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.4036412965864104e-06,
+            "float64_angular_deg": 3.3428221502777346e-06,
+            "range_error_km": 0.023191688407678157
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8845465479495748e-05,
+            "float64_angular_deg": 1.731861307578377e-05,
+            "range_error_km": 8.375685304403305
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0051",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.750890509583119e-06,
+            "float64_angular_deg": 4.741038726889903e-06,
+            "range_error_km": 0.027925617003347725
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8927502629365355e-05,
+            "float64_angular_deg": 1.743337040651059e-05,
+            "range_error_km": 9.084377199411392
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.783234824499601e-06,
+            "float64_angular_deg": 4.741261964313526e-06,
+            "range_error_km": 0.023813295178115368
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9298407301860832e-05,
+            "float64_angular_deg": 1.743340375104031e-05,
+            "range_error_km": 8.65943905711174
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0052",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.120100853847056e-06,
+            "float64_angular_deg": 6.1111625110749456e-06,
+            "range_error_km": 0.027234412438701838
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8956271110012037e-05,
+            "float64_angular_deg": 1.748990088011778e-05,
+            "range_error_km": 8.67248609662056
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.110116134122028e-06,
+            "float64_angular_deg": 6.111233444568891e-06,
+            "range_error_km": 0.02822832012316212
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.873668616581722e-05,
+            "float64_angular_deg": 1.7489996625624077e-05,
+            "range_error_km": 9.076224476099014
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0053",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.79237698596622e-06,
+            "float64_angular_deg": 6.836286049327863e-06,
+            "range_error_km": 0.026320635806769133
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.872365278430802e-05,
+            "float64_angular_deg": 1.7540938051856926e-05,
+            "range_error_km": 8.36250326037407
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.7753538807930185e-06,
+            "float64_angular_deg": 6.8362232647456765e-06,
+            "range_error_km": 0.027489153144415468
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8659041588668062e-05,
+            "float64_angular_deg": 1.7540944933828946e-05,
+            "range_error_km": 8.131406843662262
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0054",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.4796083176123355e-06,
+            "float64_angular_deg": 6.467617248121615e-06,
+            "range_error_km": 0.025671720854006708
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.917882933094748e-05,
+            "float64_angular_deg": 1.7586400435549002e-05,
+            "range_error_km": 8.913821548223495
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.441389896220847e-06,
+            "float64_angular_deg": 6.467667513926118e-06,
+            "range_error_km": 0.030620343051850796
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.900114920026599e-05,
+            "float64_angular_deg": 1.7586438180354696e-05,
+            "range_error_km": 8.676913976669312
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0055",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.498735045807709e-06,
+            "float64_angular_deg": 5.478098916052223e-06,
+            "range_error_km": 0.025023571855854243
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9123209164768994e-05,
+            "float64_angular_deg": 1.7566447485814524e-05,
+            "range_error_km": 8.419310837984085
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.580703504182852e-06,
+            "float64_angular_deg": 5.477851928175926e-06,
+            "range_error_km": 0.027271438506431878
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.90439527176747e-05,
+            "float64_angular_deg": 1.756641118809436e-05,
+            "range_error_km": 9.016316294670105
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0056",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.038500464328466e-06,
+            "float64_angular_deg": 4.017046827940934e-06,
+            "range_error_km": 0.02393055392894894
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9054641816541063e-05,
+            "float64_angular_deg": 1.7490202941573625e-05,
+            "range_error_km": 8.427533686161041
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.933548667131209e-06,
+            "float64_angular_deg": 4.017062526567836e-06,
+            "range_error_km": 0.023573930782731622
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.872044299278795e-05,
+            "float64_angular_deg": 1.7490069377270872e-05,
+            "range_error_km": 8.858526080846786
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0057",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.297946032689568e-06,
+            "float64_angular_deg": 4.133122716797053e-06,
+            "range_error_km": 0.027621405199170113
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9229618241843982e-05,
+            "float64_angular_deg": 1.7462203376390554e-05,
+            "range_error_km": 9.196458518505096
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.281608356648675e-06,
+            "float64_angular_deg": 4.132859161822882e-06,
+            "range_error_km": 0.025976322242058814
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8671669521733936e-05,
+            "float64_angular_deg": 1.7462070873107736e-05,
+            "range_error_km": 8.909999638795853
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0058",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.892505763512399e-06,
+            "float64_angular_deg": 5.755361960942441e-06,
+            "range_error_km": 0.025581504916772246
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8017539181358202e-05,
+            "float64_angular_deg": 1.740977810954626e-05,
+            "range_error_km": 8.718586027622223
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.8363467215847135e-06,
+            "float64_angular_deg": 5.755270753353873e-06,
+            "range_error_km": 0.025917238497640938
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8290297177764743e-05,
+            "float64_angular_deg": 1.7409683890233295e-05,
+            "range_error_km": 8.65293836593628
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0059",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.7548125093423526e-06,
+            "float64_angular_deg": 6.739431116449349e-06,
+            "range_error_km": 0.02878664038144052
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9062443807894963e-05,
+            "float64_angular_deg": 1.734465250069465e-05,
+            "range_error_km": 8.075466871261597
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.733448855435299e-06,
+            "float64_angular_deg": 6.739686001549574e-06,
+            "range_error_km": 0.026320664735976607
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8333481638290515e-05,
+            "float64_angular_deg": 1.734453763698202e-05,
+            "range_error_km": 8.735105335712433
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0060",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.800875386855473e-06,
+            "float64_angular_deg": 6.804485936996873e-06,
+            "range_error_km": 0.027098567807115614
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9325908882910233e-05,
+            "float64_angular_deg": 1.7336639637766603e-05,
+            "range_error_km": 8.488599687814713
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.801250435921506e-06,
+            "float64_angular_deg": 6.804337973275789e-06,
+            "range_error_km": 0.029800777323544025
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8045586178954372e-05,
+            "float64_angular_deg": 1.7336531517865895e-05,
+            "range_error_km": 8.615836352109909
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0061",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.824182686704852e-06,
+            "float64_angular_deg": 5.784000231487089e-06,
+            "range_error_km": 0.02442214818438515
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8687706621263404e-05,
+            "float64_angular_deg": 1.7341581848776305e-05,
+            "range_error_km": 8.883605122566223
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.79099702958739e-06,
+            "float64_angular_deg": 5.783848168293704e-06,
+            "range_error_km": 0.028385147103108466
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.864945897158988e-05,
+            "float64_angular_deg": 1.734157252397883e-05,
+            "range_error_km": 8.206565380096436
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0062",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.372609275349255e-06,
+            "float64_angular_deg": 4.372581577764239e-06,
+            "range_error_km": 0.024133253551553935
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8484318363528924e-05,
+            "float64_angular_deg": 1.735484021430088e-05,
+            "range_error_km": 8.335562378168106
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.378063532403308e-06,
+            "float64_angular_deg": 4.372487657164308e-06,
+            "range_error_km": 0.02934215299319476
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9000126074246713e-05,
+            "float64_angular_deg": 1.7354969215142138e-05,
+            "range_error_km": 8.691152125597
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0063",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.161052478601583e-06,
+            "float64_angular_deg": 3.1298007353995047e-06,
+            "range_error_km": 0.022595890273805708
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8389391860376666e-05,
+            "float64_angular_deg": 1.739463389171026e-05,
+            "range_error_km": 9.027600735425949
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.170129929620726e-06,
+            "float64_angular_deg": 3.129861736075317e-06,
+            "range_error_km": 0.02309506107121706
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8476258561228462e-05,
+            "float64_angular_deg": 1.7394636764938412e-05,
+            "range_error_km": 8.432473987340927
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0064",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.8734693361607304e-06,
+            "float64_angular_deg": 3.93227345025719e-06,
+            "range_error_km": 0.02315234235720709
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.823885092204821e-05,
+            "float64_angular_deg": 1.749907995781117e-05,
+            "range_error_km": 9.058045774698257
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.916904100583577e-06,
+            "float64_angular_deg": 3.932220022412172e-06,
+            "range_error_km": 0.022190782125107944
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8748444973465542e-05,
+            "float64_angular_deg": 1.7499092513045262e-05,
+            "range_error_km": 9.266872853040695
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0065",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.367952592673967e-06,
+            "float64_angular_deg": 5.3445385145167324e-06,
+            "range_error_km": 0.025195591617375612
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9054144578274314e-05,
+            "float64_angular_deg": 1.75080793094516e-05,
+            "range_error_km": 8.870529800653458
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.39984951247145e-06,
+            "float64_angular_deg": 5.3447501094631155e-06,
+            "range_error_km": 0.026340776355937123
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8313903413053776e-05,
+            "float64_angular_deg": 1.7508184362325766e-05,
+            "range_error_km": 9.009836435317993
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0066",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.351164806151314e-06,
+            "float64_angular_deg": 6.335062878684677e-06,
+            "range_error_km": 0.023767846636474133
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8355856881242637e-05,
+            "float64_angular_deg": 1.7581158046182986e-05,
+            "range_error_km": 8.523139148950577
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.3958843170058e-06,
+            "float64_angular_deg": 6.335124839813459e-06,
+            "range_error_km": 0.02937461610417813
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.837001578609877e-05,
+            "float64_angular_deg": 1.7581162377283413e-05,
+            "range_error_km": 8.254322558641434
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0067",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.532074829536713e-06,
+            "float64_angular_deg": 6.504937715319956e-06,
+            "range_error_km": 0.026767667091917247
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.892892798708508e-05,
+            "float64_angular_deg": 1.75700943927604e-05,
+            "range_error_km": 8.371949434280396
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.504041549944424e-06,
+            "float64_angular_deg": 6.505160344831437e-06,
+            "range_error_km": 0.02481763146352023
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.909649093093567e-05,
+            "float64_angular_deg": 1.7570035048216316e-05,
+            "range_error_km": 9.09595301747322
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0068",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.506769463708528e-06,
+            "float64_angular_deg": 5.41801210691976e-06,
+            "range_error_km": 0.02957728924229741
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8718968635351124e-05,
+            "float64_angular_deg": 1.754506540805089e-05,
+            "range_error_km": 8.270798474550247
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.3882784457025e-06,
+            "float64_angular_deg": 5.417820062179617e-06,
+            "range_error_km": 0.028142456081695855
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8309001365689114e-05,
+            "float64_angular_deg": 1.7545076777317623e-05,
+            "range_error_km": 7.960771709680557
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0069",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.7863402000795764e-06,
+            "float64_angular_deg": 3.854562712530127e-06,
+            "range_error_km": 0.02637290843995288
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8836534159458253e-05,
+            "float64_angular_deg": 1.749510867749621e-05,
+            "range_error_km": 8.17771065235138
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.98468937432112e-06,
+            "float64_angular_deg": 3.854670552943421e-06,
+            "range_error_km": 0.024044637102633715
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8749014828336624e-05,
+            "float64_angular_deg": 1.749511900911862e-05,
+            "range_error_km": 8.69442555308342
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0070",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.400328314930517e-06,
+            "float64_angular_deg": 3.4192063200069858e-06,
+            "range_error_km": 0.025944132125005126
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.860862643741048e-05,
+            "float64_angular_deg": 1.7412062359523563e-05,
+            "range_error_km": 8.847130924463272
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.3737027027390255e-06,
+            "float64_angular_deg": 3.4192147242351133e-06,
+            "range_error_km": 0.022454408986959606
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8338758129665067e-05,
+            "float64_angular_deg": 1.7412171810108172e-05,
+            "range_error_km": 8.688038051128387
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0071",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.622898612582998e-06,
+            "float64_angular_deg": 4.572068038301585e-06,
+            "range_error_km": 0.025666370696853846
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8745650546389816e-05,
+            "float64_angular_deg": 1.736758078822951e-05,
+            "range_error_km": 8.570581883192062
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.652939439251925e-06,
+            "float64_angular_deg": 4.572104198639893e-06,
+            "range_error_km": 0.026019507611636072
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9483254024832896e-05,
+            "float64_angular_deg": 1.7367694609876648e-05,
+            "range_error_km": 8.33791834115982
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0072",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.6602672203967984e-06,
+            "float64_angular_deg": 5.747480597659175e-06,
+            "range_error_km": 0.02813483140198514
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9067388571949694e-05,
+            "float64_angular_deg": 1.727655976953696e-05,
+            "range_error_km": 8.73393851518631
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.828276507724547e-06,
+            "float64_angular_deg": 5.747527593060634e-06,
+            "range_error_km": 0.026934838970191777
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9004703002800765e-05,
+            "float64_angular_deg": 1.727633648499892e-05,
+            "range_error_km": 8.289176970720291
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0073",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.384870621182015e-06,
+            "float64_angular_deg": 6.370460219877051e-06,
+            "range_error_km": 0.03012028435477987
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8583586660161332e-05,
+            "float64_angular_deg": 1.726475465698769e-05,
+            "range_error_km": 9.018148213624954
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.362060306644045e-06,
+            "float64_angular_deg": 6.3706194864518135e-06,
+            "range_error_km": 0.030565302178729326
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8723129487170793e-05,
+            "float64_angular_deg": 1.7264573659687728e-05,
+            "range_error_km": 9.188831806182861
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0074",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.363329264886568e-06,
+            "float64_angular_deg": 6.335188044406752e-06,
+            "range_error_km": 0.027255770517513156
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.845722718197479e-05,
+            "float64_angular_deg": 1.7320514813412535e-05,
+            "range_error_km": 9.072157144546509
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.3611416845107736e-06,
+            "float64_angular_deg": 6.335011072553689e-06,
+            "range_error_km": 0.030428606551140547
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.883836533619808e-05,
+            "float64_angular_deg": 1.732032246286175e-05,
+            "range_error_km": 8.889973521232605
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0075",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.7293837085862446e-06,
+            "float64_angular_deg": 5.738744474028623e-06,
+            "range_error_km": 0.025420377554837614
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8317782534915726e-05,
+            "float64_angular_deg": 1.7388934068868165e-05,
+            "range_error_km": 9.239826709032059
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.722124320503566e-06,
+            "float64_angular_deg": 5.739117746558305e-06,
+            "range_error_km": 0.025687843095511198
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9092792490251116e-05,
+            "float64_angular_deg": 1.7388768033535608e-05,
+            "range_error_km": 8.315805226564407
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0076",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.525910303460212e-06,
+            "float64_angular_deg": 4.5324304291871724e-06,
+            "range_error_km": 0.02281080564716831
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9013024741266797e-05,
+            "float64_angular_deg": 1.7451062645937157e-05,
+            "range_error_km": 9.373598575592041
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.672464515189953e-06,
+            "float64_angular_deg": 4.532546689506037e-06,
+            "range_error_km": 0.024246991495601833
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8853742681606207e-05,
+            "float64_angular_deg": 1.7450936383721644e-05,
+            "range_error_km": 9.078956216573715
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0077",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.821353067891164e-06,
+            "float64_angular_deg": 3.81880215141931e-06,
+            "range_error_km": 0.02107179124141112
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8875288365645254e-05,
+            "float64_angular_deg": 1.7529305341871166e-05,
+            "range_error_km": 9.193998456001282
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.721744732032486e-06,
+            "float64_angular_deg": 3.818730686166925e-06,
+            "range_error_km": 0.023760174633935094
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8473338845392667e-05,
+            "float64_angular_deg": 1.7529402100069578e-05,
+            "range_error_km": 8.21399012207985
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0078",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.815712643856591e-06,
+            "float64_angular_deg": 4.795092610129507e-06,
+            "range_error_km": 0.02979000302730128
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9361431536039084e-05,
+            "float64_angular_deg": 1.755106890553254e-05,
+            "range_error_km": 9.348063170909882
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.917475376506709e-06,
+            "float64_angular_deg": 4.794853013161164e-06,
+            "range_error_km": 0.0282301680999808
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.879333580782527e-05,
+            "float64_angular_deg": 1.7550952302412054e-05,
+            "range_error_km": 8.853204548358917
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0079",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.9318605243883225e-06,
+            "float64_angular_deg": 5.937316497987066e-06,
+            "range_error_km": 0.028739166737068444
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8800230615635105e-05,
+            "float64_angular_deg": 1.7566233500900308e-05,
+            "range_error_km": 8.937481224536896
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.93054274567835e-06,
+            "float64_angular_deg": 5.937467039532758e-06,
+            "range_error_km": 0.024238915706519037
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8574870559861224e-05,
+            "float64_angular_deg": 1.756616320965972e-05,
+            "range_error_km": 8.265663295984268
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0080",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.609570800114547e-06,
+            "float64_angular_deg": 6.6065719431100575e-06,
+            "range_error_km": 0.0283542696852237
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.835013168982978e-05,
+            "float64_angular_deg": 1.7540365456756472e-05,
+            "range_error_km": 8.816261976957321
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.619953527086572e-06,
+            "float64_angular_deg": 6.60683300329234e-06,
+            "range_error_km": 0.03248642943799496
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.853708775166043e-05,
+            "float64_angular_deg": 1.754029266097158e-05,
+            "range_error_km": 8.597237914800644
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0081",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.374386641730001e-06,
+            "float64_angular_deg": 6.3328785165435465e-06,
+            "range_error_km": 0.02674283628584817
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.852552030211273e-05,
+            "float64_angular_deg": 1.751542736209223e-05,
+            "range_error_km": 8.621942341327667
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.427324854815638e-06,
+            "float64_angular_deg": 6.332688659643802e-06,
+            "range_error_km": 0.028827293193899095
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8716797157996695e-05,
+            "float64_angular_deg": 1.7515433057973403e-05,
+            "range_error_km": 8.481640070676804
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0082",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.4630381600365134e-06,
+            "float64_angular_deg": 5.436575981391787e-06,
+            "range_error_km": 0.03116727917222306
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8942196286299927e-05,
+            "float64_angular_deg": 1.7453512911122158e-05,
+            "range_error_km": 8.820963621139526
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.460517656338437e-06,
+            "float64_angular_deg": 5.43682088647727e-06,
+            "range_error_km": 0.026560286583844572
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8907884096067856e-05,
+            "float64_angular_deg": 1.745354922806695e-05,
+            "range_error_km": 8.705602943897247
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0083",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.250733477558193e-06,
+            "float64_angular_deg": 4.2366966627568896e-06,
+            "range_error_km": 0.019950563029851764
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8443047359829616e-05,
+            "float64_angular_deg": 1.7384213240604202e-05,
+            "range_error_km": 8.909545183181763
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.223008814087243e-06,
+            "float64_angular_deg": 4.236700720090469e-06,
+            "range_error_km": 0.026900301047135144
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8502239097483782e-05,
+            "float64_angular_deg": 1.738421055501276e-05,
+            "range_error_km": 8.486542522907257
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0084",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.2246026782871787e-06,
+            "float64_angular_deg": 3.237679255353252e-06,
+            "range_error_km": 0.021578611165750772
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9008386267896637e-05,
+            "float64_angular_deg": 1.7340067032991303e-05,
+            "range_error_km": 8.913685500621796
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.253344173283832e-06,
+            "float64_angular_deg": 3.2376828517869606e-06,
+            "range_error_km": 0.025447286665439606
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.837384541315454e-05,
+            "float64_angular_deg": 1.7340067621354056e-05,
+            "range_error_km": 9.087776571512222
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0085",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.180106475824277e-06,
+            "float64_angular_deg": 4.18541241721883e-06,
+            "range_error_km": 0.021712678542826325
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.832433594014961e-05,
+            "float64_angular_deg": 1.7276444738567214e-05,
+            "range_error_km": 8.381221801042557
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.091862409109141e-06,
+            "float64_angular_deg": 4.18534232200889e-06,
+            "range_error_km": 0.02533669606782496
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8471705623176785e-05,
+            "float64_angular_deg": 1.727639704878828e-05,
+            "range_error_km": 8.560858279466629
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0086",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.7448223712806715e-06,
+            "float64_angular_deg": 5.748151883971918e-06,
+            "range_error_km": 0.025325737078674138
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8938869384770786e-05,
+            "float64_angular_deg": 1.7336558742116568e-05,
+            "range_error_km": 8.715880274772644
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.84121237495651e-06,
+            "float64_angular_deg": 5.748212594640407e-06,
+            "range_error_km": 0.02571835514390841
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.864519204524937e-05,
+            "float64_angular_deg": 1.7336674278872254e-05,
+            "range_error_km": 8.804876983165741
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0087",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.657038609769048e-06,
+            "float64_angular_deg": 6.712575450042888e-06,
+            "range_error_km": 0.027944353816565126
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.859186902395807e-05,
+            "float64_angular_deg": 1.7389458387209255e-05,
+            "range_error_km": 9.151691973209381
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.744095600055846e-06,
+            "float64_angular_deg": 6.712709795892657e-06,
+            "range_error_km": 0.03027741238474846
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8495418606724003e-05,
+            "float64_angular_deg": 1.7389554809599107e-05,
+            "range_error_km": 8.49885955452919
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0088",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.393425752249835e-06,
+            "float64_angular_deg": 6.373568901018299e-06,
+            "range_error_km": 0.029833419248461723
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9179017847597116e-05,
+            "float64_angular_deg": 1.734240839158832e-05,
+            "range_error_km": 8.795944333076477
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.366045679151129e-06,
+            "float64_angular_deg": 6.373517409103816e-06,
+            "range_error_km": 0.02982798672746867
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8728876948482802e-05,
+            "float64_angular_deg": 1.7342662478945844e-05,
+            "range_error_km": 8.675701588392258
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0089",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.8936186536696435e-06,
+            "float64_angular_deg": 5.887865633135855e-06,
+            "range_error_km": 0.023373818898107857
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8686923570335773e-05,
+            "float64_angular_deg": 1.7518599773198707e-05,
+            "range_error_km": 8.435413926839828
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.8949953563214236e-06,
+            "float64_angular_deg": 5.887765808318856e-06,
+            "range_error_km": 0.02560873789479956
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8623638008797077e-05,
+            "float64_angular_deg": 1.7518727208430677e-05,
+            "range_error_km": 8.487284570932388
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0090",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.494296972406174e-06,
+            "float64_angular_deg": 4.529392943210749e-06,
+            "range_error_km": 0.028086194535717368
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8661381929716684e-05,
+            "float64_angular_deg": 1.756765736414296e-05,
+            "range_error_km": 8.150873512029648
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.5775983977230705e-06,
+            "float64_angular_deg": 4.529476202502878e-06,
+            "range_error_km": 0.024979206849820912
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.867145374982655e-05,
+            "float64_angular_deg": 1.7567664530861118e-05,
+            "range_error_km": 9.083433866500854
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0091",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.610546396118399e-06,
+            "float64_angular_deg": 3.486127405151478e-06,
+            "range_error_km": 0.023752449895255268
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8821591808648285e-05,
+            "float64_angular_deg": 1.7585226321729405e-05,
+            "range_error_km": 8.61112180352211
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.6040618279720195e-06,
+            "float64_angular_deg": 3.4861673401225507e-06,
+            "range_error_km": 0.02473260450642556
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8139220749485044e-05,
+            "float64_angular_deg": 1.7585258422118596e-05,
+            "range_error_km": 8.538778811693192
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0092",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.073767375340838e-06,
+            "float64_angular_deg": 5.058775515883378e-06,
+            "range_error_km": 0.02124788356013596
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8297301242048448e-05,
+            "float64_angular_deg": 1.754847009907059e-05,
+            "range_error_km": 8.276920199394226
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.128563008260801e-06,
+            "float64_angular_deg": 5.058810727884617e-06,
+            "range_error_km": 0.02413945022271946
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9040397232441094e-05,
+            "float64_angular_deg": 1.754835584428827e-05,
+            "range_error_km": 9.493355810642242
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0093",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.174944256320952e-06,
+            "float64_angular_deg": 6.239317542765047e-06,
+            "range_error_km": 0.02537904941709712
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.919094115128931e-05,
+            "float64_angular_deg": 1.7506754306086374e-05,
+            "range_error_km": 8.341650068759918
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.2173604191343204e-06,
+            "float64_angular_deg": 6.2392165229830714e-06,
+            "range_error_km": 0.030314655508846045
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8153175387415746e-05,
+            "float64_angular_deg": 1.7506661647316385e-05,
+            "range_error_km": 8.723820179700851
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0094",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.914960981883922e-06,
+            "float64_angular_deg": 6.9185614603082485e-06,
+            "range_error_km": 0.02778967999620363
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.832515831001561e-05,
+            "float64_angular_deg": 1.746034581579898e-05,
+            "range_error_km": 8.531309723854065
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.930730241196021e-06,
+            "float64_angular_deg": 6.918603576689206e-06,
+            "range_error_km": 0.027306652104016393
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8069861953457888e-05,
+            "float64_angular_deg": 1.7460378721658254e-05,
+            "range_error_km": 8.447588294744492
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0095",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.594096988057684e-06,
+            "float64_angular_deg": 6.548043214416023e-06,
+            "range_error_km": 0.025583617738448083
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.828222114623353e-05,
+            "float64_angular_deg": 1.7367969017321975e-05,
+            "range_error_km": 8.543547481298447
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.588887407969965e-06,
+            "float64_angular_deg": 6.548211134624479e-06,
+            "range_error_km": 0.028125681448727846
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.7836491601224572e-05,
+            "float64_angular_deg": 1.7367997866347296e-05,
+            "range_error_km": 8.133637696504593
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0096",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.046713794205095e-06,
+            "float64_angular_deg": 5.118339659876081e-06,
+            "range_error_km": 0.023599287203978747
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.872869091599032e-05,
+            "float64_angular_deg": 1.7337590837794034e-05,
+            "range_error_km": 9.15620905160904
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.309611067762101e-06,
+            "float64_angular_deg": 5.1183088078468365e-06,
+            "range_error_km": 0.024887221166864038
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.804582848012937e-05,
+            "float64_angular_deg": 1.73376551895981e-05,
+            "range_error_km": 8.652370780706406
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0097",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.4852909221473492e-06,
+            "float64_angular_deg": 3.5054010324006536e-06,
+            "range_error_km": 0.025469250686001033
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8495219690772262e-05,
+            "float64_angular_deg": 1.7314172760665115e-05,
+            "range_error_km": 8.99183213710785
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.5222366786266373e-06,
+            "float64_angular_deg": 3.505382938769555e-06,
+            "range_error_km": 0.024664402473717928
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8758635954051057e-05,
+            "float64_angular_deg": 1.7314134092615088e-05,
+            "range_error_km": 8.337194561958313
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0098",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.3976532969209832e-06,
+            "float64_angular_deg": 3.3755746979641644e-06,
+            "range_error_km": 0.02321977954125032
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.809797673022982e-05,
+            "float64_angular_deg": 1.72355504157921e-05,
+            "range_error_km": 8.752311497926712
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.389995894405042e-06,
+            "float64_angular_deg": 3.375557248811374e-06,
+            "range_error_km": 0.02380676515167579
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.7960066835486595e-05,
+            "float64_angular_deg": 1.7235752303970022e-05,
+            "range_error_km": 8.819325774908066
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0099",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.917814259453281e-06,
+            "float64_angular_deg": 5.03628954587517e-06,
+            "range_error_km": 0.026709643192589283
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8642757417034598e-05,
+            "float64_angular_deg": 1.7404668563642834e-05,
+            "range_error_km": 8.3764209151268
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.98225007075687e-06,
+            "float64_angular_deg": 5.036300696280927e-06,
+            "range_error_km": 0.030915819632355124
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8437090158983127e-05,
+            "float64_angular_deg": 1.7404835853149798e-05,
+            "range_error_km": 9.062492370605469
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0100",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.7551653417648696e-06,
+            "float64_angular_deg": 6.74732606264602e-06,
+            "range_error_km": 0.02847715833922848
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8538958425232046e-05,
+            "float64_angular_deg": 1.7514640110791926e-05,
+            "range_error_km": 9.464860737323761
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.805341604832375e-06,
+            "float64_angular_deg": 6.746777918749765e-06,
+            "range_error_km": 0.02796880918322131
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8567800009651638e-05,
+            "float64_angular_deg": 1.7514655089646146e-05,
+            "range_error_km": 9.020872592926025
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0101",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.425603041223107e-06,
+            "float64_angular_deg": 6.432168819308079e-06,
+            "range_error_km": 0.029758028511423618
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9444726645600186e-05,
+            "float64_angular_deg": 1.757001224474926e-05,
+            "range_error_km": 8.406327992677689
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.46120156273113e-06,
+            "float64_angular_deg": 6.432946446574105e-06,
+            "range_error_km": 0.029134390933904797
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8818597537267183e-05,
+            "float64_angular_deg": 1.7569978871364093e-05,
+            "range_error_km": 8.564533859491348
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0102",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.278311791931856e-06,
+            "float64_angular_deg": 5.1995977255356715e-06,
+            "range_error_km": 0.028633541136514395
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9236701718177973e-05,
+            "float64_angular_deg": 1.7597247152687315e-05,
+            "range_error_km": 8.480556160211563
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.142921308036843e-06,
+            "float64_angular_deg": 5.199631270044337e-06,
+            "range_error_km": 0.027284924872219563
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8522417816607853e-05,
+            "float64_angular_deg": 1.759719535883542e-05,
+            "range_error_km": 8.836285948753357
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0103",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.11903849501471e-06,
+            "float64_angular_deg": 4.071541196891599e-06,
+            "range_error_km": 0.026727367599960417
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.898954077553272e-05,
+            "float64_angular_deg": 1.7570575234361124e-05,
+            "range_error_km": 8.665558516979218
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.144669874577209e-06,
+            "float64_angular_deg": 4.071358982434685e-06,
+            "range_error_km": 0.027775719645433128
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8832985049111912e-05,
+            "float64_angular_deg": 1.7570639060808957e-05,
+            "range_error_km": 8.872780621051788
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0104",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.2256319151074892e-06,
+            "float64_angular_deg": 3.1917067145767556e-06,
+            "range_error_km": 0.02641322580166161
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.895726439903101e-05,
+            "float64_angular_deg": 1.754875740058653e-05,
+            "range_error_km": 8.868758112192154
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.2323346985194364e-06,
+            "float64_angular_deg": 3.1917499224929443e-06,
+            "range_error_km": 0.027125244785565883
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.887799429170314e-05,
+            "float64_angular_deg": 1.7548886485814235e-05,
+            "range_error_km": 8.404755234718323
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0105",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.1695735277160275e-06,
+            "float64_angular_deg": 4.126698626755651e-06,
+            "range_error_km": 0.022924855060409755
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8873298642114802e-05,
+            "float64_angular_deg": 1.7462616944910157e-05,
+            "range_error_km": 9.40980052947998
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.153531831596299e-06,
+            "float64_angular_deg": 4.126787415666886e-06,
+            "range_error_km": 0.02830361051019281
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8663223421338492e-05,
+            "float64_angular_deg": 1.746270792315834e-05,
+            "range_error_km": 8.758029013872147
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0106",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.427797130776135e-06,
+            "float64_angular_deg": 5.397969940259443e-06,
+            "range_error_km": 0.023531223938334733
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8561234869662683e-05,
+            "float64_angular_deg": 1.742322641950811e-05,
+            "range_error_km": 9.000776678323746
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.3894032021971156e-06,
+            "float64_angular_deg": 5.397299499479035e-06,
+            "range_error_km": 0.026562051731161773
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8928013950170892e-05,
+            "float64_angular_deg": 1.7423087176381483e-05,
+            "range_error_km": 9.29031977057457
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0107",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.282233068720737e-06,
+            "float64_angular_deg": 6.3267296358979735e-06,
+            "range_error_km": 0.02781266422243789
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8372216397914656e-05,
+            "float64_angular_deg": 1.7358459670512332e-05,
+            "range_error_km": 8.538459122180939
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.3825643280912575e-06,
+            "float64_angular_deg": 6.326558539813991e-06,
+            "range_error_km": 0.02722690807422623
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.838604518095873e-05,
+            "float64_angular_deg": 1.7358478989333476e-05,
+            "range_error_km": 8.638850927352905
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0108",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.739586682820019e-06,
+            "float64_angular_deg": 6.73679345637403e-06,
+            "range_error_km": 0.031118595506995916
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8778368176906147e-05,
+            "float64_angular_deg": 1.728485334874832e-05,
+            "range_error_km": 9.34316897392273
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.658497616181263e-06,
+            "float64_angular_deg": 6.736709980400368e-06,
+            "range_error_km": 0.027802737371530384
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8974738993598697e-05,
+            "float64_angular_deg": 1.7284743199515428e-05,
+            "range_error_km": 8.412160336971283
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0109",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.2645709678209904e-06,
+            "float64_angular_deg": 6.2570768992236116e-06,
+            "range_error_km": 0.029317572189029306
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8481891338683744e-05,
+            "float64_angular_deg": 1.730898786747018e-05,
+            "range_error_km": 8.581685185432434
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.2733540181264085e-06,
+            "float64_angular_deg": 6.256712656259215e-06,
+            "range_error_km": 0.02620631514582783
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.864201362891929e-05,
+            "float64_angular_deg": 1.7308963949458335e-05,
+            "range_error_km": 8.909845799207687
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0110",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.141144691855689e-06,
+            "float64_angular_deg": 5.132815901105022e-06,
+            "range_error_km": 0.025528181460686028
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.90103087021728e-05,
+            "float64_angular_deg": 1.7333755838492853e-05,
+            "range_error_km": 9.166630953550339
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.16536398395479e-06,
+            "float64_angular_deg": 5.133546838848199e-06,
+            "range_error_km": 0.026163579197600484
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9010489864567187e-05,
+            "float64_angular_deg": 1.7333791578624685e-05,
+            "range_error_km": 8.555877894163132
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0111",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.914415451619897e-06,
+            "float64_angular_deg": 3.926432934251087e-06,
+            "range_error_km": 0.0218212777399458
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9221308678654903e-05,
+            "float64_angular_deg": 1.7375904661514126e-05,
+            "range_error_km": 8.344797521829605
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.810660235202381e-06,
+            "float64_angular_deg": 3.926154985967668e-06,
+            "range_error_km": 0.023441220226231962
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8345431664655577e-05,
+            "float64_angular_deg": 1.7375791586945263e-05,
+            "range_error_km": 8.623627811670303
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0112",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.658971154747838e-06,
+            "float64_angular_deg": 4.687448889277156e-06,
+            "range_error_km": 0.02601966098882258
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8707886986533093e-05,
+            "float64_angular_deg": 1.746190619420296e-05,
+            "range_error_km": 8.835211604833603
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.657234247123837e-06,
+            "float64_angular_deg": 4.686877062193362e-06,
+            "range_error_km": 0.02625897288089618
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.85798358016275e-05,
+            "float64_angular_deg": 1.7461837736875883e-05,
+            "range_error_km": 9.218966394662857
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0113",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.586511469102205e-06,
+            "float64_angular_deg": 5.599432080074507e-06,
+            "range_error_km": 0.02721026004292071
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9233369084811227e-05,
+            "float64_angular_deg": 1.753892905222777e-05,
+            "range_error_km": 8.933082282543182
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.5918117957158005e-06,
+            "float64_angular_deg": 5.599416073079594e-06,
+            "range_error_km": 0.026608614600263536
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8897884788029056e-05,
+            "float64_angular_deg": 1.7538824712694733e-05,
+            "range_error_km": 8.822344303131104
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0114",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.29246382512073e-06,
+            "float64_angular_deg": 6.340949284225832e-06,
+            "range_error_km": 0.02928182075265795
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8828138891768106e-05,
+            "float64_angular_deg": 1.7567768499546375e-05,
+            "range_error_km": 9.1667200922966
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.374343098389931e-06,
+            "float64_angular_deg": 6.340953725787841e-06,
+            "range_error_km": 0.027400856954045594
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.880907337540911e-05,
+            "float64_angular_deg": 1.756793109315681e-05,
+            "range_error_km": 8.918377071619034
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0115",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.277903908912001e-06,
+            "float64_angular_deg": 6.380827476352179e-06,
+            "range_error_km": 0.026288165885489434
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8724793347578017e-05,
+            "float64_angular_deg": 1.758945582516874e-05,
+            "range_error_km": 8.817637413740158
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.300091947037543e-06,
+            "float64_angular_deg": 6.381216706878555e-06,
+            "range_error_km": 0.02807344659231603
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8799926211245857e-05,
+            "float64_angular_deg": 1.7589318198836475e-05,
+            "range_error_km": 9.268263429403305
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0116",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.688008624658503e-06,
+            "float64_angular_deg": 5.748612634063976e-06,
+            "range_error_km": 0.02490305359242484
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.9474355405733032e-05,
+            "float64_angular_deg": 1.7588212539280817e-05,
+            "range_error_km": 9.238532900810242
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.819641825948365e-06,
+            "float64_angular_deg": 5.748349255342984e-06,
+            "range_error_km": 0.029551197541877627
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8216635735169307e-05,
+            "float64_angular_deg": 1.7588273541767015e-05,
+            "range_error_km": 8.830068498849869
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0117",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 4.6292288620229524e-06,
+            "float64_angular_deg": 4.6372101595900046e-06,
+            "range_error_km": 0.025077554222662002
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.88857965342739e-05,
+            "float64_angular_deg": 1.75166109422316e-05,
+            "range_error_km": 8.808833748102188
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 4.633429447512212e-06,
+            "float64_angular_deg": 4.637258587577536e-06,
+            "range_error_km": 0.024835077754687518
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8844071420858073e-05,
+            "float64_angular_deg": 1.7516671425634888e-05,
+            "range_error_km": 7.998890548944473
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0118",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.5036092290021474e-06,
+            "float64_angular_deg": 3.527995196191475e-06,
+            "range_error_km": 0.0220886972383596
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.86519970057447e-05,
+            "float64_angular_deg": 1.7471509903981037e-05,
+            "range_error_km": 9.080891400575638
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.505634602854644e-06,
+            "float64_angular_deg": 3.5279427260557177e-06,
+            "range_error_km": 0.02267122460762039
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8655326724938835e-05,
+            "float64_angular_deg": 1.747153028836613e-05,
+            "range_error_km": 8.678376942873001
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0119",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 3.697452503953028e-06,
+            "float64_angular_deg": 3.6627309706614815e-06,
+            "range_error_km": 0.020258267351891845
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8711446477118037e-05,
+            "float64_angular_deg": 1.7376248067687846e-05,
+            "range_error_km": 8.742973506450653
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 3.651634821262302e-06,
+            "float64_angular_deg": 3.661956066201565e-06,
+            "range_error_km": 0.02078863396309316
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8442841764896316e-05,
+            "float64_angular_deg": 1.7376153205004585e-05,
+            "range_error_km": 9.078109592199326
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0120",
+      "epochs": 721,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 5.1786957522713274e-06,
+            "float64_angular_deg": 5.130103991280133e-06,
+            "range_error_km": 0.025487153965514153
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8732100858582126e-05,
+            "float64_angular_deg": 1.7332320081223858e-05,
+            "range_error_km": 8.444123208522797
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 5.107167382524046e-06,
+            "float64_angular_deg": 5.130032038240045e-06,
+            "range_error_km": 0.029375921934843063
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8512070346298744e-05,
+            "float64_angular_deg": 1.733230027603839e-05,
+            "range_error_km": 8.141866236925125
+          }
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "chunk_id": "chunk-0121",
+      "epochs": 529,
+      "residuals": {
+        "apparent": {
+          "EARTH": {
+            "encoded_angular_deg": 6.352131879691214e-06,
+            "float64_angular_deg": 6.308933693679725e-06,
+            "range_error_km": 0.028476363222580403
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.8451813245024108e-05,
+            "float64_angular_deg": 1.7294578862507543e-05,
+            "range_error_km": 8.248069614171982
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "encoded_angular_deg": 6.258872330305473e-06,
+            "float64_angular_deg": 6.309043408590042e-06,
+            "range_error_km": 0.02557846176205203
+          },
+          "SUN": {
+            "encoded_angular_deg": 1.7892113368312853e-05,
+            "float64_angular_deg": 1.7294504077993384e-05,
+            "range_error_km": 9.060479581356049
+          }
+        }
+      },
+      "status": "passed"
+    }
+  ],
+  "external_reference": "not_run",
+  "observer": {
+    "angular_errors_deg": {
+      "apparent": {
+        "EARTH": 2.6876722078066825e-05,
+        "SUN": 9.58129968905641e-07
+      },
+      "geometric": {
+        "EARTH": 4.779935057277382e-15,
+        "SUN": 1.0026791849203913e-14
+      }
+    },
+    "benchmarks": [
+      {
+        "lat_deg": -90,
+        "lon_deg": 0,
+        "reference_meridian_deg": 0
+      },
+      {
+        "lat_deg": -85,
+        "lon_deg": 45,
+        "reference_meridian_deg": null
+      },
+      {
+        "lat_deg": 0,
+        "lon_deg": 0,
+        "reference_meridian_deg": null
+      },
+      {
+        "lat_deg": 0,
+        "lon_deg": 90,
+        "reference_meridian_deg": null
+      },
+      {
+        "lat_deg": 0,
+        "lon_deg": -180,
+        "reference_meridian_deg": null
+      }
+    ],
+    "comparisons": 2460,
+    "limitation": "Direct double-precision Moon-center subtraction only; excludes encoded interpolation and terrain. Not an external independent reference.",
+    "radius_offsets_km": [
+      0,
+      0.002,
+      12
+    ],
+    "refloc": "OBSERVER",
+    "status": "passed"
+  },
+  "status": "passed",
+  "time": {
+    "lsk_delta_at": [
+      10.0,
+      -883656000.0,
+      11.0,
+      -867931200.0,
+      12.0,
+      -852033600.0,
+      13.0,
+      -820497600.0,
+      14.0,
+      -788961600.0,
+      15.0,
+      -757425600.0,
+      16.0,
+      -725803200.0,
+      17.0,
+      -694267200.0,
+      18.0,
+      -662731200.0,
+      19.0,
+      -631195200.0,
+      20.0,
+      -583934400.0,
+      21.0,
+      -552398400.0,
+      22.0,
+      -520862400.0,
+      23.0,
+      -457704000.0,
+      24.0,
+      -378734400.0,
+      25.0,
+      -315576000.0,
+      26.0,
+      -284040000.0,
+      27.0,
+      -236779200.0,
+      28.0,
+      -205243200.0,
+      29.0,
+      -173707200.0,
+      30.0,
+      -126273600.0,
+      31.0,
+      -79012800.0,
+      32.0,
+      -31579200.0,
+      33.0,
+      189345600.0,
+      34.0,
+      284040000.0,
+      35.0,
+      394372800.0,
+      36.0,
+      488980800.0,
+      37.0,
+      536500800.0
+    ],
+    "max_forward_error_s": 3.0994415283203125e-06,
+    "max_inverse_error_s": 3.0994415283203125e-06,
+    "samples": 2088,
+    "status": "passed",
+    "target_s": 0.0001
+  }
+}

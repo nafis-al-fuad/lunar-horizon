@@ -1,0 +1,729 @@
+{
+  "component": {
+    "accepted_scientific_scopes": [],
+    "artifacts": [
+      {
+        "bytes": 0,
+        "path": "chrome/browser-process.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 95320,
+        "path": "chrome/result.json",
+        "sha256": "868149499dbe0ad34e7f427b7c7e71f18ce71140ca33f4b57302e1df0bf3257b"
+      },
+      {
+        "bytes": 0,
+        "path": "component-check-syntax.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "consumer-syntax.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "edge/browser-process.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 96041,
+        "path": "edge/result.json",
+        "sha256": "7a874d9527539ef365f72bcd5a59e55ae8dd1bb52cd0dd99e91f84533cb5ce11"
+      },
+      {
+        "bytes": 6431818,
+        "path": "encoded-observers.json",
+        "sha256": "387420f6b95b54fc33ed5306a233d380af4a75937f2c30c98026d536ef92f6f6"
+      },
+      {
+        "bytes": 0,
+        "path": "ephemeris-smoke-syntax.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "path": "ephemeris-syntax.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 230752,
+        "path": "javascript-parity.json",
+        "sha256": "573eb2029ea32a1c483d0e0f9f093d9d68b3b8cdaac0f58d40c65440f8e26c73"
+      },
+      {
+        "bytes": 151,
+        "path": "node-published-parity.log",
+        "sha256": "e7e03dc791ec3156b774443468ace96c477c28d0aa091d125f51f0de297d46bb"
+      },
+      {
+        "bytes": 10,
+        "path": "node-version.log",
+        "sha256": "b447734bea5971cc4beed4007192e4cf2e07a9f04fdaff5d9df3bb307e61987e"
+      },
+      {
+        "bytes": 10783,
+        "path": "python-tests.log",
+        "sha256": "67a3cfe1f25e4f2d1578ec99a1f2a29f6ba80e9cfd57c1d3b88e5f1278565b10"
+      },
+      {
+        "bytes": 54,
+        "path": "reference-earth-apparent.json",
+        "sha256": "36a1df74ee1905ab4458ff32651a1d19923896f9bf3c6dae721fde7f1970dad0"
+      },
+      {
+        "bytes": 55,
+        "path": "reference-earth-geometric.json",
+        "sha256": "8b49facc4f62e2b2fde738f47779222f53e9e8da2b04c727147b27c395abef83"
+      },
+      {
+        "bytes": 2900,
+        "path": "reference-request-earth-apparent.json",
+        "sha256": "a4ff391d1b13dcefd588c3ebc7765d7632042ff8ed4cc463da95b5dcbbc4bd56"
+      },
+      {
+        "bytes": 2898,
+        "path": "reference-request-earth-geometric.json",
+        "sha256": "98255c7d167fd826b8f04bc26198b9f4108a37b3701e4545a328abc83a98c082"
+      },
+      {
+        "bytes": 2896,
+        "path": "reference-request-sun-apparent.json",
+        "sha256": "5b05a267278d2484d1c9cc127a101543d5ef2f58cffadfe173adf58412732ea6"
+      },
+      {
+        "bytes": 2894,
+        "path": "reference-request-sun-geometric.json",
+        "sha256": "e54ce911d1962364601dd2187735adf544e7b845e688878d3405cb6e02d3a779"
+      },
+      {
+        "bytes": 52,
+        "path": "reference-sun-apparent.json",
+        "sha256": "077c16589b173312e82ac65680c4857800624b965af0667491db34cf631449c0"
+      },
+      {
+        "bytes": 53,
+        "path": "reference-sun-geometric.json",
+        "sha256": "fb831a0b14e71d359f4b4940082b4408699bd589ef2d569a7f4c67e5155dd59d"
+      },
+      {
+        "bytes": 0,
+        "path": "smoke-syntax.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 71803,
+        "path": "source-snapshot.zip",
+        "sha256": "71a5cbcb85f8134cb0cd5b27eb77db10211ad2a4eb222035dd63cc0777e5fe32"
+      }
+    ],
+    "browsers": {
+      "chrome": {
+        "automation": "headless isolated profile",
+        "chunks": 122,
+        "comparisons": 5856,
+        "endpoint_control": {
+          "chunk": 121,
+          "chunk_end_et_s": 1136030469.18392,
+          "chunk_local_interpolation": "passed",
+          "release_end_et_s": 1136030469.1839027
+        },
+        "executable_version": "157.0.8103.78",
+        "limitation": "Headless Windows desktop component only; no performance budget, leak proof, UI or science acceptance.",
+        "max_absolute_parity_error": 2.220446049250313e-16,
+        "max_decoded_values_per_chunk": 3920,
+        "raw_result_sha256": "868149499dbe0ad34e7f427b7c7e71f18ce71140ca33f4b57302e1df0bf3257b",
+        "rejection_cases": [
+          {
+            "error": "Error: ET outside release",
+            "name": "NaN"
+          },
+          {
+            "error": "Error: ET outside release",
+            "name": "infinity"
+          },
+          {
+            "error": "Error: ET outside release",
+            "name": "before-start"
+          },
+          {
+            "error": "Error: ET outside release",
+            "name": "exclusive-end"
+          },
+          {
+            "error": "Error: ET outside chunk",
+            "name": "wrong-chunk"
+          },
+          {
+            "error": "Error: unsupported profile",
+            "name": "unknown-profile"
+          },
+          {
+            "error": "Error: invalid chunk index",
+            "name": "chunk-index--1"
+          },
+          {
+            "error": "Error: invalid chunk index",
+            "name": "chunk-index-122"
+          },
+          {
+            "error": "Error: invalid chunk index",
+            "name": "chunk-index-0.5"
+          },
+          {
+            "error": "Error: invalid UTC calendar",
+            "name": "2026-02-30T00:00:00Z"
+          },
+          {
+            "error": "Error: unsupported UTC input",
+            "name": "2026-01-01T23:59:60Z"
+          },
+          {
+            "error": "Error: unsupported UTC input",
+            "name": "2026-01-01T00:00:00+00:00"
+          },
+          {
+            "error": "Error: UTC outside coverage",
+            "name": "2036-01-01T00:00:00Z"
+          },
+          {
+            "error": "Error: binary length",
+            "name": "truncated"
+          },
+          {
+            "error": "Error: nonfinite storage",
+            "name": "nonfinite-storage"
+          },
+          {
+            "error": "Error: unsupported geometry",
+            "name": "metadata-frame"
+          },
+          {
+            "error": "Error: HTTP resource failure 404",
+            "name": "HTTP-missing"
+          },
+          {
+            "error": "Error: file integrity mismatch",
+            "name": "HTTP-corrupt"
+          }
+        ],
+        "repeated_comparisons": 288,
+        "seams": 121,
+        "secure_context": true,
+        "startup_resources": [
+          {
+            "bytes": 58071,
+            "href": "manifest.json",
+            "status": 200
+          },
+          {
+            "bytes": 59619,
+            "href": "time.json",
+            "status": 200
+          }
+        ],
+        "status": "passed",
+        "time_knots": 522,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+      },
+      "edge": {
+        "automation": "headless isolated profile",
+        "chunks": 122,
+        "comparisons": 5856,
+        "endpoint_control": {
+          "chunk": 121,
+          "chunk_end_et_s": 1136030469.18392,
+          "chunk_local_interpolation": "passed",
+          "release_end_et_s": 1136030469.1839027
+        },
+        "executable_version": "157.0.4341.46",
+        "limitation": "Headless Windows desktop component only; no performance budget, leak proof, UI or science acceptance.",
+        "max_absolute_parity_error": 2.220446049250313e-16,
+        "max_decoded_values_per_chunk": 3920,
+        "raw_result_sha256": "7a874d9527539ef365f72bcd5a59e55ae8dd1bb52cd0dd99e91f84533cb5ce11",
+        "rejection_cases": [
+          {
+            "error": "Error: ET outside release",
+            "name": "NaN"
+          },
+          {
+            "error": "Error: ET outside release",
+            "name": "infinity"
+          },
+          {
+            "error": "Error: ET outside release",
+            "name": "before-start"
+          },
+          {
+            "error": "Error: ET outside release",
+            "name": "exclusive-end"
+          },
+          {
+            "error": "Error: ET outside chunk",
+            "name": "wrong-chunk"
+          },
+          {
+            "error": "Error: unsupported profile",
+            "name": "unknown-profile"
+          },
+          {
+            "error": "Error: invalid chunk index",
+            "name": "chunk-index--1"
+          },
+          {
+            "error": "Error: invalid chunk index",
+            "name": "chunk-index-122"
+          },
+          {
+            "error": "Error: invalid chunk index",
+            "name": "chunk-index-0.5"
+          },
+          {
+            "error": "Error: invalid UTC calendar",
+            "name": "2026-02-30T00:00:00Z"
+          },
+          {
+            "error": "Error: unsupported UTC input",
+            "name": "2026-01-01T23:59:60Z"
+          },
+          {
+            "error": "Error: unsupported UTC input",
+            "name": "2026-01-01T00:00:00+00:00"
+          },
+          {
+            "error": "Error: UTC outside coverage",
+            "name": "2036-01-01T00:00:00Z"
+          },
+          {
+            "error": "Error: binary length",
+            "name": "truncated"
+          },
+          {
+            "error": "Error: nonfinite storage",
+            "name": "nonfinite-storage"
+          },
+          {
+            "error": "Error: unsupported geometry",
+            "name": "metadata-frame"
+          },
+          {
+            "error": "Error: HTTP resource failure 404",
+            "name": "HTTP-missing"
+          },
+          {
+            "error": "Error: file integrity mismatch",
+            "name": "HTTP-corrupt"
+          }
+        ],
+        "repeated_comparisons": 288,
+        "seams": 121,
+        "secure_context": true,
+        "startup_resources": [
+          {
+            "bytes": 58071,
+            "href": "manifest.json",
+            "status": 200
+          },
+          {
+            "bytes": 59619,
+            "href": "time.json",
+            "status": 200
+          }
+        ],
+        "status": "passed",
+        "time_knots": 522,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+      }
+    },
+    "commands": [
+      {
+        "exit_code": 0,
+        "log": "node-version.log",
+        "name": "node-version",
+        "status": "passed"
+      },
+      {
+        "exit_code": 0,
+        "log": "python-tests.log",
+        "name": "python-tests",
+        "status": "passed"
+      },
+      {
+        "exit_code": 0,
+        "log": "component-check-syntax.log",
+        "name": "component-check-syntax",
+        "status": "passed"
+      },
+      {
+        "exit_code": 0,
+        "log": "consumer-syntax.log",
+        "name": "consumer-syntax",
+        "status": "passed"
+      },
+      {
+        "exit_code": 0,
+        "log": "ephemeris-smoke-syntax.log",
+        "name": "ephemeris-smoke-syntax",
+        "status": "passed"
+      },
+      {
+        "exit_code": 0,
+        "log": "ephemeris-syntax.log",
+        "name": "ephemeris-syntax",
+        "status": "passed"
+      },
+      {
+        "exit_code": 0,
+        "log": "smoke-syntax.log",
+        "name": "smoke-syntax",
+        "status": "passed"
+      },
+      {
+        "exit_code": 0,
+        "log": "node-published-parity.log",
+        "name": "node-published-parity",
+        "status": "passed"
+      }
+    ],
+    "encoded_observers": {
+      "angular_altitude_limit_deg": 0.0021,
+      "benchmarks": [
+        {
+          "lat_deg": -90,
+          "lon_deg": 0,
+          "reference_meridian_deg": 0
+        },
+        {
+          "lat_deg": -85,
+          "lon_deg": 45,
+          "reference_meridian_deg": null
+        },
+        {
+          "lat_deg": 0,
+          "lon_deg": 0,
+          "reference_meridian_deg": null
+        },
+        {
+          "lat_deg": 0,
+          "lon_deg": 90,
+          "reference_meridian_deg": null
+        },
+        {
+          "lat_deg": 0,
+          "lon_deg": -180,
+          "reference_meridian_deg": null
+        }
+      ],
+      "comparisons": 21960,
+      "limitation": "Local SPICE numerical comparison, not independent science; range diagnostic only; no terrain.",
+      "maxima": {
+        "apparent": {
+          "EARTH": {
+            "altitude_deg": 2.8875666495314922e-05,
+            "angular_deg": 2.8875672772466674e-05,
+            "range_km": 0.19159444980323315
+          },
+          "SUN": {
+            "altitude_deg": 1.2693608894664976e-05,
+            "angular_deg": 1.2711032493034138e-05,
+            "range_km": 8.913645148277283
+          }
+        },
+        "geometric": {
+          "EARTH": {
+            "altitude_deg": 3.6893387309611114e-06,
+            "angular_deg": 4.1724941438112576e-06,
+            "range_km": 0.019350998802110553
+          },
+          "SUN": {
+            "altitude_deg": 1.1600790116972348e-05,
+            "angular_deg": 1.1604680290906147e-05,
+            "range_km": 8.21257296204567
+          }
+        }
+      },
+      "status": "passed"
+    },
+    "external_inertial": [
+      {
+        "case": "sun-geometric",
+        "status": "not_run"
+      },
+      {
+        "case": "sun-apparent",
+        "status": "not_run"
+      },
+      {
+        "case": "earth-geometric",
+        "status": "not_run"
+      },
+      {
+        "case": "earth-apparent",
+        "status": "not_run"
+      }
+    ],
+    "external_orientation": "blocked_model_alignment",
+    "external_surface_observer": "blocked_model_alignment",
+    "finished_at_utc": "2026-11-14T06:38:48.317321Z",
+    "node": {
+      "actual_browser": "not_run",
+      "chunks": 122,
+      "comparisons": 5856,
+      "max_absolute_parity_error": 2.220446049250313e-16,
+      "rejection_cases": 12,
+      "status": "passed"
+    },
+    "publication_before_equals_after": true,
+    "python_tests_passed": 98,
+    "report_id": "20261114T063832Z-component-cde08e89",
+    "report_sha256": "eb62d34ce6bfb1b710ac0138ca23a2d2cc77faca656c3ed8be1ab20e679ef5a9",
+    "source_archive_sha256": "71a5cbcb85f8134cb0cd5b27eb77db10211ad2a4eb222035dd63cc0777e5fe32",
+    "source_paths_relative_to": "data",
+    "sources": [
+      {
+        "path": "browser/component-check.html",
+        "sha256": "3bab44a35a92dcb1b08679ae5727ea47324265780090ee4ba99e34ff4f40afe4"
+      },
+      {
+        "path": "browser/component-check.mjs",
+        "sha256": "26c72da38a9213b25e7f43df3f4e894b1d2a6477b8b19098622dc2a1e4d552cd"
+      },
+      {
+        "path": "browser/consumer.mjs",
+        "sha256": "6d53b51d11c585a0368339ca8d6fe9dcab77c13ff782fd57f2df74ef128169c6"
+      },
+      {
+        "path": "browser/ephemeris-smoke.mjs",
+        "sha256": "1abbba2d924dbcadd8a199875ba62b47eb844ddb1cf942eb0d10be1a8c0fc037"
+      },
+      {
+        "path": "browser/ephemeris.mjs",
+        "sha256": "24df6ec49cdc32023fafcf79792b580e9b38d3f6db257072661c6768576190e0"
+      },
+      {
+        "path": "browser/smoke.mjs",
+        "sha256": "63846714fdfa3fbb0916d2385ce7c53929bfc792da0e6e9bc9260a8fddaef509"
+      },
+      {
+        "path": "lunar_pipeline/__init__.py",
+        "sha256": "bc28fb0b01ebe72ab687215675ddfaf3d730d33e2c1e3bfb9c0e05ee7dd3c93f"
+      },
+      {
+        "path": "lunar_pipeline/__main__.py",
+        "sha256": "9e83ccd693a13806d8d1f06e5423ffb28ccb72c94cb53bf9e485393783a2228f"
+      },
+      {
+        "path": "lunar_pipeline/browser_validation.py",
+        "sha256": "2b9f143fc1352f03ce75db78d970d4354c8a3eec607cbe7e8c12c4409ede40df"
+      },
+      {
+        "path": "lunar_pipeline/component_validation.py",
+        "sha256": "fdff63d04bad27d5f7c0aefaa97f07f9ac50f8055678c5e57b9bee5e6a3db313"
+      },
+      {
+        "path": "lunar_pipeline/core.py",
+        "sha256": "20ca37979414a4ffd403bc53599888f5db7060bcb904752bd5ccf9914e564b67"
+      },
+      {
+        "path": "lunar_pipeline/encoding.py",
+        "sha256": "b60bd1cf3a375c588b2eaef23f868e04a2c7d213ca2045ae72d9efb2499f95c8"
+      },
+      {
+        "path": "lunar_pipeline/ephemeris.py",
+        "sha256": "d27675e1bac273e996b3fbba28a76cff7cec05f656379184854e08321ff67c15"
+      },
+      {
+        "path": "lunar_pipeline/ephemeris_math.py",
+        "sha256": "bfe60bdef6935e1d93474b9ba0afbc63adbe75a92c3e8d444158e317a643534d"
+      },
+      {
+        "path": "lunar_pipeline/ephemeris_release.py",
+        "sha256": "56e258656ccdb834583b4aafcf9346e86f6a7ff947c83193e4ca2fb5ffcd1ec8"
+      },
+      {
+        "path": "lunar_pipeline/evidence.py",
+        "sha256": "7460a70d5748f560b6a867c8b11892c0f167e0bd4100a4bac24e36926ac10d69"
+      },
+      {
+        "path": "lunar_pipeline/fixture.py",
+        "sha256": "a199286853db0e0a7404d10405fdb924e4c9d4d7952c76d7acb04e5a252833db"
+      },
+      {
+        "path": "lunar_pipeline/horizons.py",
+        "sha256": "6e50ed2852a93952545d1277ee835c25ca8b3787b280746e6cb11a190fbe7ebe"
+      },
+      {
+        "path": "lunar_pipeline/release.py",
+        "sha256": "2ac081a7cf46bdea2b8d50c8d43da732cd80bcc48220059524781c5812d853d7"
+      },
+      {
+        "path": "lunar_pipeline/sources.py",
+        "sha256": "768672031e3634432ed2de20dcd414688ad172441745771e632002393877c2de"
+      },
+      {
+        "path": "profiles/ephemeris-sources.json",
+        "sha256": "5c25aad8b704b236a680fd5ca6e00077087fc229dd00d3e70fccb9532abfecf5"
+      },
+      {
+        "path": "profiles/ephemeris.json",
+        "sha256": "9822008dc01c6fcd7283830209f48c7b1f58f25dd4cf51341d8989d6f7d62471"
+      },
+      {
+        "path": "profiles/foundation.json",
+        "sha256": "564f14388ae37211a0ceb1af213b67f193a0cd9bbbf7438d66b99989f49e6526"
+      },
+      {
+        "path": "requirements-ephemeris.lock",
+        "sha256": "e460356002aed40e77d58aa632c90d1e4f0eaa184caac28faaaaa0b99be01231"
+      },
+      {
+        "path": "run_component_validation.py",
+        "sha256": "37e125268bbab0e3e975bb5b0e88ccf23c706af1c76b09d3f9cfe754102d45dc"
+      },
+      {
+        "path": "tests/test_component_validation.py",
+        "sha256": "50f5d9b7c223776a4e51c9e9785f6e076664bf81a003102db0ee71c2a00f6b86"
+      },
+      {
+        "path": "tests/test_core.py",
+        "sha256": "4ec2e30595639df2342021a9981561fe38832a194518779c11d2f8b0cb3f1473"
+      },
+      {
+        "path": "tests/test_ephemeris.py",
+        "sha256": "29587a80b7368531691e70f6dd4ff96dafb0d8d1feb39042a52496c8b81e69f3"
+      },
+      {
+        "path": "tests/test_release.py",
+        "sha256": "ec2558cc89c716e2d96eccf4de8c3d25b3831d9fceda0467639449a04df59928"
+      },
+      {
+        "path": "tests/test_sources.py",
+        "sha256": "cdb25ed5e0639e1d7847fea6fbe6f4e64696e7780c66dbf952647af0c6bd9396"
+      },
+      {
+        "path": "VALIDATION_PLAN.md",
+        "sha256": "23b0f6ff11d8c5422a1241eff9caf3c94ddd25a89328b9d64fefb6b721c6bf4a"
+      }
+    ],
+    "status": "completed_with_open_gates"
+  },
+  "dataset": {
+    "accepted_scientific_scopes": [],
+    "bytes": 2314609,
+    "chunks": 122,
+    "dataset_id": "ephemeris-preview-d68aa79075433edddec0e443",
+    "embedded_generation_time_flags": {
+      "actual_browser": "not_run",
+      "external_reference": "not_run"
+    },
+    "files": 248,
+    "manifest_sha256": "9c533a0b6879a2ecb79718369444ba35bf8ce693f753beae487e8a6b2af88277",
+    "release_decision": "numerical_preview_only"
+  },
+  "environment": {
+    "cspice": "CSPICE_N0067",
+    "execution": "Clean repository sources with an existing external virtual environment and separately stored pinned kernels. No fresh scientific install or full generation in these runs.",
+    "node": "v24.18.0",
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+    "spiceypy": "7.0.0"
+  },
+  "format": "lunar-horizon-selected-validation-v1",
+  "foundation": {
+    "actual_browser_test": "not_run",
+    "command_logs": [
+      {
+        "exit_code": 0,
+        "path": "node-version.log",
+        "sha256": "b447734bea5971cc4beed4007192e4cf2e07a9f04fdaff5d9df3bb307e61987e"
+      },
+      {
+        "exit_code": 0,
+        "path": "compile.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "exit_code": 0,
+        "path": "python-tests.log",
+        "sha256": "7aa23615e366209379597f038bc28ce0937b8b95e9bced1c7d6b49ae8a2f97ef"
+      },
+      {
+        "exit_code": 0,
+        "path": "javascript-build.log",
+        "sha256": "63bffdb04b3e740227ee82c08db5b8082049f40118fc75e9d414d4807b012b89"
+      },
+      {
+        "exit_code": 0,
+        "path": "javascript-published.log",
+        "sha256": "63bffdb04b3e740227ee82c08db5b8082049f40118fc75e9d414d4807b012b89"
+      }
+    ],
+    "finished_at_utc": "2026-11-14T06:45:05.966964Z",
+    "generator": {
+      "config_sha256": "564f14388ae37211a0ceb1af213b67f193a0cd9bbbf7438d66b99989f49e6526",
+      "revision": "sha256-a974ed0b8856f5d1665c7cf3cd857308f0d167fddb3fe4b791ae6942d46172e9",
+      "software": [
+        {
+          "name": "CPython",
+          "version": "3.12.2"
+        }
+      ]
+    },
+    "javascript": {
+      "negative_cases_passed": 18,
+      "release_decision": "synthetic_only",
+      "scope": "Node fixture decode/parity smoke; not an actual browser benchmark",
+      "status": "passed"
+    },
+    "python_tests_passed": 98,
+    "report_id": "20261114T064459Z-875bbc9f",
+    "report_sha256": "649b4826f0966cc7f169bd15dbe47948bc5f4b4f4ec9da7a003cdf306041569b",
+    "scientific_gates": "not_run",
+    "source_archive_sha256": "bc01c38ac0e2a281a8a35fa77af01b7d7f4c814e60f489c38868d5c957482fc3",
+    "status": "passed"
+  },
+  "isolated_snapshot_replays": {
+    "audit_report_id": "repository-audit-20261114T064536Z-23f913a1",
+    "audit_report_sha256": "90267c9a285a27d01383425f681c7278943f2444a4162f6cda5b6ce6d1d55d79",
+    "scope": "Extracted snapshot sources with PYTHONPATH removed and Python -S (no third-party site-packages); tests only, no scientific regeneration.",
+    "snapshots": [
+      {
+        "log": "20261114T064459Z-875bbc9f-replay.log",
+        "log_sha256": "7cabfa1c39493f42f603a1ae29539b98ca0e343f07b723cc733829ce78ff279c",
+        "python_tests_passed": 98,
+        "report_id": "20261114T064459Z-875bbc9f",
+        "source_archive_sha256": "bc01c38ac0e2a281a8a35fa77af01b7d7f4c814e60f489c38868d5c957482fc3",
+        "status": "passed",
+        "third_party_site_packages": "disabled (-S)"
+      },
+      {
+        "log": "20261114T063832Z-component-cde08e89-replay.log",
+        "log_sha256": "8553d697df67961af29b423fe8704ac2c8a215e15a88009cadb7b7304960971c",
+        "python_tests_passed": 98,
+        "report_id": "20261114T063832Z-component-cde08e89",
+        "source_archive_sha256": "71a5cbcb85f8134cb0cd5b27eb77db10211ad2a4eb222035dd63cc0777e5fe32",
+        "status": "passed",
+        "third_party_site_packages": "disabled (-S)"
+      }
+    ]
+  },
+  "limitations": [
+    "No scientific scopes are accepted. Exit zero and completed_with_open_gates are not scientific acceptance.",
+    "The selected component run was offline: no external acquisition or cache replay.",
+    "DE441-versus-DE440 alignment and lunar orientation/correction semantics remain unresolved.",
+    "Finite numerical samples do not bound physical uncertainty or guarantee a supremum.",
+    "No terrain, verified site catalog, visibility/events, power, scenario products or landing-safety claims.",
+    "Headless desktop Chrome/Edge only: no headed UI, mobile, accessibility, Firefox/Safari, performance budget or leak-proof claim.",
+    "Raw report/archive hashes bind local evidence, not signatures or publicly hosted independent proof."
+  ],
+  "parity_fixture": {
+    "cases": 732,
+    "path": "javascript-parity.json",
+    "scope": "Frozen Python consumer output, not independent external truth.",
+    "sha256": "573eb2029ea32a1c483d0e0f9f093d9d68b3b8cdaac0f58d40c65440f8e26c73",
+    "values": 5856
+  },
+  "scope": "Selected offline foundation and ephemeris component checks; not scientific acceptance."
+}
