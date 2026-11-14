@@ -46,7 +46,7 @@
   "terrain_model_id": "lola-polar-v1",
   "tiles": [
     {
-      "file_id": "terrain-polar-farfield-desc",
+      "file_id": "terrain-polar-farfield",
       "priority": 1,
       "resolution_m": 5000.0,
       "tier": "far",

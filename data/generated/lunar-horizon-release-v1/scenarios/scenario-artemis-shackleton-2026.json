@@ -3,7 +3,7 @@
   "dataset_id": "lunar-horizon-release-v1",
   "file_kind": "scenario",
   "geometry_id": "geom-shackleton-connecting-ridge",
-  "horizon_mode": "reference_sphere",
+  "horizon_mode": "terrain",
   "limitations": [
     "Evaluated mission scenario with real DE440 ephemeris and terrain skyline."
   ],

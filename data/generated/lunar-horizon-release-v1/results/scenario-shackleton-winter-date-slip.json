@@ -9,18 +9,18 @@
     "dte_time_fraction": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.27380952380952384,
+      "lower": 0.2327822730654762,
       "quality_flags": [],
-      "upper": 0.27380952380952384,
-      "value": 0.27380952380952384
+      "upper": 0.2327822730654762,
+      "value": 0.2327822730654762
     },
     "longest_dte_gap_s": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 878400.0,
+      "lower": 928026.5625,
       "quality_flags": [],
-      "upper": 878400.0,
-      "value": 878400.0
+      "upper": 928026.5625,
+      "value": 928026.5625
     },
     "longest_night_s": {
       "basis": "supported_bound",
@@ -41,10 +41,10 @@
     "min_sun_clearance_deg": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": -1.9078141271152473,
+      "lower": -3.0040141271152474,
       "quality_flags": [],
-      "upper": -1.9078141271152473,
-      "value": -1.9078141271152473
+      "upper": -3.0040141271152474,
+      "value": -3.0040141271152474
     },
     "peak_sun_elevation_deg": {
       "basis": "supported_bound",

@@ -45,6 +45,18 @@ class EphemerisDeckTests(unittest.TestCase):
         self.assertTrue(all(isinstance(v, float) for v in sun_pos))
         self.assertTrue(all(isinstance(v, float) for v in earth_pos))
 
+    def test_caching_separates_geometric_and_apparent_profiles(self):
+        t = self.deck.total_span[0] + 86400.0
+        sun_geo, earth_geo = self.deck.get_state(t, profile="geometric")
+        sun_app, earth_app = self.deck.get_state(t, profile="apparent")
+
+        # Apparent position includes light-time and stellar aberration
+        diff_sun = max(abs(a - b) for a, b in zip(sun_geo, sun_app))
+        diff_earth = max(abs(a - b) for a, b in zip(earth_geo, earth_app))
+
+        self.assertGreater(diff_sun, 1000.0, "apparent Sun position must differ from geometric")
+        self.assertGreater(diff_earth, 1.0, "apparent Earth position must differ from geometric")
+
     def test_reject_out_of_coverage(self):
         # Before 2026
         with self.assertRaises(ValidationError):

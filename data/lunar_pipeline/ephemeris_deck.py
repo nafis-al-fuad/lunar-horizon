@@ -38,7 +38,8 @@ class EphemerisDeck:
         start, end, stem, desc = self.chunks[idx]
         require(start <= t < end, f"ET {t} outside chunk {stem} usable span [{start}, {end})")
 
-        if stem not in self.cache:
+        cache_key = (stem, profile)
+        if cache_key not in self.cache:
             bin_file = self.dir / (stem + ".bin")
             require(bin_file.is_file(), f"missing ephemeris binary: {bin_file}")
             raw = bin_file.read_bytes()
@@ -46,9 +47,9 @@ class EphemerisDeck:
             # 2 profiles: geometric (offset 0), apparent (offset count*32)
             offset = 0 if profile == "geometric" else count * 8 * 4
             values = struct.unpack(f"<{count*8}f", raw[offset:offset + count*8*4])
-            self.cache[stem] = (desc, values)
+            self.cache[cache_key] = (desc, values)
 
-        d, vals = self.cache[stem]
+        d, vals = self.cache[cache_key]
         interp = interpolate(d, vals, t)
         sun_pos = position(interp, offset=0)
         earth_pos = position(interp, offset=4)

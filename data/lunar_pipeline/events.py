@@ -119,37 +119,45 @@ def evaluate_instant(
     )
 
 
-def refine_transition(ephem_deck, lat_deg, lon_deg, horizon_payload, height_km, t0, t1, target="sun", margin_deg=0.0, tol_s=30.0):
-    """Bisection root refinement to find exact rise/set event timestamp to within tol_s seconds."""
-    def eval_clearance(t):
+def refine_transition(ephem_deck, lat_deg, lon_deg, horizon_payload, height_km, t0, t1, target="sun", event_cause="terrain", margin_deg=0.0, tol_s=30.0):
+    """Bisection root refinement to find exact rise/set or eclipse event timestamp."""
+    def eval_fn(t):
         sun_km, earth_km = ephem_deck.get_state(t)
         inst = evaluate_instant(sun_km, earth_km, lat_deg, lon_deg, horizon_payload, height_km, earth_margin_deg=margin_deg, et_s=t)
-        if target == "sun":
-            # Zero crossing for any disc visible: clearance + sun_rad = 0
-            return inst["sun"]["clearance_deg"] + inst["sun"]["angular_radius_deg"]
-        else:
-            # Zero crossing for DTE line-of-sight: earth_clearance - margin = 0
+        if target == "earth":
             return inst["earth"]["clearance_deg"] - margin_deg
+        elif event_cause == "eclipse":
+            # Distance between Sun and Earth centers minus sum of angular radii
+            sun_topo = topocentric_vector(sun_km, lat_deg, lon_deg, height_km)
+            earth_topo = topocentric_vector(earth_km, lat_deg, lon_deg, height_km)
+            dot = sum(a * b for a, b in zip(sun_topo["direction_unit"], earth_topo["direction_unit"]))
+            dot = max(-1.0, min(1.0, dot))
+            sep_deg = math.degrees(math.acos(dot))
+            return sep_deg - (inst["sun"]["angular_radius_deg"] + inst["earth"]["angular_radius_deg"])
+        else:
+            # Terrain horizon crossing for any disc visible: clearance + sun_rad = 0
+            return inst["sun"]["clearance_deg"] + inst["sun"]["angular_radius_deg"]
 
-    f0 = eval_clearance(t0)
-    f1 = eval_clearance(t1)
+    f0 = eval_fn(t0)
+    f1 = eval_fn(t1)
 
-    # If both have same sign, no clean bracket
-    if (f0 > 0 and f1 > 0) or (f0 < 0 and f1 < 0):
-        return (t0 + t1) / 2.0
+    # If both have same sign, no clean zero crossing bracketed in this interval
+    if (f0 >= 0 and f1 >= 0) or (f0 <= 0 and f1 <= 0):
+        return None, "sample_bounded", (t1 - t0)
 
     lo, hi = t0, t1
     for _ in range(50):
         if (hi - lo) <= tol_s:
             break
         mid = (lo + hi) / 2.0
-        f_mid = eval_clearance(mid)
+        f_mid = eval_fn(mid)
         if (f0 >= 0 and f_mid >= 0) or (f0 < 0 and f_mid < 0):
             lo = mid
             f0 = f_mid
         else:
             hi = mid
-    return (lo + hi) / 2.0
+    root = (lo + hi) / 2.0
+    return root, "refined", tol_s
 
 
 def partition_track(samples, state_key):
@@ -182,11 +190,36 @@ def partition_track(samples, state_key):
     return intervals
 
 
+def intersect_tracks(track_a, track_b):
+    """Intersect two interval tracks to produce contiguous simultaneous intervals."""
+    if not track_a or not track_b:
+        return []
+    cutpoints = sorted(set([it["start_et_s"] for it in track_a + track_b] + [it["end_et_s"] for it in track_a + track_b]))
+    simul = []
+    for i in range(len(cutpoints) - 1):
+        t_mid = (cutpoints[i] + cutpoints[i + 1]) / 2.0
+        s_a = next(it["state"] for it in track_a if it["start_et_s"] <= t_mid <= it["end_et_s"])
+        s_b = next(it["state"] for it in track_b if it["start_et_s"] <= t_mid <= it["end_et_s"])
+        st = "clear" if s_a == "clear" and s_b == "clear" else "blocked"
+        if simul and simul[-1]["state"] == st:
+            simul[-1]["end_et_s"] = cutpoints[i + 1]
+            simul[-1]["duration_s"] = cutpoints[i + 1] - simul[-1]["start_et_s"]
+        else:
+            simul.append(dict(
+                start_et_s=cutpoints[i],
+                end_et_s=cutpoints[i + 1],
+                duration_s=cutpoints[i + 1] - cutpoints[i],
+                state=st
+            ))
+    return simul
+
+
 def compute_metrics_and_events(samples, ephem_deck=None, lat_deg=None, lon_deg=None, horizon_payload=None, height_km=0.002, margin_deg=0.0, thresholds=None):
     """Extract standard mission metrics and refine event transitions."""
     require(len(samples) >= 2, "minimum 2 samples required for interval metrics")
     total_window_s = samples[-1]["et_s"] - samples[0]["et_s"]
     require(total_window_s > 0, "positive timeline duration required")
+    step_s = samples[1]["et_s"] - samples[0]["et_s"]
 
     peak_sun_el = max(s["sun"]["elevation_deg"] for s in samples)
     min_sun_clearance = min(s["sun"]["clearance_deg"] for s in samples)
@@ -199,11 +232,93 @@ def compute_metrics_and_events(samples, ephem_deck=None, lat_deg=None, lon_deg=N
         [dict(et_s=s["et_s"], state=s["earth"]["dte_state"]) for s in samples],
         "state"
     )
-    simul_intervals = partition_track(
-        [dict(et_s=s["et_s"], state=s["simultaneous_state"]) for s in samples],
-        "state"
-    )
 
+    # Detect refined transition events and rebuild intervals to match event boundaries exactly
+    events = []
+    if ephem_deck and lat_deg is not None and lon_deg is not None and horizon_payload is not None:
+        samples_by_et = {s["et_s"]: s for s in samples}
+
+        # 1. Refine Sun transitions
+        for i in range(1, len(sun_intervals)):
+            it = sun_intervals[i]
+            t_prev = sun_intervals[i - 1]["end_et_s"] - step_s
+            t_curr = sun_intervals[i - 1]["end_et_s"]
+
+            # Determine cause: terrain vs eclipse
+            s_blocked = samples_by_et.get(t_prev) if it["state"] == "clear" else samples_by_et.get(t_curr)
+            is_eclipse = False
+            if s_blocked and s_blocked["sun"]["terrain_visible_fraction"] > 0 and s_blocked["sun"]["eclipse_state"] != "none":
+                is_eclipse = True
+
+            if is_eclipse:
+                ev_type = "eclipse_egress" if it["state"] == "clear" else "eclipse_ingress"
+                cause = "eclipse"
+            else:
+                ev_type = "sunrise" if it["state"] == "clear" else "sunset"
+                cause = "terrain"
+
+            root, status, timing_res = refine_transition(
+                ephem_deck, lat_deg, lon_deg, horizon_payload, height_km,
+                t_prev, t_curr, target="sun", event_cause=cause
+            )
+
+            if root is not None and t_prev <= root <= t_curr:
+                # Update intervals to match refined event time
+                sun_intervals[i - 1]["end_et_s"] = root
+                sun_intervals[i - 1]["duration_s"] = root - sun_intervals[i - 1]["start_et_s"]
+                sun_intervals[i]["start_et_s"] = root
+                sun_intervals[i]["duration_s"] = sun_intervals[i]["end_et_s"] - root
+                t_event = root
+            else:
+                t_event = it["start_et_s"]
+                status = "sample_bounded"
+                timing_res = step_s
+
+            events.append(dict(
+                id=f"{ev_type}-{int(t_event)}",
+                target="sun",
+                event_type=ev_type,
+                et_s=round(t_event, 1),
+                status=status,
+                timing_resolution_s=timing_res
+            ))
+
+        # 2. Refine DTE transitions
+        for i in range(1, len(dte_intervals)):
+            it = dte_intervals[i]
+            t_prev = dte_intervals[i - 1]["end_et_s"] - step_s
+            t_curr = dte_intervals[i - 1]["end_et_s"]
+            ev_type = "dte_rise" if it["state"] == "clear" else "dte_set"
+
+            root, status, timing_res = refine_transition(
+                ephem_deck, lat_deg, lon_deg, horizon_payload, height_km,
+                t_prev, t_curr, target="earth", margin_deg=margin_deg
+            )
+
+            if root is not None and t_prev <= root <= t_curr:
+                dte_intervals[i - 1]["end_et_s"] = root
+                dte_intervals[i - 1]["duration_s"] = root - dte_intervals[i - 1]["start_et_s"]
+                dte_intervals[i]["start_et_s"] = root
+                dte_intervals[i]["duration_s"] = dte_intervals[i]["end_et_s"] - root
+                t_event = root
+            else:
+                t_event = it["start_et_s"]
+                status = "sample_bounded"
+                timing_res = step_s
+
+            events.append(dict(
+                id=f"{ev_type}-{int(t_event)}",
+                target="earth",
+                event_type=ev_type,
+                et_s=round(t_event, 1),
+                status=status,
+                timing_resolution_s=timing_res
+            ))
+
+    # Reconstruct simultaneous intervals from refined sun and dte tracks
+    simul_intervals = intersect_tracks(sun_intervals, dte_intervals)
+
+    # Metrics computed from refined intervals
     total_sunlit_s = sum(it["duration_s"] for it in sun_intervals if it["state"] == "clear")
     total_dte_s = sum(it["duration_s"] for it in dte_intervals if it["state"] == "clear")
     total_simul_s = sum(it["duration_s"] for it in simul_intervals if it["state"] == "clear")
@@ -215,39 +330,6 @@ def compute_metrics_and_events(samples, ephem_deck=None, lat_deg=None, lon_deg=N
     sunlit_fraction = total_sunlit_s / total_window_s
     dte_fraction = total_dte_s / total_window_s
     simul_fraction = total_simul_s / total_window_s
-
-    # Detect refined transition events if deck provided
-    events = []
-    if ephem_deck and lat_deg is not None and lon_deg is not None and horizon_payload is not None:
-        for it in sun_intervals[1:]:
-            t_event = refine_transition(
-                ephem_deck, lat_deg, lon_deg, horizon_payload, height_km,
-                it["start_et_s"] - 7200.0, it["start_et_s"], target="sun"
-            )
-            ev_type = "sunrise" if it["state"] == "clear" else "sunset"
-            events.append(dict(
-                id=f"{ev_type}-{int(t_event)}",
-                target="sun",
-                event_type=ev_type,
-                et_s=round(t_event, 1),
-                status="refined",
-                timing_resolution_s=30.0
-            ))
-
-        for it in dte_intervals[1:]:
-            t_event = refine_transition(
-                ephem_deck, lat_deg, lon_deg, horizon_payload, height_km,
-                it["start_et_s"] - 7200.0, it["start_et_s"], target="earth", margin_deg=margin_deg
-            )
-            ev_type = "dte_rise" if it["state"] == "clear" else "dte_set"
-            events.append(dict(
-                id=f"{ev_type}-{int(t_event)}",
-                target="earth",
-                event_type=ev_type,
-                et_s=round(t_event, 1),
-                status="refined",
-                timing_resolution_s=30.0
-            ))
 
     # Evaluate thresholds
     thresholds = thresholds or {}

@@ -3,9 +3,9 @@
   "dataset_id": "lunar-horizon-release-v1",
   "events": [
     {
-      "et_s": 835125129.9,
+      "et_s": 835078442.4,
       "event_type": "dte_set",
-      "id": "dte_set-835125129",
+      "id": "dte_set-835078442",
       "status": "refined",
       "target": "earth",
       "timing_resolution_s": 30.0
@@ -28,15 +28,15 @@
   "tracks": {
     "dte": [
       {
-        "duration_s": 331200.0,
-        "end_et_s": 835128069.0,
+        "duration_s": 281573.4375,
+        "end_et_s": 835078442.4375,
         "start_et_s": 834796869.0,
         "state": "clear"
       },
       {
-        "duration_s": 878400.0,
+        "duration_s": 928026.5625,
         "end_et_s": 836006469.0,
-        "start_et_s": 835128069.0,
+        "start_et_s": 835078442.4375,
         "state": "blocked"
       }
     ],

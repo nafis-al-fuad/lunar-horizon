@@ -238,7 +238,7 @@ def build_terrain_descriptors(dataset_id="lunar-horizon-computed-v1", model_vers
         tiles=[
             dict(
                 tile_id="polar-farfield",
-                file_id="terrain-polar-farfield-desc",
+                file_id="terrain-polar-farfield",
                 tier="far",
                 priority=1,
                 resolution_m=res_m

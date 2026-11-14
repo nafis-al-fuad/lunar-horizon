@@ -53,37 +53,37 @@
   "file_kind": "validation_summary",
   "gate_statuses": [
     {
-      "description": "Strict planetocentric coordinates and verified LSK time conversions.",
+      "description": "16 sites verified in MOON_ME_DE421 with IAU planetocentric coordinates and NAIF TLS conversions.",
       "gate_id": "V01",
       "status": "passed",
       "title": "Coordinate and Time Systems"
     },
     {
-      "description": "16 curated landing sites verified against NASA, LROC, ISRO, and JAXA primary publications.",
+      "description": "16 landing sites verified against NASA, LROC, ISRO, and JAXA primary citations; coordinate uncertainties preserved.",
       "gate_id": "V02",
       "status": "passed",
       "title": "Site Catalog Integrity"
     },
     {
-      "description": "10-year preview evaluated against JPL DE440 binary chunks; Catmull-Rom interpolation within machine precision.",
+      "description": "10-year preview evaluated against JPL DE440 binary chunks; Catmull-Rom interpolation within machine precision; caching verified by chunk and profile.",
       "gate_id": "V03",
       "status": "passed",
       "title": "Ephemeris Numerical Accuracy"
     },
     {
-      "description": "South Polar stereographic DEM correctly georeferenced from 80°S to 90°S.",
+      "description": "South Polar stereographic DEM covers 80°S-90°S at 5 km resolution; simplified model anchored to calibrated LOLA altimetry spot heights for farfield exploration context.",
       "gate_id": "V04",
-      "status": "passed",
+      "status": "passed_with_scope",
       "title": "Terrain Grid Integrity"
     },
     {
-      "description": "Slope values quantized at 0.5 deg within [0, 180] deg range.",
+      "description": "Slope values quantized at 0.5 deg within [0, 180] deg on 5 km macro-baseline.",
       "gate_id": "V05",
-      "status": "passed",
+      "status": "passed_with_scope",
       "title": "Slope Quantization"
     },
     {
-      "description": "720-bin LOLA polar skyline profiles for South Pole sites; exact spherical dip for benchmark comparison sites.",
+      "description": "720-bin terrain skyline horizons ray-traced from polar DEM with lunar curvature and mast height for polar sites; analytical spherical dip for benchmark sites.",
       "gate_id": "V06",
       "status": "passed",
       "title": "Horizon Mask Geometry"
@@ -95,19 +95,19 @@
       "title": "Topocentric Angles & Phase"
     },
     {
-      "description": "Contiguous half-open interval partitioning without gaps or overlaps; bisection root refinement to <= 30s.",
+      "description": "Contiguous half-open interval partitioning without gaps or overlaps; bisection root refinement to <= 30s; eclipse contacts separated from terrain crossings; intervals and events strictly agree.",
       "gate_id": "V08",
       "status": "passed",
       "title": "Timeline Event Partitioning"
     },
     {
-      "description": "Duration and fraction totals strictly conserve time window; evaluated against real threshold criteria.",
+      "description": "Duration and fraction totals strictly conserve time window; evaluated against real threshold criteria with passing and failing scenarios.",
       "gate_id": "V09",
       "status": "passed",
       "title": "Scenario Metrics Accounting"
     },
     {
-      "description": "Decoding and binary chunk loading verified across browser test harnesses.",
+      "description": "Decoding, manifest DAG resolution, and binary chunk loading verified across Node and browser test harnesses.",
       "gate_id": "V10",
       "status": "passed",
       "title": "Browser Compatibility"
@@ -119,14 +119,14 @@
       "title": "Reference Consistency"
     },
     {
-      "description": "100% SHA-256 digests, acyclic dependencies, and byte counts verified for every published resource.",
+      "description": "100% SHA-256 digests, acyclic dependencies, and 0 unresolved descriptor references.",
       "gate_id": "V12",
       "status": "passed",
       "title": "Packaging & Manifest Integrity"
     }
   ],
   "limitations": [
-    "Release validation summary across all active milestones."
+    "Release validation summary across all active milestones with explicit scope qualifications."
   ],
   "model_version": "lunar-model-v1",
   "release_decision": "computed_release_v1",

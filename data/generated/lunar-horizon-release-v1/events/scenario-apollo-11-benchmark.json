@@ -3,20 +3,20 @@
   "dataset_id": "lunar-horizon-release-v1",
   "events": [
     {
-      "et_s": 825807669.0,
-      "event_type": "sunset",
-      "id": "sunset-825807669",
-      "status": "refined",
+      "et_s": 825811269.0,
+      "event_type": "eclipse_ingress",
+      "id": "eclipse_ingress-825811269",
+      "status": "sample_bounded",
       "target": "sun",
-      "timing_resolution_s": 30.0
+      "timing_resolution_s": 7200.0
     },
     {
-      "et_s": 825814869.0,
-      "event_type": "sunrise",
-      "id": "sunrise-825814869",
-      "status": "refined",
+      "et_s": 825818469.0,
+      "event_type": "eclipse_egress",
+      "id": "eclipse_egress-825818469",
+      "status": "sample_bounded",
       "target": "sun",
-      "timing_resolution_s": 30.0
+      "timing_resolution_s": 7200.0
     },
     {
       "et_s": 826318714.3,
@@ -64,15 +64,15 @@
         "state": "blocked"
       },
       {
-        "duration_s": 504000.0,
-        "end_et_s": 826322469.0,
+        "duration_s": 500245.3125,
+        "end_et_s": 826318714.3125,
         "start_et_s": 825818469.0,
         "state": "clear"
       },
       {
-        "duration_s": 525600.0,
+        "duration_s": 529354.6875,
         "end_et_s": 826848069.0,
-        "start_et_s": 826322469.0,
+        "start_et_s": 826318714.3125,
         "state": "blocked"
       }
     ],
@@ -90,15 +90,15 @@
         "state": "blocked"
       },
       {
-        "duration_s": 504000.0,
-        "end_et_s": 826322469.0,
+        "duration_s": 500245.3125,
+        "end_et_s": 826318714.3125,
         "start_et_s": 825818469.0,
         "state": "clear"
       },
       {
-        "duration_s": 525600.0,
+        "duration_s": 529354.6875,
         "end_et_s": 826848069.0,
-        "start_et_s": 826322469.0,
+        "start_et_s": 826318714.3125,
         "state": "blocked"
       }
     ]

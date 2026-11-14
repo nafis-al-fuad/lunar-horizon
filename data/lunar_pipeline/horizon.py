@@ -1,6 +1,7 @@
 """Horizon mask generation with LOLA polar altimetry profiles and strict P06 validation."""
 
 import math
+import struct
 
 from .core import (ValidationError, coordinates, estimate, fields, identifier,
                    json_bytes, number, require, strict_json)
@@ -135,6 +136,72 @@ def sphere_horizon_bins(lat_deg, lon_deg, mast_height_m=2.0, terrain_height_m=0.
     return bins
 
 
+def dem_raytrace_horizon_bins(dem_data, lat_deg, lon_deg, mast_height_m=2.0, terrain_height_m=0.0, num_bins=720):
+    """Ray-trace terrain horizon profile across polar DEM accounting for lunar curvature and observer mast."""
+    coordinates(lat_deg, lon_deg)
+    number(mast_height_m, "mast_height_m")
+    require(num_bins >= 3, "minimum 3 horizon bins required")
+    from .terrain import lat_lon_to_polar_stereo
+
+    rows = dem_data["rows"]
+    cols = dem_data["columns"]
+    transform = dem_data["transform"]
+    t_bin = dem_data["terrain_binary"]
+    heights = struct.unpack(f"<{rows*cols}f", t_bin[:rows * cols * 4])
+
+    x0, y0 = lat_lon_to_polar_stereo(lat_deg, lon_deg)
+    c0 = int((x0 - transform[2]) / transform[0])
+    r0 = int((y0 - transform[5]) / transform[4])
+    h_surface = heights[r0 * cols + c0] if (0 <= r0 < rows and 0 <= c0 < cols) else terrain_height_m
+    h_obs = h_surface + mast_height_m
+    r_moon = REFERENCE_RADIUS_M
+
+    # Geometric limb dip
+    dip_rad = math.acos(r_moon / (r_moon + max(1.0, h_obs)))
+    limb_dip_deg = -math.degrees(dip_rad)
+
+    # Local North points toward South Pole (0, 0), Local East is 90 deg clockwise
+    norm = math.hypot(x0, y0)
+    if norm > 1e-3:
+        un_x, un_y = -x0 / norm, -y0 / norm
+    else:
+        un_x, un_y = 0.0, 1.0
+    ue_x, ue_y = -un_y, un_x
+
+    step_deg = 360.0 / num_bins
+    bins = []
+    # Radial distances: 1 km to 120 km
+    distances = [1000.0 * d for d in range(1, 121, 2)]
+
+    for i in range(num_bins):
+        az = i * step_deg
+        az_rad = math.radians(az)
+        dir_x = math.cos(az_rad) * un_x + math.sin(az_rad) * ue_x
+        dir_y = math.cos(az_rad) * un_y + math.sin(az_rad) * ue_y
+
+        max_el = limb_dip_deg
+        for d in distances:
+            px = x0 + d * dir_x
+            py = y0 + d * dir_y
+            c = int((px - transform[2]) / transform[0])
+            r = int((py - transform[5]) / transform[4])
+            if 0 <= r < rows and 0 <= c < cols:
+                th = heights[r * cols + c]
+                # Elevation angle above tangent plane minus spherical curvature drop d^2 / (2R)
+                el = math.degrees(math.atan((th - h_obs - (d * d) / (2.0 * r_moon)) / d))
+                if el > max_el:
+                    max_el = el
+
+        est = make_estimate(round(max_el, 4), basis="supported_bound", flags=["dem_raytraced"])
+        bins.append(dict(
+            azimuth_deg=az,
+            elevation=est,
+            valid=True,
+            quality_flags=["terrain_horizon", "dem_raytraced"]
+        ))
+    return bins
+
+
 def lola_terrain_horizon_bins(site_id, lat_deg, lon_deg, mast_height_m=2.0, terrain_height_m=0.0, num_bins=720):
     """Compute terrain horizon profile derived from LOLA polar altimetry models."""
     coordinates(lat_deg, lon_deg)
@@ -182,7 +249,8 @@ def build_horizon_payload(
     terrain_height_m=0.0,
     reference_meridian_deg=None,
     horizon_mode=None,
-    num_bins=720
+    num_bins=720,
+    dem_data=None
 ):
     """Construct and validate a P06 horizon resource dictionary."""
     identifier(geometry_id)
@@ -192,19 +260,29 @@ def build_horizon_payload(
     number(terrain_height_m, "terrain_height_m")
 
     # Determine mode based on site
-    is_polar_terrain = site_id in POLAR_SKYLINE_PARAMS
+    is_polar_terrain = (abs(lat_deg) >= 80.0) or (site_id in POLAR_SKYLINE_PARAMS)
     if horizon_mode is None:
         horizon_mode = "terrain" if is_polar_terrain else "reference_sphere"
 
     if horizon_mode == "terrain":
         require(is_polar_terrain, f"site {site_id} does not have polar DEM coverage")
-        terrain_model_id = POLAR_SKYLINE_PARAMS[site_id]["terrain_model_id"]
-        bins = lola_terrain_horizon_bins(site_id, lat_deg, lon_deg, mast_height_m, terrain_height_m, num_bins)
+        terrain_model_id = "lola-polar-v1"
+        if dem_data is not None:
+            bins = dem_raytrace_horizon_bins(dem_data, lat_deg, lon_deg, mast_height_m, terrain_height_m, num_bins)
+            alg_id = "dem-polar-raytrace-v1"
+            radial_desc = "DEM radial ray marching with lunar curvature drop d^2/(2R)"
+            limit_text = f"Terrain horizon ray-traced from polar DEM grid for {site_id} accounting for lunar curvature (R=1737.4 km) and mast height ({mast_height_m} m)."
+        else:
+            bins = lola_terrain_horizon_bins(site_id, lat_deg, lon_deg, mast_height_m, terrain_height_m, num_bins)
+            alg_id = "lola-polar-skyline-v1"
+            radial_desc = "LOLA polar altimetry harmonic profile with lunar curvature"
+            limit_text = f"Terrain horizon derived from LOLA polar altimetry (Barker et al. 2021) for {site_id}."
+
         source_ids = ["lola-polar-barker2021", "lola-pds-dem-v1"]
         processing = dict(
-            algorithm_id="lola-polar-skyline-v1",
+            algorithm_id=alg_id,
             azimuth_step_deg=360.0 / len(bins),
-            radial_step_description="LOLA polar altimetry ray marching with lunar curvature",
+            radial_step_description=radial_desc,
             maximum_range_m=120000.0,
             near_observer_method="skip_observer_cell",
             curvature_method="exact_sphere_radius_1737400m",
@@ -212,12 +290,27 @@ def build_horizon_payload(
             uncertainty_experiment_ids=[]
         )
         limitations = [
-            f"Terrain horizon derived from LOLA polar altimetry (Barker et al. 2021) for {site_id}.",
+            limit_text,
             "Includes lunar surface curvature on reference sphere R=1737.4 km."
         ]
     else:
         terrain_model_id = None
         bins = sphere_horizon_bins(lat_deg, lon_deg, mast_height_m, terrain_height_m, num_bins)
+        source_ids = []
+        processing = dict(
+            algorithm_id="analytic-sphere-dip-v1",
+            azimuth_step_deg=360.0 / len(bins),
+            radial_step_description="analytic curvature dip angle",
+            maximum_range_m=None,
+            near_observer_method="none",
+            curvature_method="exact_sphere_radius_1737400m",
+            interpolation="circular_linear_valid_neighbors",
+            uncertainty_experiment_ids=[]
+        )
+        limitations = [
+            "Analytical geometric curvature limb on smooth sphere R=1737.4 km.",
+            "Local topography omitted for this benchmark comparison point."
+        ]
         source_ids = []
         processing = dict(
             algorithm_id="analytic-sphere-dip-v1",
