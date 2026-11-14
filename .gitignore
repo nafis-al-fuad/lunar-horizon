@@ -1,0 +1,41 @@
+# Local environments, caches and build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+dist/
+build/
+work/
+reports/
+raw/
+reference-cache/
+.local/
+*.log
+*.tmp
+*.zip
+
+# Credentials and machine-local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Working notes are not project deliverables
+TASK_STATUS.md
+AGENTS.md
+CLAUDE.md
+.clinerules/
+.cursor/
+SESSION*.md
+HANDOFF*.md
+
+# Only this reviewed, immutable preview is selected for version control.
+/data/generated/*
+!/data/generated/ephemeris-preview-d68aa79075433edddec0e443/

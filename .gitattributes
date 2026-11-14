@@ -1,0 +1,4 @@
+# Source fingerprints and release hashes use exact bytes. Do not normalize EOLs
+# on add/checkout: even text-only conversion changes the recorded identities.
+* -text
+*.bin binary
