@@ -14,6 +14,9 @@ When lunar mission timelines shift or launch windows slip, mission planners and 
 
 **Lunar Horizon** provides an offline-first, high-precision astrodynamics and terrain modeling pipeline. It generates quantized, web-optimized datasets that enable instant in-browser scenario evaluation, date-slip analysis, and multi-site comparisons across the entire 2026–2035 exploration decade.
 
+> [!NOTE]
+> **Scientific Scope & Demonstration Boundaries:** Planetary ephemerides and celestial coordinates are rigorously computed from official NASA NAIF SPICE kernels (DE440 / DE421). In this release, South Polar terrain grids, slope maps, and ray-traced horizon skylines are generated from a calibrated **synthetic demonstration surface** anchored to published regional spot heights (Smith et al. 2010; Barker et al. 2021) for full-pipeline architectural demonstration, not continuous flight-grade LOLA DEM rasters.
+
 ---
 
 ## Key Capabilities
@@ -43,14 +46,14 @@ When lunar mission timelines shift or launch windows slip, mission planners and 
   * **Astrobotic Blue Ghost 1:** Mare Crisium candidate landing site.
 
 ### 🏔️ Topographic Horizon Profiles & Dip Geometry
-* 360-degree azimuthal skyline models for each landing site computed with exact lunar spherical curvature ($R = 1,737,400\text{ m}$).
+* 360-degree azimuthal skyline models for each landing site computed with exact lunar spherical curvature ($R = 1,737,400\text{ m}$). Ray-traced horizons from the polar demonstration surface for South Polar exploration sites; analytical spherical dip for benchmark sites.
 * Configurable observer mast heights (0.0 m to 12.0 m) modeling lander antennas and mast-mounted solar arrays.
 * Fast circular linear interpolation between azimuthal skyline bins.
 
 ### ☀️ Topocentric Visibility, Phase & Eclipse Modeling
 * **Solar Disc Visibility:** Computes instantaneous topocentric clearance and partial disc occultation.
 * **Direct-to-Earth (DTE) Links:** Calculates Earth topocentric elevation against the horizon with configurable safety clearance margins.
-* **Eclipse Geometry:** Detects topocentric solar and lunar occultations, calculating exact unocculted solar disc fractions.
+* **Eclipse Geometry:** Detects topocentric solar and lunar occultations, calculating exact unocculted solar disc fractions and distinguishing internal totality contacts.
 * **Earth Lit Phase:** Models topocentric Earth illuminated fraction and phase angle across anomalistic and draconic libration cycles.
 
 ### 📊 Mission Timelines & Event Accounting
@@ -63,9 +66,8 @@ When lunar mission timelines shift or launch windows slip, mission planners and 
   * Peak solar elevation (`peak_sun_elevation_deg`)
   * Minimum terrain clearance margin (`min_sun_clearance_deg`)
 
-### 🗺️ South Polar Terrain & Slope Layer (80°S–90°S)
-* South Polar Stereographic digital elevation model (DEM) and slope grid layer.
-* Quantized slope data ($0.5^\circ$ resolution) for lander touchdown slope assessment.
+### 🗺️ South Polar Terrain & Slope Layer (80°S–90°S) — Synthetic Demonstration
+* South Polar Stereographic demonstration digital elevation model (DEM) and quantized slope grid layer ($0.5^\circ$ resolution) anchored to regional spot heights for pipeline verification and lander touchdown slope assessment.
 
 ---
 
@@ -75,7 +77,7 @@ The release bundle is structured according to the unified Lunar Horizon schema 3
 
 | Path | Product | Description |
 | :--- | :---: | :--- |
-| `manifest.json` | **P01** | Top-level index mapping all 283 resources, SHA-256 digests, and capabilities |
+| `manifest.json` | **P01** | Top-level index mapping all 286 resources, SHA-256 digests, and capabilities |
 | `model.json` | **P01** | Model parameters, lunar reference figure, coordinate frames, and threshold rules |
 | `sources.json` | **P01** | Data provenance, kernel versioning, and NASA/JPL citations |
 | `time.json` | **P01** | UTC $\leftrightarrow$ ET time conversion knots derived from the pinned `naif0012` LSK |
@@ -96,8 +98,8 @@ The release bundle is structured according to the unified Lunar Horizon schema 3
 
 Lunar Horizon includes an automated test harness ensuring reproducible precision:
 
-* **168 Automated Unit Tests:** Covering coordinate boundaries, pole meridian logic, ephemeris interpolation, horizon dip angles, eclipse intersections, and timeline partitioning.
-* **JPL TESTPO Conformance:** Passed all 17 selected position and velocity scalar components from the official JPL `testpo.440` test suite within machine precision ($< 2.1 \times 10^{-17}\text{ AU}$ position error, $< 3.5 \times 10^{-18}\text{ AU/day}$ velocity error against the strict JPL $10^{-13}$ threshold).
+* **182 Automated Unit Tests:** Covering coordinate boundaries, pole meridian logic, ephemeris interpolation, horizon dip angles, eclipse intersections, and timeline partitioning.
+* **JPL TESTPO Conformance:** Passed all 17 selected position and velocity scalar components from the official JPL `testpo.440` test suite within strict $10^{-12}$ tolerance ($< 2.1 \times 10^{-17}\text{ AU}$ position error, $< 3.5 \times 10^{-18}\text{ AU/day}$ velocity error against the strict JPL $10^{-13}$ threshold). Catmull-Rom interpolated ephemerides verified against JPL polynomial evaluations to within stated $< 0.001^\circ$ angular tolerance.
 * **Independent ASCII Evaluator:** Includes a clean, independent offline DE440 ASCII evaluator (`de440_ascii.py`) verifying ephemeris math directly against raw JPL polynomial coefficients.
 * **Web Client Compatibility:** Tested against Node.js consumers and headless Chrome/Edge test harnesses.
 

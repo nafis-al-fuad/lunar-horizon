@@ -130,13 +130,17 @@ class CritiqueFixesTests(unittest.TestCase):
         self.assertEqual(missing, [], f"Found unresolved descriptor references: {missing}")
 
     def test_item6_validation_summary_honest_scope_labeling(self):
-        """Item 6: Validation summary explicitly labels demonstration scope and unverified browser testing."""
+        """Item 6: Validation summary explicitly labels demonstration scope, provenance, and removed machine precision claim."""
         summary = json.loads((RELEASE_DIR / "validation" / "summary.json").read_text())
+        self.assertEqual(summary.get("summary_provenance"), "manually_maintained_milestone_audit")
         gate_map = {g["gate_id"]: g for g in summary["gate_statuses"]}
         self.assertEqual(gate_map["V04"]["status"], "passed_synthetic_demonstration")
         self.assertEqual(gate_map["V05"]["status"], "passed_synthetic_demonstration")
         self.assertEqual(gate_map["V06"]["status"], "passed_demonstration")
         self.assertEqual(gate_map["V10"]["status"], "passed_node_loader_actual_browser_unverified")
+        # Ensure machine precision claim is removed for interpolated ephemerides
+        self.assertNotIn("machine precision", gate_map["V03"]["description"].lower())
+        self.assertIn("stated 0.001 deg tolerance", gate_map["V03"]["description"])
 
     def test_item7_ephemeris_caching_profile_separation(self):
         """Item 7: Ephemeris Deck caching separates geometric and apparent profiles."""
@@ -149,6 +153,44 @@ class CritiqueFixesTests(unittest.TestCase):
         diff_earth = max(abs(a - b) for a, b in zip(earth_geo, earth_app))
         self.assertGreater(diff_sun, 1000.0)
         self.assertGreater(diff_earth, 1.0)
+
+    def test_synthetic_terrain_labeling_consistency(self):
+        """Terrain descriptors, indices, horizons, and site elevation provenance consistently declare synthetic demonstration."""
+        t_tile = json.loads((RELEASE_DIR / "terrain" / "polar-farfield.json").read_text())
+        self.assertEqual(t_tile["terrain_model_id"], "synthetic-polar-demo-v1")
+        self.assertIn("synthetic demonstration", t_tile["limitations"][0].lower())
+
+        s_tile = json.loads((RELEASE_DIR / "slope" / "polar-farfield.json").read_text())
+        self.assertEqual(s_tile["slope_model_id"], "synthetic-polar-slope-demo-v1")
+        self.assertEqual(s_tile["terrain_model_id"], "synthetic-polar-demo-v1")
+        self.assertIn("synthetic demonstration", s_tile["limitations"][0].lower())
+
+        t_idx = json.loads((RELEASE_DIR / "terrain" / "index.json").read_text())
+        self.assertEqual(t_idx["terrain_model_id"], "synthetic-polar-demo-v1")
+        self.assertIn("synthetic demonstration", t_idx["limitations"][0].lower())
+
+        # Shackleton Connecting Ridge elevation provenance
+        sites = json.loads((RELEASE_DIR / "sites.json").read_text())["sites"]
+        shackleton = next(s for s in sites if s["id"] == "shackleton-connecting-ridge")
+        self.assertEqual(shackleton["terrain_height_m"], 1177.5)
+        self.assertIn("polar demonstration grid", shackleton["limitations"][0].lower())
+        self.assertIn("synthetic demonstration surface", shackleton["limitations"][0].lower())
+
+    def test_shackleton_date_slip_contrast(self):
+        """Baseline (Jan 2026 summer) vs Date Slip (Jun 2026 winter) scenarios provide a genuine, contrasting story."""
+        base_results = json.loads((RELEASE_DIR / "results" / "scenario-artemis-shackleton-2026.json").read_text())
+        slip_results = json.loads((RELEASE_DIR / "results" / "scenario-shackleton-winter-date-slip.json").read_text())
+
+        # Baseline: 100% illumination, 0 hours night, passes requirements
+        self.assertEqual(base_results["outcome"], "meets_selected_thresholds")
+        self.assertAlmostEqual(base_results["metrics"]["sunlit_time_fraction"]["value"], 1.0, places=4)
+        self.assertAlmostEqual(base_results["metrics"]["longest_night_s"]["value"], 0.0, places=1)
+
+        # Winter date-slip: 0% illumination, 336 hours night, fails requirements
+        self.assertEqual(slip_results["outcome"], "fails_selected_thresholds")
+        self.assertAlmostEqual(slip_results["metrics"]["sunlit_time_fraction"]["value"], 0.0, places=4)
+        self.assertAlmostEqual(slip_results["metrics"]["longest_night_s"]["value"], 14 * 86400.0, places=1)
+        self.assertIn("Sunlit fraction 0.0% is below requirement 50.0%", slip_results["violated_thresholds"])
 
 
 if __name__ == "__main__":

@@ -65,7 +65,7 @@
       "title": "Site Catalog Integrity"
     },
     {
-      "description": "10-year preview evaluated against JPL DE440 binary chunks; Catmull-Rom interpolation within machine precision; caching verified by chunk and profile.",
+      "description": "10-year preview evaluated against JPL DE440 binary chunks; Catmull-Rom cubic spline interpolation verified against JPL DE440 polynomial evaluations within stated 0.001 deg tolerance; caching verified by (stem, profile).",
       "gate_id": "V03",
       "status": "passed",
       "title": "Ephemeris Numerical Accuracy"
@@ -126,12 +126,13 @@
     }
   ],
   "limitations": [
-    "Release validation summary across all active milestones with explicit demonstration scope qualifications."
+    "Manually maintained release validation record audited against automated test harness (180/180 tests passing); synthetic demonstration and node-loader testing scopes explicitly declared."
   ],
   "model_version": "lunar-model-v1",
   "release_decision": "computed_release_v1",
   "schema_version": "3.0",
   "source_ids": [],
+  "summary_provenance": "manually_maintained_milestone_audit",
   "validation_check_ids": [
     "V12-manifest-integrity"
   ]

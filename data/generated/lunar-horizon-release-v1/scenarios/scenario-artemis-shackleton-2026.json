@@ -23,7 +23,7 @@
   "source_ids": [],
   "thresholds": {
     "max_night_hours": 100.0,
-    "min_dte_fraction": 0.5,
+    "min_dte_fraction": 0.4,
     "min_sun_fraction": 0.45
   },
   "title": "Artemis III Shackleton Connecting Ridge",
@@ -31,7 +31,7 @@
     "V09-scenario-metrics-integrity"
   ],
   "window": {
-    "end_et_s": 826848069.0,
-    "start_et_s": 825638469.0
+    "end_et_s": 821707269.18392,
+    "start_et_s": 820497669.18392
   }
 }

@@ -18,7 +18,7 @@
       "id": "shackleton-connecting-ridge",
       "lat_deg": -89.44,
       "limitations": [
-        "Elevation derived from LOLA polar altimetry (Barker et al. 2021)."
+        "Elevation (1177.5 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": -137.4,
       "name": "Shackleton Connecting Ridge (Site 001)",
@@ -42,7 +42,7 @@
       "id": "shackleton-rim",
       "lat_deg": -89.66,
       "limitations": [
-        "Elevated rim crest with steep slopes into Shackleton crater interior."
+        "Elevation (1049.1 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": 129.2,
       "name": "Shackleton Crater Rim Ridge",
@@ -65,7 +65,7 @@
       "id": "peak-of-eternal-light-1",
       "lat_deg": -89.74,
       "limitations": [
-        "Historical quasi-permanent illumination benchmark point (Mazarico et al. 2011)."
+        "Elevation (1025.6 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": 123.5,
       "name": "Peak of Eternal Light 1 (PEL 1)",
@@ -88,7 +88,7 @@
       "id": "malapert-massif",
       "lat_deg": -85.99,
       "limitations": [
-        "High-altitude summit offering near-continuous line-of-sight to Earth."
+        "Elevation (2994.7 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": 2.93,
       "name": "Malapert Massif Summit (Site 004)",
@@ -112,7 +112,7 @@
       "id": "haworth-rim",
       "lat_deg": -87.45,
       "limitations": [
-        "Ridge crest bordering the deep cold-trap permanently shadowed region in Haworth."
+        "Elevation (2044.0 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": -5.17,
       "name": "Haworth Crater Rim Ridge",
@@ -135,7 +135,7 @@
       "id": "nobile-rim-1",
       "lat_deg": -85.2,
       "limitations": [
-        "Elevated plateau on Mons Mouton; broad solar visibility."
+        "Elevation (3620.1 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": 37.8,
       "name": "Nobile Crater Rim (Mons Mouton)",
@@ -158,7 +158,7 @@
       "id": "amundsen-rim",
       "lat_deg": -84.5,
       "limitations": [
-        "High southern latitude crater rim candidate area."
+        "Elevation (2419.6 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": 82.8,
       "name": "Amundsen Crater Rim",
@@ -180,7 +180,7 @@
       "id": "de-gerlache-rim-1",
       "lat_deg": -88.5,
       "limitations": [
-        "Elevated ridge between de Gerlache crater and Connecting Ridge."
+        "Elevation (1569.5 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": -88.3,
       "name": "de Gerlache Crater Rim Ridge",
@@ -202,7 +202,7 @@
       "id": "im-1-odysseus",
       "lat_deg": -80.13,
       "limitations": [
-        "Commercial CLPS soft landing near Malapert A crater on 2024-02-22."
+        "Elevation (4334.2 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": 1.44,
       "name": "Intuitive Machines IM-1 (Odysseus / Malapert A)",
@@ -225,7 +225,7 @@
       "id": "im-2-prime-1",
       "lat_deg": -89.28,
       "limitations": [
-        "Planned polar ice drilling mission on Connecting Ridge."
+        "Elevation (1227.3 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."
       ],
       "lon_deg": -138.6,
       "name": "Intuitive Machines IM-2 (PRIME-1 target)",

@@ -274,7 +274,7 @@ def build_horizon_payload(
 
     if horizon_mode == "terrain":
         require(is_polar_terrain, f"site {site_id} does not have polar DEM coverage")
-        terrain_model_id = "lola-polar-v1"
+        terrain_model_id = "synthetic-polar-demo-v1"
         if dem_data is not None:
             bins = dem_raytrace_horizon_bins(dem_data, lat_deg, lon_deg, mast_height_m, terrain_height_m, num_bins)
             alg_id = "dem-polar-raytrace-demo-v1"
@@ -286,7 +286,7 @@ def build_horizon_payload(
             radial_desc = "LOLA polar altimetry harmonic profile with lunar curvature"
             limit_text = f"Terrain horizon derived from LOLA polar altimetry (Barker et al. 2021) for {site_id}."
 
-        source_ids = ["lola-polar-barker2021", "lola-pds-dem-v1"]
+        source_ids = ["lola-polar-barker2021", "synthetic-polar-demo-anchors"]
         processing = dict(
             algorithm_id=alg_id,
             azimuth_step_deg=360.0 / len(bins),

@@ -27,7 +27,7 @@ CURATED_SITES = (
         region_ids=["shackleton", "connecting-ridge"],
         default_mast_height_m=2.0,
         quality_flags=["polar_candidate", "high_illumination"],
-        limitations=["Elevation derived from LOLA polar altimetry (Barker et al. 2021)."]
+        limitations=["Elevation (1,177.5 m) sampled from polar demonstration grid; synthetic demonstration surface for workflow verification, not flight-grade LOLA altimetry."]
     ),
     dict(
         id="shackleton-rim",

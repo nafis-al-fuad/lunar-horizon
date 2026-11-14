@@ -34,6 +34,18 @@
         "de440s"
       ],
       "text": "Ephemeris states are tabulated at uniform 3-hour intervals from JPL DE440 and interpolated with cubic Catmull-Rom splines."
+    },
+    {
+      "applies_to_product_ids": [
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "id": "synthetic_polar_terrain_demo",
+      "source_ids": [
+        "synthetic-polar-demo-anchors"
+      ],
+      "text": "South Polar terrain and slope layers are generated from a calibrated synthetic demonstration surface anchored to regional spot heights for end-to-end pipeline verification; not an ingested flight-grade LOLA DEM raster."
     }
   ],
   "data_kind": "computed",
@@ -43,8 +55,8 @@
     {
       "id": "artemis-shackleton-tour",
       "scenario_id": "scenario-artemis-shackleton-2026",
-      "summary": "Explores the extreme solar illumination and continuous Earth line-of-sight along the Shackleton rim.",
-      "title": "Artemis III: Shackleton Connecting Ridge"
+      "summary": "Explores the 100% continuous solar illumination (336 hours of light) and favorable conditions along Shackleton Connecting Ridge during lunar southern summer.",
+      "title": "Artemis III: Shackleton Connecting Ridge (Southern Summer)"
     },
     {
       "id": "malapert-plateau-tour",
@@ -55,7 +67,7 @@
     {
       "id": "shackleton-winter-tour",
       "scenario_id": "scenario-shackleton-winter-date-slip",
-      "summary": "Demonstrates the dramatic reduction in solar illumination and extended darkness during the lunar southern winter.",
+      "summary": "Demonstrates the dramatic reduction in solar illumination and extended darkness (336 hours of continuous night, 0% sunlight) when launch slips into the lunar southern winter.",
       "title": "Artemis III: Southern Winter Date Slip Impact"
     }
   ],

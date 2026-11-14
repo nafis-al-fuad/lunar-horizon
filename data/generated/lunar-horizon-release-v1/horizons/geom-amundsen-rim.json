@@ -12993,10 +12993,10 @@
   "schema_version": "3.0",
   "source_ids": [
     "lola-polar-barker2021",
-    "lola-pds-dem-v1"
+    "synthetic-polar-demo-anchors"
   ],
   "terrain_height_m": 2419.6,
-  "terrain_model_id": "lola-polar-v1",
+  "terrain_model_id": "synthetic-polar-demo-v1",
   "validation_check_ids": [
     "V06-horizon-mask-integrity"
   ]

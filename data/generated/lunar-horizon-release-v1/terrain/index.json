@@ -3,7 +3,7 @@
   "dataset_id": "lunar-horizon-release-v1",
   "file_kind": "terrain_index",
   "limitations": [
-    "Covers Moon South Polar exploration region (80°S-90°S)."
+    "Demonstration terrain index covering Moon South Polar exploration region (80°S-90°S); synthetic demonstration surface, not flight-grade continuous DEM."
   ],
   "model_version": "lunar-model-v1",
   "precedence": "valid_finest_then_priority_then_id",
@@ -41,9 +41,9 @@
   ],
   "schema_version": "3.0",
   "source_ids": [
-    "lola-pds-dem-v1"
+    "synthetic-polar-demo-anchors"
   ],
-  "terrain_model_id": "lola-polar-v1",
+  "terrain_model_id": "synthetic-polar-demo-v1",
   "tiles": [
     {
       "file_id": "terrain-polar-farfield",
