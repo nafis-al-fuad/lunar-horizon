@@ -12,7 +12,8 @@
     "lat_deg": -89.28,
     "lon_deg": -138.6,
     "reference_meridian_deg": null,
-    "site_id": "im-2-prime-1"
+    "site_id": "im-2-prime-1",
+    "terrain_height_m": 1227.3
   },
   "mast_height_m": 2.0,
   "model_version": "lunar-model-v1",

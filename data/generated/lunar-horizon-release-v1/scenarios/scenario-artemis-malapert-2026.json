@@ -12,7 +12,8 @@
     "lat_deg": -85.99,
     "lon_deg": 2.93,
     "reference_meridian_deg": null,
-    "site_id": "malapert-massif"
+    "site_id": "malapert-massif",
+    "terrain_height_m": 2994.7
   },
   "mast_height_m": 2.0,
   "model_version": "lunar-model-v1",

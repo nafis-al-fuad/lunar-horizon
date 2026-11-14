@@ -3,41 +3,33 @@
   "dataset_id": "lunar-horizon-release-v1",
   "events": [
     {
-      "et_s": 825811269.0,
-      "event_type": "eclipse_ingress",
-      "id": "eclipse_ingress-825811269",
-      "status": "sample_bounded",
-      "target": "sun",
-      "timing_resolution_s": 7200.0
-    },
-    {
-      "et_s": 825816908.1,
-      "event_type": "eclipse_egress",
-      "id": "eclipse_egress-825816908",
+      "et_s": 825807373.7,
+      "event_type": "eclipse_totality_ingress",
+      "id": "eclipse_totality_ingress-825807373",
       "status": "refined",
       "target": "sun",
       "timing_resolution_s": 30.0
     },
     {
-      "et_s": 826414704.9,
+      "et_s": 825811620.6,
+      "event_type": "eclipse_totality_egress",
+      "id": "eclipse_totality_egress-825811620",
+      "status": "refined",
+      "target": "sun",
+      "timing_resolution_s": 30.0
+    },
+    {
+      "et_s": 826468536.2,
       "event_type": "sunset",
-      "id": "sunset-826414704",
+      "id": "sunset-826468536",
       "status": "refined",
       "target": "sun",
       "timing_resolution_s": 30.0
     },
     {
-      "et_s": 826012404.9,
+      "et_s": 825933429.9,
       "event_type": "dte_set",
-      "id": "dte_set-826012404",
-      "status": "refined",
-      "target": "earth",
-      "timing_resolution_s": 30.0
-    },
-    {
-      "et_s": 826806598.7,
-      "event_type": "dte_rise",
-      "id": "dte_rise-826806598",
+      "id": "dte_set-825933429",
       "status": "refined",
       "target": "earth",
       "timing_resolution_s": 30.0
@@ -60,73 +52,67 @@
   "tracks": {
     "dte": [
       {
-        "duration_s": 373935.9375,
-        "end_et_s": 826012404.9375,
+        "duration_s": 294960.9375,
+        "end_et_s": 825933429.9375,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 794193.75,
-        "end_et_s": 826806598.6875,
-        "start_et_s": 826012404.9375,
-        "state": "blocked"
-      },
-      {
-        "duration_s": 41470.3125,
+        "duration_s": 914639.0625,
         "end_et_s": 826848069.0,
-        "start_et_s": 826806598.6875,
-        "state": "clear"
+        "start_et_s": 825933429.9375,
+        "state": "blocked"
       }
     ],
     "simultaneous": [
       {
-        "duration_s": 172800.0,
-        "end_et_s": 825811269.0,
+        "duration_s": 168904.6875,
+        "end_et_s": 825807373.6875,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 5639.0625,
-        "end_et_s": 825816908.0625,
-        "start_et_s": 825811269.0,
+        "duration_s": 4246.875,
+        "end_et_s": 825811620.5625,
+        "start_et_s": 825807373.6875,
         "state": "blocked"
       },
       {
-        "duration_s": 195496.875,
-        "end_et_s": 826012404.9375,
-        "start_et_s": 825816908.0625,
+        "duration_s": 121809.375,
+        "end_et_s": 825933429.9375,
+        "start_et_s": 825811620.5625,
         "state": "clear"
       },
       {
-        "duration_s": 835664.0625,
+        "duration_s": 914639.0625,
         "end_et_s": 826848069.0,
-        "start_et_s": 826012404.9375,
+        "start_et_s": 825933429.9375,
         "state": "blocked"
       }
     ],
     "sunlight": [
       {
-        "duration_s": 172800.0,
-        "end_et_s": 825811269.0,
+        "duration_s": 168904.6875,
+        "end_et_s": 825807373.6875,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 5639.0625,
-        "end_et_s": 825816908.0625,
-        "start_et_s": 825811269.0,
+        "duration_s": 4246.875,
+        "end_et_s": 825811620.5625,
+        "start_et_s": 825807373.6875,
         "state": "blocked"
       },
       {
-        "duration_s": 597796.875,
-        "end_et_s": 826414704.9375,
-        "start_et_s": 825816908.0625,
+        "duration_s": 656915.625,
+        "end_et_s": 826468536.1875,
+        "start_et_s": 825811620.5625,
         "state": "clear"
       },
       {
-        "duration_s": 433364.0625,
+        "duration_s": 379532.8125,
         "end_et_s": 826848069.0,
-        "start_et_s": 826414704.9375,
+        "start_et_s": 826468536.1875,
         "state": "blocked"
       }
     ]

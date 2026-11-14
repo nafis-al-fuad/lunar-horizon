@@ -32,7 +32,7 @@
         "connecting-ridge"
       ],
       "site_type": "candidate",
-      "terrain_height_m": -120.0
+      "terrain_height_m": 1177.5
     },
     {
       "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
@@ -55,7 +55,7 @@
         "shackleton"
       ],
       "site_type": "candidate",
-      "terrain_height_m": 1150.0
+      "terrain_height_m": 1049.1
     },
     {
       "coordinate_source_id": "lola-polar-barker2021",
@@ -78,7 +78,7 @@
         "shackleton"
       ],
       "site_type": "study_point",
-      "terrain_height_m": 1320.0
+      "terrain_height_m": 1025.6
     },
     {
       "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
@@ -102,7 +102,7 @@
         "malapert"
       ],
       "site_type": "candidate",
-      "terrain_height_m": 4980.0
+      "terrain_height_m": 2994.7
     },
     {
       "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
@@ -125,7 +125,7 @@
         "haworth"
       ],
       "site_type": "candidate",
-      "terrain_height_m": -450.0
+      "terrain_height_m": 2044.0
     },
     {
       "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
@@ -148,7 +148,7 @@
         "nobile"
       ],
       "site_type": "candidate",
-      "terrain_height_m": 3800.0
+      "terrain_height_m": 3620.1
     },
     {
       "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
@@ -170,7 +170,7 @@
         "amundsen"
       ],
       "site_type": "candidate",
-      "terrain_height_m": 2100.0
+      "terrain_height_m": 2419.6
     },
     {
       "coordinate_source_id": "nasa-artemis-candidate-regions-2024",
@@ -192,7 +192,7 @@
         "de-gerlache"
       ],
       "site_type": "candidate",
-      "terrain_height_m": 1850.0
+      "terrain_height_m": 1569.5
     },
     {
       "coordinate_source_id": "clps-im1-flight-records",
@@ -215,7 +215,7 @@
         "malapert"
       ],
       "site_type": "achieved_landing",
-      "terrain_height_m": -2800.0
+      "terrain_height_m": 4334.2
     },
     {
       "coordinate_source_id": "clps-im2-mission-plan",
@@ -238,7 +238,7 @@
         "connecting-ridge"
       ],
       "site_type": "candidate",
-      "terrain_height_m": -200.0
+      "terrain_height_m": 1227.3
     },
     {
       "coordinate_source_id": "isro-ch3-landing-report",

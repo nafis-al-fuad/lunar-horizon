@@ -3,17 +3,9 @@
   "dataset_id": "lunar-horizon-release-v1",
   "events": [
     {
-      "et_s": 826177583.1,
-      "event_type": "sunrise",
-      "id": "sunrise-826177583",
-      "status": "refined",
-      "target": "sun",
-      "timing_resolution_s": 30.0
-    },
-    {
-      "et_s": 825698136.2,
+      "et_s": 825752051.8,
       "event_type": "dte_set",
-      "id": "dte_set-825698136",
+      "id": "dte_set-825752051",
       "status": "refined",
       "target": "earth",
       "timing_resolution_s": 30.0
@@ -36,15 +28,15 @@
   "tracks": {
     "dte": [
       {
-        "duration_s": 59667.1875,
-        "end_et_s": 825698136.1875,
+        "duration_s": 113582.8125,
+        "end_et_s": 825752051.8125,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 1149932.8125,
+        "duration_s": 1096017.1875,
         "end_et_s": 826848069.0,
-        "start_et_s": 825698136.1875,
+        "start_et_s": 825752051.8125,
         "state": "blocked"
       }
     ],
@@ -58,16 +50,10 @@
     ],
     "sunlight": [
       {
-        "duration_s": 539114.0625,
-        "end_et_s": 826177583.0625,
+        "duration_s": 1209600.0,
+        "end_et_s": 826848069.0,
         "start_et_s": 825638469.0,
         "state": "blocked"
-      },
-      {
-        "duration_s": 670485.9375,
-        "end_et_s": 826848069.0,
-        "start_et_s": 826177583.0625,
-        "state": "clear"
       }
     ]
   },

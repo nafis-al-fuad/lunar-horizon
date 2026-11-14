@@ -12,7 +12,8 @@
     "lat_deg": -89.44,
     "lon_deg": -137.4,
     "reference_meridian_deg": null,
-    "site_id": "shackleton-connecting-ridge"
+    "site_id": "shackleton-connecting-ridge",
+    "terrain_height_m": 1177.5
   },
   "mast_height_m": 2.0,
   "model_version": "lunar-model-v1",

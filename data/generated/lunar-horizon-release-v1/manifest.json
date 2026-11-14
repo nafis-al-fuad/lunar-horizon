@@ -15,8 +15,8 @@
   "file_kind": "manifest",
   "files": [
     {
-      "decoded_bytes": 2318,
-      "decoded_sha256": "e7c19ec08187cddc40d11ef73f14c4600c67122cc2b879580709631022296e79",
+      "decoded_bytes": 2539,
+      "decoded_sha256": "c4fb69fbb39d9f1cf3476d4b22fbeeb9b55ac28e3a2f1bb8b0b988a31326cfd3",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "model.json",
@@ -24,9 +24,9 @@
       "kind": "model",
       "load_group": "startup",
       "media_type": "application/json",
-      "payload_bytes": 2318,
+      "payload_bytes": 2539,
       "product_id": "P01",
-      "sha256": "e7c19ec08187cddc40d11ef73f14c4600c67122cc2b879580709631022296e79",
+      "sha256": "c4fb69fbb39d9f1cf3476d4b22fbeeb9b55ac28e3a2f1bb8b0b988a31326cfd3",
       "storage_encoding": "identity"
     },
     {
@@ -60,8 +60,8 @@
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 4520,
-      "decoded_sha256": "f746c11c1ec9c116a76153db3b7e37a15987defc5c402bd2693e627a619a5f1d",
+      "decoded_bytes": 4777,
+      "decoded_sha256": "83a16073bb9eb9332824c58c4bd32eab7e0a67bf006f0064668cd6fafa53cf66",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "validation/summary.json",
@@ -69,9 +69,9 @@
       "kind": "validation_summary",
       "load_group": "startup",
       "media_type": "application/json",
-      "payload_bytes": 4520,
+      "payload_bytes": 4777,
       "product_id": "P14",
-      "sha256": "f746c11c1ec9c116a76153db3b7e37a15987defc5c402bd2693e627a619a5f1d",
+      "sha256": "83a16073bb9eb9332824c58c4bd32eab7e0a67bf006f0064668cd6fafa53cf66",
       "storage_encoding": "identity"
     },
     {
@@ -87,21 +87,6 @@
       "payload_bytes": 59619,
       "product_id": "P01",
       "sha256": "9625a7a9143b088182650008c5f93b9a32f834b94f57a54aeb5f3b6bc6387a62",
-      "storage_encoding": "identity"
-    },
-    {
-      "decoded_bytes": 11431,
-      "decoded_sha256": "86ace977a346f3f6722b04b3e2ce82abd0bdc5945712681673fde1e9ce8f88f4",
-      "depends_on": [],
-      "descriptor_file_id": null,
-      "href": "sites.json",
-      "id": "sites",
-      "kind": "sites",
-      "load_group": "startup",
-      "media_type": "application/json",
-      "payload_bytes": 11431,
-      "product_id": "P02",
-      "sha256": "86ace977a346f3f6722b04b3e2ce82abd0bdc5945712681673fde1e9ce8f88f4",
       "storage_encoding": "identity"
     },
     {
@@ -186,8 +171,23 @@
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275635,
-      "decoded_sha256": "6517c7d605e573f7ae055d564c772dbc3d57df9f5b4b210fcf4ab1405d5185f2",
+      "decoded_bytes": 11430,
+      "decoded_sha256": "af60fb54b0a87d87d326e881be839217820657a3d0ff38a9cb0a50e4b43e5fa9",
+      "depends_on": [],
+      "descriptor_file_id": null,
+      "href": "sites.json",
+      "id": "sites",
+      "kind": "sites",
+      "load_group": "startup",
+      "media_type": "application/json",
+      "payload_bytes": 11430,
+      "product_id": "P02",
+      "sha256": "af60fb54b0a87d87d326e881be839217820657a3d0ff38a9cb0a50e4b43e5fa9",
+      "storage_encoding": "identity"
+    },
+    {
+      "decoded_bytes": 275463,
+      "decoded_sha256": "f142f9b8248b2b96b066c2206c43488e83fc169dd314b7040243eb4f3c426d19",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-shackleton-connecting-ridge.json",
@@ -195,14 +195,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275635,
+      "payload_bytes": 275463,
       "product_id": "P06",
-      "sha256": "6517c7d605e573f7ae055d564c772dbc3d57df9f5b4b210fcf4ab1405d5185f2",
+      "sha256": "f142f9b8248b2b96b066c2206c43488e83fc169dd314b7040243eb4f3c426d19",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275061,
-      "decoded_sha256": "5c97c4171e2317631756386b4c31a1089174267ca10f45d883679f99ae3d726b",
+      "decoded_bytes": 275135,
+      "decoded_sha256": "1e29e4c6bec9724a8d92f49b49e09a5aed3aca11b5b5f5649784b6e994b4a5e0",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-shackleton-rim.json",
@@ -210,14 +210,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275061,
+      "payload_bytes": 275135,
       "product_id": "P06",
-      "sha256": "5c97c4171e2317631756386b4c31a1089174267ca10f45d883679f99ae3d726b",
+      "sha256": "1e29e4c6bec9724a8d92f49b49e09a5aed3aca11b5b5f5649784b6e994b4a5e0",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275067,
-      "decoded_sha256": "897ab161a7d7d3aea6fd60367bf946aa52989ceaec034930e0b0e6c1e923355d",
+      "decoded_bytes": 274511,
+      "decoded_sha256": "ecd64888515f43b6d99c8b4628825f4fc305b35409bea5627254b67f3f954723",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-peak-of-eternal-light-1.json",
@@ -225,14 +225,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275067,
+      "payload_bytes": 274511,
       "product_id": "P06",
-      "sha256": "897ab161a7d7d3aea6fd60367bf946aa52989ceaec034930e0b0e6c1e923355d",
+      "sha256": "ecd64888515f43b6d99c8b4628825f4fc305b35409bea5627254b67f3f954723",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275837,
-      "decoded_sha256": "601977009af57445c0f103c66e138833888e6b3227cca1b098b4da8b4d67235b",
+      "decoded_bytes": 275902,
+      "decoded_sha256": "69a9179a021666e866de0ff22ce7cce953a52b699f52d1ad42fc79312217f45e",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-malapert-massif.json",
@@ -240,14 +240,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275837,
+      "payload_bytes": 275902,
       "product_id": "P06",
-      "sha256": "601977009af57445c0f103c66e138833888e6b3227cca1b098b4da8b4d67235b",
+      "sha256": "69a9179a021666e866de0ff22ce7cce953a52b699f52d1ad42fc79312217f45e",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275619,
-      "decoded_sha256": "50f80b4c9c856d870509004c89b0280619454b605583cd2be19a612091e2c0c2",
+      "decoded_bytes": 275741,
+      "decoded_sha256": "4f09e1d5828220c6c09c68d83247a689bcbef9fed31324ad0916b52fc6fd4d67",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-haworth-rim.json",
@@ -255,14 +255,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275619,
+      "payload_bytes": 275741,
       "product_id": "P06",
-      "sha256": "50f80b4c9c856d870509004c89b0280619454b605583cd2be19a612091e2c0c2",
+      "sha256": "4f09e1d5828220c6c09c68d83247a689bcbef9fed31324ad0916b52fc6fd4d67",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275947,
-      "decoded_sha256": "00f1af3b24a599965cc2db01c109f82a648ef6ec1a950311a0cc2ed2d4e47ea9",
+      "decoded_bytes": 275589,
+      "decoded_sha256": "2aa5d3a71d73df0028b62f72649c5600ceaece1c9881dc15bc8b20a30b8e861b",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-nobile-rim-1.json",
@@ -270,14 +270,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275947,
+      "payload_bytes": 275589,
       "product_id": "P06",
-      "sha256": "00f1af3b24a599965cc2db01c109f82a648ef6ec1a950311a0cc2ed2d4e47ea9",
+      "sha256": "2aa5d3a71d73df0028b62f72649c5600ceaece1c9881dc15bc8b20a30b8e861b",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275776,
-      "decoded_sha256": "e0f484b0ad4644e4d6ea39020a01f4619122ef8a4a1e2dd4e3985d827500f545",
+      "decoded_bytes": 275013,
+      "decoded_sha256": "5931bacb534ceab91a092ab5dfee0eaecc67861d756b83209d9593282be96c03",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-amundsen-rim.json",
@@ -285,14 +285,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275776,
+      "payload_bytes": 275013,
       "product_id": "P06",
-      "sha256": "e0f484b0ad4644e4d6ea39020a01f4619122ef8a4a1e2dd4e3985d827500f545",
+      "sha256": "5931bacb534ceab91a092ab5dfee0eaecc67861d756b83209d9593282be96c03",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275798,
-      "decoded_sha256": "fd161a9510a056f4b8f9c91891787e17e024238a5713e98acd0ee93ac5f7a6ed",
+      "decoded_bytes": 275893,
+      "decoded_sha256": "d1579f26efc3a762103986192c2f73408f18603fced73180727d4d21b95719e9",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-de-gerlache-rim-1.json",
@@ -300,14 +300,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275798,
+      "payload_bytes": 275893,
       "product_id": "P06",
-      "sha256": "fd161a9510a056f4b8f9c91891787e17e024238a5713e98acd0ee93ac5f7a6ed",
+      "sha256": "d1579f26efc3a762103986192c2f73408f18603fced73180727d4d21b95719e9",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275685,
-      "decoded_sha256": "f8d7877fc164a5d75ebccfc9d383c3cca9620f81b77fd032b9406d3d50a5aae0",
+      "decoded_bytes": 275860,
+      "decoded_sha256": "c753d8dc9f35adebe55fb5fb4599088a335e9b0c33242c7d3645ae9cc8722c92",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-im-1-odysseus.json",
@@ -315,14 +315,14 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275685,
+      "payload_bytes": 275860,
       "product_id": "P06",
-      "sha256": "f8d7877fc164a5d75ebccfc9d383c3cca9620f81b77fd032b9406d3d50a5aae0",
+      "sha256": "c753d8dc9f35adebe55fb5fb4599088a335e9b0c33242c7d3645ae9cc8722c92",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 275398,
-      "decoded_sha256": "7d55aec47d057bba9baab59a5fbe2408c17d884e4267ce7f078beb9354db37fd",
+      "decoded_bytes": 275598,
+      "decoded_sha256": "4d8344acc189e689ed8847ba56bf66dcc3b4b060390b134289c336d300b0a823",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "horizons/geom-im-2-prime-1.json",
@@ -330,9 +330,9 @@
       "kind": "horizon",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 275398,
+      "payload_bytes": 275598,
       "product_id": "P06",
-      "sha256": "7d55aec47d057bba9baab59a5fbe2408c17d884e4267ce7f078beb9354db37fd",
+      "sha256": "4d8344acc189e689ed8847ba56bf66dcc3b4b060390b134289c336d300b0a823",
       "storage_encoding": "identity"
     },
     {
@@ -426,8 +426,8 @@
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 973,
-      "decoded_sha256": "aae9680f3516a02bb67ccb87591c277332b9c9a6184ad8d1eae5de83d964139e",
+      "decoded_bytes": 1005,
+      "decoded_sha256": "5a8441746f83bbd21f6616cb8132724f5062e2ba7f67806ebf013b544bb461f7",
       "depends_on": [
         "horizons-geom-shackleton-connecting-ridge"
       ],
@@ -437,14 +437,14 @@
       "kind": "scenario",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 973,
+      "payload_bytes": 1005,
       "product_id": "P09",
-      "sha256": "aae9680f3516a02bb67ccb87591c277332b9c9a6184ad8d1eae5de83d964139e",
+      "sha256": "5a8441746f83bbd21f6616cb8132724f5062e2ba7f67806ebf013b544bb461f7",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 1817,
-      "decoded_sha256": "120b7892ef22aa5f344b5446e8ff91379ca9a3fdad3050047fcfe57bcf462de0",
+      "decoded_bytes": 1477,
+      "decoded_sha256": "63a617564228a84d6280fb215cab8ae2e1a36294fec57ef77f8cd740143f4fad",
       "depends_on": [
         "scenarios-scenario-artemis-shackleton-2026"
       ],
@@ -454,14 +454,14 @@
       "kind": "events",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 1817,
+      "payload_bytes": 1477,
       "product_id": "P08",
-      "sha256": "120b7892ef22aa5f344b5446e8ff91379ca9a3fdad3050047fcfe57bcf462de0",
+      "sha256": "63a617564228a84d6280fb215cab8ae2e1a36294fec57ef77f8cd740143f4fad",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 2360,
-      "decoded_sha256": "c57ac186454a758a6617adfba1427b20441999de648580f45196973b816d13bb",
+      "decoded_bytes": 2337,
+      "decoded_sha256": "b24298afaa7174bce5b1e6aa216ffbb7831dda57fb69a5b7552f42e7965b6780",
       "depends_on": [
         "scenarios-scenario-artemis-shackleton-2026"
       ],
@@ -471,14 +471,14 @@
       "kind": "results",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 2360,
+      "payload_bytes": 2337,
       "product_id": "P09",
-      "sha256": "c57ac186454a758a6617adfba1427b20441999de648580f45196973b816d13bb",
+      "sha256": "b24298afaa7174bce5b1e6aa216ffbb7831dda57fb69a5b7552f42e7965b6780",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 940,
-      "decoded_sha256": "55345a11cc6b5d0ed7c61b0b95e5b723567ed45fe6540fe402b310d3e50f483e",
+      "decoded_bytes": 972,
+      "decoded_sha256": "913cda43c83896e5d922c170cf9b980dcbbbaf056a97836af9c9bad4e9fb0759",
       "depends_on": [
         "horizons-geom-malapert-massif"
       ],
@@ -488,14 +488,14 @@
       "kind": "scenario",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 940,
+      "payload_bytes": 972,
       "product_id": "P09",
-      "sha256": "55345a11cc6b5d0ed7c61b0b95e5b723567ed45fe6540fe402b310d3e50f483e",
+      "sha256": "913cda43c83896e5d922c170cf9b980dcbbbaf056a97836af9c9bad4e9fb0759",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 3293,
-      "decoded_sha256": "7129f65eaa7b06a7fdda73373cdbab5f4d49edde5986236ab38ac0b51e79b98c",
+      "decoded_bytes": 2996,
+      "decoded_sha256": "008ebe0cf4a2ace4d4680ca33ee71ee0f682fabb27918344848c8f89bfab3d00",
       "depends_on": [
         "scenarios-scenario-artemis-malapert-2026"
       ],
@@ -505,14 +505,14 @@
       "kind": "events",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 3293,
+      "payload_bytes": 2996,
       "product_id": "P08",
-      "sha256": "7129f65eaa7b06a7fdda73373cdbab5f4d49edde5986236ab38ac0b51e79b98c",
+      "sha256": "008ebe0cf4a2ace4d4680ca33ee71ee0f682fabb27918344848c8f89bfab3d00",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 2377,
-      "decoded_sha256": "86240bcada61945d65f7aceceed94f774e7a26bed97a98bfa93cb30f678bbf57",
+      "decoded_bytes": 2321,
+      "decoded_sha256": "0a008c48888b422d00f7428cea5206b81a48069a54b2defd922defaf85b07e76",
       "depends_on": [
         "scenarios-scenario-artemis-malapert-2026"
       ],
@@ -522,14 +522,14 @@
       "kind": "results",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 2377,
+      "payload_bytes": 2321,
       "product_id": "P09",
-      "sha256": "86240bcada61945d65f7aceceed94f774e7a26bed97a98bfa93cb30f678bbf57",
+      "sha256": "0a008c48888b422d00f7428cea5206b81a48069a54b2defd922defaf85b07e76",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 921,
-      "decoded_sha256": "a011886b56ea2e3d2dfc068af1fdf83d927b3caafad7c233fed9f60644d27edf",
+      "decoded_bytes": 953,
+      "decoded_sha256": "e4e5d6a2fcd08aaee3fad1e32388de0b5c6e29ff2a40f88036aecd9e8242eef7",
       "depends_on": [
         "horizons-geom-im-2-prime-1"
       ],
@@ -539,14 +539,14 @@
       "kind": "scenario",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 921,
+      "payload_bytes": 953,
       "product_id": "P09",
-      "sha256": "a011886b56ea2e3d2dfc068af1fdf83d927b3caafad7c233fed9f60644d27edf",
+      "sha256": "e4e5d6a2fcd08aaee3fad1e32388de0b5c6e29ff2a40f88036aecd9e8242eef7",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 1794,
-      "decoded_sha256": "6fb7b589f4444276c771e4a634f9cf0e53b754801f720e114e5264b098a876c8",
+      "decoded_bytes": 1454,
+      "decoded_sha256": "9851ef0546cb9333ac103312f5155c7a23b4c1525c695506fbb0f8ea66b47215",
       "depends_on": [
         "scenarios-scenario-im2-prime1-2026"
       ],
@@ -556,14 +556,14 @@
       "kind": "events",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 1794,
+      "payload_bytes": 1454,
       "product_id": "P08",
-      "sha256": "6fb7b589f4444276c771e4a634f9cf0e53b754801f720e114e5264b098a876c8",
+      "sha256": "9851ef0546cb9333ac103312f5155c7a23b4c1525c695506fbb0f8ea66b47215",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 2346,
-      "decoded_sha256": "08a188fd69a5f4da3f468d4aa4ed6f0b6a8e694e14e83c9f29ebd010bc5f5bf8",
+      "decoded_bytes": 2329,
+      "decoded_sha256": "bf4d41492afbc2dbc1fb56288f4c4e6999453d9903543c00234e2d3ac707b5fc",
       "depends_on": [
         "scenarios-scenario-im2-prime1-2026"
       ],
@@ -573,14 +573,14 @@
       "kind": "results",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 2346,
+      "payload_bytes": 2329,
       "product_id": "P09",
-      "sha256": "08a188fd69a5f4da3f468d4aa4ed6f0b6a8e694e14e83c9f29ebd010bc5f5bf8",
+      "sha256": "bf4d41492afbc2dbc1fb56288f4c4e6999453d9903543c00234e2d3ac707b5fc",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 909,
-      "decoded_sha256": "5b9814d7034fc5f4cc456049d1136c9d7296d354a57283213f3df53a8594a01c",
+      "decoded_bytes": 942,
+      "decoded_sha256": "f75e2f30f6efada357e5ded3d18e4959d353d26f83a78925693d35a1d3d200a9",
       "depends_on": [
         "horizons-geom-apollo-11"
       ],
@@ -590,14 +590,14 @@
       "kind": "scenario",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 909,
+      "payload_bytes": 942,
       "product_id": "P09",
-      "sha256": "5b9814d7034fc5f4cc456049d1136c9d7296d354a57283213f3df53a8594a01c",
+      "sha256": "f75e2f30f6efada357e5ded3d18e4959d353d26f83a78925693d35a1d3d200a9",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 2593,
-      "decoded_sha256": "5e3f6c85ea911ad1b3e407dce4e02b7b3e14a7249a4651ee0b4d7836e7c161b4",
+      "decoded_bytes": 2643,
+      "decoded_sha256": "f8104f01e2e96a6ab097813ede9087d967495293950564e81adc739649e702e7",
       "depends_on": [
         "scenarios-scenario-apollo-11-benchmark"
       ],
@@ -607,14 +607,14 @@
       "kind": "events",
       "load_group": "on_demand",
       "media_type": "application/json",
-      "payload_bytes": 2593,
+      "payload_bytes": 2643,
       "product_id": "P08",
-      "sha256": "5e3f6c85ea911ad1b3e407dce4e02b7b3e14a7249a4651ee0b4d7836e7c161b4",
+      "sha256": "f8104f01e2e96a6ab097813ede9087d967495293950564e81adc739649e702e7",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 2172,
-      "decoded_sha256": "fb80e1adc4f2be6d4f4772e720eee73a7e0d1cdf6b9f1a748aa99fa9c2673b69",
+      "decoded_bytes": 2169,
+      "decoded_sha256": "801c85a328e87567fbff63609adb8203adb867d50fcdedd2c93fe3ce52311ec7",
       "depends_on": [
         "scenarios-scenario-apollo-11-benchmark"
       ],
@@ -624,14 +624,14 @@
       "kind": "results",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 2172,
+      "payload_bytes": 2169,
       "product_id": "P09",
-      "sha256": "fb80e1adc4f2be6d4f4772e720eee73a7e0d1cdf6b9f1a748aa99fa9c2673b69",
+      "sha256": "801c85a328e87567fbff63609adb8203adb867d50fcdedd2c93fe3ce52311ec7",
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 955,
-      "decoded_sha256": "26692cf7001c6d00cd6b3f1c248d51d3d7450cf5426feb3532f5b6ff3fa89774",
+      "decoded_bytes": 987,
+      "decoded_sha256": "a2ad2b8eb987c47446f89249fa31165b8e32a6fb70628a6b2827f8b5204b556f",
       "depends_on": [
         "horizons-geom-shackleton-connecting-ridge"
       ],
@@ -641,14 +641,14 @@
       "kind": "scenario",
       "load_group": "selected",
       "media_type": "application/json",
-      "payload_bytes": 955,
+      "payload_bytes": 987,
       "product_id": "P09",
-      "sha256": "26692cf7001c6d00cd6b3f1c248d51d3d7450cf5426feb3532f5b6ff3fa89774",
+      "sha256": "a2ad2b8eb987c47446f89249fa31165b8e32a6fb70628a6b2827f8b5204b556f",
       "storage_encoding": "identity"
     },
     {
       "decoded_bytes": 1480,
-      "decoded_sha256": "14e5b85b7460f6e1a70e95abccefbabc76a91c677c40ebf502d1842fca8afd85",
+      "decoded_sha256": "df43898c7f7253305cf45e0051a5e02812d149e1239ba7d73dd305c77ef2d13b",
       "depends_on": [
         "scenarios-scenario-shackleton-winter-date-slip"
       ],
@@ -660,12 +660,12 @@
       "media_type": "application/json",
       "payload_bytes": 1480,
       "product_id": "P08",
-      "sha256": "14e5b85b7460f6e1a70e95abccefbabc76a91c677c40ebf502d1842fca8afd85",
+      "sha256": "df43898c7f7253305cf45e0051a5e02812d149e1239ba7d73dd305c77ef2d13b",
       "storage_encoding": "identity"
     },
     {
       "decoded_bytes": 2268,
-      "decoded_sha256": "7e301e9c48346bee926d66987cf37465a79f8e3136eda6364249d2a04f49e639",
+      "decoded_sha256": "07eee31775fe8bbcbac7388f6bc4fbf410a1df2d7f6f375a3d4671fc607e59d7",
       "depends_on": [
         "scenarios-scenario-shackleton-winter-date-slip"
       ],
@@ -677,7 +677,7 @@
       "media_type": "application/json",
       "payload_bytes": 2268,
       "product_id": "P09",
-      "sha256": "7e301e9c48346bee926d66987cf37465a79f8e3136eda6364249d2a04f49e639",
+      "sha256": "07eee31775fe8bbcbac7388f6bc4fbf410a1df2d7f6f375a3d4671fc607e59d7",
       "storage_encoding": "identity"
     },
     {

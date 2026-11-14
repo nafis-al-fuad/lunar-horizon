@@ -22,7 +22,8 @@
   "dataset_id": "lunar-horizon-release-v1",
   "file_kind": "model",
   "limitations": [
-    "Body-fixed Mean-Earth/Polar-Axis frame (MOON_ME_DE421)."
+    "Body-fixed Mean-Earth/Polar-Axis frame (MOON_ME_DE421).",
+    "Topography, slope maps, and ray-traced horizons are generated from a synthetic demonstration surface anchored to regional South Pole spot heights; not intended for actual flight landing safety or hazard avoidance."
   ],
   "model_version": "lunar-model-v1",
   "profiles": [

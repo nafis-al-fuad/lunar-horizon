@@ -9,50 +9,50 @@
     "dte_time_fraction": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.04523577008928571,
+      "lower": 0.08787899925595238,
       "quality_flags": [],
-      "upper": 0.04523577008928571,
-      "value": 0.04523577008928571
+      "upper": 0.08787899925595238,
+      "value": 0.08787899925595238
     },
     "longest_dte_gap_s": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 1154882.8125,
+      "lower": 1103301.5625,
       "quality_flags": [],
-      "upper": 1154882.8125,
-      "value": 1154882.8125
+      "upper": 1103301.5625,
+      "value": 1103301.5625
     },
     "longest_night_s": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 549210.9375,
+      "lower": 1209600.0,
       "quality_flags": [],
-      "upper": 549210.9375,
-      "value": 549210.9375
+      "upper": 1209600.0,
+      "value": 1209600.0
     },
     "longest_sunlit_s": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 660389.0625,
+      "lower": 0.0,
       "quality_flags": [],
-      "upper": 660389.0625,
-      "value": 660389.0625
+      "upper": 0.0,
+      "value": 0.0
     },
     "min_sun_clearance_deg": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": -1.863812549401985,
+      "lower": -3.4313334551081454,
       "quality_flags": [],
-      "upper": -1.863812549401985,
-      "value": -1.863812549401985
+      "upper": -3.4313334551081454,
+      "value": -3.4313334551081454
     },
     "peak_sun_elevation_deg": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.30925583605567264,
+      "lower": 0.30925528539874103,
       "quality_flags": [],
-      "upper": 0.30925583605567264,
-      "value": 0.30925583605567264
+      "upper": 0.30925528539874103,
+      "value": 0.30925528539874103
     },
     "simultaneous_time_fraction": {
       "basis": "supported_bound",
@@ -65,10 +65,10 @@
     "sunlit_time_fraction": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.5459565662202381,
+      "lower": 0.0,
       "quality_flags": [],
-      "upper": 0.5459565662202381,
-      "value": 0.5459565662202381
+      "upper": 0.0,
+      "value": 0.0
     }
   },
   "model_version": "lunar-model-v1",
@@ -80,7 +80,8 @@
     "V09-scenario-metrics-integrity"
   ],
   "violated_thresholds": [
-    "Longest continuous night (152.6h) exceeds maximum allowed (120.0h)",
-    "Direct-to-Earth visibility 4.5% is below requirement 40.0%"
+    "Sunlit fraction 0.0% is below requirement 30.0%",
+    "Longest continuous night (336.0h) exceeds maximum allowed (120.0h)",
+    "Direct-to-Earth visibility 8.8% is below requirement 40.0%"
   ]
 }

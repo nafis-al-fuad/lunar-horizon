@@ -12,7 +12,8 @@
     "lat_deg": 0.6741,
     "lon_deg": 23.473,
     "reference_meridian_deg": null,
-    "site_id": "apollo-11"
+    "site_id": "apollo-11",
+    "terrain_height_m": -1400.0
   },
   "mast_height_m": 2.0,
   "model_version": "lunar-model-v1",

@@ -127,13 +127,13 @@ def refine_transition(ephem_deck, lat_deg, lon_deg, horizon_payload, height_km, 
         if target == "earth":
             return inst["earth"]["clearance_deg"] - margin_deg
         elif event_cause == "eclipse":
-            # Distance between Sun and Earth centers minus sum of angular radii
+            # Totality boundary: internal contact where Earth disc fully occults Sun disc (unocculted fraction = 0)
             sun_topo = topocentric_vector(sun_km, lat_deg, lon_deg, height_km)
             earth_topo = topocentric_vector(earth_km, lat_deg, lon_deg, height_km)
             dot = sum(a * b for a, b in zip(sun_topo["direction_unit"], earth_topo["direction_unit"]))
             dot = max(-1.0, min(1.0, dot))
             sep_deg = math.degrees(math.acos(dot))
-            return sep_deg - (inst["sun"]["angular_radius_deg"] + inst["earth"]["angular_radius_deg"])
+            return sep_deg - (inst["earth"]["angular_radius_deg"] - inst["sun"]["angular_radius_deg"])
         else:
             # Terrain horizon crossing for any disc visible: clearance + sun_rad = 0
             return inst["sun"]["clearance_deg"] + inst["sun"]["angular_radius_deg"]
@@ -251,7 +251,7 @@ def compute_metrics_and_events(samples, ephem_deck=None, lat_deg=None, lon_deg=N
                 is_eclipse = True
 
             if is_eclipse:
-                ev_type = "eclipse_egress" if it["state"] == "clear" else "eclipse_ingress"
+                ev_type = "eclipse_totality_egress" if it["state"] == "clear" else "eclipse_totality_ingress"
                 cause = "eclipse"
             else:
                 ev_type = "sunrise" if it["state"] == "clear" else "sunset"

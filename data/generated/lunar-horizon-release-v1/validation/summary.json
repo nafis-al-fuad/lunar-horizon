@@ -59,7 +59,7 @@
       "title": "Coordinate and Time Systems"
     },
     {
-      "description": "16 landing sites verified against NASA, LROC, ISRO, and JAXA primary citations; coordinate uncertainties preserved.",
+      "description": "16 landing sites verified against NASA, LROC, ISRO, and JAXA primary citations; coordinate uncertainties and consistent DEM elevations preserved.",
       "gate_id": "V02",
       "status": "passed",
       "title": "Site Catalog Integrity"
@@ -71,21 +71,21 @@
       "title": "Ephemeris Numerical Accuracy"
     },
     {
-      "description": "South Polar stereographic DEM covers 80°S-90°S at 5 km resolution; simplified model anchored to calibrated LOLA altimetry spot heights for farfield exploration context.",
+      "description": "South Polar stereographic DEM covers 80°S-90°S at 5 km resolution; synthetic demonstration surface anchored to regional spot heights for exploration demonstration; continuous flight DEM unverified.",
       "gate_id": "V04",
-      "status": "passed_with_scope",
+      "status": "passed_synthetic_demonstration",
       "title": "Terrain Grid Integrity"
     },
     {
-      "description": "Slope values quantized at 0.5 deg within [0, 180] deg on 5 km macro-baseline.",
+      "description": "Slope values quantized at 0.5 deg within [0, 180] deg on 5 km synthetic demonstration grid.",
       "gate_id": "V05",
-      "status": "passed_with_scope",
+      "status": "passed_synthetic_demonstration",
       "title": "Slope Quantization"
     },
     {
-      "description": "720-bin terrain skyline horizons ray-traced from polar DEM with lunar curvature and mast height for polar sites; analytical spherical dip for benchmark sites.",
+      "description": "720-bin ray-traced horizons generated from demonstration DEM with corrected cardinal basis [North away from pole, East clockwise] for polar sites; analytical spherical dip for benchmark sites.",
       "gate_id": "V06",
-      "status": "passed",
+      "status": "passed_demonstration",
       "title": "Horizon Mask Geometry"
     },
     {
@@ -95,7 +95,7 @@
       "title": "Topocentric Angles & Phase"
     },
     {
-      "description": "Contiguous half-open interval partitioning without gaps or overlaps; bisection root refinement to <= 30s; eclipse contacts separated from terrain crossings; intervals and events strictly agree.",
+      "description": "Contiguous half-open interval partitioning without gaps or overlaps; bisection root refinement to <= 30s for sunrise/sunset and totality ingress/egress; intervals strictly match event timestamps.",
       "gate_id": "V08",
       "status": "passed",
       "title": "Timeline Event Partitioning"
@@ -107,9 +107,9 @@
       "title": "Scenario Metrics Accounting"
     },
     {
-      "description": "Decoding, manifest DAG resolution, and binary chunk loading verified across Node and browser test harnesses.",
+      "description": "Headless Node package loader verified with 100% SHA-256 and acyclic DAG checks; interactive multi-device browser testing unverified pending frontend UI integration.",
       "gate_id": "V10",
-      "status": "passed",
+      "status": "passed_node_loader_actual_browser_unverified",
       "title": "Browser Compatibility"
     },
     {
@@ -126,7 +126,7 @@
     }
   ],
   "limitations": [
-    "Release validation summary across all active milestones with explicit scope qualifications."
+    "Release validation summary across all active milestones with explicit demonstration scope qualifications."
   ],
   "model_version": "lunar-model-v1",
   "release_decision": "computed_release_v1",

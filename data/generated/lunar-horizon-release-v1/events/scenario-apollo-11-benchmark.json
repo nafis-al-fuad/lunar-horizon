@@ -3,20 +3,20 @@
   "dataset_id": "lunar-horizon-release-v1",
   "events": [
     {
-      "et_s": 825811269.0,
-      "event_type": "eclipse_ingress",
-      "id": "eclipse_ingress-825811269",
-      "status": "sample_bounded",
+      "et_s": 825806220.6,
+      "event_type": "eclipse_totality_ingress",
+      "id": "eclipse_totality_ingress-825806220",
+      "status": "refined",
       "target": "sun",
-      "timing_resolution_s": 7200.0
+      "timing_resolution_s": 30.0
     },
     {
-      "et_s": 825818469.0,
-      "event_type": "eclipse_egress",
-      "id": "eclipse_egress-825818469",
-      "status": "sample_bounded",
+      "et_s": 825814404.9,
+      "event_type": "eclipse_totality_egress",
+      "id": "eclipse_totality_egress-825814404",
+      "status": "refined",
       "target": "sun",
-      "timing_resolution_s": 7200.0
+      "timing_resolution_s": 30.0
     },
     {
       "et_s": 826318714.3,
@@ -52,21 +52,21 @@
     ],
     "simultaneous": [
       {
-        "duration_s": 172800.0,
-        "end_et_s": 825811269.0,
+        "duration_s": 167751.5625,
+        "end_et_s": 825806220.5625,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 7200.0,
-        "end_et_s": 825818469.0,
-        "start_et_s": 825811269.0,
+        "duration_s": 8184.375,
+        "end_et_s": 825814404.9375,
+        "start_et_s": 825806220.5625,
         "state": "blocked"
       },
       {
-        "duration_s": 500245.3125,
+        "duration_s": 504309.375,
         "end_et_s": 826318714.3125,
-        "start_et_s": 825818469.0,
+        "start_et_s": 825814404.9375,
         "state": "clear"
       },
       {
@@ -78,21 +78,21 @@
     ],
     "sunlight": [
       {
-        "duration_s": 172800.0,
-        "end_et_s": 825811269.0,
+        "duration_s": 167751.5625,
+        "end_et_s": 825806220.5625,
         "start_et_s": 825638469.0,
         "state": "clear"
       },
       {
-        "duration_s": 7200.0,
-        "end_et_s": 825818469.0,
-        "start_et_s": 825811269.0,
+        "duration_s": 8184.375,
+        "end_et_s": 825814404.9375,
+        "start_et_s": 825806220.5625,
         "state": "blocked"
       },
       {
-        "duration_s": 500245.3125,
+        "duration_s": 504309.375,
         "end_et_s": 826318714.3125,
-        "start_et_s": 825818469.0,
+        "start_et_s": 825814404.9375,
         "state": "clear"
       },
       {

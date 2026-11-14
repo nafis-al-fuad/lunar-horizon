@@ -3,6 +3,7 @@
 import json
 import math
 import shutil
+import struct
 from pathlib import Path
 
 from .core import (ValidationError, coordinates, digest, file_digest,
@@ -11,7 +12,7 @@ from .ephemeris_deck import EphemerisDeck
 from .events import compute_metrics_and_events, evaluate_instant
 from .horizon import build_horizon_payload
 from .sites import CURATED_SITES, build_sites_payload
-from .terrain import build_terrain_descriptors, generate_polar_dem
+from .terrain import build_terrain_descriptors, generate_polar_dem, lat_lon_to_polar_stereo
 
 
 DATASET_ID = "lunar-horizon-release-v1"
@@ -28,7 +29,10 @@ def build_model_payload():
         file_kind="model",
         source_ids=["naif0012", "pck00011", "moon-080317", "moon-pa-de421", "de440s"],
         validation_check_ids=["V01-coordinate-conventions", "V03-ephemeris-accuracy"],
-        limitations=["Body-fixed Mean-Earth/Polar-Axis frame (MOON_ME_DE421)."],
+        limitations=[
+            "Body-fixed Mean-Earth/Polar-Axis frame (MOON_ME_DE421).",
+            "Topography, slope maps, and ray-traced horizons are generated from a synthetic demonstration surface anchored to regional South Pole spot heights; not intended for actual flight landing safety or hazard avoidance."
+        ],
         coordinate_system=dict(
             body="Moon",
             surface_frame="MOON_ME_DE421",
@@ -354,15 +358,15 @@ def build_core_content():
 def build_validation_summary():
     gates = [
         dict(gate_id="V01", title="Coordinate and Time Systems", status="passed", description="16 sites verified in MOON_ME_DE421 with IAU planetocentric coordinates and NAIF TLS conversions."),
-        dict(gate_id="V02", title="Site Catalog Integrity", status="passed", description="16 landing sites verified against NASA, LROC, ISRO, and JAXA primary citations; coordinate uncertainties preserved."),
+        dict(gate_id="V02", title="Site Catalog Integrity", status="passed", description="16 landing sites verified against NASA, LROC, ISRO, and JAXA primary citations; coordinate uncertainties and consistent DEM elevations preserved."),
         dict(gate_id="V03", title="Ephemeris Numerical Accuracy", status="passed", description="10-year preview evaluated against JPL DE440 binary chunks; Catmull-Rom interpolation within machine precision; caching verified by chunk and profile."),
-        dict(gate_id="V04", title="Terrain Grid Integrity", status="passed_with_scope", description="South Polar stereographic DEM covers 80°S-90°S at 5 km resolution; simplified model anchored to calibrated LOLA altimetry spot heights for farfield exploration context."),
-        dict(gate_id="V05", title="Slope Quantization", status="passed_with_scope", description="Slope values quantized at 0.5 deg within [0, 180] deg on 5 km macro-baseline."),
-        dict(gate_id="V06", title="Horizon Mask Geometry", status="passed", description="720-bin terrain skyline horizons ray-traced from polar DEM with lunar curvature and mast height for polar sites; analytical spherical dip for benchmark sites."),
+        dict(gate_id="V04", title="Terrain Grid Integrity", status="passed_synthetic_demonstration", description="South Polar stereographic DEM covers 80°S-90°S at 5 km resolution; synthetic demonstration surface anchored to regional spot heights for exploration demonstration; continuous flight DEM unverified."),
+        dict(gate_id="V05", title="Slope Quantization", status="passed_synthetic_demonstration", description="Slope values quantized at 0.5 deg within [0, 180] deg on 5 km synthetic demonstration grid."),
+        dict(gate_id="V06", title="Horizon Mask Geometry", status="passed_demonstration", description="720-bin ray-traced horizons generated from demonstration DEM with corrected cardinal basis [North away from pole, East clockwise] for polar sites; analytical spherical dip for benchmark sites."),
         dict(gate_id="V07", title="Topocentric Angles & Phase", status="passed", description="Topocentric ENU projections, Earth lit fraction, and exact circular disc area fraction verified."),
-        dict(gate_id="V08", title="Timeline Event Partitioning", status="passed", description="Contiguous half-open interval partitioning without gaps or overlaps; bisection root refinement to <= 30s; eclipse contacts separated from terrain crossings; intervals and events strictly agree."),
+        dict(gate_id="V08", title="Timeline Event Partitioning", status="passed", description="Contiguous half-open interval partitioning without gaps or overlaps; bisection root refinement to <= 30s for sunrise/sunset and totality ingress/egress; intervals strictly match event timestamps."),
         dict(gate_id="V09", title="Scenario Metrics Accounting", status="passed", description="Duration and fraction totals strictly conserve time window; evaluated against real threshold criteria with passing and failing scenarios."),
-        dict(gate_id="V10", title="Browser Compatibility", status="passed", description="Decoding, manifest DAG resolution, and binary chunk loading verified across Node and browser test harnesses."),
+        dict(gate_id="V10", title="Browser Compatibility", status="passed_node_loader_actual_browser_unverified", description="Headless Node package loader verified with 100% SHA-256 and acyclic DAG checks; interactive multi-device browser testing unverified pending frontend UI integration."),
         dict(gate_id="V11", title="Reference Consistency", status="passed", description="JPL TESTPO 17/17 scalar components passed within 1e-12 tolerance."),
         dict(gate_id="V12", title="Packaging & Manifest Integrity", status="passed", description="100% SHA-256 digests, acyclic dependencies, and 0 unresolved descriptor references.")
     ]
@@ -374,7 +378,7 @@ def build_validation_summary():
         file_kind="validation_summary",
         source_ids=[],
         validation_check_ids=["V12-manifest-integrity"],
-        limitations=["Release validation summary across all active milestones with explicit scope qualifications."],
+        limitations=["Release validation summary across all active milestones with explicit demonstration scope qualifications."],
         release_decision="computed_release_v1",
         accepted_scopes=[
             dict(
@@ -475,10 +479,7 @@ def publish_dataset(output_dir, ephemeris_preview_dir):
             load_group="startup"
         ))
 
-    # 3. P02 Curated Sites Catalog (16 primary verified sites)
-    save_json("sites.json", build_sites_payload(DATASET_ID, MODEL_VERSION), "P02", "startup")
-
-    # 4. P04 & P05 Terrain & Slope Grids (Polar Stereographic 80S - 90S)
+    # 3. P04 & P05 Terrain & Slope Grids (Polar Stereographic 80S - 90S)
     dem_data = generate_polar_dem(rows=121, cols=121, resolution_m=5000.0)
     t_desc = build_terrain_descriptors(DATASET_ID, MODEL_VERSION, dem_data)
 
@@ -489,10 +490,30 @@ def publish_dataset(output_dir, ephemeris_preview_dir):
     save_binary("slope/polar-farfield.bin", t_desc["slope_bin"], "P05")
     save_json("slope/polar-farfield.json", t_desc["slope_tile"], "P05", "selected", ["slope-polar-farfield-bin"])
 
+    # 4. P02 Curated Sites Catalog (Sampled from DEM for polar sites to ensure consistent observer height)
+    dem_rows, dem_cols = dem_data["rows"], dem_data["columns"]
+    dem_tf = dem_data["transform"]
+    t_bin = dem_data["terrain_binary"]
+    dem_heights = struct.unpack(f"<{dem_rows*dem_cols}f", t_bin[:dem_rows * dem_cols * 4])
+
+    consistent_sites = []
+    for s in CURATED_SITES:
+        sc = dict(s)
+        lat, lon = s["lat_deg"], s["lon_deg"]
+        if abs(lat) >= 80.0:
+            x0, y0 = lat_lon_to_polar_stereo(lat, lon)
+            c0 = int((x0 - dem_tf[2]) / dem_tf[0])
+            r0 = int((y0 - dem_tf[5]) / dem_tf[4])
+            if 0 <= r0 < dem_rows and 0 <= c0 < dem_cols:
+                sc["terrain_height_m"] = round(float(dem_heights[r0 * dem_cols + c0]), 1)
+        consistent_sites.append(sc)
+
+    save_json("sites.json", build_sites_payload(DATASET_ID, MODEL_VERSION, sites=consistent_sites), "P02", "startup")
+
     # 5. P06 Horizon Profiles for all 16 curated sites
     horizon_ids = {}
-    sites_by_id = {s["id"]: s for s in CURATED_SITES}
-    for site in CURATED_SITES:
+    sites_by_id = {s["id"]: s for s in consistent_sites}
+    for site in consistent_sites:
         geom_id = f"geom-{site['id']}"
         is_polar = (abs(site["lat_deg"]) >= 80.0)
         h_payload = build_horizon_payload(
@@ -605,7 +626,8 @@ def publish_dataset(output_dir, ephemeris_preview_dir):
                 lat_deg=lat,
                 lon_deg=lon,
                 frame="MOON_ME_DE421",
-                reference_meridian_deg=site_entry.get("reference_meridian_deg")
+                reference_meridian_deg=site_entry.get("reference_meridian_deg"),
+                terrain_height_m=site_entry.get("terrain_height_m")
             ),
             window=dict(start_et_s=start_et, end_et_s=end_et),
             mast_height_m=mast,

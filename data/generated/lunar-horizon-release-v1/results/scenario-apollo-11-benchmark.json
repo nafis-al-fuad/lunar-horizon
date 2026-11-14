@@ -33,10 +33,10 @@
     "longest_sunlit_s": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 500245.3125,
+      "lower": 504309.375,
       "quality_flags": [],
-      "upper": 500245.3125,
-      "value": 500245.3125
+      "upper": 504309.375,
+      "value": 504309.375
     },
     "min_sun_clearance_deg": {
       "basis": "supported_bound",
@@ -57,18 +57,18 @@
     "simultaneous_time_fraction": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.5564197358630952,
+      "lower": 0.5556059337797619,
       "quality_flags": [],
-      "upper": 0.5564197358630952,
-      "value": 0.5564197358630952
+      "upper": 0.5556059337797619,
+      "value": 0.5556059337797619
     },
     "sunlit_time_fraction": {
       "basis": "supported_bound",
       "experiment_ids": [],
-      "lower": 0.5564197358630952,
+      "lower": 0.5556059337797619,
       "quality_flags": [],
-      "upper": 0.5564197358630952,
-      "value": 0.5564197358630952
+      "upper": 0.5556059337797619,
+      "value": 0.5556059337797619
     }
   },
   "model_version": "lunar-model-v1",

@@ -152,7 +152,8 @@ def dem_raytrace_horizon_bins(dem_data, lat_deg, lon_deg, mast_height_m=2.0, ter
     x0, y0 = lat_lon_to_polar_stereo(lat_deg, lon_deg)
     c0 = int((x0 - transform[2]) / transform[0])
     r0 = int((y0 - transform[5]) / transform[4])
-    h_surface = heights[r0 * cols + c0] if (0 <= r0 < rows and 0 <= c0 < cols) else terrain_height_m
+    # Use exact consistent observer ground height from parameter/catalog
+    h_surface = terrain_height_m
     h_obs = h_surface + mast_height_m
     r_moon = REFERENCE_RADIUS_M
 
@@ -160,13 +161,20 @@ def dem_raytrace_horizon_bins(dem_data, lat_deg, lon_deg, mast_height_m=2.0, ter
     dip_rad = math.acos(r_moon / (r_moon + max(1.0, h_obs)))
     limb_dip_deg = -math.degrees(dip_rad)
 
-    # Local North points toward South Pole (0, 0), Local East is 90 deg clockwise
+    # At South Pole (lat in [-90, 0]):
+    # x = r * sin(lon), y = -r * cos(lon) where r = 2R * tan((90 + lat)/2).
+    # North is increasing latitude (moving away from South Pole towards equator, so r increases):
+    # u_North = (x0, y0) / norm.
+    # East is increasing longitude (clockwise around South Pole in stereographic projection):
+    # u_East = (-y0, x0) / norm.
     norm = math.hypot(x0, y0)
     if norm > 1e-3:
-        un_x, un_y = -x0 / norm, -y0 / norm
+        un_x, un_y = x0 / norm, y0 / norm
+        ue_x, ue_y = -y0 / norm, x0 / norm
     else:
-        un_x, un_y = 0.0, 1.0
-    ue_x, ue_y = -un_y, un_x
+        # At exact South Pole, define North along prime meridian (y = -r)
+        un_x, un_y = 0.0, -1.0
+        ue_x, ue_y = 1.0, 0.0
 
     step_deg = 360.0 / num_bins
     bins = []
@@ -269,9 +277,9 @@ def build_horizon_payload(
         terrain_model_id = "lola-polar-v1"
         if dem_data is not None:
             bins = dem_raytrace_horizon_bins(dem_data, lat_deg, lon_deg, mast_height_m, terrain_height_m, num_bins)
-            alg_id = "dem-polar-raytrace-v1"
-            radial_desc = "DEM radial ray marching with lunar curvature drop d^2/(2R)"
-            limit_text = f"Terrain horizon ray-traced from polar DEM grid for {site_id} accounting for lunar curvature (R=1737.4 km) and mast height ({mast_height_m} m)."
+            alg_id = "dem-polar-raytrace-demo-v1"
+            radial_desc = "DEM radial ray marching with lunar curvature drop d^2/(2R) and corrected cardinal basis"
+            limit_text = f"Terrain horizon ray-traced from synthetic demonstration polar DEM for {site_id} accounting for lunar curvature (R=1737.4 km) and mast height ({mast_height_m} m)."
         else:
             bins = lola_terrain_horizon_bins(site_id, lat_deg, lon_deg, mast_height_m, terrain_height_m, num_bins)
             alg_id = "lola-polar-skyline-v1"
