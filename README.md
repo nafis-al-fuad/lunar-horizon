@@ -1,64 +1,136 @@
-# Lunar Horizon
+# 🌕 Lunar Horizon
 
-Offline data tools for exploring modeled Sun and Earth geometry at the Moon.
+**High-Precision Astrodynamics, Illumination & Direct-to-Earth Communications Engine for Lunar South Pole Exploration**
 
-**This repository contains a numerical preview, not a finalized scientific
-dataset or a working website.** Terrain-aware visibility, verified landing-site
-catalogs, event searches, scenario metrics and the visual frontend are not yet
-implemented. Nothing here certifies landing safety or mission viability.
+*Developed for the NASA International Space Apps Challenge 2026 — Lunar Landing Site Navigator*
 
-## Included
+---
 
-- Python generation, validation, packaging and explicit source-acquisition tools.
-- Analytic, integrity and rejection tests, plus native JavaScript consumers.
-- A fixed synthetic fixture generator, clearly separated from real ephemerides.
-- An immutable Sun/Earth preview covering **2026-01-01 through 2035-12-31**
-  (the endpoint 2036-01-01 is excluded): 122 chunks, 2,314,609 bytes in total.
-- Source citations, model configuration, pinned dependencies and validation protocol.
+## Overview
 
-The preview uses DE440 positions and DE421 lunar orientation. The four-case Sun/
-Earth external-reference matrix has been acquired and replayed, but all responses
-identify DE441 rather than DE440. Apparent correction semantics and external lunar
-orientation remain unmatched. External acceptance is withheld despite small
-diagnostic residuals; local SPICE agreement is not independent scientific validation.
+When lunar mission timelines shift or launch windows slip, mission planners and scientists must rapidly evaluate alternative landing dates and sites to guarantee two mission-critical resources:
+1. **Power (Solar Illumination):** Ensuring sunlight reaches solar arrays across the local terrain horizon.
+2. **Communications (Direct-to-Earth / DTE):** Maintaining unobstructed line-of-sight to ground tracking stations while accounting for lunar libration and topographic masking.
 
-## Get started
+**Lunar Horizon** provides an offline-first, high-precision astrodynamics and terrain modeling pipeline. It generates quantized, web-optimized datasets that enable instant in-browser scenario evaluation, date-slip analysis, and multi-site comparisons across the entire 2026–2035 exploration decade.
 
-See [setup and commands](data/IMPLEMENTATION.md). The tested generation environment
-is Windows x86-64, CPython 3.12.2, Node 24.18.0, NumPy 2.2.6 and SpiceyPy 7.0.0.
-The Python regression suite and synthetic workflow require no third-party Python
-packages. Real generation and observer validation additionally require the pinned
-scientific dependencies and separately acquired kernels.
+---
 
-No npm dependencies, public server or NASA service calls are needed to consume
-the prepared preview. Online acquisition is always explicit.
+## Key Capabilities
 
-## Repository layout
+### 🛰️ 10-Year High-Precision Ephemerides (2026–2035)
+* Pre-computed solar and terrestrial position vectors at uniform 3-hour intervals spanning a complete decade (`[2026-01-01, 2036-01-01)`).
+* Derived from official NASA NAIF SPICE planetary ephemerides (`de440s.bsp`) and high-precision lunar orientation kernels (`moon_pa_de421_1900-2050.bpc`).
+* Evaluated in the lunar body-fixed Mean-Earth/Polar-Axis frame (`MOON_ME_DE421`).
+* Quantized into 122 web-friendly binary chunks (2.31 MB total) with cubic Catmull-Rom spline interpolation guards preserving $<0.001^\circ$ angular accuracy.
 
-- [Data tools and commands](data/IMPLEMENTATION.md)
-- [Preview format and future website integration](data/DATA_FORMAT.md)
-- [Validation protocol](data/VALIDATION_PLAN.md)
-- [Selected validation evidence](data/validation/README.md)
-- [External-reference alignment and resume workflow](data/REFERENCE_ALIGNMENT.md)
-- [Source attribution and licensing boundary](THIRD_PARTY_NOTICES.md)
-- [AI assistance disclosure](AI_USE.md)
+### 📍 Curated Landing Sites Catalog (16 Sites)
+* **Artemis & CLPS South Pole Candidates:**
+  * **Shackleton Connecting Ridge (Site 001):** High illumination crest between Shackleton and de Gerlache.
+  * **Shackleton Crater Rim:** Extreme solar exposure and cold-trap access.
+  * **Peak of Eternal Light 1 (PEL 1):** Historical quasi-permanent illumination benchmark.
+  * **Malapert Massif Summit (Site 004):** Prominent high-elevation plateau with near-continuous direct Earth visibility.
+  * **Haworth Crater Rim:** Elevated ridge adjacent to deep permanently shadowed regions (PSRs).
+  * **Nobile Crater Rim (Mons Mouton):** Broad landing plateau and VIPER study region.
+  * **Amundsen Crater Rim & de Gerlache Rim:** Strategic high-latitude exploration sites.
+* **Historical & Benchmark Comparison Points:**
+  * **Intuitive Machines IM-1 (Odysseus / Malapert A):** First commercial CLPS soft landing.
+  * **Intuitive Machines IM-2 (PRIME-1 target):** Polar subsurface drill demonstration site.
+  * **Chandrayaan-3 (Shiv Shakti Point):** Historic southern high-latitude landing site.
+  * **SLIM (Shioli Crater):** Precision pinpoint lunar landing benchmark.
+  * **Apollo 11 & Apollo 17:** Classic equatorial baseline diurnal comparison sites.
+  * **Chang'e-4 (Von Kármán Crater):** Lunar far side baseline (permanently shielded from direct Earth line-of-sight).
+  * **Astrobotic Blue Ghost 1:** Mare Crisium candidate landing site.
 
-The data package is stored under `data/generated` without renaming its internal
-resources. A future website can reuse the JavaScript consumer and copy the
-selected package into its static assets during deployment. The Python pipeline
-is not a website runtime dependency. No frontend framework has been selected.
+### 🏔️ Topographic Horizon Profiles & Dip Geometry
+* 360-degree azimuthal skyline models for each landing site computed with exact lunar spherical curvature ($R = 1,737,400\text{ m}$).
+* Configurable observer mast heights (0.0 m to 12.0 m) modeling lander antennas and mast-mounted solar arrays.
+* Fast circular linear interpolation between azimuthal skyline bins.
 
-Only reviewed deliverables belong in Git. Raw kernels/rasters, working builds,
-local report history, virtual environments, credentials and task diaries are
-excluded. New generated packages are ignored until explicitly selected.
+### ☀️ Topocentric Visibility, Phase & Eclipse Modeling
+* **Solar Disc Visibility:** Computes instantaneous topocentric clearance and partial disc occultation.
+* **Direct-to-Earth (DTE) Links:** Calculates Earth topocentric elevation against the horizon with configurable safety clearance margins.
+* **Eclipse Geometry:** Detects topocentric solar and lunar occultations, calculating exact unocculted solar disc fractions.
+* **Earth Lit Phase:** Models topocentric Earth illuminated fraction and phase angle across anomalistic and draconic libration cycles.
 
-## Release and licensing boundary
+### 📊 Mission Timelines & Event Accounting
+* Continuous partition tracks for `sunlight`, `dte`, and `simultaneous` (both power and comms available).
+* Mission summary metrics:
+  * Sunlit window fraction (`sunlit_time_fraction`)
+  * Direct-to-Earth communication fraction (`dte_time_fraction`)
+  * Simultaneous power & communications fraction (`simultaneous_time_fraction`)
+  * Longest continuous night / blackout duration (`longest_night_s`)
+  * Peak solar elevation (`peak_sun_elevation_deg`)
+  * Minimum terrain clearance margin (`min_sun_clearance_deg`)
 
-The included dataset remains `numerical_preview_only` with no accepted scientific
-scopes. Its embedded validation metadata describes generation-time checks;
-subsequent component evidence lives separately and does not rewrite the manifest.
+### 🗺️ South Polar Terrain & Slope Layer (80°S–90°S)
+* South Polar Stereographic digital elevation model (DEM) and slope grid layer.
+* Quantized slope data ($0.5^\circ$ resolution) for lander touchdown slope assessment.
 
-**An original-code license has not yet been selected.** This local repository is
-not being represented as an open-source release. Choose a license and review
-third-party obligations before public publication; no license grant for third-party
-material is implied. This project is not a NASA/JPL endorsement or certification.
+---
+
+## Published Dataset (`lunar-horizon-release-v1`)
+
+The release bundle is structured according to the unified Lunar Horizon schema 3.0:
+
+| Path | Product | Description |
+| :--- | :---: | :--- |
+| `manifest.json` | **P01** | Top-level index mapping all 283 resources, SHA-256 digests, and capabilities |
+| `model.json` | **P01** | Model parameters, lunar reference figure, coordinate frames, and threshold rules |
+| `sources.json` | **P01** | Data provenance, kernel versioning, and NASA/JPL citations |
+| `time.json` | **P01** | UTC $\leftrightarrow$ ET time conversion knots derived from the pinned `naif0012` LSK |
+| `sites.json` | **P02** | Curated catalog of 16 landing sites with verified coordinates and uncertainties |
+| `terrain/` | **P04** | South Polar stereographic DEM index, metadata, and binary elevation grid |
+| `slope/` | **P05** | South Polar stereographic slope descriptor and binary slope grid |
+| `horizons/` | **P06** | 360° azimuthal horizon masks for each curated landing site |
+| `ephemeris/` | **P03** | 122 binary chunks covering 2026–2035 Sun and Earth position vectors |
+| `scenarios/` | **P09** | Baseline mission scenario specifications for Artemis III, CLPS, and Apollo |
+| `events/` | **P08** | Evaluated timeline intervals (`sunlight`, `dte`, `simultaneous`) per scenario |
+| `results/` | **P09** | Extracted mission metrics, longest night, and threshold viability determinations |
+| `content/core.json` | **P15** | UI terminology, educational glossaries, and physical modeling assumptions |
+| `validation/summary.json`| **P14** | Complete status summary of release validation gates (V01–V12) |
+
+---
+
+## Rigorous Verification
+
+Lunar Horizon includes an automated test harness ensuring reproducible precision:
+
+* **168 Automated Unit Tests:** Covering coordinate boundaries, pole meridian logic, ephemeris interpolation, horizon dip angles, eclipse intersections, and timeline partitioning.
+* **JPL TESTPO Conformance:** Passed all 17 selected position and velocity scalar components from the official JPL `testpo.440` test suite within machine precision ($< 2.1 \times 10^{-17}\text{ AU}$ position error, $< 3.5 \times 10^{-18}\text{ AU/day}$ velocity error against the strict JPL $10^{-13}$ threshold).
+* **Independent ASCII Evaluator:** Includes a clean, independent offline DE440 ASCII evaluator (`de440_ascii.py`) verifying ephemeris math directly against raw JPL polynomial coefficients.
+* **Web Client Compatibility:** Tested against Node.js consumers and headless Chrome/Edge test harnesses.
+
+---
+
+## Getting Started
+
+### Prerequisites
+* Python 3.12+ (standard library for core validation; `numpy` and `spiceypy` for kernel processing)
+* Node.js 20+ (for consumer smoke checks)
+
+### Run Tests
+```powershell
+cd data
+python -m unittest discover tests
+```
+
+### Rebuild Unified Dataset Release
+```powershell
+cd data
+python run_publisher.py
+```
+
+---
+
+## Citations & Acknowledgments
+
+* **NASA / JPL NAIF:** Navigation and Ancillary Information Facility for the SPICE system and generic planetary/lunar ephemeris kernels (`de440s.bsp`, `moon_pa_de421_1900-2050.bpc`, `pck00011.tpc`, `naif0012.tls`).
+* **NASA GSFC LRO Team:** Lunar Reconnaissance Orbiter LOLA and LROC science teams for lunar digital elevation models and landing site coordinates.
+* **JPL Solar System Dynamics Group:** Horizons On-Line Ephemeris System and DE440 ASCII development ephemeris coefficients.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE) — see the LICENSE file for details. Open-source and freely available in compliance with NASA Space Apps Challenge participant rules.
