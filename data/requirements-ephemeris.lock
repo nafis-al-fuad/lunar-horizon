@@ -1,0 +1,4 @@
+# CPython 3.12 / Windows x86-64 wheels only. PyPI metadata checked 2026-11-13.
+# Bootstrap pip 24.0 via CPython 3.12.2 ensurepip; foundation remains stdlib-only.
+numpy==2.2.6 --hash=sha256:c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2
+spiceypy==7.0.0 --hash=sha256:8428849a9b792b55eb3f25c6526352bf32119c199a7174fcd504e7e60dcf8d33

@@ -1,0 +1,30 @@
+{
+  "profile_id": "ephemeris-preview-v1",
+  "start_utc": "2026-01-01T00:00:00Z",
+  "end_utc": "2036-01-01T00:00:00Z",
+  "surface_frame": "MOON_ME_DE421",
+  "step_s": 10800,
+  "chunk_intervals": 240,
+  "profiles": {"geometric": "NONE", "apparent": "LT+S"},
+  "reference_radius_km": 1737.4,
+  "observer_radius_offsets_km": [0, 0.002, 12],
+  "time_initial_step_s": 604800,
+  "random_seed": 421440,
+  "acceptance": {
+    "interpolation_angular_deg": 0.001,
+    "encoded_angular_deg": 0.001,
+    "range_error_km": {"SUN": 20, "EARTH": 0.1},
+    "time_error_s": 0.0001,
+    "observer_approximation_angular_deg": 0.001,
+    "geometric_observer_angular_deg": 0.00000001
+  },
+  "limitations": [
+    "Numerical research preview, not an accepted full data-contract-v3 scientific release.",
+    "Range targets are numerical storage/interpolation budgets, not physical ephemeris uncertainties.",
+    "Apparent Moon-center subtraction is an approximation; residuals are tested separately.",
+    "Analytic benchmark locations are not sourced landing sites or terrain elevations.",
+    "No terrain, visibility, events, power, phase, landing safety or browser performance acceptance.",
+    "No leap seconds after the pinned LSK's final entry are assumed; future updates require regeneration.",
+    "Finite validation samples measure residuals, not a guaranteed supremum or physical uncertainty bound."
+  ]
+}
