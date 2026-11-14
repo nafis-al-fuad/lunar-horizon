@@ -9,6 +9,16 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
   const bins = horizonData?.bins || [];
   const numBins = bins.length || 720;
 
+  // Safe elevation extractor handling both raw numbers and { elevation: { value } } objects
+  const getBinElevation = (b) => {
+    if (b == null) return 0.0;
+    if (typeof b === 'number') return b;
+    if (typeof b.elevation === 'object' && b.elevation !== null) return b.elevation.value ?? 0.0;
+    if (typeof b.elevation_deg === 'number') return b.elevation_deg;
+    if (typeof b.value === 'number') return b.value;
+    return 0.0;
+  };
+
   // Dip calculation based on mast height
   const R_moon = 1737400.0;
   const dipDeg = -Math.acos(R_moon / (R_moon + mastHeight)) * (180.0 / Math.PI);
@@ -18,7 +28,7 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
 
   // Exact terrain elevation at the Sun's current azimuth
   const sunBinIdx = Math.max(0, Math.min(numBins - 1, Math.floor((sunAz / 360.0) * numBins)));
-  const sunTerrainEl = (bins[sunBinIdx] ?? 0.0) + dipDeg;
+  const sunTerrainEl = getBinElevation(bins[sunBinIdx]) + dipDeg;
   const sunClearance = sunEl - sunTerrainEl;
   const isSunOccluded = sunClearance <= 0;
   const isSunBelowAstro = sunEl <= 0.0;
@@ -27,7 +37,7 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
   const earthAz = instantSample?.earth?.azimuth_deg ?? 90.0;
   const earthEl = instantSample?.earth?.elevation_deg ?? 3.5;
   const earthBinIdx = Math.max(0, Math.min(numBins - 1, Math.floor((earthAz / 360.0) * numBins)));
-  const earthTerrainEl = (bins[earthBinIdx] ?? 0.0) + dipDeg;
+  const earthTerrainEl = getBinElevation(bins[earthBinIdx]) + dipDeg;
   const earthClearance = earthEl - earthTerrainEl;
   const isEarthOccluded = earthClearance <= 0;
 
@@ -177,13 +187,13 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
 
         for (let i = 0; i < numBins; i++) {
           const az = (i / numBins) * 360.0;
-          const el = bins[i] + dipDeg;
+          const el = getBinElevation(bins[i]) + dipDeg;
           const x = toX(az);
           const y = toY(el);
           if (i === 0) ctx.lineTo(x, y);
           else ctx.lineTo(x, y);
         }
-        ctx.lineTo(width, toY(bins[0] + dipDeg));
+        ctx.lineTo(width, toY(getBinElevation(bins[0]) + dipDeg));
         ctx.lineTo(width, height);
         ctx.closePath();
         ctx.fill();
@@ -304,7 +314,7 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
 
         for (let i = 0; i < numBins; i++) {
           const azRad = (i / numBins) * 2 * Math.PI - Math.PI / 2;
-          const el = bins[i] + dipDeg;
+          const el = getBinElevation(bins[i]) + dipDeg;
           const r = Math.max(0, radius * ((6 - el) / 8));
           const x = cx + r * Math.cos(azRad);
           const y = cy + r * Math.sin(azRad);
