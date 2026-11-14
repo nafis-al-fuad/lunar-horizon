@@ -74,8 +74,8 @@ CURATED_SITES = (
         terrain_height_m=4980.0,
         region_ids=["malapert"],
         default_mast_height_m=2.0,
-        quality_flags=["polar_candidate", "high_elevation", "continuous_earth_view"],
-        limitations=["High-altitude summit offering near-continuous line-of-sight to Earth."]
+        quality_flags=["polar_candidate", "high_elevation", "periodic_earth_view"],
+        limitations=["High-altitude summit evaluated for geometric Earth line-of-sight visibility modulated by lunar libration and local topography."]
     ),
     dict(
         id="haworth-rim",

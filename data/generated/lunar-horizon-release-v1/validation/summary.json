@@ -126,7 +126,7 @@
     }
   ],
   "limitations": [
-    "Manually maintained release validation record audited against automated test harness (180/180 tests passing); synthetic demonstration and node-loader testing scopes explicitly declared."
+    "Manually maintained release validation record audited against automated test harness (182/182 tests passing); synthetic demonstration and node-loader testing scopes explicitly declared."
   ],
   "model_version": "lunar-model-v1",
   "release_decision": "computed_release_v1",

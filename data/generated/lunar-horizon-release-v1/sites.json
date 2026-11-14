@@ -95,7 +95,7 @@
       "quality_flags": [
         "polar_candidate",
         "high_elevation",
-        "continuous_earth_view"
+        "periodic_earth_view"
       ],
       "reference_meridian_deg": null,
       "region_ids": [

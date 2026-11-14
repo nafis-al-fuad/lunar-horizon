@@ -133,6 +133,7 @@ class CritiqueFixesTests(unittest.TestCase):
         """Item 6: Validation summary explicitly labels demonstration scope, provenance, and removed machine precision claim."""
         summary = json.loads((RELEASE_DIR / "validation" / "summary.json").read_text())
         self.assertEqual(summary.get("summary_provenance"), "manually_maintained_milestone_audit")
+        self.assertIn("182/182 tests passing", summary["limitations"][0])
         gate_map = {g["gate_id"]: g for g in summary["gate_statuses"]}
         self.assertEqual(gate_map["V04"]["status"], "passed_synthetic_demonstration")
         self.assertEqual(gate_map["V05"]["status"], "passed_synthetic_demonstration")

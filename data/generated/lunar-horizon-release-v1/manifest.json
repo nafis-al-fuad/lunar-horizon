@@ -45,8 +45,8 @@
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 3240,
-      "decoded_sha256": "169478ac9119dcb0f299957259d64cce44cb66390cb2213dc1d132e638cbbba4",
+      "decoded_bytes": 3292,
+      "decoded_sha256": "f44f7fcdf2369b8d67ba880a073197dc876bf6024e8d187c58a65537e59507bc",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "content/core.json",
@@ -54,14 +54,14 @@
       "kind": "content",
       "load_group": "startup",
       "media_type": "application/json",
-      "payload_bytes": 3240,
+      "payload_bytes": 3292,
       "product_id": "P15",
-      "sha256": "169478ac9119dcb0f299957259d64cce44cb66390cb2213dc1d132e638cbbba4",
+      "sha256": "f44f7fcdf2369b8d67ba880a073197dc876bf6024e8d187c58a65537e59507bc",
       "storage_encoding": "identity"
     },
     {
       "decoded_bytes": 4990,
-      "decoded_sha256": "4c82958c3152ab085c83273cd731539f12e7574777e556180977b037b3d01f6d",
+      "decoded_sha256": "ff5f92df1058eef08ad88048c4eff3b5744ea8b21c89f903e3938ded5bdaa0a0",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "validation/summary.json",
@@ -71,7 +71,7 @@
       "media_type": "application/json",
       "payload_bytes": 4990,
       "product_id": "P14",
-      "sha256": "4c82958c3152ab085c83273cd731539f12e7574777e556180977b037b3d01f6d",
+      "sha256": "ff5f92df1058eef08ad88048c4eff3b5744ea8b21c89f903e3938ded5bdaa0a0",
       "storage_encoding": "identity"
     },
     {
@@ -171,8 +171,8 @@
       "storage_encoding": "identity"
     },
     {
-      "decoded_bytes": 12289,
-      "decoded_sha256": "502711d6b41ddc6e321b611f199c07736be08631714f94003afc7fc25a6cb3eb",
+      "decoded_bytes": 12287,
+      "decoded_sha256": "082197179f5d7ebd743dcd27a12f0b3b383090785e8af7aaa6c3ab106bbc6722",
       "depends_on": [],
       "descriptor_file_id": null,
       "href": "sites.json",
@@ -180,9 +180,9 @@
       "kind": "sites",
       "load_group": "startup",
       "media_type": "application/json",
-      "payload_bytes": 12289,
+      "payload_bytes": 12287,
       "product_id": "P02",
-      "sha256": "502711d6b41ddc6e321b611f199c07736be08631714f94003afc7fc25a6cb3eb",
+      "sha256": "082197179f5d7ebd743dcd27a12f0b3b383090785e8af7aaa6c3ab106bbc6722",
       "storage_encoding": "identity"
     },
     {

@@ -32,7 +32,7 @@ When lunar mission timelines shift or launch windows slip, mission planners and 
   * **Shackleton Connecting Ridge (Site 001):** High illumination crest between Shackleton and de Gerlache.
   * **Shackleton Crater Rim:** Extreme solar exposure and cold-trap access.
   * **Peak of Eternal Light 1 (PEL 1):** Historical quasi-permanent illumination benchmark.
-  * **Malapert Massif Summit (Site 004):** Prominent high-elevation plateau with near-continuous direct Earth visibility.
+  * **Malapert Massif Summit (Site 004):** Prominent high-elevation plateau evaluated for geometric Earth visibility and topographic masking.
   * **Haworth Crater Rim:** Elevated ridge adjacent to deep permanently shadowed regions (PSRs).
   * **Nobile Crater Rim (Mons Mouton):** Broad landing plateau and VIPER study region.
   * **Amundsen Crater Rim & de Gerlache Rim:** Strategic high-latitude exploration sites.
@@ -100,8 +100,8 @@ Lunar Horizon includes an automated test harness ensuring reproducible precision
 
 * **182 Automated Unit Tests:** Covering coordinate boundaries, pole meridian logic, ephemeris interpolation, horizon dip angles, eclipse intersections, and timeline partitioning.
 * **JPL TESTPO Conformance:** Passed all 17 selected position and velocity scalar components from the official JPL `testpo.440` test suite within strict $10^{-12}$ tolerance ($< 2.1 \times 10^{-17}\text{ AU}$ position error, $< 3.5 \times 10^{-18}\text{ AU/day}$ velocity error against the strict JPL $10^{-13}$ threshold). Catmull-Rom interpolated ephemerides verified against JPL polynomial evaluations to within stated $< 0.001^\circ$ angular tolerance.
-* **Independent ASCII Evaluator:** Includes a clean, independent offline DE440 ASCII evaluator (`de440_ascii.py`) verifying ephemeris math directly against raw JPL polynomial coefficients.
-* **Web Client Compatibility:** Tested against Node.js consumers and headless Chrome/Edge test harnesses.
+* **Historical Component Verification (Ephemeris Math):** An offline DE440 ASCII evaluator (`de440_ascii.py`) previously verified fundamental Chebyshev polynomial evaluation against raw JPL ASCII coefficients for isolated ephemeris components.
+* **Node.js Package Loader Verification:** Tested via Node.js headless loader (`smoke-release.mjs`) verifying 100% SHA-256 payload digests, manifest integrity, and JSON/binary parsing. Interactive in-browser testing is scheduled for the frontend UI development phase.
 
 ---
 

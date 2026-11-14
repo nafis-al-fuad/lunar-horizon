@@ -359,8 +359,8 @@ def build_core_content():
             ),
             dict(
                 id="malapert-plateau-tour",
-                title="Malapert Massif: The Mountain of Eternal View",
-                summary="High-elevation summit offering continuous direct-to-Earth communication.",
+                title="Malapert Massif: High-Elevation Earth Visibility",
+                summary="High-elevation summit evaluated for geometric Earth visibility and topographic horizon clearance during libration cycles.",
                 scenario_id="scenario-artemis-malapert-2026"
             ),
             dict(
@@ -396,7 +396,7 @@ def build_validation_summary():
         file_kind="validation_summary",
         source_ids=[],
         validation_check_ids=["V12-manifest-integrity"],
-        limitations=["Manually maintained release validation record audited against automated test harness (180/180 tests passing); synthetic demonstration and node-loader testing scopes explicitly declared."],
+        limitations=["Manually maintained release validation record audited against automated test harness (182/182 tests passing); synthetic demonstration and node-loader testing scopes explicitly declared."],
         summary_provenance="manually_maintained_milestone_audit",
         release_decision="computed_release_v1",
         accepted_scopes=[
