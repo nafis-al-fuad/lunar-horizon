@@ -102,6 +102,7 @@ export default function ExploreTab({ selectedSite, sites, onSelectSite, currentT
       <CelestialScaleInset
         instantSample={instantSample}
         terrainElevation={selectedSite.terrain_height_m || 0}
+        horizonData={horizonData}
         proMode={proMode}
       />
     </div>
