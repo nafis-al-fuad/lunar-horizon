@@ -14,10 +14,20 @@ import AssumptionsModal from './components/AssumptionsModal';
 import HelpModal from './components/HelpModal';
 import UserManualModal from './components/UserManualModal';
 import ErrorBoundary from './components/ErrorBoundary';
+import LandingPage from './components/landing/LandingPage';
 import { getSites, initReleaseData, loadScenarioData, loadHorizonData, loadMonthlyEphemerisTimeseries } from './lib/consumer';
 import { ExternalLink, Check } from 'lucide-react';
 
 export default function App() {
+  const [currentView, setCurrentView] = useState(() => {
+    try {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      if (hash && hash.includes('tab=')) {
+        return 'app';
+      }
+    } catch (e) {}
+    return 'landing';
+  });
   const [activeTab, setActiveTab] = useState('explore');
   const [sites, setSites] = useState([]);
   const [selectedSiteId, setSelectedSiteId] = useState('shackleton-connecting-ridge');
@@ -93,7 +103,10 @@ export default function App() {
       const hash = window.location.hash.replace(/^#\/?/, '');
       if (hash) {
         const params = new URLSearchParams(hash);
-        if (params.get('tab')) setActiveTab(params.get('tab'));
+        if (params.get('tab')) {
+          setActiveTab(params.get('tab'));
+          setCurrentView('app');
+        }
         if (params.get('site')) setSelectedSiteId(params.get('site'));
         if (params.get('year')) setSelectedYear(parseInt(params.get('year'), 10));
         if (params.get('month')) setSelectedMonth(parseInt(params.get('month'), 10));
@@ -107,6 +120,12 @@ export default function App() {
   // Sync state to URL Hash
   useEffect(() => {
     if (loading) return;
+    if (currentView === 'landing') {
+      if (window.location.hash && window.location.hash.includes('tab=')) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+      return;
+    }
     const params = new URLSearchParams();
     params.set('tab', activeTab);
     params.set('site', selectedSiteId);
@@ -114,7 +133,7 @@ export default function App() {
     params.set('month', String(selectedMonth));
     params.set('pro', proMode ? '1' : '0');
     window.location.hash = `#/${params.toString()}`;
-  }, [activeTab, selectedSiteId, selectedYear, selectedMonth, proMode, loading]);
+  }, [currentView, activeTab, selectedSiteId, selectedYear, selectedMonth, proMode, loading]);
 
   // Handle Share Permalink action
   const handleShare = () => {
@@ -332,6 +351,18 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  if (currentView === 'landing') {
+    return (
+      <LandingPage
+        onExploreSite={() => setCurrentView('app')}
+        onLearnMore={() => {
+          setActiveTab('primer');
+          setCurrentView('app');
+        }}
+      />
+    );
+  }
+
   if (loading || !selectedSite) {
     return (
       <div className="min-h-screen bg-[#07090E] flex flex-col items-center justify-center space-y-4 font-mono">
@@ -374,6 +405,7 @@ export default function App() {
         }
         isSiteModalOpen={isSiteModalOpen}
         setIsSiteModalOpen={setIsSiteModalOpen}
+        onBackToLanding={() => setCurrentView('landing')}
       />
 
       {/* Main View Area */}

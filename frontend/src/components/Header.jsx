@@ -31,7 +31,8 @@ export default function Header({
   onShare,
   pinnedScenarioCount = 3,
   isSiteModalOpen,
-  setIsSiteModalOpen
+  setIsSiteModalOpen,
+  onBackToLanding
 }) {
   const [internalSiteModalOpen, setInternalSiteModalOpen] = useState(false);
   const siteModalOpen = isSiteModalOpen !== undefined ? isSiteModalOpen : internalSiteModalOpen;
@@ -130,13 +131,17 @@ export default function Header({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-between py-3 gap-3">
           {/* Brand & Project Metadata */}
-          <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-lg bg-[#111520] border border-[#252E42] flex items-center justify-center font-mono font-bold text-[#E5A93C] text-base shadow-sm">
+          <button
+            onClick={onBackToLanding}
+            title="Return to Landing Page"
+            className="flex items-center space-x-3 text-left group cursor-pointer focus:outline-none transition-transform active:scale-98"
+          >
+            <div className="w-9 h-9 rounded-lg bg-[#111520] border border-[#252E42] group-hover:border-[#E5A93C] flex items-center justify-center font-mono font-bold text-[#E5A93C] text-base shadow-sm transition-colors">
               LH
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-lg font-bold tracking-tight uppercase text-white font-mono">
+                <span className="text-lg font-bold tracking-tight uppercase text-white font-mono group-hover:text-[#E5A93C] transition-colors">
                   LUNAR HORIZON
                 </span>
                 <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#E5A93C]/10 text-[#E5A93C] border border-[#E5A93C]/30 font-semibold">
@@ -147,7 +152,7 @@ export default function Header({
                 Astrodynamics, Topography & Line-of-Sight Engine
               </p>
             </div>
-          </div>
+          </button>
 
           {/* Center-Left: Target Site Selector */}
           <div className="relative">
@@ -176,6 +181,17 @@ export default function Header({
 
           {/* Right Utility Stack */}
           <div className="flex items-center space-x-2 text-xs font-mono">
+            {/* Landing Page Button */}
+            {onBackToLanding && (
+              <button
+                onClick={onBackToLanding}
+                title="Return to Landing Page"
+                className="flex items-center space-x-1 px-2.5 py-1 text-slate-300 hover:text-white hover:bg-[#141A26] rounded border border-[#222B3D] hover:border-[#E5A93C]/40 text-[11px] font-bold transition-colors cursor-pointer"
+              >
+                <span>&larr; Landing</span>
+              </button>
+            )}
+
             {/* Explorer / Pro Mode Toggle */}
             <div className="flex items-center bg-[#0D111A] p-0.5 rounded-lg border border-[#222B3D]">
               <button
