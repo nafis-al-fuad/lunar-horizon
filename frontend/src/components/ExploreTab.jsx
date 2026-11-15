@@ -2,50 +2,22 @@ import React, { useState, useEffect } from 'react';
 import HorizonSkyline from './HorizonSkyline';
 import Moon3D from './Moon3D';
 import { loadHorizonData } from '../lib/consumer';
-import { Shield } from 'lucide-react';
+import { Shield, Database } from 'lucide-react';
 
-export default function ExploreTab({ selectedSite, sites, onSelectSite, timeIndex }) {
-  const [horizonData, setHorizonData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // Load horizon data when selected site changes
-  useEffect(() => {
-    let isMounted = true;
-    setLoading(true);
-
-    async function fetchHorizon() {
-      try {
-        const hData = await loadHorizonData(selectedSite.id);
-        if (isMounted) setHorizonData(hData);
-      } catch (err) {
-        console.error('Error fetching horizon data:', err);
-      } finally {
-        if (isMounted) setLoading(false);
-      }
-    }
-
-    fetchHorizon();
-    return () => { isMounted = false; };
-  }, [selectedSite]);
-
-  // Instant solar/terrestrial state linked to bottom scrubber timeIndex
-  const stepHours = timeIndex * 1;
-  const baseSunEl = selectedSite.lat_deg < -80 ? 1.35 : 45.0;
-  const currentSunAz = (160 + stepHours * 0.55) % 360;
-  const currentSunEl = baseSunEl + Math.sin(timeIndex * 0.08) * 0.45;
-  const currentEarthAz = (85 + Math.sin(timeIndex * 0.05) * 4) % 360;
-  const currentEarthEl = selectedSite.lat_deg < -80 ? (3.5 + Math.cos(timeIndex * 0.05) * 2.5) : 60.0;
-
-  const instantSample = {
+export default function ExploreTab({ selectedSite, sites, onSelectSite, currentTelemetry, horizonData }) {
+  // If currentTelemetry from real DE440 ephemeris is available, use it; otherwise fallback cleanly
+  const instantSample = currentTelemetry || {
     sun: {
-      azimuth_deg: currentSunAz,
-      elevation_deg: currentSunEl,
-      joint_state: currentSunEl > -0.1 ? 'clear' : 'blocked'
+      azimuth_deg: 172.96,
+      elevation_deg: 0.79,
+      clearance_deg: 0.79,
+      joint_state: 'clear'
     },
     earth: {
-      azimuth_deg: currentEarthAz,
-      elevation_deg: currentEarthEl,
-      joint_state: currentEarthEl > 0.0 ? 'clear' : 'blocked'
+      azimuth_deg: 88.42,
+      elevation_deg: 3.85,
+      clearance_deg: 3.85,
+      joint_state: 'clear'
     }
   };
 
@@ -70,7 +42,7 @@ export default function ExploreTab({ selectedSite, sites, onSelectSite, timeInde
                 {selectedSite.site_type.replace('_', ' ')}
               </span>
             </div>
-            <div className="text-sm text-[#8B93A7] mt-1.5 font-mono">
+            <div className="text-sm text-slate-400 mt-1.5 font-mono">
               Coordinates: <strong className="text-white">{selectedSite.lat_deg.toFixed(4)}°</strong> Lat,{' '}
               <strong className="text-white">{selectedSite.lon_deg.toFixed(4)}°</strong> Lon • Frame: <strong className="text-white">{selectedSite.frame}</strong> • Uncertainty: ±{selectedSite.coordinate_uncertainty_m}m
             </div>
@@ -78,14 +50,14 @@ export default function ExploreTab({ selectedSite, sites, onSelectSite, timeInde
 
           <div className="flex items-center space-x-6">
             <div className="text-right">
-              <div className="text-xs uppercase font-mono text-[#8B93A7] font-semibold">Observer Terrain Elevation</div>
+              <div className="text-xs uppercase font-mono text-slate-400 font-semibold">Observer Terrain Elevation</div>
               <div className="text-xl font-bold font-mono text-white mt-0.5">
                 {selectedSite.terrain_height_m != null ? `+${selectedSite.terrain_height_m.toFixed(1)} m` : 'Flat / Unknown'}
               </div>
             </div>
             <div className="h-10 w-[1px] bg-[#1E2536]"></div>
             <div className="text-right">
-              <div className="text-xs uppercase font-mono text-[#8B93A7] font-semibold">Default Mast Height</div>
+              <div className="text-xs uppercase font-mono text-slate-400 font-semibold">Default Mast Height</div>
               <div className="text-xl font-bold font-mono text-[#E5A93C] mt-0.5">
                 +{selectedSite.default_mast_height_m.toFixed(1)} m
               </div>
@@ -95,7 +67,7 @@ export default function ExploreTab({ selectedSite, sites, onSelectSite, timeInde
 
         {/* Provenance note */}
         {selectedSite.limitations?.[0] && (
-          <div className="mt-3 flex items-start space-x-2.5 text-xs font-mono bg-[#080B12] p-3 rounded-lg border border-[#161B29] text-[#8B93A7]">
+          <div className="mt-3 flex items-start space-x-2.5 text-xs font-mono bg-[#080B12] p-3 rounded-lg border border-[#161B29] text-slate-400">
             <Shield className="w-4 h-4 text-[#E5A93C] flex-shrink-0 mt-0.5" />
             <span className="text-xs leading-relaxed"><strong className="text-white">PROVENANCE NOTE:</strong> {selectedSite.limitations[0]}</span>
           </div>

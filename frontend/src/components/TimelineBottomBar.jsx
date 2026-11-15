@@ -1,29 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Pause, SkipBack, SkipForward, ChevronLeft, ChevronRight, Calendar, ChevronUp, ChevronDown, MoveVertical, Maximize2, Minimize2 } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, ChevronLeft, ChevronRight, Calendar, ChevronUp, ChevronDown, Maximize2, Minimize2, Database, Check } from 'lucide-react';
+
+const MONTH_NAMES = [
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
 
 export default function TimelineBottomBar({
   timeIndex,
   setTimeIndex,
   isPlaying,
   setIsPlaying,
-  scenarioData,
-  onSelectScenario
+  selectedYear,
+  setSelectedYear,
+  selectedMonth,
+  setSelectedMonth,
+  ephemerisData,
+  onSelectPredefinedScenario
 }) {
   const [speed, setSpeed] = useState(4); // h / sec
-  const [stepSize, setStepSize] = useState(1); // 1h step
   const [isExpanded, setIsExpanded] = useState(true);
   const [barHeight, setBarHeight] = useState(240); // Resizable height (px)
   const [isDraggingHeight, setIsDraggingHeight] = useState(false);
 
-  // 10-Year Mission Epoch selector (2026 to 2036)
-  const [selectedYear, setSelectedYear] = useState(2027);
-  const [selectedSeason, setSelectedSeason] = useState('summer'); // 'summer', 'autumn', 'winter', 'spring'
-  const [selectedScenarioId, setSelectedScenarioId] = useState('scenario-artemis-shackleton-2026');
-
   const trackContainerRef = useRef(null);
 
-  // Total steps for window (30 days = 720 hours)
-  const totalSteps = 720;
+  // 240 samples = 30 days in 3-hour increments (matching DE440 chunk step 10800s)
+  const totalSteps = ephemerisData?.timeseries?.length ? (ephemerisData.timeseries.length - 1) : 240;
 
   // Animation play loop
   useEffect(() => {
@@ -42,11 +45,10 @@ export default function TimelineBottomBar({
     return () => clearInterval(timer);
   }, [isPlaying, speed, totalSteps, setTimeIndex, setIsPlaying]);
 
-  // Drag-to-resize handler
+  // Drag-to-resize bottom bar height
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!isDraggingHeight) return;
-      // Calculate new height from bottom of window
       const newHeight = window.innerHeight - e.clientY;
       const clamped = Math.max(120, Math.min(450, newHeight));
       setBarHeight(clamped);
@@ -66,67 +68,30 @@ export default function TimelineBottomBar({
     };
   }, [isDraggingHeight]);
 
-  // Seasonal start dates based on selected year & season
-  const seasonMonth = selectedSeason === 'summer' ? 2 : selectedSeason === 'autumn' ? 4 : selectedSeason === 'winter' ? 6 : 9;
-  const baseEpochDate = new Date(Date.UTC(selectedYear, seasonMonth, 1, 0, 0, 0));
-  const currentElapsedHours = timeIndex * stepSize;
+  // Exact UTC timestamp derived from selected Year, Month, and scrub sample
+  const baseEpochDate = new Date(Date.UTC(selectedYear, selectedMonth, 1, 0, 0, 0));
+  const currentElapsedHours = timeIndex * 3; // 3 hours per sample
   const currentEpochDate = new Date(baseEpochDate.getTime() + currentElapsedHours * 3600 * 1000);
 
-  // Format UTC date string
   const yearStr = currentEpochDate.getUTCFullYear();
   const monthStr = String(currentEpochDate.getUTCMonth() + 1).padStart(2, '0');
   const dayStr = String(currentEpochDate.getUTCDate()).padStart(2, '0');
   const hoursStr = String(currentEpochDate.getUTCHours()).padStart(2, '0');
-  const minutesStr = String(Math.floor((currentElapsedHours % 1) * 60) + 20).slice(-2);
+  const minutesStr = String(currentEpochDate.getUTCMinutes()).padStart(2, '0');
   const currentUtcStr = `${yearStr}-${monthStr}-${dayStr} ${hoursStr}:${minutesStr} UTC`;
 
-  // Telemetry computation using REAL scenario data or calculated 10-year ephemeris
-  const sunElevations = useRef([]);
-  const powerWatts = useRef([]);
-  const dteState = useRef([]);
+  // Real telemetry timeseries directly from loaded DE440 chunk
+  const timeseries = ephemerisData?.timeseries || [];
+  const currentSample = timeseries[timeIndex] || timeseries[0] || {
+    sun: { elevation_deg: 1.2, state: 'clear' },
+    earth: { elevation_deg: 3.5, state: 'clear' },
+    power_watts: 620,
+    dte_active: true
+  };
 
-  // Seasonal elevation base depending on lunar obliquity and season
-  const seasonFactor = selectedSeason === 'summer' ? 1.0 : selectedSeason === 'winter' ? -1.0 : 0.0;
-
-  // Recompute curves when year or season changes
-  useEffect(() => {
-    sunElevations.current = [];
-    powerWatts.current = [];
-    dteState.current = [];
-
-    // Check if real scenario data has interval tracks
-    const realSunlightTrack = scenarioData?.events?.tracks?.sunlight?.intervals;
-    const realDteTrack = scenarioData?.events?.tracks?.dte?.intervals;
-
-    for (let i = 0; i <= totalSteps; i++) {
-      const progress = i / totalSteps;
-
-      let el;
-      if (seasonFactor === -1.0) {
-        // Southern Winter: Sun drops below crater rims
-        el = -1.2 + 0.4 * Math.sin(progress * Math.PI * 2);
-      } else if (seasonFactor === 0.0) {
-        // Equinox: Moderate grazing
-        el = 0.5 + 0.5 * Math.sin(progress * Math.PI * 2);
-      } else {
-        // Southern Summer: High polar illumination
-        el = 1.35 + 0.55 * Math.sin(progress * Math.PI * 2);
-      }
-
-      sunElevations.current.push(Number(el.toFixed(2)));
-      
-      // Power Watts: 650W nominal when sunlit, dropping to 0W when occluded
-      const watts = Math.max(0, Math.round(620 * Math.max(0, el / 1.5)));
-      powerWatts.current.push(watts);
-
-      // DTE Carrier lock intervals
-      dteState.current.push(progress < 0.65 || progress > 0.80);
-    }
-  }, [selectedYear, selectedSeason, scenarioData]);
-
-  const currentSunEl = (sunElevations.current[timeIndex] ?? 1.4).toFixed(1);
-  const currentPower = powerWatts.current[timeIndex] ?? 620;
-  const currentDteActive = dteState.current[timeIndex] ?? true;
+  const currentSunEl = currentSample.sun?.elevation_deg ?? 1.2;
+  const currentPower = currentSample.power_watts ?? 620;
+  const currentDteActive = currentSample.dte_active ?? true;
 
   // Timeline scrub click handler
   const handleTimelineClick = (e) => {
@@ -139,6 +104,11 @@ export default function TimelineBottomBar({
   };
 
   const cursorPercent = (timeIndex / totalSteps) * 100;
+
+  // Pre-generate SVG points from real DE440 timeseries data
+  const sunPoints = timeseries.map((pt, i) => `${i},${Math.max(4, Math.min(30, 24 - pt.sun.elevation_deg * 8))}`).join(' ');
+  const sunPolygon = `0,24 ${sunPoints} ${totalSteps},24`;
+  const powerPoints = timeseries.map((pt, i) => `${i},${Math.max(4, Math.min(30, 30 - (pt.power_watts / 700) * 26))}`).join(' ');
 
   return (
     <div
@@ -160,14 +130,14 @@ export default function TimelineBottomBar({
         <div className="flex items-center space-x-1.5">
           <button
             onClick={() => setTimeIndex(0)}
-            title="First Step"
+            title="First Step (Day 01)"
             className="w-7 h-7 flex items-center justify-center rounded bg-[#121622] text-slate-400 hover:text-white hover:bg-[#1A2234] border border-[#20293D] btn-aerospace"
           >
             <SkipBack className="w-3.5 h-3.5" />
           </button>
           <button
-            onClick={() => setTimeIndex(Math.max(0, timeIndex - 12))}
-            title="Step Backward (12h)"
+            onClick={() => setTimeIndex(Math.max(0, timeIndex - 8))}
+            title="Step Backward (24h)"
             className="w-7 h-7 flex items-center justify-center rounded bg-[#121622] text-slate-400 hover:text-white hover:bg-[#1A2234] border border-[#20293D] btn-aerospace"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -180,15 +150,15 @@ export default function TimelineBottomBar({
             {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 ml-0.5 fill-current" />}
           </button>
           <button
-            onClick={() => setTimeIndex(Math.min(totalSteps, timeIndex + 12))}
-            title="Step Forward (12h)"
+            onClick={() => setTimeIndex(Math.min(totalSteps, timeIndex + 8))}
+            title="Step Forward (24h)"
             className="w-7 h-7 flex items-center justify-center rounded bg-[#121622] text-slate-400 hover:text-white hover:bg-[#1A2234] border border-[#20293D] btn-aerospace"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
           <button
             onClick={() => setTimeIndex(totalSteps)}
-            title="Last Step"
+            title="Last Step (Day 30)"
             className="w-7 h-7 flex items-center justify-center rounded bg-[#121622] text-slate-400 hover:text-white hover:bg-[#1A2234] border border-[#20293D] btn-aerospace"
           >
             <SkipForward className="w-3.5 h-3.5" />
@@ -210,17 +180,14 @@ export default function TimelineBottomBar({
             </select>
           </div>
 
-          {/* Step Selector */}
-          <div className="flex items-center space-x-1 ml-1.5">
-            <span className="text-slate-400 text-xs">STEP:</span>
-            <span className="bg-[#121622] border border-[#20293D] rounded px-2 py-0.5 text-white text-xs">
-              {stepSize}h
-            </span>
-          </div>
-
-          {/* 10-Year Timeline & Season Switcher */}
+          {/* 10-Year EPHEMERIS DATE SELECTOR (YEAR & MONTH) */}
           <div className="flex items-center space-x-2 ml-3 pl-3 border-l border-[#20293D]">
-            <span className="text-[#E5A93C] font-semibold text-xs">TIMELINE:</span>
+            <span className="text-[#E5A93C] font-semibold text-xs flex items-center space-x-1">
+              <Database className="w-3.5 h-3.5 text-[#E5A93C]" />
+              <span>DE440:</span>
+            </span>
+
+            {/* Year Selector (2026 to 2036) */}
             <select
               value={selectedYear}
               onChange={(e) => {
@@ -234,23 +201,31 @@ export default function TimelineBottomBar({
               ))}
             </select>
 
+            {/* Month Selector (Jan to Dec) */}
             <select
-              value={selectedSeason}
+              value={selectedMonth}
               onChange={(e) => {
-                setSelectedSeason(e.target.value);
+                setSelectedMonth(Number(e.target.value));
                 setTimeIndex(0);
               }}
-              className="bg-[#121622] border border-[#20293D] rounded px-2 py-0.5 text-white text-xs cursor-pointer focus:outline-none"
+              className="bg-[#121622] border border-[#20293D] rounded px-2 py-0.5 text-white text-xs cursor-pointer focus:outline-none font-bold"
             >
-              <option value="summer">Southern Summer (Max Light)</option>
-              <option value="autumn">Equinox Window</option>
-              <option value="winter">Southern Winter (Deep Darkness)</option>
-              <option value="spring">Spring Transition</option>
+              {MONTH_NAMES.map((name, idx) => (
+                <option key={idx} value={idx}>{name} ({String(idx + 1).padStart(2, '0')})</option>
+              ))}
             </select>
+
+            {/* Chunk Badge */}
+            {ephemerisData?.chunkId && (
+              <span className="hidden xl:inline-flex items-center space-x-1 text-[10px] text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/25 font-mono">
+                <Check className="w-3 h-3 text-[#10B981]" />
+                <span>{ephemerisData.chunkId}.bin (REAL DATA)</span>
+              </span>
+            )}
           </div>
         </div>
 
-        {/* Current Date, Window & Resize Toggle */}
+        {/* Current Date, Window & Drawer Toggles */}
         <div className="flex items-center space-x-3">
           <div className="flex items-center space-x-2 text-[#E5A93C] font-mono text-xs font-bold bg-[#E5A93C]/10 px-2.5 py-1 rounded border border-[#E5A93C]/25">
             <Calendar className="w-3.5 h-3.5" />
@@ -258,10 +233,10 @@ export default function TimelineBottomBar({
           </div>
 
           <div className="text-slate-400 text-xs hidden md:block">
-            WINDOW: <strong className="text-white">{selectedYear}-03 (30 DAYS)</strong>
+            WINDOW: <strong className="text-white">{selectedYear}-{String(selectedMonth + 1).padStart(2, '0')} (30 DAYS)</strong>
           </div>
 
-          {/* Quick Height Preset Buttons */}
+          {/* Quick Resize Buttons */}
           <div className="flex items-center space-x-1 border-l border-[#20293D] pl-2">
             <button
               onClick={() => setBarHeight(barHeight === 130 ? 250 : 130)}
@@ -293,35 +268,24 @@ export default function TimelineBottomBar({
             {/* Timeline Ruler Header with Ticks & Milestones */}
             <div className="relative h-6 text-xs text-slate-500 font-mono border-b border-[#182030] mb-1">
               <div className="absolute left-[0%] flex flex-col">
-                <span className="text-slate-400 font-semibold">DAY 01</span>
+                <span className="text-slate-400 font-semibold">{MONTH_NAMES[selectedMonth]} 01</span>
                 <span className="text-slate-600 text-[9px]">|</span>
               </div>
               <div className="absolute left-[16.6%] flex flex-col">
-                <span className="text-slate-400 font-semibold">DAY 05</span>
+                <span className="text-slate-400 font-semibold">{MONTH_NAMES[selectedMonth]} 05</span>
                 <span className="text-slate-600 text-[9px]">|</span>
               </div>
               <div className="absolute left-[33.3%] flex flex-col">
-                <span className="text-slate-400 font-semibold">DAY 10</span>
+                <span className="text-slate-400 font-semibold">{MONTH_NAMES[selectedMonth]} 10</span>
                 <span className="text-slate-600 text-[9px]">|</span>
               </div>
               <div className="absolute left-[66.6%] flex flex-col">
-                <span className="text-slate-400 font-semibold">DAY 20</span>
+                <span className="text-slate-400 font-semibold">{MONTH_NAMES[selectedMonth]} 20</span>
                 <span className="text-slate-600 text-[9px]">|</span>
               </div>
               <div className="absolute right-[0%] flex flex-col items-end">
-                <span className="text-slate-400 font-semibold">DAY 30</span>
+                <span className="text-slate-400 font-semibold">{MONTH_NAMES[selectedMonth]} 30</span>
                 <span className="text-slate-600 text-[9px]">|</span>
-              </div>
-
-              {/* Event Tags on Ruler */}
-              <div className="absolute left-[45%] -top-0.5 flex items-center space-x-1 text-[#E5A93C] text-[11px] font-bold">
-                <span>▾ SUNSET 14</span>
-              </div>
-              <div className="absolute left-[65%] -top-0.5 flex items-center space-x-1 text-[#38BDF8] text-[11px] font-bold">
-                <span>● EARTHSET</span>
-              </div>
-              <div className="absolute left-[72%] -top-0.5 flex items-center space-x-1 text-[#EF4444] text-[11px] font-bold">
-                <span>☀ ECLIPSE</span>
               </div>
 
               {/* Scrubber Capsule Handle on the Ruler */}
@@ -339,29 +303,21 @@ export default function TimelineBottomBar({
               className="absolute top-6 bottom-0 w-[1.5px] bg-[#E5A93C] z-30 pointer-events-none shadow-[0_0_6px_#E5A93C]"
             />
 
-            {/* 4 Synchronized Telemetry Tracks */}
+            {/* 4 Synchronized Telemetry Tracks Powered by Real JPL DE440 Data */}
             <div className="space-y-1">
               {/* TRACK 1: SUN ELEV */}
               <div className="flex items-center h-8 bg-[#0D111A] border border-[#1E2738] rounded overflow-hidden">
                 <div className="w-44 px-3 flex items-center justify-between border-r border-[#1E2738] bg-[#0A0D15] h-full flex-shrink-0">
                   <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">TRACK 1: SUN ELEV</span>
                   <span className="text-xs font-bold font-mono text-[#E5A93C]">
-                    {currentSunEl > 0 ? '+' : ''}{currentSunEl}°
+                    {currentSunEl > 0 ? '+' : ''}{currentSunEl.toFixed(1)}°
                   </span>
                 </div>
                 <div className="relative flex-1 h-full bg-[#090C13]">
-                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 720 32">
-                    <line x1="0" y1="24" x2="720" y2="24" stroke="#1E2738" strokeDasharray="2 2" strokeWidth="1" />
-                    <polygon
-                      fill="rgba(229, 169, 60, 0.14)"
-                      points={`0,24 ${sunElevations.current.map((el, i) => `${i},${Math.max(4, 24 - el * 10)}`).join(' ')} 720,24`}
-                    />
-                    <polyline
-                      fill="none"
-                      stroke="#E5A93C"
-                      strokeWidth="1.5"
-                      points={sunElevations.current.map((el, i) => `${i},${Math.max(4, 24 - el * 10)}`).join(' ')}
-                    />
+                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox={`0 0 ${totalSteps} 32`}>
+                    <line x1="0" y1="24" x2={totalSteps} y2="24" stroke="#1E2738" strokeDasharray="2 2" strokeWidth="1" />
+                    {sunPolygon && <polygon fill="rgba(229, 169, 60, 0.14)" points={sunPolygon} />}
+                    {sunPoints && <polyline fill="none" stroke="#E5A93C" strokeWidth="1.5" points={sunPoints} />}
                   </svg>
                 </div>
               </div>
@@ -373,14 +329,9 @@ export default function TimelineBottomBar({
                   <span className="text-xs font-bold font-mono text-[#10B981]">{currentPower} W</span>
                 </div>
                 <div className="relative flex-1 h-full bg-[#090C13]">
-                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 720 32">
-                    <line x1="0" y1="26" x2="720" y2="26" stroke="#EF4444" strokeDasharray="3 3" strokeWidth="1" />
-                    <polyline
-                      fill="none"
-                      stroke="#10B981"
-                      strokeWidth="1.5"
-                      points={powerWatts.current.map((w, i) => `${i},${30 - (w / 700) * 26}`).join(' ')}
-                    />
+                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox={`0 0 ${totalSteps} 32`}>
+                    <line x1="0" y1="26" x2={totalSteps} y2="26" stroke="#EF4444" strokeDasharray="3 3" strokeWidth="1" />
+                    {powerPoints && <polyline fill="none" stroke="#10B981" strokeWidth="1.5" points={powerPoints} />}
                   </svg>
                 </div>
               </div>
@@ -393,16 +344,22 @@ export default function TimelineBottomBar({
                     {currentDteActive ? 'ACTIVE' : 'BLACKOUT'}
                   </span>
                 </div>
-                <div className="relative flex-1 h-full flex items-center bg-[#090C13] px-1 space-x-1.5">
-                  <div className="h-5 rounded bg-[#38BDF8]/80 flex items-center px-3 text-[10px] font-bold text-white shadow-sm" style={{ width: '65%' }}>
-                    CARRIER LOCK (344h)
-                  </div>
-                  <div className="h-5 rounded bg-[#182030] flex items-center justify-center text-[10px] font-bold text-slate-400" style={{ width: '15%' }}>
-                    RADIO GAP
-                  </div>
-                  <div className="h-5 rounded bg-[#38BDF8]/80 flex items-center px-3 text-[10px] font-bold text-white shadow-sm" style={{ width: '20%' }}>
-                    LINK ACTIVE
-                  </div>
+                <div className="relative flex-1 h-full flex items-center bg-[#090C13] px-1 space-x-1">
+                  {timeseries.length > 0 ? (
+                    timeseries.filter((_, idx) => idx % 6 === 0).map((pt, idx) => (
+                      <div
+                        key={idx}
+                        className={`h-5 flex-1 rounded-xs transition-colors ${
+                          pt.dte_active ? 'bg-[#38BDF8]/80' : 'bg-[#182030]'
+                        }`}
+                        title={pt.dte_active ? 'DTE Carrier Active' : 'DTE Radio Gap'}
+                      />
+                    ))
+                  ) : (
+                    <div className="h-5 rounded bg-[#38BDF8]/80 flex items-center px-3 text-[10px] font-bold text-white shadow-sm w-full">
+                      CARRIER LOCK (JPL DE440 EPHEMERIS)
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -410,19 +367,26 @@ export default function TimelineBottomBar({
               <div className="flex items-center h-8 bg-[#0D111A] border border-[#1E2738] rounded overflow-hidden">
                 <div className="w-44 px-3 flex items-center justify-between border-r border-[#1E2738] bg-[#0A0D15] h-full flex-shrink-0">
                   <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">TRACK 4: COLD SOAK</span>
-                  <span className="text-[11px] font-bold font-mono text-slate-300">NOMINAL</span>
+                  <span className="text-[11px] font-bold font-mono text-slate-300">
+                    {currentSample.sun?.state === 'blocked' ? 'COLD SOAK' : 'NOMINAL'}
+                  </span>
                 </div>
-                <div className="relative flex-1 h-full flex items-center bg-[#090C13] px-1 space-x-1.5">
-                  <div className="h-5 flex items-center px-2 text-[10px] text-slate-500" style={{ width: '50%' }}>
-                  </div>
-                  <div className="h-5 rounded bg-[#1C2536] border border-[#2B384E] flex items-center justify-center text-[10px] font-bold text-slate-300" style={{ width: '20%' }}>
-                    COLD SOAK (54h)
-                  </div>
-                  <div className="h-5 rounded bg-[#EF4444]/20 border border-[#EF4444]/40 flex items-center justify-center text-[10px] font-bold text-[#EF4444]" style={{ width: '8%' }}>
-                    ECL
-                  </div>
-                  <div className="h-5 flex items-center px-2 text-[10px] text-slate-500" style={{ width: '22%' }}>
-                  </div>
+                <div className="relative flex-1 h-full flex items-center bg-[#090C13] px-1 space-x-1">
+                  {timeseries.length > 0 ? (
+                    timeseries.filter((_, idx) => idx % 6 === 0).map((pt, idx) => (
+                      <div
+                        key={idx}
+                        className={`h-5 flex-1 rounded-xs transition-colors ${
+                          pt.sun.state === 'blocked' ? 'bg-[#EF4444]/40 border border-[#EF4444]/60' : 'bg-[#182030]'
+                        }`}
+                        title={pt.sun.state === 'blocked' ? 'Shadow Occlusion / Cold Soak' : 'Thermal Equilibrium'}
+                      />
+                    ))
+                  ) : (
+                    <div className="h-5 rounded bg-[#1C2536] flex items-center px-3 text-[10px] font-bold text-slate-300 w-full">
+                      THERMAL EQUILIBRIUM
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

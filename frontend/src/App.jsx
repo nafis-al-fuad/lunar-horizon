@@ -8,15 +8,22 @@ import CompareTab from './components/CompareTab';
 import ValidationTab from './components/ValidationTab';
 import PrimerTab from './components/PrimerTab';
 import TimelineBottomBar from './components/TimelineBottomBar';
-import { getSites, initReleaseData, loadScenarioData } from './lib/consumer';
+import { getSites, initReleaseData, loadScenarioData, loadHorizonData, loadMonthlyEphemerisTimeseries } from './lib/consumer';
 import { ExternalLink } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('explore');
   const [sites, setSites] = useState([]);
   const [selectedSiteId, setSelectedSiteId] = useState('shackleton-connecting-ridge');
+  const [horizonData, setHorizonData] = useState(null);
+
+  // 10-Year JPL DE440 Ephemeris Controls (2026 to 2036, Jan to Dec)
+  const [selectedYear, setSelectedYear] = useState(2026);
+  const [selectedMonth, setSelectedMonth] = useState(0); // 0 = Jan 2026
   const [timeIndex, setTimeIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [ephemerisData, setEphemerisData] = useState(null);
+
   const [scenarioData, setScenarioData] = useState(null);
   const [loading, setLoading] = useState(true);
   const mainContentRef = useRef(null);
@@ -39,7 +46,7 @@ export default function App() {
     return () => lenis.destroy();
   }, []);
 
-  // Initialize dataset
+  // Initialize startup dataset
   useEffect(() => {
     let isMounted = true;
     async function loadData() {
@@ -47,9 +54,11 @@ export default function App() {
         await initReleaseData();
         const loadedSites = await getSites();
         const scData = await loadScenarioData('scenario-artemis-shackleton-2026');
+        const hData = await loadHorizonData('shackleton-connecting-ridge');
         if (isMounted) {
           setSites(loadedSites);
           setScenarioData(scData);
+          setHorizonData(hData);
           if (loadedSites.length > 0 && !selectedSiteId) {
             setSelectedSiteId(loadedSites[0].id);
           }
@@ -63,6 +72,49 @@ export default function App() {
     loadData();
     return () => { isMounted = false; };
   }, []);
+
+  // Load horizon data when active site changes
+  useEffect(() => {
+    let isMounted = true;
+    async function updateHorizon() {
+      if (!selectedSiteId) return;
+      try {
+        const hData = await loadHorizonData(selectedSiteId);
+        if (isMounted) setHorizonData(hData);
+      } catch (err) {
+        console.error('Failed to load horizon:', err);
+      }
+    }
+    updateHorizon();
+    return () => { isMounted = false; };
+  }, [selectedSiteId]);
+
+  // Load real 10-year JPL DE440 binary chunk whenever year, month, or site changes
+  const selectedSite = sites.find(s => s.id === selectedSiteId) || sites[0];
+
+  useEffect(() => {
+    let isMounted = true;
+    async function fetchEphemerisTimeseries() {
+      if (!selectedSite) return;
+      try {
+        const tsData = await loadMonthlyEphemerisTimeseries(
+          selectedYear,
+          selectedMonth,
+          selectedSite,
+          horizonData,
+          2.0 // default 2m mast height
+        );
+        if (isMounted) {
+          setEphemerisData(tsData);
+        }
+      } catch (err) {
+        console.error('Error loading real DE440 chunk timeseries:', err);
+      }
+    }
+
+    fetchEphemerisTimeseries();
+    return () => { isMounted = false; };
+  }, [selectedYear, selectedMonth, selectedSite, horizonData]);
 
   // GSAP tab entrance transition
   useEffect(() => {
@@ -94,8 +146,6 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const selectedSite = sites.find(s => s.id === selectedSiteId) || sites[0];
-
   if (loading || !selectedSite) {
     return (
       <div className="min-h-screen bg-[#07090E] flex flex-col items-center justify-center space-y-4 font-mono">
@@ -103,12 +153,15 @@ export default function App() {
         <div className="text-sm font-bold text-[#E5A93C] tracking-widest uppercase">
           INITIALIZING LUNAR HORIZON ENGINE
         </div>
-        <div className="text-xs text-[#8B93A7]">
-          Decoding JPL DE440 Chebyshev Ephemeris & Ray-Traced Horizons...
+        <div className="text-xs text-slate-400">
+          Loading 10-Year JPL DE440 Ephemeris (122 Chunks) & Ray-Traced Horizons...
         </div>
       </div>
     );
   }
+
+  // Current real-time telemetry sample evaluated from the real DE440 chunk
+  const currentTelemetry = ephemerisData?.timeseries?.[timeIndex] || null;
 
   return (
     <div className={`min-h-screen bg-[#07090E] text-[#E2E4E9] flex flex-col font-sans selection:bg-[#E5A93C]/20 ${
@@ -130,7 +183,8 @@ export default function App() {
             selectedSite={selectedSite}
             sites={sites}
             onSelectSite={(id) => setSelectedSiteId(id)}
-            timeIndex={timeIndex}
+            currentTelemetry={currentTelemetry}
+            horizonData={horizonData}
           />
         )}
         {activeTab === 'timeline' && (
@@ -161,13 +215,13 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_6px_#10B981]"></span>
-            <span className="font-semibold text-[#8B93A7]">LUNAR HORIZON NAVIGATOR // NASA SPACE APPS CHALLENGE 2026</span>
+            <span className="font-semibold text-slate-400">LUNAR HORIZON NAVIGATOR // NASA SPACE APPS CHALLENGE 2026</span>
           </div>
 
-          <div className="flex items-center space-x-3 text-[#8B93A7]">
-            <span>DATASET: <strong className="text-white">v3.0 RELEASE-V1</strong></span>
+          <div className="flex items-center space-x-3 text-slate-400">
+            <span>DATASET: <strong className="text-white">v3.0 (122 DE440 CHUNKS)</strong></span>
             <span>•</span>
-            <span>EPHEMERIS: <strong className="text-white">JPL DE440</strong></span>
+            <span>EPHEMERIS: <strong className="text-white">JPL DE440 2026–2036</strong></span>
             <span>•</span>
             <a
               href="https://github.com/nafis-al-fuad/lunar-horizon"
@@ -190,7 +244,11 @@ export default function App() {
             setTimeIndex={setTimeIndex}
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
-            scenarioData={scenarioData}
+            selectedYear={selectedYear}
+            setSelectedYear={setSelectedYear}
+            selectedMonth={selectedMonth}
+            setSelectedMonth={setSelectedMonth}
+            ephemerisData={ephemerisData}
           />
         </div>
       )}
