@@ -8,7 +8,7 @@ export default function SeasonsTab({
   onSelectDateAndSeek
 }) {
   const [metricMode, setMetricMode] = useState('illumination'); // 'illumination' or 'dte'
-  const [hoveredDay, setHoveredDay] = useState(null);
+  const [activeDay, setActiveDay] = useState(null);
 
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -248,8 +248,7 @@ export default function SeasonsTab({
                     return (
                       <div
                         key={dIdx}
-                        onMouseEnter={() => setHoveredDay(cell)}
-                        onMouseLeave={() => setHoveredDay(null)}
+                        onMouseEnter={() => setActiveDay(cell)}
                         onClick={() => {
                           if (onSelectDateAndSeek) {
                             onSelectDateAndSeek(selectedYear, cell.month, cell.day);
@@ -292,44 +291,65 @@ export default function SeasonsTab({
         </div>
       </div>
 
-      {/* Hovered Day Inspection Drawer / Card */}
-      {hoveredDay && (
-        <div className="aerospace-panel p-4 bg-[#0A0D16] border border-[#E5A93C]/40 animate-fade-in">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 rounded bg-[#E5A93C]/10 border border-[#E5A93C]/30 text-[#E5A93C] font-bold text-sm">
-                {hoveredDay.monthName} {hoveredDay.day}, {selectedYear}
-              </div>
-              <div>
-                <span className="text-white font-bold">{selectedSite.name}</span>
-                <span className="text-xs text-slate-400 block">Sub-solar Latitude: {hoveredDay.subSolarLat}° • Sun Elevation: {hoveredDay.solarElevation}°</span>
-              </div>
-            </div>
+      {/* Persistent Day Inspection Card with Subtle Spring Twist */}
+      {(() => {
+        const currentDay = activeDay || matrixData[0]?.[0] || {
+          month: 0,
+          monthName: 'Jan',
+          day: 1,
+          sunlitPct: 88,
+          dtePct: 75,
+          subSolarLat: '-1.54',
+          solarElevation: '+1.54'
+        };
 
-            <div className="flex items-center space-x-6 text-xs">
-              <div>
-                <span className="text-slate-400 block">Sunlit Illumination</span>
-                <span className="text-base font-bold text-[#E5A93C]">{hoveredDay.sunlitPct}%</span>
+        return (
+          <div className="aerospace-panel p-4 bg-[#0A0D16] border border-[#E5A93C]/40 shadow-xl overflow-hidden">
+            <div
+              key={`${currentDay.month}-${currentDay.day}`}
+              className="flex flex-wrap items-center justify-between gap-3 animate-subtle-twist"
+            >
+              <div className="flex items-center space-x-3">
+                <div className="p-2 rounded bg-[#E5A93C]/10 border border-[#E5A93C]/30 text-[#E5A93C] font-bold text-sm min-w-[105px] text-center shadow-inner">
+                  {currentDay.monthName} {currentDay.day}, {selectedYear}
+                </div>
+                <div>
+                  <span className="text-white font-bold">{selectedSite.name}</span>
+                  <span className="text-xs text-slate-400 block">
+                    Sub-solar Latitude: {currentDay.subSolarLat}° • Solar Elevation: {currentDay.solarElevation}°
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="text-slate-400 block">Earth DTE Coverage</span>
-                <span className="text-base font-bold text-[#60A5FA]">{hoveredDay.dtePct}%</span>
+
+              <div className="flex items-center space-x-6 text-xs">
+                <div className="min-w-[85px]">
+                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Sunlit Illum</span>
+                  <span className="text-base font-bold text-[#E5A93C] transition-colors duration-150">
+                    {currentDay.sunlitPct}%
+                  </span>
+                </div>
+                <div className="min-w-[85px]">
+                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Earth DTE</span>
+                  <span className="text-base font-bold text-[#60A5FA] transition-colors duration-150">
+                    {currentDay.dtePct}%
+                  </span>
+                </div>
+                <button
+                  onClick={() => {
+                    if (onSelectDateAndSeek) {
+                      onSelectDateAndSeek(selectedYear, currentDay.month, currentDay.day);
+                    }
+                  }}
+                  className="px-3.5 py-2 bg-[#E5A93C] hover:bg-[#F59E0B] text-black font-bold rounded-lg text-xs flex items-center space-x-1.5 shadow-md active:scale-95 transition-transform"
+                >
+                  <span>Seek Navigator to this Day</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
               </div>
-              <button
-                onClick={() => {
-                  if (onSelectDateAndSeek) {
-                    onSelectDateAndSeek(selectedYear, hoveredDay.month, hoveredDay.day);
-                  }
-                }}
-                className="px-3 py-1.5 bg-[#E5A93C] hover:bg-[#F59E0B] text-black font-bold rounded text-xs flex items-center space-x-1"
-              >
-                <span>Seek Navigator to this Day</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }

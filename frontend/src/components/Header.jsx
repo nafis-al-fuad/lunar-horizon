@@ -26,6 +26,7 @@ export default function Header({
   setProMode,
   onOpenSlipDrawer,
   onOpenAssumptions,
+  onOpenUserManual,
   onOpenHelp,
   onShare,
   pinnedScenarioCount = 3
@@ -177,6 +178,16 @@ export default function Header({
                 Pro
               </button>
             </div>
+
+            {/* User Manual Button */}
+            <button
+              onClick={onOpenUserManual}
+              title="First-Time User Manual & Control Guide [u]"
+              className="flex items-center space-x-1.5 px-2.5 py-1 text-slate-300 hover:text-[#E5A93C] hover:bg-[#141A26] rounded border border-[#222B3D] hover:border-[#E5A93C]/40 text-[11px] font-bold transition-colors"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-[#E5A93C]" />
+              <span>User Manual</span>
+            </button>
 
             {/* Assumptions Modal Button */}
             <button

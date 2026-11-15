@@ -12,6 +12,7 @@ import TimelineBottomBar from './components/TimelineBottomBar';
 import SlipDrawer from './components/SlipDrawer';
 import AssumptionsModal from './components/AssumptionsModal';
 import HelpModal from './components/HelpModal';
+import UserManualModal from './components/UserManualModal';
 import { getSites, initReleaseData, loadScenarioData, loadHorizonData, loadMonthlyEphemerisTimeseries } from './lib/consumer';
 import { ExternalLink, Check } from 'lucide-react';
 
@@ -28,13 +29,14 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [ephemerisData, setEphemerisData] = useState(null);
 
-  // Explorer vs Pro Mode toggle
-  const [proMode, setProMode] = useState(false);
+  // Explorer vs Pro Mode toggle (Default: PRO MODE)
+  const [proMode, setProMode] = useState(true);
 
   // Drawers and Modals
   const [isSlipDrawerOpen, setIsSlipDrawerOpen] = useState(false);
   const [isAssumptionsOpen, setIsAssumptionsOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [isUserManualOpen, setIsUserManualOpen] = useState(false);
   const [shareToast, setShareToast] = useState(false);
 
   const [scenarioData, setScenarioData] = useState(null);
@@ -51,7 +53,7 @@ export default function App() {
         if (params.get('site')) setSelectedSiteId(params.get('site'));
         if (params.get('year')) setSelectedYear(parseInt(params.get('year'), 10));
         if (params.get('month')) setSelectedMonth(parseInt(params.get('month'), 10));
-        if (params.get('pro')) setProMode(params.get('pro') === '1');
+        if (params.has('pro')) setProMode(params.get('pro') === '1');
       }
     } catch (e) {
       console.warn('Could not parse hash permalink:', e);
@@ -189,6 +191,7 @@ export default function App() {
         setIsSlipDrawerOpen(false);
         setIsAssumptionsOpen(false);
         setIsHelpOpen(false);
+        setIsUserManualOpen(false);
         return;
       }
 
@@ -199,6 +202,9 @@ export default function App() {
       if (e.key === '5') setActiveTab('validation');
       if (e.key === '6') setActiveTab('primer');
 
+      if (e.key === 'u' || e.key === 'U') {
+        setIsUserManualOpen(prev => !prev);
+      }
       if (e.key === 's' || e.key === 'S') {
         setIsSlipDrawerOpen(prev => !prev);
       }
@@ -257,6 +263,7 @@ export default function App() {
         setProMode={setProMode}
         onOpenSlipDrawer={() => setIsSlipDrawerOpen(true)}
         onOpenAssumptions={() => setIsAssumptionsOpen(true)}
+        onOpenUserManual={() => setIsUserManualOpen(true)}
         onOpenHelp={() => setIsHelpOpen(true)}
         onShare={handleShare}
         pinnedScenarioCount={4}
@@ -336,6 +343,12 @@ export default function App() {
       <AssumptionsModal
         isOpen={isAssumptionsOpen}
         onClose={() => setIsAssumptionsOpen(false)}
+      />
+
+      {/* User Manual & Beginner Guide Modal */}
+      <UserManualModal
+        isOpen={isUserManualOpen}
+        onClose={() => setIsUserManualOpen(false)}
       />
 
       {/* Help & Keyboard Shortcuts Modal */}
