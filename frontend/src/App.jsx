@@ -5,11 +5,15 @@ import Header from './components/Header';
 import ExploreTab from './components/ExploreTab';
 import TimelineTab from './components/TimelineTab';
 import CompareTab from './components/CompareTab';
+import SeasonsTab from './components/SeasonsTab';
 import ValidationTab from './components/ValidationTab';
 import PrimerTab from './components/PrimerTab';
 import TimelineBottomBar from './components/TimelineBottomBar';
+import SlipDrawer from './components/SlipDrawer';
+import AssumptionsModal from './components/AssumptionsModal';
+import HelpModal from './components/HelpModal';
 import { getSites, initReleaseData, loadScenarioData, loadHorizonData, loadMonthlyEphemerisTimeseries } from './lib/consumer';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Check } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('explore');
@@ -24,9 +28,58 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [ephemerisData, setEphemerisData] = useState(null);
 
+  // Explorer vs Pro Mode toggle
+  const [proMode, setProMode] = useState(false);
+
+  // Drawers and Modals
+  const [isSlipDrawerOpen, setIsSlipDrawerOpen] = useState(false);
+  const [isAssumptionsOpen, setIsAssumptionsOpen] = useState(false);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [shareToast, setShareToast] = useState(false);
+
   const [scenarioData, setScenarioData] = useState(null);
   const [loading, setLoading] = useState(true);
   const mainContentRef = useRef(null);
+
+  // Read URL Hash Parameters on Mount (Permalink Sync)
+  useEffect(() => {
+    try {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      if (hash) {
+        const params = new URLSearchParams(hash);
+        if (params.get('tab')) setActiveTab(params.get('tab'));
+        if (params.get('site')) setSelectedSiteId(params.get('site'));
+        if (params.get('year')) setSelectedYear(parseInt(params.get('year'), 10));
+        if (params.get('month')) setSelectedMonth(parseInt(params.get('month'), 10));
+        if (params.get('pro')) setProMode(params.get('pro') === '1');
+      }
+    } catch (e) {
+      console.warn('Could not parse hash permalink:', e);
+    }
+  }, []);
+
+  // Sync state to URL Hash
+  useEffect(() => {
+    if (loading) return;
+    const params = new URLSearchParams();
+    params.set('tab', activeTab);
+    params.set('site', selectedSiteId);
+    params.set('year', String(selectedYear));
+    params.set('month', String(selectedMonth));
+    params.set('pro', proMode ? '1' : '0');
+    window.location.hash = `#/${params.toString()}`;
+  }, [activeTab, selectedSiteId, selectedYear, selectedMonth, proMode, loading]);
+
+  // Handle Share Permalink action
+  const handleShare = () => {
+    try {
+      navigator.clipboard.writeText(window.location.href);
+      setShareToast(true);
+      setTimeout(() => setShareToast(false), 3000);
+    } catch (err) {
+      console.error('Failed to copy URL:', err);
+    }
+  };
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
@@ -131,11 +184,37 @@ export default function App() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (e.key === 'Escape') {
+        setIsSlipDrawerOpen(false);
+        setIsAssumptionsOpen(false);
+        setIsHelpOpen(false);
+        return;
+      }
+
       if (e.key === '1') setActiveTab('explore');
       if (e.key === '2') setActiveTab('timeline');
       if (e.key === '3') setActiveTab('compare');
-      if (e.key === '4') setActiveTab('validation');
-      if (e.key === '5') setActiveTab('primer');
+      if (e.key === '4') setActiveTab('seasons');
+      if (e.key === '5') setActiveTab('validation');
+      if (e.key === '6') setActiveTab('primer');
+
+      if (e.key === 's' || e.key === 'S') {
+        setIsSlipDrawerOpen(prev => !prev);
+      }
+      if (e.key === 'm' || e.key === 'M') {
+        setProMode(prev => !prev);
+      }
+      if (e.key === 'a' || e.key === 'A') {
+        setIsAssumptionsOpen(prev => !prev);
+      }
+      if (e.key === '?' || e.key === '/') {
+        setIsHelpOpen(prev => !prev);
+      }
+      if (e.key === 'k' || e.key === 'K') {
+        handleShare();
+      }
+
       if (e.code === 'Space') {
         e.preventDefault();
         setIsPlaying(p => !p);
@@ -174,6 +253,13 @@ export default function App() {
         sites={sites}
         selectedSiteId={selectedSiteId}
         setSelectedSiteId={setSelectedSiteId}
+        proMode={proMode}
+        setProMode={setProMode}
+        onOpenSlipDrawer={() => setIsSlipDrawerOpen(true)}
+        onOpenAssumptions={() => setIsAssumptionsOpen(true)}
+        onOpenHelp={() => setIsHelpOpen(true)}
+        onShare={handleShare}
+        pinnedScenarioCount={4}
       />
 
       {/* Main View Area */}
@@ -185,6 +271,7 @@ export default function App() {
             onSelectSite={(id) => setSelectedSiteId(id)}
             currentTelemetry={currentTelemetry}
             horizonData={horizonData}
+            proMode={proMode}
           />
         )}
         {activeTab === 'timeline' && (
@@ -202,6 +289,19 @@ export default function App() {
             }}
           />
         )}
+        {activeTab === 'seasons' && (
+          <SeasonsTab
+            selectedSite={selectedSite}
+            selectedYear={selectedYear}
+            setSelectedYear={setSelectedYear}
+            onSelectDateAndSeek={(yr, mo, da) => {
+              setSelectedYear(yr);
+              setSelectedMonth(mo);
+              setTimeIndex(Math.min(244, (da - 1) * 8));
+              setActiveTab('explore');
+            }}
+          />
+        )}
         {activeTab === 'validation' && (
           <ValidationTab />
         )}
@@ -209,6 +309,48 @@ export default function App() {
           <PrimerTab />
         )}
       </main>
+
+      {/* "My landing slipped. What now?" Slide-over Drawer */}
+      <SlipDrawer
+        isOpen={isSlipDrawerOpen}
+        onClose={() => setIsSlipDrawerOpen(false)}
+        currentSite={selectedSite}
+        sites={sites}
+        selectedYear={selectedYear}
+        selectedMonth={selectedMonth}
+        onApplyDate={(yr, mo) => {
+          setSelectedYear(yr);
+          setSelectedMonth(mo);
+          setTimeIndex(0);
+        }}
+        onSelectSite={(siteId) => {
+          setSelectedSiteId(siteId);
+        }}
+        onPinScenario={(scenario) => {
+          console.log('Pinned scenario from slip drawer:', scenario);
+          setActiveTab('compare');
+        }}
+      />
+
+      {/* Assumptions & Scientific Limitations Modal */}
+      <AssumptionsModal
+        isOpen={isAssumptionsOpen}
+        onClose={() => setIsAssumptionsOpen(false)}
+      />
+
+      {/* Help & Keyboard Shortcuts Modal */}
+      <HelpModal
+        isOpen={isHelpOpen}
+        onClose={() => setIsHelpOpen(false)}
+      />
+
+      {/* Share Toast Notification */}
+      {shareToast && (
+        <div className="fixed bottom-6 right-6 z-50 bg-[#10141D] border border-[#10B981] text-[#10B981] px-4 py-2.5 rounded-lg shadow-2xl font-mono text-xs flex items-center space-x-2 animate-bounce">
+          <Check className="w-4 h-4" />
+          <span>Permalink copied to clipboard!</span>
+        </div>
+      )}
 
       {/* Aerospace Telemetry Footer */}
       <footer className="border-t border-[#161B29] bg-[#06080D] py-5 text-xs font-mono text-[#64748B]">

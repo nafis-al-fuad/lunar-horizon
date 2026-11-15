@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Sun, Globe, Mountain, Layers, Eye, Sliders } from 'lucide-react';
 
-export default function HorizonSkyline({ horizonData, instantSample, siteName, terrainElevation = 0 }) {
+export default function HorizonSkyline({ horizonData, instantSample, siteName, terrainElevation = 0, proMode = false }) {
   const canvasRef = useRef(null);
   const [mastHeight, setMastHeight] = useState(2.0);
   const [viewMode, setViewMode] = useState('skyline'); // 'skyline' or 'radar'
@@ -118,6 +118,39 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
       ctx.fillText('0.00° ASTRONOMICAL HORIZON', width - 262, zeroY - 5);
       ctx.restore();
 
+      // Pro Mode: Engineering Threshold Guide Lines
+      if (proMode) {
+        // +1.5° DTE RF Link Margin Threshold
+        const dteY = toY(1.5);
+        ctx.save();
+        ctx.strokeStyle = '#38BDF8';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(0, dteY);
+        ctx.lineTo(width, dteY);
+        ctx.stroke();
+        ctx.fillStyle = '#38BDF8';
+        ctx.font = '9px "JetBrains Mono", monospace';
+        ctx.fillText('+1.50° DTE RF LINK MARGIN THRESHOLD', 12, dteY - 3);
+        ctx.restore();
+
+        // +1.0° Min Solar Power Threshold
+        const solarY = toY(1.0);
+        ctx.save();
+        ctx.strokeStyle = '#F59E0B';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(0, solarY);
+        ctx.lineTo(width, solarY);
+        ctx.stroke();
+        ctx.fillStyle = '#F59E0B';
+        ctx.font = '9px "JetBrains Mono", monospace';
+        ctx.fillText('+1.00° MIN SOLAR POWER THRESHOLD', 12, solarY - 3);
+        ctx.restore();
+      }
+
       // 4. DRAW CELESTIAL BODIES (SUN & EARTH) FIRST, so Mountain Silhouette naturally occludes them!
       const sunX = toX(sunAz);
       const sunY = toY(sunEl);
@@ -172,6 +205,36 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
       // 5. DRAW RAY-TRACED TERRAIN POLYGON (OVER Sun and Earth)
       // When Sun or Earth is lower than terrain, the polygon physically covers them!
       if (bins.length > 0) {
+        // Pro Mode: LOLA DEM ±0.2° Uncertainty Envelope
+        if (proMode) {
+          ctx.save();
+          ctx.fillStyle = 'rgba(234, 179, 8, 0.08)';
+          ctx.strokeStyle = 'rgba(234, 179, 8, 0.35)';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([3, 3]);
+
+          ctx.beginPath();
+          for (let i = 0; i < numBins; i++) {
+            const az = (i / numBins) * 360.0;
+            const el = getBinElevation(bins[i]) + dipDeg + 0.2;
+            const x = toX(az);
+            const y = toY(el);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          for (let i = numBins - 1; i >= 0; i--) {
+            const az = (i / numBins) * 360.0;
+            const el = getBinElevation(bins[i]) + dipDeg - 0.2;
+            const x = toX(az);
+            const y = toY(el);
+            ctx.lineTo(x, y);
+          }
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+        }
+
         ctx.save();
         const terrainGrad = ctx.createLinearGradient(0, toY(5.0), 0, height);
         terrainGrad.addColorStop(0, 'rgba(28, 36, 52, 0.96)');
@@ -356,7 +419,7 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
       ctx.fill();
       ctx.restore();
     }
-  }, [horizonData, instantSample, mastHeight, viewMode, dipDeg, numBins, isSunOccluded, isEarthOccluded, isSunBelowAstro]);
+  }, [horizonData, instantSample, mastHeight, viewMode, dipDeg, numBins, isSunOccluded, isEarthOccluded, isSunBelowAstro, proMode]);
 
   return (
     <div className="aerospace-panel p-5 flex flex-col h-full justify-between">
@@ -418,6 +481,13 @@ export default function HorizonSkyline({ horizonData, instantSample, siteName, t
             <span className="w-2 h-2 rounded-full bg-[#38BDF8] inline-block"></span>
             <span>Earth Vector (DTE)</span>
           </div>
+
+          {proMode && (
+            <div className="flex items-center space-x-1.5 px-2.5 py-1 rounded bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#EAB308]">
+              <span className="w-2.5 h-0.5 bg-[#EAB308] rounded-full inline-block"></span>
+              <span className="font-semibold">±0.2° LOLA Uncertainty Band</span>
+            </div>
+          )}
         </div>
       </div>
 

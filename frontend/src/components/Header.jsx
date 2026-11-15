@@ -1,11 +1,39 @@
 import React, { useState } from 'react';
-import { Compass, Clock, GitCompare, ShieldCheck, BookOpen, ChevronDown, Check, Search, X } from 'lucide-react';
+import {
+  Compass,
+  Clock,
+  GitCompare,
+  Calendar,
+  ShieldCheck,
+  BookOpen,
+  ChevronDown,
+  Check,
+  Search,
+  X,
+  HelpCircle,
+  Share2,
+  Sliders,
+  CalendarDays
+} from 'lucide-react';
 
-export default function Header({ activeTab, setActiveTab, sites, selectedSiteId, setSelectedSiteId }) {
+export default function Header({
+  activeTab,
+  setActiveTab,
+  sites,
+  selectedSiteId,
+  setSelectedSiteId,
+  proMode,
+  setProMode,
+  onOpenSlipDrawer,
+  onOpenAssumptions,
+  onOpenHelp,
+  onShare,
+  pinnedScenarioCount = 3
+}) {
   const [siteModalOpen, setSiteModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const selectedSite = sites.find(s => s.id === selectedSiteId) || sites[0];
+  const selectedSite = sites.find(s => s.id === selectedSiteId) || sites[0] || { name: 'Shackleton Rim', lat_deg: -89.7, lon_deg: 124.5 };
 
   const filteredSites = sites.filter(s =>
     s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -15,7 +43,7 @@ export default function Header({ activeTab, setActiveTab, sites, selectedSiteId,
   const tabs = [
     {
       id: 'explore',
-      label: 'Explore Site',
+      label: '1. Explore Site',
       icon: Compass,
       sparkline: (
         <svg className="w-4 h-2.5 opacity-80" viewBox="0 0 20 10">
@@ -25,7 +53,7 @@ export default function Header({ activeTab, setActiveTab, sites, selectedSiteId,
     },
     {
       id: 'timeline',
-      label: 'Timeline & Events',
+      label: '2. Timeline & Events',
       icon: Clock,
       sparkline: (
         <svg className="w-4 h-2.5 opacity-80" viewBox="0 0 20 10">
@@ -37,7 +65,7 @@ export default function Header({ activeTab, setActiveTab, sites, selectedSiteId,
     },
     {
       id: 'compare',
-      label: 'Compare & Date Slip',
+      label: `3. Compare (${pinnedScenarioCount})`,
       icon: GitCompare,
       sparkline: (
         <svg className="w-4 h-2.5 opacity-80" viewBox="0 0 20 10">
@@ -46,8 +74,19 @@ export default function Header({ activeTab, setActiveTab, sites, selectedSiteId,
       )
     },
     {
+      id: 'seasons',
+      label: '4. Seasons & Heatmap',
+      icon: CalendarDays,
+      sparkline: (
+        <svg className="w-4 h-2.5 opacity-80" viewBox="0 0 20 10">
+          <circle cx="5" cy="5" r="3" fill="currentColor" opacity="0.8" />
+          <circle cx="15" cy="5" r="3" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        </svg>
+      )
+    },
+    {
       id: 'validation',
-      label: 'Sources & Validation',
+      label: '5. Sources & Validation',
       icon: ShieldCheck,
       sparkline: (
         <svg className="w-4 h-2.5 opacity-80" viewBox="0 0 20 10">
@@ -57,7 +96,7 @@ export default function Header({ activeTab, setActiveTab, sites, selectedSiteId,
     },
     {
       id: 'primer',
-      label: 'Mission Primer',
+      label: '6. Mission Primer',
       icon: BookOpen,
       sparkline: (
         <svg className="w-4 h-2.5 opacity-80" viewBox="0 0 20 10">
@@ -71,50 +110,111 @@ export default function Header({ activeTab, setActiveTab, sites, selectedSiteId,
   return (
     <header className="sticky top-0 z-50 bg-[#07090E]/95 backdrop-blur-md border-b border-[#1A202E]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
+        <div className="flex flex-wrap items-center justify-between py-3 gap-3">
           {/* Brand & Project Metadata */}
-          <div className="flex items-center space-x-3.5">
+          <div className="flex items-center space-x-3">
             <div className="w-9 h-9 rounded-lg bg-[#111520] border border-[#252E42] flex items-center justify-center font-mono font-bold text-[#E5A93C] text-base shadow-sm">
               LH
             </div>
             <div>
-              <div className="flex items-center space-x-2.5">
-                <span className="text-lg sm:text-xl font-bold tracking-tight uppercase text-white font-display">
+              <div className="flex items-center space-x-2">
+                <span className="text-lg font-bold tracking-tight uppercase text-white font-mono">
                   LUNAR HORIZON
                 </span>
-                <span className="text-xs uppercase font-mono px-2 py-0.5 rounded bg-[#E5A93C]/10 text-[#E5A93C] border border-[#E5A93C]/30 font-semibold">
-                  NASA Space Apps
+                <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#E5A93C]/10 text-[#E5A93C] border border-[#E5A93C]/30 font-semibold">
+                  NASA 2026
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-[#8B93A7] font-mono hidden sm:block">
+              <p className="text-xs text-[#8B93A7] font-mono hidden md:block">
                 Astrodynamics, Topography & Line-of-Sight Engine
               </p>
             </div>
           </div>
 
-          {/* Custom Aerospace Site Selector Button */}
+          {/* Center-Left: Target Site Selector */}
           <div className="relative">
             <button
               onClick={() => setSiteModalOpen(true)}
-              className="flex items-center space-x-2.5 bg-[#10141D] hover:bg-[#181F2E] border border-[#222B3D] hover:border-[#E5A93C]/40 rounded-lg px-4 py-2 text-sm font-mono text-white btn-aerospace shadow-sm"
+              className="flex items-center space-x-2 bg-[#10141D] hover:bg-[#181F2E] border border-[#222B3D] hover:border-[#E5A93C]/40 rounded-lg px-3 py-1.5 text-xs font-mono text-white btn-aerospace shadow-sm"
             >
               <span className="text-[#8B93A7] font-medium">SITE:</span>
-              <span className="font-bold text-[#E5A93C] max-w-[200px] sm:max-w-[280px] truncate text-sm">
+              <span className="font-bold text-[#E5A93C] max-w-[160px] sm:max-w-[220px] truncate text-xs">
                 {selectedSite.name}
               </span>
-              <ChevronDown className="w-4 h-4 text-[#8B93A7]" />
+              <ChevronDown className="w-3.5 h-3.5 text-[#8B93A7]" />
             </button>
           </div>
 
-          {/* Status Indicator Badge */}
-          <div className="hidden lg:flex items-center space-x-2 text-xs font-mono text-[#10B981] bg-[#10B981]/10 px-3 py-1.5 rounded-lg border border-[#10B981]/30">
-            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-            <span className="font-bold">DE440 VERIFIED // 182 TESTS PASSING</span>
+          {/* Primary Action Button: "My landing slipped. What now?" */}
+          <div>
+            <button
+              onClick={onOpenSlipDrawer}
+              className="flex items-center space-x-2 bg-[#E5A93C]/15 hover:bg-[#E5A93C]/25 text-[#E5A93C] border border-[#E5A93C]/40 rounded-lg px-3 py-1.5 text-xs font-mono font-bold transition-all shadow-[0_0_12px_rgba(229,169,60,0.2)] active:scale-95"
+            >
+              <Calendar className="w-3.5 h-3.5 text-[#E5A93C]" />
+              <span>My landing slipped. What now?</span>
+            </button>
+          </div>
+
+          {/* Right Utility Stack */}
+          <div className="flex items-center space-x-2 text-xs font-mono">
+            {/* Explorer / Pro Mode Toggle */}
+            <div className="flex items-center bg-[#0D111A] p-0.5 rounded-lg border border-[#222B3D]">
+              <button
+                onClick={() => setProMode(false)}
+                className={`px-2 py-1 rounded text-[11px] font-bold transition-colors ${
+                  !proMode ? 'bg-[#18202E] text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Explorer
+              </button>
+              <button
+                onClick={() => setProMode(true)}
+                className={`px-2 py-1 rounded text-[11px] font-bold transition-colors ${
+                  proMode ? 'bg-[#E5A93C] text-black shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                Pro
+              </button>
+            </div>
+
+            {/* Assumptions Modal Button */}
+            <button
+              onClick={onOpenAssumptions}
+              title="Scientific Limitations & Assumptions [a]"
+              className="px-2.5 py-1 text-slate-400 hover:text-white hover:bg-[#141A26] rounded border border-[#222B3D] text-[11px]"
+            >
+              Assumptions
+            </button>
+
+            {/* Help / Shortcuts Button */}
+            <button
+              onClick={onOpenHelp}
+              title="Keyboard Shortcuts [?]"
+              className="p-1.5 text-slate-400 hover:text-white hover:bg-[#141A26] rounded border border-[#222B3D]"
+            >
+              <HelpCircle className="w-3.5 h-3.5" />
+            </button>
+
+            {/* Share Permalink Button */}
+            <button
+              onClick={onShare}
+              title="Copy Shareable URL [k]"
+              className="p-1.5 text-slate-400 hover:text-[#E5A93C] hover:bg-[#141A26] rounded border border-[#222B3D]"
+            >
+              <Share2 className="w-3.5 h-3.5" />
+            </button>
+
+            {/* Static Badges */}
+            <div className="hidden xl:flex items-center space-x-1.5 text-[10px] text-[#10B981] bg-[#10B981]/10 px-2 py-1 rounded border border-[#10B981]/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="font-bold">ALL TIMES UTC</span>
+            </div>
           </div>
         </div>
 
-        {/* Global Tabs with Sparklines */}
-        <div className="flex space-x-1.5 border-t border-[#141824] overflow-x-auto py-1.5 scrollbar-none">
+        {/* Global Tabs Navigation Bar */}
+        <div className="flex space-x-1 border-t border-[#141824] overflow-x-auto py-1.5 scrollbar-none">
           {tabs.map(tab => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -122,13 +222,13 @@ export default function Header({ activeTab, setActiveTab, sites, selectedSiteId,
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2.5 px-4 py-2.5 text-sm font-mono font-semibold rounded-md whitespace-nowrap btn-aerospace ${
+                className={`flex items-center space-x-2 px-3 py-2 text-xs font-mono font-semibold rounded-md whitespace-nowrap btn-aerospace ${
                   isActive
                     ? 'bg-[#181E2E] text-[#E5A93C] border border-[#2A344A] shadow-md'
                     : 'text-[#8B93A7] hover:text-white hover:bg-[#111520]'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-[#E5A93C]' : 'text-[#8B93A7]'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#E5A93C]' : 'text-[#8B93A7]'}`} />
                 <span>{tab.label}</span>
                 <span className={isActive ? 'text-[#E5A93C]' : 'text-[#64748B]'}>
                   {tab.sparkline}

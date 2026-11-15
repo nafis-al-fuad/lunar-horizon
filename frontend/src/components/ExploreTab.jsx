@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import HorizonSkyline from './HorizonSkyline';
 import Moon3D from './Moon3D';
+import CelestialScaleInset from './CelestialScaleInset';
 import { loadHorizonData } from '../lib/consumer';
 import { Shield, Database } from 'lucide-react';
 
-export default function ExploreTab({ selectedSite, sites, onSelectSite, currentTelemetry, horizonData }) {
+export default function ExploreTab({ selectedSite, sites, onSelectSite, currentTelemetry, horizonData, proMode = false }) {
   // If currentTelemetry from real DE440 ephemeris is available, use it; otherwise fallback cleanly
   const instantSample = currentTelemetry || {
     sun: {
@@ -83,6 +84,7 @@ export default function ExploreTab({ selectedSite, sites, onSelectSite, currentT
             instantSample={instantSample}
             siteName={selectedSite.name}
             terrainElevation={selectedSite.terrain_height_m || 0}
+            proMode={proMode}
           />
         </div>
 
@@ -95,6 +97,13 @@ export default function ExploreTab({ selectedSite, sites, onSelectSite, currentT
           />
         </div>
       </div>
+
+      {/* True-Scale 1:1 Celestial Inset (Isotropic No-Exaggeration Viewport) */}
+      <CelestialScaleInset
+        instantSample={instantSample}
+        terrainElevation={selectedSite.terrain_height_m || 0}
+        proMode={proMode}
+      />
     </div>
   );
 }
