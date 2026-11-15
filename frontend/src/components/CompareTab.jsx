@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Check, X, AlertTriangle, Copy, Trash2, Folder, ExternalLink, RefreshCw, Calendar, ShieldAlert, ArrowRight, Settings2, Search, Sliders, Pin } from 'lucide-react';
 
-// Mini Horizon Skyline Component matching reference image 2
+// Mini Horizon Skyline Component for scenario cards
 function MiniSkyline({ maxEl, skylineType = 'normal' }) {
   const isOccluded = skylineType === 'occluded';
   const isWarning = skylineType === 'warning';
@@ -531,7 +531,7 @@ export default function CompareTab({
         {activeSlotKeys.map(key => {
           const sc = slotScenarios[key];
 
-          // Empty Slot (matching Slot D in reference image)
+          // Empty Slot (initially unconfigured slot)
           if (!sc) {
             return (
               <div

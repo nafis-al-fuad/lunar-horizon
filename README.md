@@ -7,7 +7,7 @@
 [![Live Site](https://img.shields.io/badge/Live%20Application-lunar--horizon.pages.dev-0052FF?style=for-the-badge&logo=cloudflare&logoColor=white)](https://lunar-horizon.pages.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg?style=for-the-badge)](LICENSE)
 [![NASA SPICE](https://img.shields.io/badge/NASA%20SPICE-DE440%20%2F%20DE421-blue.svg?style=for-the-badge)](https://naif.jpl.nasa.gov/naif/data.html)
-[![LOLA DEM](https://img.shields.io/badge/LRO%20LOLA-South%20Pole%20DEM-emerald.svg?style=for-the-badge)](https://lola.gsfc.nasa.gov/)
+[![LOLA DEM](https://img.shields.io/badge/LRO%20LOLA-South%20Pole%20DEM-emerald.svg?style=for-the-badge)](https://science.nasa.gov/mission/lro/lola/)
 
 🌐 **Live Production Application:** **[https://lunar-horizon.pages.dev](https://lunar-horizon.pages.dev)**
 
@@ -44,27 +44,27 @@ When lunar mission timelines slip or launch windows shift, mission planners, ast
 ## 🌟 Comprehensive Feature Catalog (All Capabilities)
 
 ### 1. Global Observatory Shell & Utility Stack
-* **Persistent Application Header:** Live site coordinates, active scenario badge, and navigation tabs.
+* **Persistent Application Header:** Live site coordinates, active scenario badge, UTC status indicator, and dynamic scenario count badge.
 * **Pro Mode Engine (`m` shortcut):** Toggles between standard overview and high-precision engineering mode ($\pm 0.2^\circ$ LOLA DEM terrain uncertainty band, DTE guide threshold lines, and grazing solar margin limits).
-* **Launch Slip & Plan B Drawer (`s` shortcut):** Instant contingency recommendation drawer computing alternate candidate sites and slip windows when nominal launch epochs slip (+7d, +14d, +30d).
+* **Launch Slip & Plan B Drawer (`s` shortcut):** Instant contingency recommendation drawer computing alternate candidate sites and slip windows when nominal launch epochs slip (+1d to +90d with +7d, +14d, +30d quick presets).
 * **Interactive User Manual Modal (`u` shortcut):**
   * *Part 1 (How to Use):* 5-step onboarding guide for first-time operators.
   * *Part 2 (Control Dictionary):* Searchable categorized dictionary defining every button, stepper, and status indicator.
 * **Scientific Limitations & Assumptions Drawer (`a` shortcut):** Complete transparency documentation citing celestial frame definitions, KaTeX formulas for dip geometry, and DEM resolution boundaries.
 * **Keyboard Shortcut Matrix (`?` shortcut):** Full tactile hotkeys (`1`–`6` for screen navigation, `Space` for playback, `s` for slip, `m` for pro mode, `k` for share, `u` for manual, `Esc` to dismiss).
 * **Permalink State Sync (`k` shortcut):** Encodes active site, date, time index, mode, mast height, and scenario slots into the browser URL hash for instant sharing.
+* **Aerospace Error Boundary Shield:** Custom React error boundary wrapping viewports to catch unexpected faults, display diagnostic trace alerts, and restore viewport state with a single click.
+* **Modal Scroll Isolation & Dismissal:** Background body scroll is strictly locked whenever modals or drawers are open, with universal `data-lenis-prevent` isolation, backdrop-click dismissal, and keyboard `Escape` support.
 
 ---
 
 ### 2. Screen 1: Navigator & 360° Topographic Skyline
-* **16 Curated Landing Sites Combobox:** Searchable catalog of Artemis candidate regions, CLPS target sites, and historical exploration benchmarks with exact coordinates and terrain tiers.
-* **Custom Coordinates Input:** Direct latitude ($-90^\circ$ to $+90^\circ$) and longitude ($-180^\circ$ to $+180^\circ$) inputs with validation.
-* **Interactive Polar Stereographic Mini Map (80°S–90°S):** Interactive south polar map with concentric latitude rings, meridian spokes, landing reticles, and click-to-sample terrain queries.
-* **360° Panoramic Terrain Silhouette:** Plots continuous lunar skyline elevation ($-2^\circ$ to $+15^\circ$) across all $0^\circ$–$360^\circ$ azimuths relative to the geometric astronomical horizon.
+* **16 Curated Landing Sites Selector:** Searchable modal catalog of Artemis candidate regions, CLPS target sites, and historical exploration benchmarks with exact coordinates, elevations, and terrain tiers.
+* **360° Panoramic Skyline & Polar PPI Radar:** Toggle between 360° panoramic silhouette and topocentric Plan Position Indicator (PPI) polar radar plotting continuous crater rim topography ($-2^\circ$ to $+15^\circ$).
 * **Real-Time Celestial Body Tracking:**
   * **Solar Disc:** Real-time topocentric azimuth and elevation, dynamic corona halo, physical ridge occlusion detection, and below-horizon alerts.
-  * **Earth Disc:** Real-time azimuth and elevation, optical phase shading, and continuous libration track polyline.
-* **Lander Mast Height Stepper:** Adjustable vantage vantage height ($0.0\text{ m}$ to $10.0\text{ m}$) dynamically lowering the geometric horizon dip angle ($\Delta \theta \approx \sqrt{2h/R_{\text{moon}}}$).
+  * **Earth Disc:** Real-time azimuth and elevation, optical phase shading, and continuous libration tracking.
+* **Lander Mast Height Slider:** Adjustable vantage height ($0.0\text{ m}$ to $12.0\text{ m}$) dynamically lowering the geometric horizon dip angle ($\Delta \theta \approx \sqrt{2h/R_{\text{moon}}}$).
 * **True-Scale 1:1 Celestial Inset:**
   * Isotropic $1:1$ viewport rendering the Sun ($0.53^\circ$ angular diameter) and Earth ($1.91^\circ$ angular diameter) with zero vertical exaggeration.
   * **Automated Dual-Pane Viewport:** Automatically splits into synchronized left (Solar) and right (Earth) viewports when angular separation exceeds the active Field of View ($2^\circ$, $4^\circ$, $8^\circ$, or default $16^\circ$).
@@ -76,15 +76,15 @@ When lunar mission timelines slip or launch windows shift, mission planners, ast
 
 ---
 
-### 3. Persistent Bottom Dock & Multi-Track Timeline (Image 1 Specifications)
+### 3. Persistent Multi-Track Astrodynamic Timeline Dock
 * **Transport Playback Bar:** Full transport controls (`|<`, `<`, Play/Pause, `>`, `>|`) with adjustable speeds ($1$, $2$, $4$, $12$, $24\text{ h/sec}$) and discrete step increments ($15\text{m}$, $1\text{h}$, $3\text{h}$, $6\text{h}$, $24\text{h}$).
 * **10-Year JPL Ephemeris Navigation:** Direct Year selector ($2026$–$2036$) and Month selector ($122$ binary chunks loaded on the fly).
 * **30-Day Timeline Ruler:** Tick marks (`MAR 01`, `05`, `10`, `25`, `31`), milestone event badges (`▼ SUNSET 15`, `• EARTHSET`, `✦ ECLIPSE`), and amber scrubber pill handle.
 * **4 Synchronized Multi-Track Strips:**
   1. **`TRACK 1: SUN ELEV`**: Continuous solar elevation curve above the horizon with warm translucent area fill.
   2. **`TRACK 2: POWER (W)`**: Solar array generation curve in emerald green with red dotted threshold line and danger-shaded red zone during occultation dips.
-  3. **`TRACK 3: DTE WINDOW`**: Blue carrier lock segments (`CONTINUOUS CARRIER LOCK (344h)`) and dark `RADIO GAP` blocks.
-  4. **`TRACK 4: COLD SOAK`**: Dedicated blocks for thermal dormancy (`COLD SOAK (54h)`) and eclipse events (`ECL`).
+  3. **`TRACK 3: DTE WINDOW`**: Blue carrier lock segments (`CONTINUOUS CARRIER LOCK`) and dark `RADIO GAP` blocks.
+  4. **`TRACK 4: COLD SOAK`**: Dedicated blocks for thermal dormancy (`COLD SOAK`) and eclipse events (`ECL`).
 * **Synchronized Vertical Hairline:** Amber cursor hairline spanning from ruler down through all 4 tracks.
 * **Dock Ergonomics:** Drag-to-resize handle bar (resizable from $130\text{ px}$ to $460\text{ px}$) and collapsible `TIMELINES ^` drawer toggle.
 
@@ -92,12 +92,13 @@ When lunar mission timelines slip or launch windows shift, mission planners, ast
 
 ### 4. Screen 2: Timeline Analytics & Partition Breakdown
 * Cumulative mission duration charts partitioning time into `sunlight`, `dte`, and `simultaneous` windows.
-* Outage frequency histograms and longest continuous night metrics.
+* Outage frequency histograms, longest continuous night metrics, and chronological tabular event log.
 
 ---
 
-### 5. Screen 3: Scenario Comparison Matrix (Image 2 Specifications)
+### 5. Screen 3: Multi-Scenario Comparison Matrix
 * **Dynamic Multi-Slot Grid:** $2\times2$ grid comparing up to N scenarios simultaneously (Slot A, B, C, D, and dynamic `+ Add Slot` for Slot E, F, etc.).
+* **Persistent Comparison Matrix:** State is preserved across tab navigation and browser sessions via lifted root synchronization and `localStorage`.
 * **Compare ANY Scenario:** Multi-tab Scenario Builder allowing comparison of:
   * Any of the 16 NASA Artemis exploration sites.
   * Custom coordinates (Lat, Lon, Elevation, Slope).
