@@ -22,8 +22,12 @@ export default function HelpModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-50 overflow-hidden font-mono text-sm">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
-      <div className="fixed inset-0 flex items-center justify-center p-4 z-10">
-        <div className="bg-[#0A0D15] border border-[#252E42] rounded-xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl">
+      <div className="fixed inset-0 flex items-center justify-center p-4 z-10" data-lenis-prevent>
+        <div
+          data-lenis-prevent
+          onWheel={(e) => e.stopPropagation()}
+          className="bg-[#0A0D15] border border-[#252E42] rounded-xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overscroll-contain"
+        >
           {/* Header */}
           <div className="p-4 border-b border-[#1A2234] flex items-center justify-between bg-[#0C101A]">
             <div className="flex items-center space-x-2">
@@ -41,7 +45,11 @@ export default function HelpModal({ isOpen, onClose }) {
           </div>
 
           {/* Table */}
-          <div className="overflow-y-auto p-4 space-y-2 text-xs">
+          <div
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
+            className="overflow-y-auto p-4 space-y-2 text-xs overscroll-contain"
+          >
             {shortcuts.map((s) => (
               <div
                 key={s.key}

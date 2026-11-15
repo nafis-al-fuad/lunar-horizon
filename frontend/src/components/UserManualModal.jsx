@@ -112,12 +112,16 @@ export default function UserManualModal({ isOpen, onClose }) {
   })).filter(g => g.buttons.length > 0);
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden font-mono text-sm">
+    <div className="fixed inset-0 z-50 overflow-hidden font-mono text-sm" data-lenis-prevent>
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="fixed inset-0 flex items-center justify-center p-4 z-10">
-        <div className="bg-[#090C13] border border-[#222B3D] rounded-xl max-w-3xl w-full max-h-[88vh] flex flex-col shadow-2xl">
+      <div className="fixed inset-0 flex items-center justify-center p-4 z-10" data-lenis-prevent>
+        <div
+          data-lenis-prevent
+          onWheel={(e) => e.stopPropagation()}
+          className="bg-[#090C13] border border-[#222B3D] rounded-xl max-w-3xl w-full max-h-[88vh] flex flex-col shadow-2xl overscroll-contain"
+        >
           {/* Header */}
           <div className="p-4 border-b border-[#1A2234] flex items-center justify-between bg-[#0C101A]">
             <div className="flex items-center space-x-2.5">
@@ -179,7 +183,11 @@ export default function UserManualModal({ isOpen, onClose }) {
           </div>
 
           {/* Scrollable Content Body */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-6">
+          <div
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
+            className="flex-1 overflow-y-auto p-5 space-y-6 overscroll-contain"
+          >
             {activeSection === 'how-to-use' && (
               <div className="space-y-4">
                 <div className="text-xs text-slate-300 leading-relaxed bg-[#0D121D] p-3.5 rounded-lg border border-[#1E283C]">

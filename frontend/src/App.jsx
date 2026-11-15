@@ -83,6 +83,8 @@ export default function App() {
     }
   };
 
+  const lenisRef = useRef(null);
+
   // Initialize Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
@@ -90,7 +92,9 @@ export default function App() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       smoothWheel: true,
+      prevent: (node) => Boolean(node?.closest?.('[data-lenis-prevent]')),
     });
+    lenisRef.current = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -98,8 +102,23 @@ export default function App() {
     }
 
     requestAnimationFrame(raf);
-    return () => lenis.destroy();
+    return () => {
+      lenis.destroy();
+      lenisRef.current = null;
+    };
   }, []);
+
+  // Pause Lenis and lock background body scroll when modals or drawers are open
+  const anyModalOpen = isUserManualOpen || isAssumptionsOpen || isHelpOpen || isSlipDrawerOpen;
+  useEffect(() => {
+    if (anyModalOpen) {
+      lenisRef.current?.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      lenisRef.current?.start();
+      document.body.style.overflow = '';
+    }
+  }, [anyModalOpen]);
 
   // Initialize startup dataset
   useEffect(() => {

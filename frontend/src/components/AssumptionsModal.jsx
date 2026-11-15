@@ -7,8 +7,12 @@ export default function AssumptionsModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-50 overflow-hidden font-mono text-sm">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
-      <div className="fixed inset-0 flex items-center justify-center p-4 z-10">
-        <div className="bg-[#0A0D15] border border-[#252E42] rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+      <div className="fixed inset-0 flex items-center justify-center p-4 z-10" data-lenis-prevent>
+        <div
+          data-lenis-prevent
+          onWheel={(e) => e.stopPropagation()}
+          className="bg-[#0A0D15] border border-[#252E42] rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overscroll-contain"
+        >
           {/* Header */}
           <div className="p-4 border-b border-[#1A2234] flex items-center justify-between bg-[#0C101A]">
             <div className="flex items-center space-x-2">
@@ -26,7 +30,11 @@ export default function AssumptionsModal({ isOpen, onClose }) {
           </div>
 
           {/* Content */}
-          <div className="overflow-y-auto p-5 space-y-4 text-xs leading-relaxed text-slate-300">
+          <div
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
+            className="overflow-y-auto p-5 space-y-4 text-xs leading-relaxed text-slate-300 overscroll-contain"
+          >
             <div className="bg-[#06080E] p-3.5 rounded-lg border border-[#161C28]">
               <div className="flex items-center space-x-2 text-[#E5A93C] font-bold text-sm mb-1">
                 <Sun className="w-4 h-4" />

@@ -99,7 +99,11 @@ export default function SlipDrawer({
       />
 
       {/* Slide-over Drawer Container */}
-      <div className="fixed inset-y-0 right-0 max-w-2xl w-full bg-[#090C13] border-l border-[#1F2739] shadow-2xl flex flex-col z-10">
+      <div 
+        data-lenis-prevent
+        onWheel={(e) => e.stopPropagation()}
+        className="fixed inset-y-0 right-0 max-w-2xl w-full bg-[#090C13] border-l border-[#1F2739] shadow-2xl flex flex-col z-10 overscroll-contain"
+      >
         {/* Drawer Header */}
         <div className="p-5 border-b border-[#1A2234] flex items-center justify-between bg-[#0C101A]">
           <div>
@@ -125,7 +129,11 @@ export default function SlipDrawer({
         </div>
 
         {/* Scrollable Body */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-6">
+        <div 
+          data-lenis-prevent
+          onWheel={(e) => e.stopPropagation()}
+          className="flex-1 overflow-y-auto p-5 space-y-6 overscroll-contain"
+        >
           {/* Slip Date Controls */}
           <div className="aerospace-panel p-4 bg-[#07090F]">
             <div className="flex items-center justify-between mb-3">
