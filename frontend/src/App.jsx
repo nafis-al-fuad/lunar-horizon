@@ -13,6 +13,7 @@ import SlipDrawer from './components/SlipDrawer';
 import AssumptionsModal from './components/AssumptionsModal';
 import HelpModal from './components/HelpModal';
 import UserManualModal from './components/UserManualModal';
+import ErrorBoundary from './components/ErrorBoundary';
 import { getSites, initReleaseData, loadScenarioData, loadHorizonData, loadMonthlyEphemerisTimeseries } from './lib/consumer';
 import { ExternalLink, Check } from 'lucide-react';
 
@@ -293,55 +294,57 @@ export default function App() {
 
       {/* Main View Area */}
       <main ref={mainContentRef} className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {activeTab === 'explore' && (
-          <ExploreTab
-            selectedSite={selectedSite}
-            sites={sites}
-            onSelectSite={(id) => setSelectedSiteId(id)}
-            currentTelemetry={currentTelemetry}
-            horizonData={horizonData}
-            proMode={proMode}
-          />
-        )}
-        {activeTab === 'timeline' && (
-          <TimelineTab
-            scenarioData={scenarioData}
-            selectedSite={selectedSite}
-          />
-        )}
-        {activeTab === 'compare' && (
-          <CompareTab
-            sites={sites}
-            selectedSite={selectedSite}
-            selectedYear={selectedYear}
-            selectedMonth={selectedMonth}
-            onSelectSite={(id, yr, mo) => {
-              if (id) setSelectedSiteId(id);
-              if (yr) setSelectedYear(yr);
-              if (mo !== undefined) setSelectedMonth(mo);
-              setActiveTab('explore');
-            }}
-          />
-        )}
-        {activeTab === 'seasons' && (
-          <SeasonsTab
-            selectedSite={selectedSite}
-            selectedYear={selectedYear}
-            setSelectedYear={setSelectedYear}
-            onSelectDateAndSeek={(yr, mo, da) => {
-              setSelectedYear(yr);
-              setSelectedMonth(mo);
-              setTimeIndex(Math.min(244, (da - 1) * 8));
-              setActiveTab('explore');
-            }}
-          />
-        )}
-        {activeTab === 'validation' && (
-          <ValidationTab />
-        )}
-        {activeTab === 'primer' && (
-          <PrimerTab />
-        )}
+        <ErrorBoundary key={activeTab}>
+          {activeTab === 'explore' && (
+            <ExploreTab
+              selectedSite={selectedSite}
+              sites={sites}
+              onSelectSite={(id) => setSelectedSiteId(id)}
+              currentTelemetry={currentTelemetry}
+              horizonData={horizonData}
+              proMode={proMode}
+            />
+          )}
+          {activeTab === 'timeline' && (
+            <TimelineTab
+              scenarioData={scenarioData}
+              selectedSite={selectedSite}
+            />
+          )}
+          {activeTab === 'compare' && (
+            <CompareTab
+              sites={sites}
+              selectedSite={selectedSite}
+              selectedYear={selectedYear}
+              selectedMonth={selectedMonth}
+              onSelectSite={(id, yr, mo) => {
+                if (id) setSelectedSiteId(id);
+                if (yr) setSelectedYear(yr);
+                if (mo !== undefined) setSelectedMonth(mo);
+                setActiveTab('explore');
+              }}
+            />
+          )}
+          {activeTab === 'seasons' && (
+            <SeasonsTab
+              selectedSite={selectedSite}
+              selectedYear={selectedYear}
+              setSelectedYear={setSelectedYear}
+              onSelectDateAndSeek={(yr, mo, da) => {
+                setSelectedYear(yr);
+                setSelectedMonth(mo);
+                setTimeIndex(Math.min(244, (da - 1) * 8));
+                setActiveTab('explore');
+              }}
+            />
+          )}
+          {activeTab === 'validation' && (
+            <ValidationTab />
+          )}
+          {activeTab === 'primer' && (
+            <PrimerTab />
+          )}
+        </ErrorBoundary>
       </main>
 
       {/* "My landing slipped. What now?" Slide-over Drawer */}

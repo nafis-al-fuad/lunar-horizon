@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Plus, Check, X, AlertTriangle, Copy, Trash2, Folder, ExternalLink, RefreshCw, Calendar, ShieldAlert, ArrowRight, Settings2, Search, Sliders, Pin } from 'lucide-react';
 
 // Mini Horizon Skyline Component matching reference image 2
