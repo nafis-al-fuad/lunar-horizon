@@ -138,20 +138,37 @@ When lunar mission timelines slip or launch windows shift, mission planners, ast
 
 ---
 
-## 🏛️ NASA Data Sources, Tools & References
+## 🏛️ Scientific Data Sources & Provenance
 
-Lunar Horizon relies directly on scientific datasets, SPICE kernels, and ephemeris systems developed by NASA and its research centers:
+Lunar Horizon's astrodynamics, topography, and surface landing coordinate pipelines rely strictly on peer-reviewed, flight-qualified datasets and planetary ephemeris systems. Data sources are divided into primary NASA scientific models and international / commercial mission telemetry:
 
-| NASA Resource | Providing Facility | Purpose in Lunar Horizon | Official Reference Link |
+### 1. NASA Scientific Data Sources & Astrodynamic Toolkits
+
+| NASA Scientific Resource | Providing Facility / Organization | Purpose & Role in Lunar Horizon | Verified Official Link |
 | :--- | :--- | :--- | :--- |
-| **NASA NAIF SPICE** | JPL / NAIF | Planetary & lunar ephemeris computation | [https://naif.jpl.nasa.gov](https://naif.jpl.nasa.gov) |
-| **DE440 Ephemeris** | JPL Solar System Dynamics | High-precision solar and planetary position vectors | [JPL DE440 Kernels](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/) |
-| **Lunar Orientation** | JPL / NAIF | High-precision lunar body-fixed frame (`MOON_ME_DE421`) | [JPL Lunar PCK Kernels](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/) |
-| **LRO LOLA DEM** | NASA GSFC / LRO Team | Digital elevation models and crater rim topography | [NASA LOLA Science Team](https://lola.gsfc.nasa.gov/) |
-| **LROC Candidate Atlas** | Arizona State University / NASA | High-resolution candidate landing site coordinates | [LROC Featured Sites Atlas](https://www.lroc.asu.edu/featured_sites/) |
-| **JPL Horizons System** | NASA JPL | Ground-truth verification for topocentric coordinates | [JPL Horizons On-Line System](https://ssd.jpl.nasa.gov/horizons/) |
-| **Artemis Candidate Regions** | NASA Headquarters | Siting parameters for Artemis III/IV exploration zones | [NASA Artemis Candidate Regions](https://www.nasa.gov/news-release/nasa-identifies-candidate-regions-for-artemis-iii-lunar-landing/) |
-| **NASA Space Apps** | NASA Earth Science Division | Innovation hackathon problem statement and guidelines | [NASA Space Apps Challenge](https://www.spaceappschallenge.org/) |
+| **NASA NAIF SPICE Toolkit** | NASA JPL / NAIF | Planetary state propagation, coordinate frames, and LSK/PCK kernel evaluation | [NAIF JPL Portal](https://naif.jpl.nasa.gov/naif/) |
+| **JPL DE440 / DE441 Ephemeris** | NASA JPL Solar System Dynamics | High-precision solar and Earth topocentric positions ($<0.05^\circ$ error) across 2026–2036 | [JPL DE440 Ephemeris Export](https://ssd.jpl.nasa.gov/planets/eph_export.html) |
+| **JPL DE440s Binary SPK** | NASA JPL / NAIF | 122 streaming binary ephemeris chunks utilized for high-speed client simulation | [JPL NAIF Planetary SPK](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp) |
+| **High-Precision Lunar PCK/FK** | NASA JPL / NAIF | Lunar body-fixed orientation (`MOON_ME_DE421` & `moon_080317.tf`) | [NAIF Lunar Frame Kernel](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/fk/satellites/moon_080317.tf) |
+| **LRO LOLA Science Mission** | NASA Goddard Space Flight Center (GSFC) | Lunar Orbiter Laser Altimeter topography and 360° panoramic crater rim profiles | [NASA Science LOLA Overview](https://science.nasa.gov/mission/lro/lola/) |
+| **LOLA PDS Geosciences Archive** | NASA Planetary Data System (PDS) | Gridded Digital Elevation Models (GDR) and polar stereographic topography maps | [PDS Geosciences LOLA Node](https://pds-geosciences.wustl.edu/missions/lro/lola.htm) |
+| **LOLA Polar Illumination Model** | Barker et al. (2021) / NASA GSFC | Topocentric horizon elevation angle benchmarks and solar limb ray-tracing | [Planetary & Space Science DOI](https://doi.org/10.1016/j.pss.2020.105119) |
+| **LROC Candidate Landing Sites** | Arizona State University / NASA | High-resolution polar candidate site coordinates, maps, and NAC surface mosaics | [LROC Featured Sites Atlas](https://www.lroc.asu.edu/featured_sites/) |
+| **LROC Interactive Topography** | LROC Science Operations Center | 3D polar surface topography validation and terrain elevation profiles | [LROC QuickMap Portal](https://quickmap.lroc.im-ldi.com/) |
+| **JPL Horizons On-Line System** | NASA JPL SSD Group | Independent ground-truth validation vectors for solar and terrestrial azimuth/elevation | [JPL Horizons System](https://ssd.jpl.nasa.gov/horizons/) |
+| **Artemis Candidate Regions** | NASA Headquarters | Target landing sites and boundary zones for Artemis lunar South Pole exploration | [NASA Artemis Regions Update](https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/) |
+
+---
+
+### 2. International & Mission Partner Data Sources
+
+| Mission / Agency Resource | Sponsoring Organization | Purpose & Role in Lunar Horizon | Verified Official Link |
+| :--- | :--- | :--- | :--- |
+| **Chandrayaan-3 Landing Coordinates** | Indian Space Research Organisation (ISRO) | Precise surface coordinates for the *Shiv Shakti Point* landing site ($69.373^\circ\text{S}, 32.319^\circ\text{E}$) | [ISRO Chandrayaan-3 Portal](https://www.isro.gov.in/Chandrayaan3_Details.html) |
+| **SLIM Pinpoint Landing Coordinates** | Japan Aerospace Exploration Agency (JAXA) | Precise touchdown coordinates at Shioli Crater ($13.316^\circ\text{S}, 25.251^\circ\text{E}$) with sub-100m accuracy | [JAXA SLIM Mission Project](https://global.jaxa.jp/projects/sas/slim/) |
+| **Chang'e-4 Far-Side Landing Data** | CNSA / LROC Observation Analysis | Touchdown and topographic reconstruction at Von Kármán crater ($45.457^\circ\text{S}, 177.589^\circ\text{E}$) | [Nature Astronomy Report](https://doi.org/10.1038/s41550-019-0803-2) |
+| **CLPS Commercial Lunar Deliveries** | NASA Commercial Lunar Payload Services | Siting and coordinates for IM-1 *Odysseus* (Malapert A) and IM-2 *Polar Prime-1* | [NASA CLPS Program](https://www.nasa.gov/commercial-lunar-payload-services/) |
+| **Blue Ghost Mission 1 Flight Plan** | Firefly Aerospace / NASA CLPS | Touchdown site coordinates and operational profile at Mare Crisium ($18.56^\circ\text{N}, 61.81^\circ\text{E}$) | [Firefly Blue Ghost 1](https://fireflyspace.com/missions/blue-ghost-mission-1/) |
 
 ---
 
