@@ -91,7 +91,7 @@ const MONTH_NAMES = [
  * Computes realistic metrics for ANY site (16 curated or custom), year (2026-2036),
  * month, duration, and vantage mast height.
  */
-function computeScenarioMetrics(site, year = 2027, month = 2, mastHeightM = 2.0, durationDays = 30, customLimits = {}) {
+export function computeScenarioMetrics(site, year = 2027, month = 2, mastHeightM = 2.0, durationDays = 30, customLimits = {}) {
   const lat = site?.lat_deg ?? -89.44;
   const lon = site?.lon_deg ?? -137.40;
   const baseElev = site?.terrain_height_m ?? 0;
@@ -270,44 +270,56 @@ export default function CompareTab({
   selectedSite,
   selectedYear = 2027,
   selectedMonth = 2,
-  onSelectSite
+  onSelectSite,
+  slotScenarios: propSlotScenarios,
+  setSlotScenarios: propSetSlotScenarios,
+  activeSlotKeys: propActiveSlotKeys,
+  setActiveSlotKeys: propSetActiveSlotKeys
 }) {
-  // Preset default scenarios
-  const defaultScenarioA = computeScenarioMetrics(
-    sites.find(s => s.id === 'shackleton-connecting-ridge') || { id: 'shackleton-connecting-ridge', name: 'Shackleton Rim (Peak B)', lat_deg: -89.73, lon_deg: 124.50, terrain_height_m: 1200, slope_deg: 7.5, category: 'NOMINAL REF' },
-    2027, 2, 2.0, 30
-  );
-  defaultScenarioA.category = 'NOMINAL REF';
+  // Preset default scenarios builder
+  const getDefaultSlots = () => {
+    const defaultScenarioA = computeScenarioMetrics(
+      sites.find(s => s.id === 'shackleton-connecting-ridge') || { id: 'shackleton-connecting-ridge', name: 'Shackleton Rim (Peak B)', lat_deg: -89.73, lon_deg: 124.50, terrain_height_m: 1200, slope_deg: 7.5, category: 'NOMINAL REF' },
+      2027, 2, 2.0, 30
+    );
+    defaultScenarioA.category = 'NOMINAL REF';
 
-  const defaultScenarioB = computeScenarioMetrics(
-    sites.find(s => s.id === 'malapert-massif') || { id: 'malapert-massif', name: 'Malapert Massif', lat_deg: -85.99, lon_deg: 2.93, terrain_height_m: 2100, slope_deg: 9.1, category: 'REJECTED' },
-    2027, 2, 2.0, 30, { nightLimit: 120 }
-  );
-  defaultScenarioB.category = 'REJECTED';
-  defaultScenarioB.status = 'fail';
-  defaultScenarioB.badge = 'UNVIABLE';
-  defaultScenarioB.statusTitle = 'FAIL // HARD LIMIT EXCEEDED';
-  defaultScenarioB.statusSub = 'Longest night (134 h) exceeds operational limit (120 h)';
-  defaultScenarioB.longestNight = 134;
-  defaultScenarioB.longestNightTag = 'OVER LIMIT';
-  defaultScenarioB.longestNightColor = 'bg-[#EF4444]/15 text-[#EF4444] border border-[#EF4444]/30';
-  defaultScenarioB.skylineType = 'occluded';
+    const defaultScenarioB = computeScenarioMetrics(
+      sites.find(s => s.id === 'malapert-massif') || { id: 'malapert-massif', name: 'Malapert Massif', lat_deg: -85.99, lon_deg: 2.93, terrain_height_m: 2100, slope_deg: 9.1, category: 'REJECTED' },
+      2027, 2, 2.0, 30, { nightLimit: 120 }
+    );
+    defaultScenarioB.category = 'REJECTED';
+    defaultScenarioB.status = 'fail';
+    defaultScenarioB.badge = 'UNVIABLE';
+    defaultScenarioB.statusTitle = 'FAIL // HARD LIMIT EXCEEDED';
+    defaultScenarioB.statusSub = 'Longest night (134 h) exceeds operational limit (120 h)';
+    defaultScenarioB.longestNight = 134;
+    defaultScenarioB.longestNightTag = 'OVER LIMIT';
+    defaultScenarioB.longestNightColor = 'bg-[#EF4444]/15 text-[#EF4444] border border-[#EF4444]/30';
+    defaultScenarioB.skylineType = 'occluded';
 
-  const defaultScenarioC = computeScenarioMetrics(
-    sites.find(s => s.id === 'haworth-rim') || { id: 'haworth-rim', name: 'Haworth Crater Rim', lat_deg: -87.41, lon_deg: 355.10, terrain_height_m: 600, slope_deg: 11.2, category: 'CANDIDATE' },
-    2027, 2, 2.0, 30
-  );
-  defaultScenarioC.category = 'CANDIDATE';
+    const defaultScenarioC = computeScenarioMetrics(
+      sites.find(s => s.id === 'haworth-rim') || { id: 'haworth-rim', name: 'Haworth Crater Rim', lat_deg: -87.41, lon_deg: 355.10, terrain_height_m: 600, slope_deg: 11.2, category: 'CANDIDATE' },
+      2027, 2, 2.0, 30
+    );
+    defaultScenarioC.category = 'CANDIDATE';
 
-  // Dynamic scenario slots: start with A, B, C, D (D starts empty matching reference)
-  const [slotScenarios, setSlotScenarios] = useState({
-    A: defaultScenarioA,
-    B: defaultScenarioB,
-    C: defaultScenarioC,
-    D: null
-  });
+    return {
+      A: defaultScenarioA,
+      B: defaultScenarioB,
+      C: defaultScenarioC,
+      D: null
+    };
+  };
 
-  const [activeSlotKeys, setActiveSlotKeys] = useState(['A', 'B', 'C', 'D']);
+  const [localSlotScenarios, setLocalSlotScenarios] = useState(getDefaultSlots);
+  const [localActiveSlotKeys, setLocalActiveSlotKeys] = useState(['A', 'B', 'C', 'D']);
+
+  const slotScenarios = (propSlotScenarios !== undefined && propSlotScenarios !== null) ? propSlotScenarios : localSlotScenarios;
+  const setSlotScenarios = propSetSlotScenarios || setLocalSlotScenarios;
+  const activeSlotKeys = (propActiveSlotKeys !== undefined && propActiveSlotKeys !== null) ? propActiveSlotKeys : localActiveSlotKeys;
+  const setActiveSlotKeys = propSetActiveSlotKeys || setLocalActiveSlotKeys;
+
   const [targetSlotModal, setTargetSlotModal] = useState(null); // 'A', 'B', 'C', 'D', ...
   const [modalTab, setModalTab] = useState('curated'); // 'curated', 'custom', 'current'
   const [inspectModalData, setInspectModalData] = useState(null);
@@ -501,12 +513,11 @@ export default function CompareTab({
             <span>Add Slot</span>
           </button>
           <button
-            onClick={() => setSlotScenarios({
-              A: defaultScenarioA,
-              B: defaultScenarioB,
-              C: defaultScenarioC,
-              D: null
-            })}
+            onClick={() => {
+              const defaults = getDefaultSlots();
+              setSlotScenarios(defaults);
+              setActiveSlotKeys(['A', 'B', 'C', 'D']);
+            }}
             className="px-3 py-1.5 rounded bg-[#10141F] hover:bg-[#1A2234] text-[#E5A93C] border border-[#1E2638] flex items-center space-x-1.5 btn-aerospace font-bold"
           >
             <RefreshCw className="w-3.5 h-3.5" />

@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import Header from './components/Header';
 import ExploreTab from './components/ExploreTab';
 import TimelineTab from './components/TimelineTab';
-import CompareTab from './components/CompareTab';
+import CompareTab, { computeScenarioMetrics } from './components/CompareTab';
 import SeasonsTab from './components/SeasonsTab';
 import ValidationTab from './components/ValidationTab';
 import PrimerTab from './components/PrimerTab';
@@ -40,6 +40,48 @@ export default function App() {
   const [isUserManualOpen, setIsUserManualOpen] = useState(false);
   const [isSiteModalOpen, setIsSiteModalOpen] = useState(false);
   const [shareToast, setShareToast] = useState(false);
+
+  // Persistent Comparison Matrix State (preserved across tab switches and browser reloads)
+  const [compareSlotScenarios, setCompareSlotScenarios] = useState(() => {
+    try {
+      const saved = localStorage.getItem('lh_compare_scenarios');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === 'object') return parsed;
+      }
+    } catch (e) {
+      console.warn('Could not read saved compare scenarios:', e);
+    }
+    return null;
+  });
+
+  const [compareActiveSlotKeys, setCompareActiveSlotKeys] = useState(() => {
+    try {
+      const saved = localStorage.getItem('lh_compare_active_keys');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {}
+    return ['A', 'B', 'C', 'D'];
+  });
+
+  // Persist comparison state to localStorage
+  useEffect(() => {
+    if (compareSlotScenarios) {
+      try {
+        localStorage.setItem('lh_compare_scenarios', JSON.stringify(compareSlotScenarios));
+      } catch (e) {}
+    }
+  }, [compareSlotScenarios]);
+
+  useEffect(() => {
+    if (compareActiveSlotKeys) {
+      try {
+        localStorage.setItem('lh_compare_active_keys', JSON.stringify(compareActiveSlotKeys));
+      } catch (e) {}
+    }
+  }, [compareActiveSlotKeys]);
 
   const [scenarioData, setScenarioData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -138,6 +180,44 @@ export default function App() {
           if (loadedSites.length > 0 && !selectedSiteId) {
             setSelectedSiteId(loadedSites[0].id);
           }
+
+          // Initialize default compare scenarios if not already restored from localStorage
+          setCompareSlotScenarios(prev => {
+            if (prev) return prev;
+            const scA = computeScenarioMetrics(
+              loadedSites.find(s => s.id === 'shackleton-connecting-ridge') || loadedSites[0],
+              2027, 2, 2.0, 30
+            );
+            scA.category = 'NOMINAL REF';
+
+            const scB = computeScenarioMetrics(
+              loadedSites.find(s => s.id === 'malapert-massif') || loadedSites[1] || loadedSites[0],
+              2027, 2, 2.0, 30, { nightLimit: 120 }
+            );
+            scB.category = 'REJECTED';
+            scB.status = 'fail';
+            scB.badge = 'UNVIABLE';
+            scB.statusTitle = 'FAIL // HARD LIMIT EXCEEDED';
+            scB.statusSub = 'Longest night (134 h) exceeds operational limit (120 h)';
+            scB.longestNight = 134;
+            scB.longestNightTag = 'OVER LIMIT';
+            scB.longestNightColor = 'bg-[#EF4444]/15 text-[#EF4444] border border-[#EF4444]/30';
+            scB.skylineType = 'occluded';
+
+            const scC = computeScenarioMetrics(
+              loadedSites.find(s => s.id === 'haworth-rim') || loadedSites[2] || loadedSites[0],
+              2027, 2, 2.0, 30
+            );
+            scC.category = 'CANDIDATE';
+
+            return {
+              A: scA,
+              B: scB,
+              C: scC,
+              D: null
+            };
+          });
+
           setLoading(false);
         }
       } catch (err) {
@@ -287,7 +367,11 @@ export default function App() {
         onOpenUserManual={() => setIsUserManualOpen(true)}
         onOpenHelp={() => setIsHelpOpen(true)}
         onShare={handleShare}
-        pinnedScenarioCount={4}
+        pinnedScenarioCount={
+          compareSlotScenarios
+            ? Object.keys(compareSlotScenarios).filter(k => compareSlotScenarios[k] !== null).length
+            : 4
+        }
         isSiteModalOpen={isSiteModalOpen}
         setIsSiteModalOpen={setIsSiteModalOpen}
       />
@@ -323,6 +407,10 @@ export default function App() {
                 if (mo !== undefined) setSelectedMonth(mo);
                 setActiveTab('explore');
               }}
+              slotScenarios={compareSlotScenarios}
+              setSlotScenarios={setCompareSlotScenarios}
+              activeSlotKeys={compareActiveSlotKeys}
+              setActiveSlotKeys={setCompareActiveSlotKeys}
             />
           )}
           {activeTab === 'seasons' && (
