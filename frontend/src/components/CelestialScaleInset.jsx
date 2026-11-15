@@ -12,7 +12,7 @@ export default function CelestialScaleInset({
   terrainElevation = 0,
   proMode = false
 }) {
-  const [fovDeg, setFovDeg] = useState(4); // 2°, 4°, 8°, 16°
+  const [fovDeg, setFovDeg] = useState(16); // 2°, 4°, 8°, 16° (default: 16°)
   const [focusTarget, setFocusTarget] = useState('both'); // 'both', 'sun', 'earth'
 
   const sun = instantSample?.sun || { azimuth_deg: 180, elevation_deg: 1.0, clearance_deg: 1.0 };
