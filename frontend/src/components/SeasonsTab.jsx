@@ -22,8 +22,7 @@ export default function SeasonsTab({
   const matrixData = useMemo(() => {
     const lat = selectedSite?.lat_deg ?? -89.44;
     const lon = selectedSite?.lon_deg ?? -137.40;
-    const isPolar = Math.abs(lat) >= 80;
-    const isFarSide = Math.abs(lon) > 90;
+    const isPolar = Math.abs(lat) >= 75;
     const baseElevation = selectedSite?.terrain_height_m || 0;
     const elevationBonus = baseElevation > 1000 ? 8 : baseElevation > 0 ? 4 : 0;
 
@@ -77,22 +76,36 @@ export default function SeasonsTab({
         }
 
         // 3. Earth Direct-to-Earth (DTE) coverage %
-        // Lunar libration in latitude (draconic month: 27.2122 d) and longitude (anomalistic: 27.5546 d)
+        // Lunar libration in latitude (draconic: 27.2122 d) & longitude (anomalistic: 27.5546 d)
         // Libration amplitude is modulated by the 18.6-year node standstill (peaks near 2026, dips near 2031)
         const standstillFactor = 1.0 + 0.18 * Math.cos((selectedYear - 2026.5) * (2 * Math.PI / 18.61));
         const librationLat = (6.68 * standstillFactor) * Math.sin(daysSince2026 * (2 * Math.PI / 27.21222));
         const librationLon = (7.92 * standstillFactor) * Math.sin(daysSince2026 * (2 * Math.PI / 27.55455));
 
+        // Exact selenographic spherical trigonometry for topocentric Earth elevation:
+        const phi = (lat * Math.PI) / 180;
+        const lam = (lon * Math.PI) / 180;
+        const libLatRad = (librationLat * Math.PI) / 180;
+        const libLonRad = (librationLon * Math.PI) / 180;
+
+        // cos(Z) = sin(phi)*sin(libLat) + cos(phi)*cos(lam - libLon)*cos(libLat)
+        const cosZ = Math.sin(phi) * Math.sin(libLatRad) + Math.cos(phi) * Math.cos(lam - libLonRad) * Math.cos(libLatRad);
+        const earthElDeg = Math.asin(Math.max(-1, Math.min(1, cosZ))) * (180 / Math.PI);
+
+        // Horizon dip from elevation (mast + terrain)
+        const horizonDip = Math.sqrt((baseElevation + 2.0) / 1737400.0) * (180 / Math.PI);
+        const effectiveClearance = earthElDeg + horizonDip;
+
         let dtePct;
-        if (isFarSide) {
-          dtePct = 0; // Far side of the Moon never sees Earth directly
-        } else if (isPolar) {
-          // Polar site: Earth is near horizon (~3° to 7°), libration tilts it in and out of terrain line-of-sight
-          const nominalEarthEl = (90 - Math.abs(lat)) + (librationLat * 0.6) + (baseElevation / 1000) * 0.05;
-          const baseDte = 62 + nominalEarthEl * 6 + (librationLon * 1.5) + (elevationBonus / 2);
-          dtePct = Math.max(5, Math.min(98, Math.round(baseDte)));
+        if (effectiveClearance > 1.0) {
+          // Continuous carrier lock above local crater rim
+          dtePct = Math.min(98, Math.round(72 + effectiveClearance * 4 + elevationBonus));
+        } else if (effectiveClearance > -1.2) {
+          // Grazing ridge line-of-sight with intermittent libration lock
+          dtePct = Math.max(10, Math.min(72, Math.round(40 + effectiveClearance * 22)));
         } else {
-          dtePct = 99; // Near-side equatorial / mid-lat has continuous line-of-sight
+          // Below horizon terrain occlusion
+          dtePct = 0;
         }
 
         monthRow.push({

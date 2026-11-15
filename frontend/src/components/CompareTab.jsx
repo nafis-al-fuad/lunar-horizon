@@ -96,8 +96,8 @@ function computeScenarioMetrics(site, year = 2027, month = 2, mastHeightM = 2.0,
   const lon = site?.lon_deg ?? -137.40;
   const baseElev = site?.terrain_height_m ?? 0;
   const slope = site?.max_slope_deg ?? site?.slope_deg ?? 7.5;
-  const isSouthPolar = lat <= -80;
-  const isFarSide = Math.abs(lon) > 90;
+  const isSouthPolar = lat <= -75;
+  const isFarSide = Math.abs(lat) < 75 && Math.abs(lon) > 90;
 
   const nightLimit = customLimits.nightLimit ?? 120;
   const slopeLimit = customLimits.slopeLimit ?? 10.0;
