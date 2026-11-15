@@ -313,6 +313,20 @@ export default function CompareTab({
   const [inspectModalData, setInspectModalData] = useState(null);
   const [siteSearchQuery, setSiteSearchQuery] = useState('');
 
+  // Close modals on Escape key
+  useEffect(() => {
+    if (targetSlotModal || inspectModalData) {
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          setTargetSlotModal(null);
+          setInspectModalData(null);
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [targetSlotModal, inspectModalData]);
+
   // Form state for custom scenario builder
   const [builderSiteId, setBuilderSiteId] = useState(sites[0]?.id || 'shackleton-connecting-ridge');
   const [builderYear, setBuilderYear] = useState(selectedYear);
@@ -721,8 +735,26 @@ export default function CompareTab({
 
       {/* Comprehensive Scenario Builder & Target Selector Modal */}
       {targetSlotModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#0A0D15] border border-[#1E2738] rounded-lg max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl font-mono text-xs">
+        <div 
+          className="fixed inset-0 z-50 overflow-hidden font-mono text-xs" 
+          data-lenis-prevent
+        >
+          {/* Backdrop - Click Outside to Dismiss */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity cursor-pointer"
+            onClick={() => setTargetSlotModal(null)}
+            title="Click outside to close"
+          />
+
+          <div 
+            className="fixed inset-0 flex items-center justify-center p-4 z-10 pointer-events-none"
+            data-lenis-prevent
+          >
+            <div 
+              data-lenis-prevent
+              onWheel={(e) => e.stopPropagation()}
+              className="bg-[#0A0D15] border border-[#1E2738] rounded-lg max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl pointer-events-auto overscroll-contain"
+            >
             {/* Modal Header */}
             <div className="p-4 border-b border-[#161D2B] flex items-center justify-between">
               <div>
@@ -850,7 +882,11 @@ export default function CompareTab({
                   </div>
 
                   {/* List of Sites */}
-                  <div className="space-y-2 max-h-[320px] overflow-y-auto pr-1">
+                  <div 
+                    data-lenis-prevent
+                    onWheel={(e) => e.stopPropagation()}
+                    className="space-y-2 max-h-[320px] overflow-y-auto pr-1 overscroll-contain"
+                  >
                     {filteredSites.map((site) => {
                       const latFormatted = `${Math.abs(site.lat_deg).toFixed(2)}°${site.lat_deg < 0 ? 'S' : 'N'}`;
                       const lonFormatted = `${Math.abs(site.lon_deg).toFixed(2)}°${site.lon_deg < 0 ? 'W' : 'E'}`;
@@ -1041,38 +1077,51 @@ export default function CompareTab({
             </div>
           </div>
         </div>
+      </div>
       )}
 
       {/* Failure Diagnostic Report Modal */}
       {inspectModalData && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#0A0D15] border border-[#EF4444]/40 rounded-lg max-w-md w-full p-4 font-mono text-xs shadow-2xl space-y-3">
-            <div className="flex items-center justify-between border-b border-[#1E2738] pb-2">
-              <span className="text-[#EF4444] font-bold uppercase tracking-wider text-sm flex items-center space-x-1.5">
-                <ShieldAlert className="w-4 h-4" />
-                <span>Hard Constraint Violation</span>
-              </span>
+        <div className="fixed inset-0 z-50 overflow-hidden font-mono text-xs" data-lenis-prevent>
+          {/* Backdrop - Click Outside to Dismiss */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity cursor-pointer"
+            onClick={() => setInspectModalData(null)}
+            title="Click outside to close"
+          />
+          <div className="fixed inset-0 flex items-center justify-center p-4 z-10 pointer-events-none" data-lenis-prevent>
+            <div 
+              data-lenis-prevent
+              onWheel={(e) => e.stopPropagation()}
+              className="bg-[#0A0D15] border border-[#EF4444]/40 rounded-lg max-w-md w-full p-4 font-mono text-xs shadow-2xl space-y-3 pointer-events-auto overscroll-contain"
+            >
+              <div className="flex items-center justify-between border-b border-[#1E2738] pb-2">
+                <span className="text-[#EF4444] font-bold uppercase tracking-wider text-sm flex items-center space-x-1.5">
+                  <ShieldAlert className="w-4 h-4" />
+                  <span>Hard Constraint Violation</span>
+                </span>
+                <button
+                  onClick={() => setInspectModalData(null)}
+                  className="p-1 rounded text-[#8B93A7] hover:text-white"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+              <p className="text-white font-bold">{inspectModalData.name}</p>
+              <div className="bg-[#EF4444]/10 border border-[#EF4444]/25 p-3 rounded text-[#EF4444] text-[11px] space-y-1">
+                <p className="font-bold">{inspectModalData.statusTitle}</p>
+                <p>{inspectModalData.statusSub}</p>
+                <p className="text-slate-300 pt-1">
+                  Recommendation: Slip launch epoch toward late southern summer or shift landing reticle onto the elevated ridge crest (+{inspectModalData.slope}° slope).
+                </p>
+              </div>
               <button
                 onClick={() => setInspectModalData(null)}
-                className="p-1 rounded text-[#8B93A7] hover:text-white"
+                className="w-full py-2 bg-[#121622] hover:bg-[#1A2234] text-white border border-[#1E2638] rounded font-bold"
               >
-                <X className="w-4 h-4" />
+                Close Failure Report
               </button>
             </div>
-            <p className="text-white font-bold">{inspectModalData.name}</p>
-            <div className="bg-[#EF4444]/10 border border-[#EF4444]/25 p-3 rounded text-[#EF4444] text-[11px] space-y-1">
-              <p className="font-bold">{inspectModalData.statusTitle}</p>
-              <p>{inspectModalData.statusSub}</p>
-              <p className="text-slate-300 pt-1">
-                Recommendation: Slip launch epoch toward late southern summer or shift landing reticle onto the elevated ridge crest (+{inspectModalData.slope}° slope).
-              </p>
-            </div>
-            <button
-              onClick={() => setInspectModalData(null)}
-              className="w-full py-2 bg-[#121622] hover:bg-[#1A2234] text-white border border-[#1E2638] rounded font-bold"
-            >
-              Close Failure Report
-            </button>
           </div>
         </div>
       )}

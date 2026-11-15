@@ -29,10 +29,27 @@ export default function Header({
   onOpenUserManual,
   onOpenHelp,
   onShare,
-  pinnedScenarioCount = 3
+  pinnedScenarioCount = 3,
+  isSiteModalOpen,
+  setIsSiteModalOpen
 }) {
-  const [siteModalOpen, setSiteModalOpen] = useState(false);
+  const [internalSiteModalOpen, setInternalSiteModalOpen] = useState(false);
+  const siteModalOpen = isSiteModalOpen !== undefined ? isSiteModalOpen : internalSiteModalOpen;
+  const setSiteModalOpen = setIsSiteModalOpen || setInternalSiteModalOpen;
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Close site selector on Escape key
+  React.useEffect(() => {
+    if (siteModalOpen) {
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          setSiteModalOpen(false);
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [siteModalOpen, setSiteModalOpen]);
 
   const selectedSite = sites.find(s => s.id === selectedSiteId) || sites[0] || { name: 'Shackleton Rim', lat_deg: -89.7, lon_deg: 124.5 };
 
@@ -252,42 +269,66 @@ export default function Header({
 
       {/* Sleek Custom Site Selector Modal */}
       {siteModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#0C0F17] border border-[#252E42] rounded-xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl font-mono text-sm">
-            {/* Modal Header */}
-            <div className="p-4 border-b border-[#1A202E] flex items-center justify-between">
-              <div>
-                <h3 className="text-base font-bold text-white uppercase tracking-wider">
-                  Select Landing Site Target
-                </h3>
-                <p className="text-xs text-[#8B93A7] mt-0.5">
-                  16 Sourced Exploration Candidates & Mission Benchmarks
-                </p>
+        <div 
+          className="fixed inset-0 z-50 overflow-hidden font-mono text-sm"
+          data-lenis-prevent
+        >
+          {/* Backdrop - Click Outside to Dismiss */}
+          <div
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity cursor-pointer"
+            onClick={() => setSiteModalOpen(false)}
+            title="Click outside to close"
+          />
+
+          {/* Centered Modal Container */}
+          <div 
+            className="fixed inset-0 flex items-center justify-center p-4 z-10 pointer-events-none"
+            data-lenis-prevent
+          >
+            <div 
+              data-lenis-prevent
+              onWheel={(e) => e.stopPropagation()}
+              className="bg-[#0C0F17] border border-[#252E42] rounded-xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl pointer-events-auto overscroll-contain"
+            >
+              {/* Modal Header */}
+              <div className="p-4 border-b border-[#1A202E] flex items-center justify-between bg-[#080B12] rounded-t-xl">
+                <div>
+                  <h3 className="text-base font-bold text-white uppercase tracking-wider">
+                    Select Landing Site Target
+                  </h3>
+                  <p className="text-xs text-[#8B93A7] mt-0.5">
+                    16 Sourced Exploration Candidates & Mission Benchmarks • <span className="text-[#E5A93C]">Click outside or [ESC] to exit</span>
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSiteModalOpen(false)}
+                  className="p-1.5 rounded-lg text-[#8B93A7] hover:text-white hover:bg-[#1A202E] transition-colors"
+                  title="Close site selector"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-              <button
-                onClick={() => setSiteModalOpen(false)}
-                className="p-1.5 rounded-lg text-[#8B93A7] hover:text-white hover:bg-[#1A202E]"
+
+              {/* Search Input */}
+              <div className="p-3 border-b border-[#1A202E] bg-[#07090E]">
+                <div className="relative">
+                  <Search className="w-4 h-4 text-[#8B93A7] absolute left-3.5 top-3" />
+                  <input
+                    type="text"
+                    placeholder="Filter by name, region, or latitude..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full bg-[#0C0F17] border border-[#222B3D] rounded-lg pl-10 pr-3.5 py-2 text-white placeholder-[#64748B] text-sm focus:outline-none focus:border-[#E5A93C]"
+                  />
+                </div>
+              </div>
+
+              {/* Sites List */}
+              <div 
+                data-lenis-prevent
+                onWheel={(e) => e.stopPropagation()}
+                className="overflow-y-auto flex-1 p-3 space-y-1.5 overscroll-contain"
               >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Search Input */}
-            <div className="p-3 border-b border-[#1A202E]">
-              <div className="relative">
-                <Search className="w-4 h-4 text-[#8B93A7] absolute left-3.5 top-3" />
-                <input
-                  type="text"
-                  placeholder="Filter by name, region, or latitude..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-[#07090E] border border-[#222B3D] rounded-lg pl-10 pr-3.5 py-2 text-white placeholder-[#64748B] text-sm focus:outline-none focus:border-[#E5A93C]"
-                />
-              </div>
-            </div>
-
-            {/* Sites List */}
-            <div className="overflow-y-auto flex-1 p-3 space-y-1.5">
               <div className="text-xs uppercase font-bold text-[#8B93A7] px-2 py-1">
                 South Polar Candidates (80°S–90°S)
               </div>
@@ -356,6 +397,7 @@ export default function Header({
             </div>
           </div>
         </div>
+      </div>
       )}
     </header>
   );

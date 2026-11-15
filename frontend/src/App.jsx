@@ -37,6 +37,7 @@ export default function App() {
   const [isAssumptionsOpen, setIsAssumptionsOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isUserManualOpen, setIsUserManualOpen] = useState(false);
+  const [isSiteModalOpen, setIsSiteModalOpen] = useState(false);
   const [shareToast, setShareToast] = useState(false);
 
   const [scenarioData, setScenarioData] = useState(null);
@@ -109,7 +110,7 @@ export default function App() {
   }, []);
 
   // Pause Lenis and lock background body scroll when modals or drawers are open
-  const anyModalOpen = isUserManualOpen || isAssumptionsOpen || isHelpOpen || isSlipDrawerOpen;
+  const anyModalOpen = isUserManualOpen || isAssumptionsOpen || isHelpOpen || isSlipDrawerOpen || isSiteModalOpen;
   useEffect(() => {
     if (anyModalOpen) {
       lenisRef.current?.stop();
@@ -286,6 +287,8 @@ export default function App() {
         onOpenHelp={() => setIsHelpOpen(true)}
         onShare={handleShare}
         pinnedScenarioCount={4}
+        isSiteModalOpen={isSiteModalOpen}
+        setIsSiteModalOpen={setIsSiteModalOpen}
       />
 
       {/* Main View Area */}
