@@ -14,11 +14,20 @@ export default function SeasonsTab({
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
   // Evaluate the annual matrix (12 months x 31 days) for selectedSite and selectedYear
-  // Based on the 1.54° lunar obliquity cycle, solar sub-latitude, and terrain elevation
+  // Based on the true astronomical epoch:
+  // 1. 365.2422-day tropical year with sub-solar declination cycle (-1.54° to +1.54°)
+  // 2. 18.61-year lunar nodal precession altering maximum solar tilt
+  // 3. 29.53059-day synodic day/night progression (shifting by ~10.88 days each calendar year)
+  // 4. 27.2122-day draconic and 27.5546-day anomalistic months driving Earth optical libration wobble
   const matrixData = useMemo(() => {
-    const isPolar = Math.abs(selectedSite?.lat_deg || 89) >= 88;
+    const lat = selectedSite?.lat_deg ?? -89.44;
+    const lon = selectedSite?.lon_deg ?? -137.40;
+    const isPolar = Math.abs(lat) >= 80;
+    const isFarSide = Math.abs(lon) > 90;
     const baseElevation = selectedSite?.terrain_height_m || 0;
-    const elevationBonus = baseElevation > 1000 ? 10 : baseElevation > 0 ? 5 : 0;
+    const elevationBonus = baseElevation > 1000 ? 8 : baseElevation > 0 ? 4 : 0;
+
+    const epoch2026 = Date.UTC(2026, 0, 1, 0, 0, 0);
 
     const data = [];
     for (let m = 0; m < 12; m++) {
@@ -31,40 +40,67 @@ export default function SeasonsTab({
           continue;
         }
 
-        // Day of year
-        const dayOfYear = m * 30.5 + d;
-        // Obliquity seasonal wave: peaks at winter solstice for north, summer solstice for south (Dec/Jan)
-        // Angle in radians: Dec 21 is day ~355
-        const seasonAngle = ((dayOfYear - 355) / 365.25) * Math.PI * 2;
-        const subSolarLat = -1.54 * Math.cos(seasonAngle); // negative = south of lunar equator, positive = north
-        const southSolarElevDeg = -subSolarLat; // When subSolarLat is south (-1.54), elev at South Pole is +1.54°
+        // Exact days elapsed since Jan 1, 2026 UTC
+        const cellDateUtc = Date.UTC(selectedYear, m, d, 12, 0, 0);
+        const daysSince2026 = (cellDateUtc - epoch2026) / (86400 * 1000);
 
-        // Illumination %
+        // 1. Solar orbital position & 18.61-year lunar nodal precession
+        const solarMeanLon = (280.46 + 0.9856474 * daysSince2026) % 360;
+        const nodeLon = (125.04 - 0.0529538 * daysSince2026) % 360; // 18.61-yr regression
+        const subSolarLat = -1.543 * Math.sin((solarMeanLon - nodeLon) * (Math.PI / 180));
+
+        // 2. Solar elevation at target site:
+        // For polar sites (south pole: lat ~ -89°):
+        // Sun elevation oscillates around -subSolarLat with synodic rotation (period 29.53059 days)
+        const synodicPhaseRad = (daysSince2026 * (2 * Math.PI / 29.530589)) + (lon * Math.PI / 180);
+        const diurnalSwing = Math.cos(synodicPhaseRad) * (90 - Math.abs(lat));
+
+        let southSolarElevDeg;
         let sunlitPct;
+
         if (isPolar) {
-          // Polar site
-          const nominalHorizonDeg = 0.5; // typical ridge horizon
+          // Base polar elevation: tilted towards Sun in southern summer (subSolarLat negative), away in winter
+          southSolarElevDeg = -subSolarLat + diurnalSwing * 0.4 + (baseElevation / 1000) * 0.03;
+          const nominalHorizonDeg = 0.6; // average LOLA crater crest
           const clearance = southSolarElevDeg - nominalHorizonDeg;
-          sunlitPct = Math.max(0, Math.min(100, 50 + clearance * 28 + elevationBonus));
+
+          // Realistic polar sunlit percentage:
+          // In peak summer: up to 85%-95% on ridges
+          // In mid-winter: down to 0%-10%
+          const basePct = 52 + clearance * 32 + elevationBonus;
+          sunlitPct = Math.max(0, Math.min(100, Math.round(basePct)));
         } else {
-          // Mid-latitude / equatorial site (14 earth days light, 14 days dark synodic cycle)
-          const synodicPhase = ((dayOfYear * 24) % 708.7) / 708.7; // ~29.53 days
-          sunlitPct = synodicPhase < 0.5 ? 98 : 2;
+          // Mid-latitude / equatorial sites: synodic day/night cycles (14.7 days day, 14.7 days night)
+          const synodicPhase = (daysSince2026 % 29.530589) / 29.530589;
+          sunlitPct = (synodicPhase < 0.48) ? 98 : 2;
+          southSolarElevDeg = (90 - Math.abs(lat - subSolarLat)) * Math.sin(synodicPhase * Math.PI * 2);
         }
 
-        // Earth Direct-to-Earth (DTE) visibility %
-        // Lunar libration in latitude & longitude ~6.5° and ~8.0° over draconic / anomalistic months (~27.2 / 27.5 days)
-        const librationCycle = Math.sin((dayOfYear / 27.3) * Math.PI * 2);
-        const dtePct = isPolar
-          ? Math.max(10, Math.min(95, 65 + librationCycle * 25 + (elevationBonus / 2)))
-          : 98; // Far side would be 0, benchmark near side 100
+        // 3. Earth Direct-to-Earth (DTE) coverage %
+        // Lunar libration in latitude (draconic month: 27.2122 d) and longitude (anomalistic: 27.5546 d)
+        // Libration amplitude is modulated by the 18.6-year node standstill (peaks near 2026, dips near 2031)
+        const standstillFactor = 1.0 + 0.18 * Math.cos((selectedYear - 2026.5) * (2 * Math.PI / 18.61));
+        const librationLat = (6.68 * standstillFactor) * Math.sin(daysSince2026 * (2 * Math.PI / 27.21222));
+        const librationLon = (7.92 * standstillFactor) * Math.sin(daysSince2026 * (2 * Math.PI / 27.55455));
+
+        let dtePct;
+        if (isFarSide) {
+          dtePct = 0; // Far side of the Moon never sees Earth directly
+        } else if (isPolar) {
+          // Polar site: Earth is near horizon (~3° to 7°), libration tilts it in and out of terrain line-of-sight
+          const nominalEarthEl = (90 - Math.abs(lat)) + (librationLat * 0.6) + (baseElevation / 1000) * 0.05;
+          const baseDte = 62 + nominalEarthEl * 6 + (librationLon * 1.5) + (elevationBonus / 2);
+          dtePct = Math.max(5, Math.min(98, Math.round(baseDte)));
+        } else {
+          dtePct = 99; // Near-side equatorial / mid-lat has continuous line-of-sight
+        }
 
         monthRow.push({
           month: m,
           monthName: months[m],
           day: d,
-          sunlitPct: Math.round(sunlitPct),
-          dtePct: Math.round(dtePct),
+          sunlitPct,
+          dtePct,
           subSolarLat: subSolarLat.toFixed(2),
           solarElevation: southSolarElevDeg.toFixed(2)
         });

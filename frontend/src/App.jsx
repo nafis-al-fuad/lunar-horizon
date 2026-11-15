@@ -290,8 +290,13 @@ export default function App() {
         {activeTab === 'compare' && (
           <CompareTab
             sites={sites}
-            onSelectSite={(id) => {
-              setSelectedSiteId(id);
+            selectedSite={selectedSite}
+            selectedYear={selectedYear}
+            selectedMonth={selectedMonth}
+            onSelectSite={(id, yr, mo) => {
+              if (id) setSelectedSiteId(id);
+              if (yr) setSelectedYear(yr);
+              if (mo !== undefined) setSelectedMonth(mo);
               setActiveTab('explore');
             }}
           />
